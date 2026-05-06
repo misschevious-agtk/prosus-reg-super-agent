@@ -230,7 +230,8 @@
   <button class="pill" data-cat="competition">Competition</button>
   <button class="pill" data-cat="privacy">Privacy</button>
   <button class="pill" data-cat="ip">IP</button>
-  <button class="pill" data-cat="ai_landscape">AI</button>
+  <button class="pill" data-cat="ai_landscape">🤖 AI</button>
+  <button class="pill" data-cat="gig_economy">🚴 Gig</button>
   <button class="pill" data-cat="regulatory">Regulatory</button>
   <button class="pill" data-cat="fintech">Fintech</button>
   <button class="pill" data-cat="consumer_protection">Consumer</button>
@@ -260,6 +261,8 @@ const CAT_LABELS = {
   privacy: '🔒 Privacy & Data',
   ip: '💡 IP & Copyright',
   ai_landscape: '🤖 AI Landscape',
+  ai_agents: '🤖 AI Agents & Ecosystems',
+  gig_economy: '🚚 Gig Economy & Labour',
   regulatory: '📜 Regulatory',
   fintech: '💳 Fintech & Payments',
   consumer_protection: '🛒 Consumer Protection',
@@ -267,7 +270,7 @@ const CAT_LABELS = {
   prosus_only: '🏢 Prosus Direct',
 };
 const CAT_EMOJI = {
-  competition:'⚖️', privacy:'🔒', ip:'💡', ai_landscape:'🤖',
+  competition:'⚖️', privacy:'🔒', ip:'💡', ai_landscape:'🤖', ai_agents:'🤖', gig_economy:'🚚',
   regulatory:'📜', fintech:'💳', consumer_protection:'🛒', platform_liability:'🌐',
 };
 
@@ -314,13 +317,13 @@ function getArticles() {
   if (currentCat === 'trending') {
     articles = data.trending || [];
   } else if (currentCat === 'all') {
-    const cats = ['competition','privacy','ip','ai_landscape','regulatory','fintech','consumer_protection','platform_liability'];
+    const cats = ['competition','privacy','ip','ai_landscape','ai_agents','regulatory','fintech','consumer_protection','platform_liability','gig_economy'];
     cats.forEach(c => { if (data[c]) articles.push(...data[c]); });
     // dedupe by id
     const seen = new Set();
     articles = articles.filter(a => { if (seen.has(a.id)) return false; seen.add(a.id); return true; });
   } else if (currentCat === 'prosus_only') {
-    const cats = ['competition','privacy','ip','ai_landscape','regulatory','fintech','consumer_protection','platform_liability'];
+    const cats = ['competition','privacy','ip','ai_landscape','ai_agents','regulatory','fintech','consumer_protection','platform_liability','gig_economy'];
     cats.forEach(c => { if (data[c]) articles.push(...data[c]); });
     articles = articles.filter(a => a.entity_match && a.entity_match.length > 0);
   } else {
@@ -351,7 +354,7 @@ function renderMain() {
   // Stats bar
   const total = data.total_articles || 0;
   const flash = (data.flash_alerts||[]).length;
-  const cats  = ['competition','privacy','ip','ai_landscape','regulatory','fintech','consumer_protection','platform_liability'];
+  const cats  = ['competition','privacy','ip','ai_landscape','ai_agents','regulatory','fintech','consumer_protection','platform_liability','gig_economy'];
   let statsHtml = `<div class="stats-bar">
     <div class="stat-pill"><div class="num">${total}</div><div class="lbl">Total</div></div>
     <div class="stat-pill"><div class="num">${flash}</div><div class="lbl">Alerts</div></div>`;
