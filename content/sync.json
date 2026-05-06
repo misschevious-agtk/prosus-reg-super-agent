@@ -1,0 +1,16 @@
+{
+  "last_sync": "2026-05-06T17:19:13.322808+00:00",
+  "total_articles": 113,
+  "flash_alerts": 10,
+  "by_category": {
+    "competition": 25,
+    "privacy": 25,
+    "ip": 25,
+    "ai_landscape": 5,
+    "regulatory": 25,
+    "fintech": 3,
+    "consumer_protection": 5,
+    "platform_liability": 0
+  },
+  "sources_attempted": 32
+}
