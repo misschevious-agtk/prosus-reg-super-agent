@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Prosus · Digital Regulatory Monitor</title>
+  <style>
+    :root {
+      --brand:      #6C2BD9;
+      --brand-dark: #4A1D96;
+      --brand-light:#EDE9FE;
+      --accent:     #F59E0B;
+      --danger:     #EF4444;
+      --ok:         #10B981;
+      --bg:         #F8F7FF;
+      --card:       #FFFFFF;
+      --text:       #1E1B2E;
+      --muted:      #6B7280;
+      --border:     #E5E7EB;
+      --radius:     12px;
+      --shadow:     0 2px 12px rgba(108,43,217,.08);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg); color: var(--text);
+      min-height: 100vh;
+    }
+
+    /* ── HEADER ───────────────────────────── */
+    header {
+      background: linear-gradient(135deg, var(--brand-dark) 0%, var(--brand) 100%);
+      color: #fff; padding: 20px 20px 16px;
+      position: sticky; top: 0; z-index: 100;
+      box-shadow: 0 2px 16px rgba(0,0,0,.25);
+    }
+    header .row { display: flex; align-items: center; justify-content: space-between; }
+    header h1 { font-size: 1.15rem; font-weight: 700; letter-spacing: -.3px; }
+    header p  { font-size: .75rem; opacity: .8; margin-top: 2px; }
+    #sync-badge {
+      font-size: .65rem; background: rgba(255,255,255,.15);
+      border-radius: 20px; padding: 3px 9px; white-space: nowrap;
+    }
+
+    /* ── FLASH ALERT BANNER ───────────────── */
+    #flash-banner {
+      background: #FEF3C7; border-left: 4px solid var(--accent);
+      padding: 12px 16px; display: none;
+    }
+    #flash-banner .flash-title {
+      font-weight: 700; font-size: .8rem; color: #92400E; margin-bottom: 6px;
+    }
+    .flash-item {
+      font-size: .75rem; color: #78350F; margin-bottom: 4px;
+      display: flex; align-items: flex-start; gap: 6px;
+    }
+    .flash-item::before { content:"⚡"; flex-shrink: 0; }
+
+    /* ── FILTER BAR ───────────────────────── */
+    .filter-bar {
+      padding: 10px 16px; display: flex; gap: 8px;
+      overflow-x: auto; background: #fff;
+      border-bottom: 1px solid var(--border);
+      -webkit-overflow-scrolling: touch;
+    }
+    .filter-bar::-webkit-scrollbar { display: none; }
+    .pill {
+      flex-shrink: 0; padding: 5px 14px; border-radius: 20px;
+      font-size: .72rem; font-weight: 600; cursor: pointer;
+      border: 1.5px solid var(--border); background: #fff;
+      color: var(--muted); transition: all .15s;
+      white-space: nowrap;
+    }
+    .pill.active, .pill:hover {
+      background: var(--brand); border-color: var(--brand);
+      color: #fff;
+    }
+
+    /* ── SEARCH ───────────────────────────── */
+    .search-wrap {
+      padding: 10px 16px; background: #fff;
+      border-bottom: 1px solid var(--border);
+    }
+    #search {
+      width: 100%; padding: 9px 14px; border-radius: 8px;
+      border: 1.5px solid var(--border); font-size: .85rem;
+      outline: none; transition: border .15s;
+    }
+    #search:focus { border-color: var(--brand); }
+
+    /* ── MAIN CONTENT ─────────────────────── */
+    main { padding: 16px; max-width: 860px; margin: 0 auto; }
+
+    /* ── SECTION ──────────────────────────── */
+    .section-header {
+      display: flex; align-items: center; gap: 8px;
+      margin: 20px 0 10px;
+    }
+    .section-header h2 {
+      font-size: .9rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: .5px;
+      color: var(--brand-dark);
+    }
+    .section-header .count {
+      background: var(--brand-light); color: var(--brand);
+      border-radius: 20px; padding: 1px 8px; font-size: .72rem; font-weight: 700;
+    }
+
+    /* ── ARTICLE CARD ─────────────────────── */
+    .card {
+      background: var(--card); border-radius: var(--radius);
+      box-shadow: var(--shadow); margin-bottom: 12px;
+      border: 1px solid var(--border); overflow: hidden;
+      cursor: pointer; transition: box-shadow .15s, transform .1s;
+    }
+    .card:hover { box-shadow: 0 6px 24px rgba(108,43,217,.14); transform: translateY(-1px); }
+    .card-header { padding: 14px 16px 10px; }
+    .card-meta {
+      display: flex; align-items: center; gap: 6px;
+      font-size: .68rem; color: var(--muted); margin-bottom: 7px;
+      flex-wrap: wrap;
+    }
+    .scope-dot {
+      width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0;
+    }
+    .scope-A { background: var(--danger); }
+    .scope-B { background: var(--accent); }
+    .scope-C { background: var(--ok); }
+    .card-title { font-size: .92rem; font-weight: 700; line-height: 1.35; }
+    .card-body {
+      font-size: .78rem; color: var(--muted); line-height: 1.5;
+      padding: 0 16px 10px; display: none;
+    }
+    .card.expanded .card-body { display: block; }
+    .card-footer {
+      padding: 8px 16px; border-top: 1px solid var(--border);
+      display: flex; flex-wrap: wrap; gap: 5px; align-items: center;
+    }
+    .tag {
+      font-size: .65rem; font-weight: 600; padding: 2px 8px;
+      border-radius: 20px; background: var(--brand-light);
+      color: var(--brand-dark);
+    }
+    .entity-badge {
+      font-size: .65rem; font-weight: 700; padding: 2px 8px;
+      border-radius: 20px; background: #FEE2E2; color: #991B1B;
+    }
+    .wl-badge {
+      font-size: .65rem; font-weight: 700; padding: 2px 8px;
+      border-radius: 20px; background: #FEF3C7; color: #92400E;
+    }
+    .prosus-lens {
+      margin: 8px 16px 12px; padding: 10px 12px;
+      background: var(--brand-light); border-left: 3px solid var(--brand);
+      border-radius: 0 8px 8px 0; font-size: .77rem;
+      line-height: 1.5; color: var(--brand-dark);
+    }
+    .prosus-lens strong { display: block; margin-bottom: 3px; font-size: .7rem; text-transform: uppercase; letter-spacing: .3px; }
+    .read-more {
+      display: inline-block; margin: 4px 16px 12px;
+      font-size: .75rem; color: var(--brand); font-weight: 600;
+      text-decoration: none;
+    }
+    .read-more:hover { text-decoration: underline; }
+
+    /* ── TRENDING CARD ────────────────────── */
+    .trending-card .card-header { padding-bottom: 6px; }
+    .trending-number {
+      font-size: 1.4rem; font-weight: 900; color: var(--brand-light);
+      float: right; margin-left: 8px; line-height: 1;
+    }
+
+    /* ── EMPTY STATE ──────────────────────── */
+    .empty {
+      text-align: center; padding: 40px 20px;
+      color: var(--muted); font-size: .85rem;
+    }
+    .empty span { font-size: 2rem; display: block; margin-bottom: 8px; }
+
+    /* ── LOADING ──────────────────────────── */
+    .spinner {
+      display: flex; justify-content: center; padding: 60px;
+    }
+    .spinner::after {
+      content: ""; width: 36px; height: 36px;
+      border: 3px solid var(--border); border-top-color: var(--brand);
+      border-radius: 50%; animation: spin .7s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* ── STATS BAR ────────────────────────── */
+    .stats-bar {
+      display: flex; gap: 12px; overflow-x: auto;
+      padding: 0 0 4px; margin-bottom: 4px;
+      -webkit-overflow-scrolling: touch;
+    }
+    .stats-bar::-webkit-scrollbar { display: none; }
+    .stat-pill {
+      flex-shrink: 0; background: var(--card); border: 1px solid var(--border);
+      border-radius: 8px; padding: 8px 14px; text-align: center;
+    }
+    .stat-pill .num { font-size: 1.2rem; font-weight: 800; color: var(--brand); }
+    .stat-pill .lbl { font-size: .65rem; color: var(--muted); text-transform: uppercase; letter-spacing: .3px; }
+
+    footer {
+      text-align: center; padding: 24px; font-size: .7rem; color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="row">
+    <div>
+      <h1>⚖️ Prosus Reg Monitor</h1>
+      <p>Digital &amp; Regulatory Intelligence</p>
+    </div>
+    <div id="sync-badge">Loading…</div>
+  </div>
+</header>
+
+<div id="flash-banner">
+  <div class="flash-title">⚡ Flash Alerts — High Priority</div>
+  <div id="flash-items"></div>
+</div>
+
+<div class="filter-bar" id="filter-bar">
+  <button class="pill active" data-cat="trending">🔥 Trending</button>
+  <button class="pill" data-cat="all">All</button>
+  <button class="pill" data-cat="competition">Competition</button>
+  <button class="pill" data-cat="privacy">Privacy</button>
+  <button class="pill" data-cat="ip">IP</button>
+  <button class="pill" data-cat="ai_landscape">AI</button>
+  <button class="pill" data-cat="regulatory">Regulatory</button>
+  <button class="pill" data-cat="fintech">Fintech</button>
+  <button class="pill" data-cat="consumer_protection">Consumer</button>
+  <button class="pill" data-cat="platform_liability">Platform</button>
+  <button class="pill" data-cat="prosus_only">🏢 Prosus</button>
+</div>
+
+<div class="search-wrap">
+  <input type="search" id="search" placeholder="Search articles, entities, tags…" />
+</div>
+
+<main id="main">
+  <div class="spinner" id="spinner"></div>
+</main>
+
+<footer>
+  Prosus Digital &amp; Regulatory · Updated daily at 06:00 UTC ·
+  <a href="https://github.com/misschevious-agtk/prosus-reg-super-agent" style="color:var(--brand)">GitHub</a>
+</footer>
+
+<script>
+const DATA_URL = 'content/index.json';
+const CAT_LABELS = {
+  trending: '🔥 Trending',
+  all: '📋 All Articles',
+  competition: '⚖️ Competition',
+  privacy: '🔒 Privacy & Data',
+  ip: '💡 IP & Copyright',
+  ai_landscape: '🤖 AI Landscape',
+  regulatory: '📜 Regulatory',
+  fintech: '💳 Fintech & Payments',
+  consumer_protection: '🛒 Consumer Protection',
+  platform_liability: '🌐 Platform Liability',
+  prosus_only: '🏢 Prosus Direct',
+};
+const CAT_EMOJI = {
+  competition:'⚖️', privacy:'🔒', ip:'💡', ai_landscape:'🤖',
+  regulatory:'📜', fintech:'💳', consumer_protection:'🛒', platform_liability:'🌐',
+};
+
+let data = null;
+let currentCat = 'trending';
+let searchQuery = '';
+
+async function loadData() {
+  try {
+    const r = await fetch(DATA_URL + '?t=' + Date.now());
+    data = await r.json();
+    renderSyncBadge();
+    renderFlashAlerts();
+    renderMain();
+  } catch(e) {
+    document.getElementById('main').innerHTML =
+      '<div class="empty"><span>⚠️</span>Could not load content. Run the scraper first.</div>';
+  }
+  document.getElementById('spinner').remove();
+}
+
+function renderSyncBadge() {
+  const badge = document.getElementById('sync-badge');
+  if (!data) return;
+  const d = new Date(data.generated_at);
+  badge.textContent = 'Updated ' + d.toLocaleDateString('en-GB', {day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'});
+}
+
+function renderFlashAlerts() {
+  const alerts = data.flash_alerts || [];
+  if (!alerts.length) return;
+  const banner = document.getElementById('flash-banner');
+  const items  = document.getElementById('flash-items');
+  banner.style.display = 'block';
+  items.innerHTML = alerts.slice(0,4).map(a =>
+    `<div class="flash-item"><span>${a.title}</span></div>`
+  ).join('');
+}
+
+function getArticles() {
+  if (!data) return [];
+  let articles = [];
+
+  if (currentCat === 'trending') {
+    articles = data.trending || [];
+  } else if (currentCat === 'all') {
+    const cats = ['competition','privacy','ip','ai_landscape','regulatory','fintech','consumer_protection','platform_liability'];
+    cats.forEach(c => { if (data[c]) articles.push(...data[c]); });
+    // dedupe by id
+    const seen = new Set();
+    articles = articles.filter(a => { if (seen.has(a.id)) return false; seen.add(a.id); return true; });
+  } else if (currentCat === 'prosus_only') {
+    const cats = ['competition','privacy','ip','ai_landscape','regulatory','fintech','consumer_protection','platform_liability'];
+    cats.forEach(c => { if (data[c]) articles.push(...data[c]); });
+    articles = articles.filter(a => a.entity_match && a.entity_match.length > 0);
+  } else {
+    articles = data[currentCat] || [];
+  }
+
+  if (searchQuery) {
+    const q = searchQuery.toLowerCase();
+    articles = articles.filter(a =>
+      a.title.toLowerCase().includes(q) ||
+      (a.body||'').toLowerCase().includes(q) ||
+      (a.tags||[]).some(t => t.toLowerCase().includes(q)) ||
+      (a.entity_match||[]).some(e => e.toLowerCase().includes(q))
+    );
+  }
+  return articles;
+}
+
+function renderMain() {
+  const main = document.getElementById('main');
+  const articles = getArticles();
+
+  if (!articles.length) {
+    main.innerHTML = `<div class="empty"><span>🔍</span>No articles found.</div>`;
+    return;
+  }
+
+  // Stats bar
+  const total = data.total_articles || 0;
+  const flash = (data.flash_alerts||[]).length;
+  const cats  = ['competition','privacy','ip','ai_landscape','regulatory','fintech','consumer_protection','platform_liability'];
+  let statsHtml = `<div class="stats-bar">
+    <div class="stat-pill"><div class="num">${total}</div><div class="lbl">Total</div></div>
+    <div class="stat-pill"><div class="num">${flash}</div><div class="lbl">Alerts</div></div>`;
+  cats.forEach(c => {
+    const n = (data[c]||[]).length;
+    if (n) statsHtml += `<div class="stat-pill"><div class="num">${n}</div><div class="lbl">${CAT_EMOJI[c]||''} ${c.replace('_',' ')}</div></div>`;
+  });
+  statsHtml += '</div>';
+
+  const label = CAT_LABELS[currentCat] || currentCat;
+  let html = statsHtml + `
+    <div class="section-header">
+      <h2>${label}</h2>
+      <span class="count">${articles.length}</span>
+    </div>`;
+
+  articles.forEach((a, i) => {
+    const scopeClass = `scope-${a.scope_path || 'C'}`;
+    const tags = (a.tags||[]).map(t => `<span class="tag">${t}</span>`).join('');
+    const entities = (a.entity_match||[]).map(e => `<span class="entity-badge">🏢 ${e}</span>`).join('');
+    const watchlists = (a.watchlist_hits||[]).map(w => `<span class="wl-badge">👁 ${w}</span>`).join('');
+    const lens = a.prosus_lens
+      ? `<div class="prosus-lens"><strong>Prosus Read-Across</strong>${a.prosus_lens}</div>` : '';
+    const readMore = a.url
+      ? `<a class="read-more" href="${a.url}" target="_blank" rel="noopener">Read full article →</a>` : '';
+    const num = currentCat === 'trending' ? `<span class="trending-number">#${i+1}</span>` : '';
+
+    html += `
+    <div class="card ${currentCat==='trending'?'trending-card':''}" onclick="toggleCard(this)">
+      <div class="card-header">
+        ${num}
+        <div class="card-meta">
+          <span class="scope-dot ${scopeClass}"></span>
+          <span>${a.source}</span>
+          <span>·</span>
+          <span>${a.date}</span>
+          ${a.scope_path==='A' ? '<span>· 🔴 Direct Portfolio Hit</span>' : ''}
+        </div>
+        <div class="card-title">${a.title}</div>
+      </div>
+      <div class="card-body">
+        <p style="margin-bottom:10px">${(a.body||'').substring(0,600)}${(a.body||'').length>600?'…':''}</p>
+        ${lens}
+        ${readMore}
+      </div>
+      <div class="card-footer">${entities}${watchlists}${tags}</div>
+    </div>`;
+  });
+
+  main.innerHTML = html;
+}
+
+function toggleCard(card) {
+  card.classList.toggle('expanded');
+}
+
+// Filter pills
+document.getElementById('filter-bar').addEventListener('click', e => {
+  const pill = e.target.closest('.pill');
+  if (!pill) return;
+  document.querySelectorAll('.pill').forEach(p => p.classList.remove('active'));
+  pill.classList.add('active');
+  currentCat = pill.dataset.cat;
+  renderMain();
+});
+
+// Search
+document.getElementById('search').addEventListener('input', e => {
+  searchQuery = e.target.value.trim();
+  renderMain();
+});
+
+loadData();
+</script>
+</body>
+</html>
