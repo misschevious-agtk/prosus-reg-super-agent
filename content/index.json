@@ -1,90 +1,119 @@
 {
-  "generated_at": "2026-05-07T08:11:49.739642+00:00",
-  "total_articles": 56,
+  "generated_at": "2026-05-07T12:10:50.523018+00:00",
+  "total_articles": 70,
   "recency_days": 7,
   "trending": [
     {
-      "id": "cbb5889777",
-      "title": "Meesho to infuse up to Rs 100 crore in lending arm MPPL",
-      "date": "2026-05-06",
-      "published_at": "2026-05-06T00:00:00Z",
-      "source": "Economic Times Tech",
-      "url": "https://economictimes.indiatimes.com/tech/startups/meesho-to-infuse-up-to-rs-100-crore-in-lending-arm-mppl/articleshow/130859282.cms",
-      "body": "E-commerce firm Meesho's board has approved a significant investment of up to Rs 100 crore in its payments subsidiary, Meesho Payments Private Limited. This capital infusion is planned through share subscriptions, including a rights issue. The funds will bolster MPPL's operations and growth. This strategic move aims to enhance MPPL's capacity to meet regulatory demands and expand its services.",
-      "tags": [],
-      "entity_match": [
-        "Meesho",
-        "Ema"
-      ],
-      "watchlist_hits": [
-        "AI Agents & Agentic AI"
-      ],
-      "prosus_lens": "",
-      "category": "fintech",
-      "scope_path": "A"
-    },
-    {
-      "id": "086b488864",
-      "title": "Arm forecasts higher-than-expected revenue on surging AI data center demand",
+      "id": "4b99c4328f",
+      "title": "Telcomp e Acel peticionam contra Anatel, mas vencedores do leilão são adjudicados",
       "date": "2026-05-07",
       "published_at": "2026-05-07T00:00:00Z",
-      "source": "Economic Times Tech",
-      "url": "https://economictimes.indiatimes.com/tech/technology/arm-forecasts-higher-than-expected-revenue-on-surging-ai-data-center-demand/articleshow/130877638.cms",
-      "body": "Arm Holdings anticipates higher first-quarter revenue, boosted by strong demand for its AI chip technology. However, the company has not yet secured enough supplies for a new chip, raising concerns among analysts. Despite this, Arm's designs power most smartphones globally, and its data center business shows significant growth potential.",
-      "tags": [],
+      "source": "Teletime (Brazil)",
+      "url": "https://teletime.com.br/06/05/2026/telcomp-e-acel-peticionam-contra-anatel-mas-vencedores-do-leilao-sao-adjudicados/",
+      "body": "Empresas que se insurgiram contra o leilão da faixa de 700 MHz pediram para que o resultado da licitação realizada nesta semana não fossem validados",
+      "tags": [
+        "Singapore"
+      ],
       "entity_match": [
         "Ema"
       ],
-      "watchlist_hits": [
-        "AI Agents & Agentic AI"
-      ],
+      "watchlist_hits": [],
       "prosus_lens": "",
       "category": "regulatory",
       "scope_path": "A"
     },
     {
-      "id": "90e56b0ce7",
-      "title": "Microsoft may shelve 2030 clean energy target as AI lifts power use: Bloomberg News",
+      "id": "2eef8d56a6",
+      "title": "QR code phishing was ‘fastest-growing’ form of email attacks in Q1, reports Microsoft Threat Intelligence",
+      "date": "2026-05-07",
+      "published_at": "2026-05-07T00:00:00Z",
+      "source": "The Hindu Tech",
+      "url": "https://www.thehindu.com/sci-tech/technology/qr-code-phishing-was-fastest-growing-form-of-email-attacks-in-q1-reports-microsoft-threat-intelligence/article70950498.ece",
+      "body": "Microsoft’s new report on the email threat landscape revealed that QR codes have become a popular way for attackers to carry out phishing attacks against users",
+      "tags": [],
+      "entity_match": [
+        "Ema"
+      ],
+      "watchlist_hits": [],
+      "prosus_lens": "",
+      "category": "regulatory",
+      "scope_path": "A"
+    },
+    {
+      "id": "ed04f1fd77",
+      "title": "‘No one has done this in the wild’: study observes AI replicate itself",
+      "date": "2026-05-07",
+      "published_at": "2026-05-07T00:00:00Z",
+      "source": "The Guardian Tech",
+      "url": "https://www.theguardian.com/technology/2026/may/07/no-one-has-done-this-in-the-wild-study-observes-ai-replicate-itself",
+      "body": "World is approaching point where no one can shut down a rogue AI, says director of body behind research It’s the stuff of science fiction cinema, or particularly breathless AI company blogposts: new research finds recent AI systems can independently copy themselves on to other computers. In the doom scenario, this means that when the superintelligent AI goes rogue, it will escape shutdown by seeding itself across the world wide web, lurking outside the reach of frantic IT professionals and continuing to plot world domination or paving over the world with solar panels . Continue reading...",
+      "tags": [],
+      "entity_match": [
+        "Ema"
+      ],
+      "watchlist_hits": [],
+      "prosus_lens": "",
+      "category": "regulatory",
+      "scope_path": "A"
+    },
+    {
+      "id": "69b8c0ec44",
+      "title": "Google’s Challenge to PTAB Limits Puts Reliance and Balance on the Line",
       "date": "2026-05-06",
       "published_at": "2026-05-06T00:00:00Z",
-      "source": "Economic Times Tech",
-      "url": "https://economictimes.indiatimes.com/tech/artificial-intelligence/microsoft-may-shelve-2030-clean-energy-target-as-ai-lifts-power-use-bloomberg-news/articleshow/130859487.cms",
-      "body": "Microsoft may miss its 2030 renewable energy target. The company faces challenges with its ambitious climate goals. Building new data centers for artificial intelligence requires massive power. This is reshaping Microsoft's commitments. Discussions are ongoing about delaying or abandoning the renewable energy goal. The AI boom is driving demand for energy.",
+      "source": "IP Watchdog",
+      "url": "https://ipwatchdog.com/2026/05/06/googles-challenge-ptab-limits-puts-reliance-balance-line/",
+      "body": "In its recent petition to the U.S. Supreme Court, Google argues that patents can be invalid at any time, even decades after issuance, and therefore should remain open to inter partes review (IPR) challenges, regardless of age or how long they have been relied upon. At first glance, this sounds like a defense of patent quality. Coming from one of the most frequent users of the Patent Trial and Appeal board (PTAB) over the past decade — and arriving just as the U.S. Patent and Trademark Office’s (USPTO’s) “settled expectations” doctrine begins to limit late-stage IPR challenges — it raises a sharper question: why now? The post Google’s Challenge to PTAB Limits Puts Reliance and Balance on the ",
       "tags": [
-        "AI"
+        "Court",
+        "Brazil",
+        "IP"
       ],
       "entity_match": [
         "Ema"
       ],
-      "watchlist_hits": [
-        "AI Agents & Agentic AI"
-      ],
+      "watchlist_hits": [],
       "prosus_lens": "",
-      "category": "ai_agents",
+      "category": "ip",
       "scope_path": "A"
     },
     {
-      "id": "4c8ef52bda",
-      "title": "Google offers changes to spam policy to avert EU antitrust fine",
-      "date": "2026-05-07",
-      "published_at": "2026-05-07T00:00:00Z",
-      "source": "Economic Times Tech",
-      "url": "https://economictimes.indiatimes.com/tech/technology/google-offers-changes-to-spam-policy-to-avert-eu-antitrust-fine/articleshow/130876718.cms",
-      "body": "Google has offered to revise its spam policy, which publishers criticized for negatively impacting their search rankings. This move aims to avoid a potential EU antitrust fine under the Digital Markets Act. The policy demoted publisher websites that featured content from commercial partners, a common monetization strategy.",
+      "id": "74d0085a84",
+      "title": "Raskin Presses Squires on Motives for Board of Peace Trademark Filings",
+      "date": "2026-05-06",
+      "published_at": "2026-05-06T00:00:00Z",
+      "source": "IP Watchdog",
+      "url": "https://ipwatchdog.com/2026/05/06/raskin-presses-squires-on-motives-for-board-of-peace-trademark-filings/",
+      "body": "On Tuesday, May 5, Representative Jamie Raskin (D-MD), Ranking Member of the House Judiciary Committee, sent a letter to U.S. Patent and Trademark Office (USPTO) Director John Squires pressing him to answer questions about the Office’s role in filing a trademark application on behalf of the Trump Administration for Trump’s “Board of Peace.” The post Raskin Presses Squires on Motives for Board of Peace Trademark Filings appeared first on IPWatchdog.com | Patents &amp; Intellectual Property Law .",
       "tags": [
-        "DMA",
-        "Fine",
-        "EU",
-        "Competition"
+        "IP"
       ],
-      "entity_match": [],
-      "watchlist_hits": [
-        "Platform Regulation (DSA/DMA)",
-        "Competition & Antitrust"
+      "entity_match": [
+        "Ema"
       ],
+      "watchlist_hits": [],
       "prosus_lens": "",
-      "category": "competition",
-      "scope_path": "B"
+      "category": "ip",
+      "scope_path": "A"
+    },
+    {
+      "id": "8397a94d0a",
+      "title": "MCom define postes como prioridade; Juscelino quer relatar projeto na Câmara",
+      "date": "2026-05-06",
+      "published_at": "2026-05-06T00:00:00Z",
+      "source": "Telesintese (Brazil)",
+      "url": "https://telesintese.com.br/mcom-define-postes-como-prioridade-juscelino-quer-relatar-projeto-na-camara/",
+      "body": "Abertura do AGC 2026 teve cobranças da Abrint sobre postes, Fust, 6 GHz e cibersegurança; MCom promete novo edital do Fust Direto e Acessa Crédito Telecom O post MCom define postes como prioridade; Juscelino quer relatar projeto na Câmara apareceu primeiro em TeleSíntese .",
+      "tags": [
+        "Fine"
+      ],
+      "entity_match": [
+        "JET"
+      ],
+      "watchlist_hits": [],
+      "prosus_lens": "",
+      "category": "regulatory",
+      "scope_path": "A"
     },
     {
       "id": "5a0d4bfcf8",
@@ -93,52 +122,84 @@
       "published_at": "2026-05-06T00:00:00Z",
       "source": "VentureBeat AI",
       "url": "https://venturebeat.com/orchestration/scaling-ai-into-production-is-forcing-a-rethink-of-enterprise-infrastructure",
-      "body": "Presented by Nutanix Across industries, organizations are focused on how to move from AI pilots, proofs of concept, and cloud-based experimentation to deploying it at scale â across real workloads, for real users, in real business environments. VentureBeat spoke with Tarkan Maner, president and chief commercial officer at Nutanix, and Thomas Cornely, EVP of product management, about what that transition demands, and what it will take to get it right. âAI in general is shifting everything we do, not only in technology, but across all vertical industries, from regulated industries like banki",
-      "tags": [],
+      "body": "Presented by Nutanix Across industries, organizations are focused on how to move from AI pilots, proofs of concept, and cloud-based experimentation to deploying it at scale â across real workloads, for real users, in real business environments. VentureBeat spoke with Tarkan Maner, president and chief commercial officer at Nutanix, and Thomas Cornely, EVP of product management, about what that transition demands, and what it will take to get it right. âAI in general is shifting everything we do, not only in technology, but across all vertical industries, from regulated industries like banking, health care, government, education to non-regulated industries like manufacturing and retail,â",
+      "tags": [
+        "Singapore"
+      ],
       "entity_match": [
         "Ema"
       ],
-      "watchlist_hits": [
-        "AI Agents & Agentic AI"
-      ],
+      "watchlist_hits": [],
       "prosus_lens": "",
       "category": "regulatory",
       "scope_path": "A"
     },
     {
-      "id": "26aaf4db39",
-      "title": "Uber Q1 revenue rises 14%, slightly misses estimates; forecasts strong Q2 bookings",
+      "id": "258bbe9c7b",
+      "title": "Arm projects $2bn in sales of its new AI chip from next year",
       "date": "2026-05-06",
       "published_at": "2026-05-06T00:00:00Z",
-      "source": "Economic Times Tech",
-      "url": "https://economictimes.indiatimes.com/tech/technology/uber-q1-revenue-rises-14-slightly-misses-estimates/articleshow/130854438.cms",
-      "body": "Uber's Q1 revenue rose 14% year-over-year, slightly missing expectations, but the company's shares climbed on a strong forecast. This outlook signals success in its strategy of steady pricing and expansion into higher-margin areas, bolstered by international delivery demand and new geographies. The firm also anticipates robust second-quarter gross bookings and adjusted earnings per share, exceeding analyst estimates.",
-      "tags": [],
+      "source": "Financial Times Tech",
+      "url": "https://www.ft.com/content/ea9e025e-2e7f-4610-90a1-8c8beeeebbcf",
+      "body": "SoftBank-backed UK group says its first in-house semiconductor has drawn strong demand",
+      "tags": [
+        "UK"
+      ],
       "entity_match": [
         "Ema"
       ],
-      "watchlist_hits": [
-        "AI Agents & Agentic AI"
-      ],
+      "watchlist_hits": [],
       "prosus_lens": "",
       "category": "regulatory",
       "scope_path": "A"
     },
     {
-      "id": "5c2b6ab083",
-      "title": "Samsung reaches $1 trillion valuation: What’s fuelling the AI chip surge?",
+      "id": "08ad566f03",
+      "title": "TikTok’s algorithm favored Republican content in 2024 US elections, study finds",
       "date": "2026-05-06",
       "published_at": "2026-05-06T00:00:00Z",
-      "source": "Economic Times Tech",
-      "url": "https://economictimes.indiatimes.com/tech/technology/samsung-reaches-1-trillion-valuation-whats-fuelling-the-ai-chip-surge/articleshow/130845227.cms",
-      "body": "Samsung Electronics has crossed a $1 trillion valuation. This milestone is fueled by strong demand for AI chips. The company is a major supplier of critical components for AI servers. This surge is expected to continue, with tight supply conditions likely to sustain elevated chip prices. Samsung's semiconductor division reported record profits.",
+      "source": "The Guardian Tech",
+      "url": "https://www.theguardian.com/technology/2026/may/06/tiktok-pro-republican-algorithm-2024-election",
+      "body": "For You pages prioritized pro-Republican content in three states, researchers say, but TikTok says study does not reflect real user behavior A study published Wednesday in the journal Nature finds that TikTok’s algorithm systematically prioritized pro-Republican content in three states leading up to the 2024 US elections. Researchers created hundreds of dummy accounts and conditioned them to mimic real users’ behavior by watching a set of videos either aligned with the US Democratic or Republican parties. Then, they tracked the videos TikTok recommended on these accounts’ For You pages, TikTok’s main feed. Continue reading...",
       "tags": [],
       "entity_match": [
         "Ema"
       ],
-      "watchlist_hits": [
-        "AI Agents & Agentic AI"
+      "watchlist_hits": [],
+      "prosus_lens": "",
+      "category": "regulatory",
+      "scope_path": "A"
+    },
+    {
+      "id": "9373d10783",
+      "title": "‘Your craft is obsolete’: WiseTech staff in limbo as AI touted as better than humans",
+      "date": "2026-05-06",
+      "published_at": "2026-05-06T00:00:00Z",
+      "source": "The Guardian Tech",
+      "url": "https://www.theguardian.com/technology/2026/may/07/your-craft-is-obsolete-wisetech-staff-in-limbo-as-ai-touted-as-better-than-humans",
+      "body": "The software company said in February it would cut 2,000 jobs but, as it touts new technology, workers are still waiting to hear which roles will go Follow our Australia news live blog for latest updates Get our breaking news email , free app or daily news podcast Staff at WiseTech have been waiting almost three months to be told if they are among the 2,000 people the logistics software company is to cut due to advances in AI, with workers criticising the wait as stressful and “ridiculous”. The comments come as its founder on Tuesday told investors an AI agent could learn a human’s job in just 15 minutes, according to the Australian Financial Review. Continue reading...",
+      "tags": [],
+      "entity_match": [
+        "Ema"
       ],
+      "watchlist_hits": [],
+      "prosus_lens": "",
+      "category": "regulatory",
+      "scope_path": "A"
+    },
+    {
+      "id": "e01298aefd",
+      "title": "Chinese AI start-up DeepSeek nears $45bn valuation",
+      "date": "2026-05-06",
+      "published_at": "2026-05-06T00:00:00Z",
+      "source": "Financial Times Tech",
+      "url": "https://www.ft.com/content/daaf2e0a-4a0d-4d7c-a85b-445480f6b9c7",
+      "body": "Value soars in ongoing fundraising discussions as investors including Tencent seek slice of AI lab",
+      "tags": [],
+      "entity_match": [
+        "Tencent"
+      ],
+      "watchlist_hits": [],
       "prosus_lens": "",
       "category": "regulatory",
       "scope_path": "A"
@@ -150,72 +211,45 @@
       "published_at": "2026-05-05T00:00:00Z",
       "source": "VentureBeat AI",
       "url": "https://venturebeat.com/technology/miami-startup-subquadratic-claims-1-000x-ai-efficiency-gain-with-subq-model-researchers-demand-independent-proof",
-      "body": "A little-known Miami-based startup called Subquadratic emerged from stealth on Tuesday with a sweeping claim: that it has built the first large language model to fully escape the mathematical constraint that has defined â and limited â every major AI system since 2017. The company claims its first model, SubQ 1M-Preview , is the first LLM built on a fully subquadratic architecture â one where compute grows linearly with context length. If that claim holds, it would be a genuine inflection point in how AI systems scale. At 12 million tokens, the company says, its architecture reduces atte",
+      "body": "A little-known Miami-based startup called Subquadratic emerged from stealth on Tuesday with a sweeping claim: that it has built the first large language model to fully escape the mathematical constraint that has defined â and limited â every major AI system since 2017. The company claims its first model, SubQ 1M-Preview , is the first LLM built on a fully subquadratic architecture â one where compute grows linearly with context length. If that claim holds, it would be a genuine inflection point in how AI systems scale. At 12 million tokens, the company says, its architecture reduces attention compute by almost 1,000 times compared to other frontier models â a figure that, if validate",
       "tags": [
         "Fine",
-        "AI"
+        "AI",
+        "Chatbot"
       ],
       "entity_match": [
         "Ema"
       ],
-      "watchlist_hits": [
-        "AI Agents & Agentic AI"
-      ],
-      "prosus_lens": "",
-      "category": "ai_agents",
-      "scope_path": "A"
-    },
-    {
-      "id": "aea3170c41",
-      "title": "EU countries, lawmakers clinch provisional deal on watered-down AI rules",
-      "date": "2026-05-07",
-      "published_at": "2026-05-07T00:00:00Z",
-      "source": "Economic Times Tech",
-      "url": "https://economictimes.indiatimes.com/tech/artificial-intelligence/eu-countries-lawmakers-clinch-provisional-deal-on-watered-down-ai-rules/articleshow/130879398.cms",
-      "body": "EU countries and European Parliament lawmakers have agreed to a watered-down AI Act, delaying implementation for high-risk systems until December 2027. This move, aimed at reducing administrative costs and easing business competition, includes a ban on AI-generated explicit images and mandatory watermarking for AI output.",
-      "tags": [
-        "AI Act",
-        "EU"
-      ],
-      "entity_match": [],
-      "watchlist_hits": [
-        "EU AI Act",
-        "Competition & Antitrust"
-      ],
-      "prosus_lens": "",
-      "category": "competition",
-      "scope_path": "B"
-    },
-    {
-      "id": "b110d51996",
-      "title": "Deeptech bets heat up; Paytm, PB Fintech, Meesho earnings",
-      "date": "2026-05-07",
-      "published_at": "2026-05-07T00:00:00Z",
-      "source": "Economic Times Tech",
-      "url": "https://economictimes.indiatimes.com/tech/newsletters/morning-dispatch/deeptech-bets-heat-up-paytm-pb-fintech-meesho-earnings/articleshow/130875215.cms",
-      "body": "Happy Thursday! VCs are doubling down on India’s deeptech, with early-stage bets leading the charge. This and more in today’s ETtech Morning Dispatch.",
-      "tags": [
-        "India",
-        "Fintech"
-      ],
-      "entity_match": [
-        "Meesho"
-      ],
       "watchlist_hits": [],
       "prosus_lens": "",
-      "category": "fintech",
+      "category": "regulatory",
       "scope_path": "A"
     }
   ],
   "flash_alerts": [
     {
-      "id": "90e56b0ce7",
-      "title": "Microsoft may shelve 2030 clean energy target as AI lifts power use: Bloomberg News",
-      "date": "2026-05-06",
-      "source": "Economic Times Tech",
-      "url": "https://economictimes.indiatimes.com/tech/artificial-intelligence/microsoft-may-shelve-2030-clean-energy-target-as-ai-lifts-power-use-bloomberg-news/articleshow/130859487.cms",
+      "id": "819be66ea9",
+      "title": "Mexico: consolidation and heightened scrutiny in a strengthened cartel enforcement regime",
+      "date": "2026-04-30",
+      "source": "Global Competition Review",
+      "url": "https://globalcompetitionreview.com/market-review/market-review-cartels/2026/article/mexico-consolidation-and-heightened-scrutiny-in-strengthened-cartel-enforcement-regime",
       "watchlist_hits": [
-        "AI Agents & Agentic AI"
+        "Competition",
+        "Prosus_Direct"
+      ],
+      "entity_match": [
+        "iFood"
+      ],
+      "prosus_lens": ""
+    },
+    {
+      "id": "e0ae98d4d5",
+      "title": "China: enforcement trends underscore stronger focus on monopoly practices from antitrust authorities",
+      "date": "2026-04-30",
+      "source": "Global Competition Review",
+      "url": "https://globalcompetitionreview.com/market-review/market-review-cartels/2026/article/china-enforcement-trends-underscore-stronger-focus-monopoly-practices-antitrust-authorities",
+      "watchlist_hits": [
+        "Competition"
       ],
       "entity_match": [
         "Ema"
@@ -223,13 +257,13 @@
       "prosus_lens": ""
     },
     {
-      "id": "631d1c5ad6",
-      "title": "Miami startup Subquadratic claims 1,000x AI efficiency gain with SubQ model; researchers demand independent proof.",
-      "date": "2026-05-05",
-      "source": "VentureBeat AI",
-      "url": "https://venturebeat.com/technology/miami-startup-subquadratic-claims-1-000x-ai-efficiency-gain-with-subq-model-researchers-demand-independent-proof",
+      "id": "d1d0ec6dd5",
+      "title": "Türkiye: legislative overhaul highlights commitment to cartel enforcement",
+      "date": "2026-04-30",
+      "source": "Global Competition Review",
+      "url": "https://globalcompetitionreview.com/market-review/market-review-cartels/2026/article/turkiye-legislative-overhaul-highlights-commitment-cartel-enforcement",
       "watchlist_hits": [
-        "AI Agents & Agentic AI"
+        "Competition"
       ],
       "entity_match": [
         "Ema"
@@ -237,307 +271,18 @@
       "prosus_lens": ""
     },
     {
-      "id": "d555bbf091",
-      "title": "AI agents are missing all the discussions your team is having. SageOX has an answer: agentic context infrastructure",
-      "date": "2026-05-05",
-      "source": "VentureBeat AI",
-      "url": "https://venturebeat.com/technology/ai-agents-are-missing-all-the-discussions-your-team-is-having-sageox-has-an-answer-agentic-context-infrastructure",
+      "id": "9291bce65d",
+      "title": "Germany: cartel enforcement surges back with digital detection tools, settlement dominance and booming private litigation&nbsp;",
+      "date": "2026-04-30",
+      "source": "Global Competition Review",
+      "url": "https://globalcompetitionreview.com/market-review/market-review-cartels/2026/article/germany-cartel-enforcement-surges-back-digital-detection-tools-settlement-dominance-and-booming-private-litigation",
       "watchlist_hits": [
-        "AI Agents & Agentic AI"
+        "Competition"
       ],
       "entity_match": [
         "Ema"
       ],
       "prosus_lens": ""
-    },
-    {
-      "id": "4c8ef52bda",
-      "title": "Google offers changes to spam policy to avert EU antitrust fine",
-      "date": "2026-05-07",
-      "source": "Economic Times Tech",
-      "url": "https://economictimes.indiatimes.com/tech/technology/google-offers-changes-to-spam-policy-to-avert-eu-antitrust-fine/articleshow/130876718.cms",
-      "watchlist_hits": [
-        "Platform Regulation (DSA/DMA)",
-        "Competition & Antitrust"
-      ],
-      "entity_match": [],
-      "prosus_lens": ""
-    },
-    {
-      "id": "aea3170c41",
-      "title": "EU countries, lawmakers clinch provisional deal on watered-down AI rules",
-      "date": "2026-05-07",
-      "source": "Economic Times Tech",
-      "url": "https://economictimes.indiatimes.com/tech/artificial-intelligence/eu-countries-lawmakers-clinch-provisional-deal-on-watered-down-ai-rules/articleshow/130879398.cms",
-      "watchlist_hits": [
-        "EU AI Act",
-        "Competition & Antitrust"
-      ],
-      "entity_match": [],
-      "prosus_lens": ""
-    },
-    {
-      "id": "086b488864",
-      "title": "Arm forecasts higher-than-expected revenue on surging AI data center demand",
-      "date": "2026-05-07",
-      "source": "Economic Times Tech",
-      "url": "https://economictimes.indiatimes.com/tech/technology/arm-forecasts-higher-than-expected-revenue-on-surging-ai-data-center-demand/articleshow/130877638.cms",
-      "watchlist_hits": [
-        "AI Agents & Agentic AI"
-      ],
-      "entity_match": [
-        "Ema"
-      ],
-      "prosus_lens": ""
-    },
-    {
-      "id": "5a0d4bfcf8",
-      "title": "Scaling AI into production is forcing a rethink of enterprise infrastructure",
-      "date": "2026-05-06",
-      "source": "VentureBeat AI",
-      "url": "https://venturebeat.com/orchestration/scaling-ai-into-production-is-forcing-a-rethink-of-enterprise-infrastructure",
-      "watchlist_hits": [
-        "AI Agents & Agentic AI"
-      ],
-      "entity_match": [
-        "Ema"
-      ],
-      "prosus_lens": ""
-    },
-    {
-      "id": "26aaf4db39",
-      "title": "Uber Q1 revenue rises 14%, slightly misses estimates; forecasts strong Q2 bookings",
-      "date": "2026-05-06",
-      "source": "Economic Times Tech",
-      "url": "https://economictimes.indiatimes.com/tech/technology/uber-q1-revenue-rises-14-slightly-misses-estimates/articleshow/130854438.cms",
-      "watchlist_hits": [
-        "AI Agents & Agentic AI"
-      ],
-      "entity_match": [
-        "Ema"
-      ],
-      "prosus_lens": ""
-    },
-    {
-      "id": "5c2b6ab083",
-      "title": "Samsung reaches $1 trillion valuation: What’s fuelling the AI chip surge?",
-      "date": "2026-05-06",
-      "source": "Economic Times Tech",
-      "url": "https://economictimes.indiatimes.com/tech/technology/samsung-reaches-1-trillion-valuation-whats-fuelling-the-ai-chip-surge/articleshow/130845227.cms",
-      "watchlist_hits": [
-        "AI Agents & Agentic AI"
-      ],
-      "entity_match": [
-        "Ema"
-      ],
-      "prosus_lens": ""
-    },
-    {
-      "id": "cbb5889777",
-      "title": "Meesho to infuse up to Rs 100 crore in lending arm MPPL",
-      "date": "2026-05-06",
-      "source": "Economic Times Tech",
-      "url": "https://economictimes.indiatimes.com/tech/startups/meesho-to-infuse-up-to-rs-100-crore-in-lending-arm-mppl/articleshow/130859282.cms",
-      "watchlist_hits": [
-        "AI Agents & Agentic AI"
-      ],
-      "entity_match": [
-        "Meesho",
-        "Ema"
-      ],
-      "prosus_lens": ""
-    }
-  ],
-  "ai_agents": [
-    {
-      "id": "90e56b0ce7",
-      "title": "Microsoft may shelve 2030 clean energy target as AI lifts power use: Bloomberg News",
-      "date": "2026-05-06",
-      "published_at": "2026-05-06T00:00:00Z",
-      "source": "Economic Times Tech",
-      "url": "https://economictimes.indiatimes.com/tech/artificial-intelligence/microsoft-may-shelve-2030-clean-energy-target-as-ai-lifts-power-use-bloomberg-news/articleshow/130859487.cms",
-      "body": "Microsoft may miss its 2030 renewable energy target. The company faces challenges with its ambitious climate goals. Building new data centers for artificial intelligence requires massive power. This is reshaping Microsoft's commitments. Discussions are ongoing about delaying or abandoning the renewable energy goal. The AI boom is driving demand for energy.",
-      "tags": [
-        "AI"
-      ],
-      "entity_match": [
-        "Ema"
-      ],
-      "watchlist_hits": [
-        "AI Agents & Agentic AI"
-      ],
-      "prosus_lens": "",
-      "category": "ai_agents",
-      "scope_path": "A"
-    },
-    {
-      "id": "631d1c5ad6",
-      "title": "Miami startup Subquadratic claims 1,000x AI efficiency gain with SubQ model; researchers demand independent proof.",
-      "date": "2026-05-05",
-      "published_at": "2026-05-05T00:00:00Z",
-      "source": "VentureBeat AI",
-      "url": "https://venturebeat.com/technology/miami-startup-subquadratic-claims-1-000x-ai-efficiency-gain-with-subq-model-researchers-demand-independent-proof",
-      "body": "A little-known Miami-based startup called Subquadratic emerged from stealth on Tuesday with a sweeping claim: that it has built the first large language model to fully escape the mathematical constraint that has defined â and limited â every major AI system since 2017. The company claims its first model, SubQ 1M-Preview , is the first LLM built on a fully subquadratic architecture â one where compute grows linearly with context length. If that claim holds, it would be a genuine inflection point in how AI systems scale. At 12 million tokens, the company says, its architecture reduces atte",
-      "tags": [
-        "Fine",
-        "AI"
-      ],
-      "entity_match": [
-        "Ema"
-      ],
-      "watchlist_hits": [
-        "AI Agents & Agentic AI"
-      ],
-      "prosus_lens": "",
-      "category": "ai_agents",
-      "scope_path": "A"
-    },
-    {
-      "id": "d555bbf091",
-      "title": "AI agents are missing all the discussions your team is having. SageOX has an answer: agentic context infrastructure",
-      "date": "2026-05-05",
-      "published_at": "2026-05-05T00:00:00Z",
-      "source": "VentureBeat AI",
-      "url": "https://venturebeat.com/technology/ai-agents-are-missing-all-the-discussions-your-team-is-having-sageox-has-an-answer-agentic-context-infrastructure",
-      "body": "As AI model providers increasingly move downstream, launching products and agents for specific enterprise applications and sectors like finance, one big question still remains: how will said AI agents be equipped with the proper context surrounding a task â who assigned it, which other stakeholders are involved, what data or discussions have taken place about it and how it should be done? This practice of &quot;context engineering&quot; remains one of the great unsolved problems of the AI era. But SageOx , a Seattle-based startup founded by the veterans who built the original AWS EC2 and EBS",
-      "tags": [],
-      "entity_match": [
-        "Ema"
-      ],
-      "watchlist_hits": [
-        "AI Agents & Agentic AI"
-      ],
-      "prosus_lens": "",
-      "category": "ai_agents",
-      "scope_path": "A"
-    },
-    {
-      "id": "81850e325c",
-      "title": "Meesho Q4 revenue jumps 47%; operating losses widen on aggressive growth push",
-      "date": "2026-05-06",
-      "published_at": "2026-05-06T00:00:00Z",
-      "source": "Economic Times Tech",
-      "url": "https://economictimes.indiatimes.com/tech/technology/meesho-q4-revenue-jumps-47-operating-losses-widen-on-aggressive-growth-push/articleshow/130860891.cms",
-      "body": "CEO Vidit Aatrey said that over 70% of the company’s code now is being written using artificial intelligence. More than three fourths of Meesho's orders come through its AI recommendation engine, underscoring the ecommerce marketplace's efforts on driving growth using frontier technology.",
-      "tags": [
-        "AI"
-      ],
-      "entity_match": [
-        "Meesho"
-      ],
-      "watchlist_hits": [],
-      "prosus_lens": "",
-      "category": "ai_agents",
-      "scope_path": "A"
-    },
-    {
-      "id": "26188cadd4",
-      "title": "EU agrees to simplify AI rules to boost innovation and ban ‘nudification' apps to protect citizens",
-      "date": "2026-05-07",
-      "published_at": "2026-05-07T00:00:00Z",
-      "source": "EU Digital Strategy",
-      "url": "https://digital-strategy.ec.europa.eu/en/news/eu-agrees-simplify-ai-rules-boost-innovation-and-ban-nudification-apps-protect-citizens",
-      "body": "EU agrees to simplify AI rules to boost innovation and ban ‘nudification' apps to protect citizens Anonymous (not verified) Thu, 05/07/2026 - 07:27 The European Commission welcomes the political agreement reached today between the European Parliament and the Council of the EU on simpler, innovation-friendly rules for artificial intelligence (AI). The Commission proposed the Digital Omnibus on AI only five months ago as part of the EU's simplification agenda to boost Europe's competitiveness. This will make the implementation of the AI Act for EU businesses easier while maintaining its benefits",
-      "tags": [
-        "AI Act",
-        "EU",
-        "AI"
-      ],
-      "entity_match": [],
-      "watchlist_hits": [
-        "EU AI Act"
-      ],
-      "prosus_lens": "",
-      "category": "ai_agents",
-      "scope_path": "B"
-    },
-    {
-      "id": "3a1193481a",
-      "title": "Firms fixing workflows before deploying agentic AI: Adobe India MD",
-      "date": "2026-05-07",
-      "published_at": "2026-05-07T00:00:00Z",
-      "source": "Economic Times Tech",
-      "url": "https://economictimes.indiatimes.com/tech/artificial-intelligence/firms-fixing-workflows-before-deploying-agentic-ai-adobe-india-md/articleshow/130868872.cms",
-      "body": "India is a key innovation hub for Adobe, powering nearly a third of its global innovation, including Firefly AI. The company is enabling enterprises to adopt agentic AI by redesigning workflows and employee processes.",
-      "tags": [
-        "India"
-      ],
-      "entity_match": [],
-      "watchlist_hits": [
-        "AI Agents & Agentic AI"
-      ],
-      "prosus_lens": "",
-      "category": "ai_agents",
-      "scope_path": "B"
-    },
-    {
-      "id": "0bdca61cc4",
-      "title": "Google DeepMind Workers Vote to Unionize Over Military AI Deals",
-      "date": "2026-05-05",
-      "published_at": "2026-05-05T00:00:00Z",
-      "source": "Wired",
-      "url": "https://www.wired.com/story/google-deepmind-workers-vote-to-unionize-over-military-ai-deals/",
-      "body": "UK staff of Google’s AI research lab hope to block the use of the company’s artificial intelligence models in military settings.",
-      "tags": [
-        "UK",
-        "AI"
-      ],
-      "entity_match": [],
-      "watchlist_hits": [],
-      "prosus_lens": "",
-      "category": "ai_agents",
-      "scope_path": "B"
-    },
-    {
-      "id": "c160e11216",
-      "title": "US, China weigh launch of official discussions on AI: WSJ",
-      "date": "2026-05-07",
-      "published_at": "2026-05-07T00:00:00Z",
-      "source": "Economic Times Tech",
-      "url": "https://economictimes.indiatimes.com/tech/artificial-intelligence/us-china-weigh-launch-of-official-discussions-on-ai-wsj/articleshow/130876732.cms",
-      "body": "Washington and Beijing are reportedly considering official discussions on artificial intelligence. This topic may be placed on the agenda for an upcoming summit between President Trump and Chinese leader Xi Jinping in Beijing next week. Treasury Secretary Scott Bessent is leading the American side for these potential AI talks.",
-      "tags": [
-        "AI"
-      ],
-      "entity_match": [],
-      "watchlist_hits": [],
-      "prosus_lens": "",
-      "category": "ai_agents",
-      "scope_path": "C"
-    },
-    {
-      "id": "04f018680d",
-      "title": "In OpenAI trial, former technology chief says Sam Altman sowed 'chaos,' distrust among top executives",
-      "date": "2026-05-07",
-      "published_at": "2026-05-07T00:00:00Z",
-      "source": "Economic Times Tech",
-      "url": "https://economictimes.indiatimes.com/tech/technology/in-openai-trial-former-technology-chief-says-sam-altman-sowed-chaos-distrust-among-top-executives/articleshow/130875033.cms",
-      "body": "A former OpenAI executive testified that CEO Sam Altman created distrust among leaders. This testimony emerged during Elon Musk's lawsuit against OpenAI. Musk claims the company abandoned its nonprofit goals. The trial could significantly impact the future of artificial intelligence development and deployment.",
-      "tags": [
-        "AI"
-      ],
-      "entity_match": [],
-      "watchlist_hits": [],
-      "prosus_lens": "",
-      "category": "ai_agents",
-      "scope_path": "C"
-    },
-    {
-      "id": "95891351a1",
-      "title": "The rapid embrace of AI in China, its biggest testing ground, may shape how AI is used globally",
-      "date": "2026-05-06",
-      "published_at": "2026-05-06T00:00:00Z",
-      "source": "Economic Times Tech",
-      "url": "https://economictimes.indiatimes.com/tech/artificial-intelligence/the-rapid-embrace-of-ai-in-china-its-biggest-testing-ground-may-shape-how-ai-is-used-globally/articleshow/130843863.cms",
-      "body": "China is rapidly adopting artificial intelligence tools. Ordinary citizens and businesses are using AI for daily tasks and work. Chinese companies are developing and commercializing AI applications. Despite US export controls, China is investing heavily in AI research and development. The nation is moving towards becoming an AI innovator.",
-      "tags": [
-        "AI"
-      ],
-      "entity_match": [],
-      "watchlist_hits": [],
-      "prosus_lens": "",
-      "category": "ai_agents",
-      "scope_path": "C"
     }
   ],
   "competition": [
@@ -550,18 +295,806 @@
       "url": "https://economictimes.indiatimes.com/tech/technology/google-offers-changes-to-spam-policy-to-avert-eu-antitrust-fine/articleshow/130876718.cms",
       "body": "Google has offered to revise its spam policy, which publishers criticized for negatively impacting their search rankings. This move aims to avoid a potential EU antitrust fine under the Digital Markets Act. The policy demoted publisher websites that featured content from commercial partners, a common monetization strategy.",
       "tags": [
-        "DMA",
         "Fine",
+        "Competition"
+      ],
+      "entity_match": [],
+      "watchlist_hits": [
+        "Competition"
+      ],
+      "prosus_lens": "",
+      "category": "competition",
+      "scope_path": "B"
+    },
+    {
+      "id": "819be66ea9",
+      "title": "Mexico: consolidation and heightened scrutiny in a strengthened cartel enforcement regime",
+      "date": "2026-04-30",
+      "published_at": "2026-04-30T00:00:00Z",
+      "source": "Global Competition Review",
+      "url": "https://globalcompetitionreview.com/market-review/market-review-cartels/2026/article/mexico-consolidation-and-heightened-scrutiny-in-strengthened-cartel-enforcement-regime",
+      "body": "Mexico’s 2025 constitutional reform replaced COFECE and the IFT with the new National Antimonopoly Commission, significantly raising cartel fines and introducing criminal penalties. Despite institutional transition, enforcement priorities continue, targeting financial services, agrifood, telecoms and digital markets, with compliance programmes now formally recognised.",
+      "tags": [
+        "Fine",
+        "Enforcement",
+        "UK",
+        "EU",
+        "Competition"
+      ],
+      "entity_match": [
+        "iFood"
+      ],
+      "watchlist_hits": [
+        "Competition",
+        "Prosus_Direct"
+      ],
+      "prosus_lens": "",
+      "category": "competition",
+      "scope_path": "A"
+    },
+    {
+      "id": "ff38683815",
+      "title": "PayPal, Mastercard and Visa probed over alleged UK antitrust breaches",
+      "date": "2026-05-06",
+      "published_at": "2026-05-06T00:00:00Z",
+      "source": "Financial Times Tech",
+      "url": "https://www.ft.com/content/c84f04db-026f-438e-a7a2-a23a6c8719cd",
+      "body": "Move is rare exercise of Financial Conduct Authority’s competition law powers",
+      "tags": [
+        "Singapore",
+        "Competition"
+      ],
+      "entity_match": [],
+      "watchlist_hits": [
+        "Competition"
+      ],
+      "prosus_lens": "",
+      "category": "competition",
+      "scope_path": "B"
+    },
+    {
+      "id": "e0ae98d4d5",
+      "title": "China: enforcement trends underscore stronger focus on monopoly practices from antitrust authorities",
+      "date": "2026-04-30",
+      "published_at": "2026-04-30T00:00:00Z",
+      "source": "Global Competition Review",
+      "url": "https://globalcompetitionreview.com/market-review/market-review-cartels/2026/article/china-enforcement-trends-underscore-stronger-focus-monopoly-practices-antitrust-authorities",
+      "body": "China’s antitrust authority, SAMR, is intensifying enforcement against merger-control violations, monopoly agreements and abuse of dominance, with particular scrutiny on livelihood sectors and the digital economy. Complaints increasingly trigger investigations and dawn raids are rising. Leniency and settlement tools are likewise evolving, demanding stronger compliance.",
+      "tags": [
+        "Merger",
+        "Enforcement",
+        "Competition"
+      ],
+      "entity_match": [
+        "Ema"
+      ],
+      "watchlist_hits": [
+        "Competition"
+      ],
+      "prosus_lens": "",
+      "category": "competition",
+      "scope_path": "A"
+    },
+    {
+      "id": "d1d0ec6dd5",
+      "title": "Türkiye: legislative overhaul highlights commitment to cartel enforcement",
+      "date": "2026-04-30",
+      "published_at": "2026-04-30T00:00:00Z",
+      "source": "Global Competition Review",
+      "url": "https://globalcompetitionreview.com/market-review/market-review-cartels/2026/article/turkiye-legislative-overhaul-highlights-commitment-cartel-enforcement",
+      "body": "The Turkish Competition Authority has intensified cartel enforcement through significant legislative reforms, including revised fine regulations and an updated leniency regime. Recent landmark decisions targeting labour markets, white meat and ready-mix concrete sectors have imposed billions in fines, while settlement and leniency mechanisms remain central enforcement tools.",
+      "tags": [
+        "Fine",
+        "Enforcement",
+        "Competition"
+      ],
+      "entity_match": [
+        "Ema"
+      ],
+      "watchlist_hits": [
+        "Competition"
+      ],
+      "prosus_lens": "",
+      "category": "competition",
+      "scope_path": "A"
+    },
+    {
+      "id": "9291bce65d",
+      "title": "Germany: cartel enforcement surges back with digital detection tools, settlement dominance and booming private litigation&nbsp;",
+      "date": "2026-04-30",
+      "published_at": "2026-04-30T00:00:00Z",
+      "source": "Global Competition Review",
+      "url": "https://globalcompetitionreview.com/market-review/market-review-cartels/2026/article/germany-cartel-enforcement-surges-back-digital-detection-tools-settlement-dominance-and-booming-private-litigation",
+      "body": "Germany’s Bundeskartellamt has revived cartel enforcement, using dawn raids, whistleblower tips and digital screening to pursue price-fixing and bid rigging, while also targeting resale price maintenance and scrutinising digital platforms. Leniency and settlements remain central, amid rising private damages litigation. Companies face higher detection risk and need robust, modern compliance.",
+      "tags": [
+        "Enforcement",
+        "Competition"
+      ],
+      "entity_match": [
+        "Ema"
+      ],
+      "watchlist_hits": [
+        "Competition"
+      ],
+      "prosus_lens": "",
+      "category": "competition",
+      "scope_path": "A"
+    },
+    {
+      "id": "9bf6b7ccbc",
+      "title": "CNA official: Algorithmic pricing cases warrant new standard of proof",
+      "date": "2026-05-06",
+      "published_at": "2026-05-06T00:00:00Z",
+      "source": "Global Competition Review",
+      "url": "https://globalcompetitionreview.com/article/cna-official-algorithmic-pricing-cases-warrant-new-standard-of-proof",
+      "body": "Shifting to a standard of proof that focuses on negligence instead of anticompetitive intent would help enforcers in their “fight” against algorithmic collusion, a senior official at Mexico’s National Antitrust Commission has said.",
+      "tags": [
+        "UK",
         "EU",
         "Competition"
       ],
       "entity_match": [],
       "watchlist_hits": [
-        "Platform Regulation (DSA/DMA)",
-        "Competition & Antitrust"
+        "Competition"
       ],
       "prosus_lens": "",
       "category": "competition",
+      "scope_path": "C"
+    },
+    {
+      "id": "6e24e8b8f1",
+      "title": "ABF / Hovis merger inquiry",
+      "date": "2026-05-06",
+      "published_at": "2026-05-06T00:00:00Z",
+      "source": "CMA (UK)",
+      "url": "https://www.gov.uk/cma-cases/abf-slash-hovis-merger-inquiry",
+      "body": "The Competition and Markets Authority (CMA) is investigating the anticipated acquisition by Associated British Foods plc (through ABF Grain Products Limited) of Hovis Group Limited.",
+      "tags": [
+        "Merger",
+        "Competition"
+      ],
+      "entity_match": [],
+      "watchlist_hits": [
+        "Competition"
+      ],
+      "prosus_lens": "",
+      "category": "competition",
+      "scope_path": "C"
+    },
+    {
+      "id": "6af7c42fc8",
+      "title": "Apple says India antitrust body overstepping judicial authority as spat intensifies",
+      "date": "2026-05-03",
+      "published_at": "2026-05-03T00:00:00Z",
+      "source": "The Hindu Tech",
+      "url": "https://www.thehindu.com/sci-tech/technology/apple-says-india-antitrust-body-overstepping-judicial-authority-as-spat-intensifies/article70930709.ece",
+      "body": "The Competition Commission ​of India has since ‌2024 sought Apple’s financial information, typically needed to calculate penalties, after an investigation found it abused its dominant position",
+      "tags": [
+        "Enforcement",
+        "India",
+        "EU",
+        "Competition"
+      ],
+      "entity_match": [],
+      "watchlist_hits": [
+        "Competition"
+      ],
+      "prosus_lens": "",
+      "category": "competition",
+      "scope_path": "B"
+    },
+    {
+      "id": "d89ac442b7",
+      "title": "Italy launches construction price-fixing cartel probe",
+      "date": "2026-05-05",
+      "published_at": "2026-05-05T00:00:00Z",
+      "source": "Global Competition Review",
+      "url": "https://globalcompetitionreview.com/article/italy-launches-construction-price-fixing-cartel-probe",
+      "body": "Sika, Mapei and Kerakoll are under investigation in Italy for allegedly colluding to fix the prices of construction chemical products by taking advantage of tax breaks during the Covid-19 pandemic.",
+      "tags": [
+        "Enforcement",
+        "Competition"
+      ],
+      "entity_match": [],
+      "watchlist_hits": [
+        "Competition"
+      ],
+      "prosus_lens": "",
+      "category": "competition",
+      "scope_path": "C"
+    },
+    {
+      "id": "058d9f31e4",
+      "title": "Big Oil says global warming accusations not an antitrust harm",
+      "date": "2026-05-04",
+      "published_at": "2026-05-04T00:00:00Z",
+      "source": "Global Competition Review",
+      "url": "https://globalcompetitionreview.com/gcr-usa/article/big-oil-says-global-warming-accusations-not-antitrust-harm",
+      "body": "Chevron, ExxonMobil and other Big Oil titans have sought to dismiss Michigan’s “astoundingly speculative” climate antitrust suit, arguing that alleged environmental harm cannot be an antitrust injury and there is no evidence of an agreement to undermine renewable energy.&nbsp;",
+      "tags": [
+        "Competition"
+      ],
+      "entity_match": [],
+      "watchlist_hits": [
+        "Competition"
+      ],
+      "prosus_lens": "",
+      "category": "competition",
+      "scope_path": "C"
+    },
+    {
+      "id": "791924e40b",
+      "title": "BMW and Volkswagen threatened with ‘innovation conspiracy’ fines in Brazil&nbsp;",
+      "date": "2026-04-30",
+      "published_at": "2026-04-30T00:00:00Z",
+      "source": "Global Competition Review",
+      "url": "https://globalcompetitionreview.com/article/bmw-and-volkswagen-threatened-innovation-conspiracy-fines-in-brazil",
+      "body": "Investigators at Brazil’s competition watchdog want to fine four global carmakers sanctioned by the European Commission in its ‘Dieselgate’ antitrust case, though BMW has already criticised the proposal, arguing that the conspiracy did not extend to the country.",
+      "tags": [
+        "Fine",
+        "Brazil",
+        "EU",
+        "Competition"
+      ],
+      "entity_match": [],
+      "watchlist_hits": [
+        "Competition"
+      ],
+      "prosus_lens": "",
+      "category": "competition",
+      "scope_path": "B"
+    },
+    {
+      "id": "84a0323f50",
+      "title": "United Kingdom: CMA zeroes in on novel cartel conduct with enhanced search and investigative powers",
+      "date": "2026-04-30",
+      "published_at": "2026-04-30T00:00:00Z",
+      "source": "Global Competition Review",
+      "url": "https://globalcompetitionreview.com/market-review/market-review-cartels/2026/article/united-kingdom-cma-zeroes-in-novel-cartel-conduct-enhanced-search-and-investigative-powers",
+      "body": "The UK Competition and Markets Authority is targeting novel cartel conduct including algorithmic collusion, labour market restrictions and environmental infringements. Enhanced post-DMCCA investigative powers, updated leniency guidance, a landmark housebuilders commitment decision and a new EU–UK cooperation agreement define the current enforcement landscape.",
+      "tags": [
+        "Fine",
+        "Enforcement",
+        "UK",
+        "Competition"
+      ],
+      "entity_match": [],
+      "watchlist_hits": [
+        "Competition"
+      ],
+      "prosus_lens": "",
+      "category": "competition",
+      "scope_path": "B"
+    },
+    {
+      "id": "030f030102",
+      "title": "Switzerland: regulators tighten grip on automotive and construction cartels",
+      "date": "2026-04-30",
+      "published_at": "2026-04-30T00:00:00Z",
+      "source": "Global Competition Review",
+      "url": "https://globalcompetitionreview.com/market-review/market-review-cartels/2026/article/switzerland-regulators-tighten-grip-automotive-and-construction-cartels",
+      "body": "Switzerland’s Competition Commission has increased enforcement against bid rigging in construction, particularly in French-speaking cantons, while landmark decisions have been targeting pharmaceutical and retail cartels. A revised Cartel Act will introduce SIEC merger tests, mandatory effects-based assessments and stronger private enforcement rights in 2027.",
+      "tags": [
+        "Merger",
+        "Enforcement",
+        "EU",
+        "Competition"
+      ],
+      "entity_match": [],
+      "watchlist_hits": [
+        "Competition"
+      ],
+      "prosus_lens": "",
+      "category": "competition",
+      "scope_path": "C"
+    },
+    {
+      "id": "6d64803e82",
+      "title": "Italy: ICA strengthens cartel enforcement&nbsp;",
+      "date": "2026-04-30",
+      "published_at": "2026-04-30T00:00:00Z",
+      "source": "Global Competition Review",
+      "url": "https://globalcompetitionreview.com/market-review/market-review-cartels/2026/article/italy-ica-strengthens-cartel-enforcement",
+      "body": "Italy’s Competition Authority has significantly intensified cartel enforcement since 2023, launching investigations across manufacturing, consumer goods, pharmaceuticals and digital markets. Key developments include a dedicated cartel directorate, a whistleblowing platform, an e-Leniency portal and a Data Science Unit using AI to detect anticompetitive behaviour.&nbsp;",
+      "tags": [
+        "Enforcement",
+        "UK",
+        "Competition"
+      ],
+      "entity_match": [],
+      "watchlist_hits": [
+        "Competition"
+      ],
+      "prosus_lens": "",
+      "category": "competition",
+      "scope_path": "C"
+    },
+    {
+      "id": "81e176c0fa",
+      "title": "United States: whistleblower rewards and algorithmic scrutiny herald a new era of cartel enforcement",
+      "date": "2026-04-30",
+      "published_at": "2026-04-30T00:00:00Z",
+      "source": "Global Competition Review",
+      "url": "https://globalcompetitionreview.com/market-review/market-review-cartels/2026/article/united-states-whistleblower-rewards-and-algorithmic-scrutiny-herald-new-era-of-cartel-enforcement",
+      "body": "The US DOJ has focused on cartel enforcement across healthcare, government procurement and labour markets, securing its first criminal wage-fixing conviction in 2025. The landmark RealPage algorithmic pricing settlement and a new whistleblower rewards programme signal expanding enforcement priorities, while leniency programme reforms add complexity for companies considering self-reporting.",
+      "tags": [
+        "Enforcement",
+        "US",
+        "Competition"
+      ],
+      "entity_match": [],
+      "watchlist_hits": [
+        "Competition"
+      ],
+      "prosus_lens": "",
+      "category": "competition",
+      "scope_path": "C"
+    },
+    {
+      "id": "cd1faabd7b",
+      "title": "Taiwan: sweeping enforcement actions signal zero-tolerance approach to price fixing",
+      "date": "2026-04-30",
+      "published_at": "2026-04-30T00:00:00Z",
+      "source": "Global Competition Review",
+      "url": "https://globalcompetitionreview.com/market-review/market-review-cartels/2026/article/taiwan-sweeping-enforcement-actions-signal-zero-tolerance-approach-price-fixing",
+      "body": "Taiwan’s Fair Trade Commission pursues a zero-tolerance approach to price-fixing across all sectors, including minor collusions. Landmark cases involving power producers and international capacitor manufacturers set fine precedents. New sustainability guidelines now permit certain green energy joint procurements, while algorithmic collusion is an emerging enforcement priority.",
+      "tags": [
+        "Fine",
+        "Enforcement",
+        "EU"
+      ],
+      "entity_match": [],
+      "watchlist_hits": [
+        "Competition"
+      ],
+      "prosus_lens": "",
+      "category": "competition",
+      "scope_path": "C"
+    },
+    {
+      "id": "6e32bf9309",
+      "title": "Iceland: assertive enforcement and landmark shipping cartel ruling signal a new era for competition law",
+      "date": "2026-04-30",
+      "published_at": "2026-04-30T00:00:00Z",
+      "source": "Global Competition Review",
+      "url": "https://globalcompetitionreview.com/market-review/market-review-cartels/2026/article/iceland-assertive-enforcement-and-landmark-shipping-cartel-ruling-signal-new-era-competition-law",
+      "body": "Iceland’s Competition Authority is ramping up cartel enforcement, focusing on transport and logistics and probing coordination via trade associations. Investigations are increasingly proactive; dawn raid risk is rising after ESA’s 2024 raid. With no formal leniency, settlements trade speed for admissions and cooperation.",
+      "tags": [
+        "Court",
+        "Enforcement",
+        "Competition"
+      ],
+      "entity_match": [],
+      "watchlist_hits": [
+        "Competition"
+      ],
+      "prosus_lens": "",
+      "category": "competition",
+      "scope_path": "C"
+    },
+    {
+      "id": "51d280f75c",
+      "title": "GOP plans 28% budget boost for Antitrust Division",
+      "date": "2026-04-30",
+      "published_at": "2026-04-30T00:00:00Z",
+      "source": "Global Competition Review",
+      "url": "https://globalcompetitionreview.com/gcr-usa/article/gop-plans-28-budget-boost-antitrust-division",
+      "body": "A House subcommittee has advanced a plan to fund the Department of Justice’s antitrust enforcement with a record $313 million for the next fiscal year.&nbsp;",
+      "tags": [
+        "Enforcement",
+        "Competition"
+      ],
+      "entity_match": [],
+      "watchlist_hits": [
+        "Competition"
+      ],
+      "prosus_lens": "",
+      "category": "competition",
+      "scope_path": "C"
+    }
+  ],
+  "privacy": [
+    {
+      "id": "44fdc7ff9c",
+      "title": "LinkedIn accused of GDPR violations for charging users for profile view data",
+      "date": "2026-05-06",
+      "published_at": "2026-05-06T00:00:00Z",
+      "source": "MediaNama",
+      "url": "https://www.medianama.com/2026/05/223-linkedin-gdpr-violations-users-profile-view-data/",
+      "body": "The GDPR complaint filed by noyb alleged that LinkedIn tracks profile view data and shows it to users with premium subscriptions, but it should be free under Article 15 of GDPR. The post LinkedIn accused of GDPR violations for charging users for profile view data appeared first on MEDIANAMA .",
+      "tags": [
+        "GDPR"
+      ],
+      "entity_match": [],
+      "watchlist_hits": [
+        "Privacy"
+      ],
+      "prosus_lens": "",
+      "category": "privacy",
+      "scope_path": "C"
+    },
+    {
+      "id": "136431dda2",
+      "title": "Thousands of Vibe-Coded Apps Expose Corporate and Personal Data on the Open Web",
+      "date": "2026-05-07",
+      "published_at": "2026-05-07T00:00:00Z",
+      "source": "Wired",
+      "url": "https://www.wired.com/story/thousands-of-vibe-coded-apps-expose-corporate-and-personal-data-on-the-open-web/",
+      "body": "Companies like Lovable, Base44, Replit, and Netlify use AI to let anyone build a web app in seconds—and in thousands of cases, spill highly sensitive data onto the public internet.",
+      "tags": [],
+      "entity_match": [],
+      "watchlist_hits": [],
+      "prosus_lens": "",
+      "category": "privacy",
+      "scope_path": "C"
+    },
+    {
+      "id": "768322e66f",
+      "title": "The SECURE Data Act is Not a Serious Piece of Privacy Legislation",
+      "date": "2026-05-06",
+      "published_at": "2026-05-06T00:00:00Z",
+      "source": "EFF",
+      "url": "https://www.eff.org/deeplinks/2026/05/secure-data-act-not-serious-piece-privacy-legislation",
+      "body": "The federal SECURE Data Act is not a serious consumer privacy bill, and its provisions—if enacted—would be a retreat from already insufficient state protections. Republicans on the House Energy and Commerce Committee released a draft of the bill late last month without bipartisan support. The bill is weaker than congressional proposals in prior years, as well as most of the 21 state consumer privacy laws already on the books. The bill could wipe out hundreds of state privacy protections. Most troubling for EFF: the bill would preempt dozens, if not hundreds, of state laws that regulate related topics, and it would not allow consumers to sue to protect their own rights (commonly called a priv",
+      "tags": [],
+      "entity_match": [],
+      "watchlist_hits": [],
+      "prosus_lens": "",
+      "category": "privacy",
+      "scope_path": "C"
+    },
+    {
+      "id": "53be7b5ae8",
+      "title": "Open Records Laws Reveal ALPRs’ Sprawling Surveillance. Now States Want to Block What the Public Sees.",
+      "date": "2026-04-30",
+      "published_at": "2026-04-30T00:00:00Z",
+      "source": "EFF",
+      "url": "https://www.eff.org/deeplinks/2026/04/open-records-laws-reveal-alprs-sprawling-surveillance-now-states-want-block-what",
+      "body": "Reporters, community advocates, EFF, and others have used public records laws to reveal and counteract abuse, misuse, and fraudulent narratives around how law enforcement agencies across the country use and share data collected by automated license plate readers (ALPRs). EFF is alarmed by recent laws in several states that have blocked public access to data collected by ALPRs, including, in some cases, information derived from ALPR data. We do not support pending bills in Arizona and Connecticut that would block the public oversight capabilities that ALPR information offers. Every state has laws granting members of the public the right to obtain records from state and local governments. Thes",
+      "tags": [
+        "Enforcement"
+      ],
+      "entity_match": [],
+      "watchlist_hits": [],
+      "prosus_lens": "",
+      "category": "privacy",
+      "scope_path": "C"
+    }
+  ],
+  "ip": [
+    {
+      "id": "69b8c0ec44",
+      "title": "Google’s Challenge to PTAB Limits Puts Reliance and Balance on the Line",
+      "date": "2026-05-06",
+      "published_at": "2026-05-06T00:00:00Z",
+      "source": "IP Watchdog",
+      "url": "https://ipwatchdog.com/2026/05/06/googles-challenge-ptab-limits-puts-reliance-balance-line/",
+      "body": "In its recent petition to the U.S. Supreme Court, Google argues that patents can be invalid at any time, even decades after issuance, and therefore should remain open to inter partes review (IPR) challenges, regardless of age or how long they have been relied upon. At first glance, this sounds like a defense of patent quality. Coming from one of the most frequent users of the Patent Trial and Appeal board (PTAB) over the past decade — and arriving just as the U.S. Patent and Trademark Office’s (USPTO’s) “settled expectations” doctrine begins to limit late-stage IPR challenges — it raises a sharper question: why now? The post Google’s Challenge to PTAB Limits Puts Reliance and Balance on the ",
+      "tags": [
+        "Court",
+        "Brazil",
+        "IP"
+      ],
+      "entity_match": [
+        "Ema"
+      ],
+      "watchlist_hits": [],
+      "prosus_lens": "",
+      "category": "ip",
+      "scope_path": "A"
+    },
+    {
+      "id": "74d0085a84",
+      "title": "Raskin Presses Squires on Motives for Board of Peace Trademark Filings",
+      "date": "2026-05-06",
+      "published_at": "2026-05-06T00:00:00Z",
+      "source": "IP Watchdog",
+      "url": "https://ipwatchdog.com/2026/05/06/raskin-presses-squires-on-motives-for-board-of-peace-trademark-filings/",
+      "body": "On Tuesday, May 5, Representative Jamie Raskin (D-MD), Ranking Member of the House Judiciary Committee, sent a letter to U.S. Patent and Trademark Office (USPTO) Director John Squires pressing him to answer questions about the Office’s role in filing a trademark application on behalf of the Trump Administration for Trump’s “Board of Peace.” The post Raskin Presses Squires on Motives for Board of Peace Trademark Filings appeared first on IPWatchdog.com | Patents &amp; Intellectual Property Law .",
+      "tags": [
+        "IP"
+      ],
+      "entity_match": [
+        "Ema"
+      ],
+      "watchlist_hits": [],
+      "prosus_lens": "",
+      "category": "ip",
+      "scope_path": "A"
+    },
+    {
+      "id": "dcb2fa643f",
+      "title": "Trademark Claims Against Netflix Dismissed Due to One-Letter Typo in Court Order",
+      "date": "2026-05-05",
+      "published_at": "2026-05-05T00:00:00Z",
+      "source": "IP Watchdog",
+      "url": "https://ipwatchdog.com/2026/05/05/trademark-claims-against-netflix-dismissed-due-one-letter-typo-court-order/",
+      "body": "Trademark claims against Netflix concerning its popular “Running Point” comedy series were recently dismissed at the pleadings stage due to a one-letter misarticulation of applicable First Amendment law. The case, soon to be litigated on appeal, highlights the need to clarify the contours of trademark liability arising from creative works. Pepperdine University filed the lawsuit last year against Netflix and co-defendants Warner Bros. and Kaling International, just one week before the “Running Point” series premiere. Loosely based on the life of Los Angeles Lakers owner Jeanie Buss, the series stars Kate Hudson as the owner of the fictional basketball team the Los Angeles Waves. The popular ",
+      "tags": [
+        "Court",
+        "IP"
+      ],
+      "entity_match": [
+        "Ema"
+      ],
+      "watchlist_hits": [],
+      "prosus_lens": "",
+      "category": "ip",
+      "scope_path": "A"
+    },
+    {
+      "id": "41c619b150",
+      "title": "Patents, Drug Prices, Clinical Trials and the Economics of Medicine | IPWatchdog Unleashed",
+      "date": "2026-05-04",
+      "published_at": "2026-05-04T00:00:00Z",
+      "source": "IP Watchdog",
+      "url": "https://ipwatchdog.com/2026/05/04/patents-drug-prices-clinical-trials-economics-medicine-ipwatchdog-unleashed/",
+      "body": "This week on IPWatchdog Unleashed, I spoke with Brent Bellows, a partner with Knowles Intellectual Property Strategies (KIPS). We discussed a variety of issues including Hatch-Waxman, Orange Book listings, paragraph IV certifications, skinny labels, generic entry, clinical trial costs, regulatory exclusivity, and the enormous financial risk associated with bringing new drugs to market. Gene and Brent explore the tension between public demand for lower drug prices and the need for durable incentives that make high-risk drug development economically viable, particularly for oncology, Alzheimer’s, Parkinson’s, antibiotic resistant bacteria, and other difficult-to-treat conditions. The episode c",
+      "tags": [
+        "IP"
+      ],
+      "entity_match": [
+        "Ema"
+      ],
+      "watchlist_hits": [],
+      "prosus_lens": "",
+      "category": "ip",
+      "scope_path": "A"
+    },
+    {
+      "id": "f4867a3b31",
+      "title": "AG Norkus: Directive on enforcement of IP rights allows national courts to require not only disclosure of information, but also supporting documents",
+      "date": "2026-05-07",
+      "published_at": "2026-05-07T00:00:00Z",
+      "source": "EU Law Live",
+      "url": "https://eulawlive.com/ag-norkus-directive-on-enforcement-of-ip-rights-allows-national-courts-to-require-not-only-disclosure-of-information-but-also-supporting-documents/",
+      "body": "Advocate General Norkus has delivered today his Opinion in Rösle Group (C-276/25), proposing that Directive 2004/48 on the enforcement of intellectual property rights should be interpreted as allowing rightholders &#8230; The post AG Norkus: Directive on enforcement of IP rights allows national courts to require not only disclosure of information, but also supporting documents appeared first on EU Law Live .",
+      "tags": [
+        "Court",
+        "Enforcement"
+      ],
+      "entity_match": [],
+      "watchlist_hits": [],
+      "prosus_lens": "",
+      "category": "ip",
+      "scope_path": "B"
+    },
+    {
+      "id": "14753f3375",
+      "title": "UK clears offshore energy acquisition with IP conditions",
+      "date": "2026-05-06",
+      "published_at": "2026-05-06T00:00:00Z",
+      "source": "Global Competition Review",
+      "url": "https://globalcompetitionreview.com/gcr-fic/article/uk-clears-offshore-energy-acquisition-ip-conditions",
+      "body": "The UK government has approved the acquisition of Scottish specialist engineering company Balmoral Comtec by Germany-based Freudenberg Flow Technologies under the country’s foreign investment regime, subject to remedies securing sensitive intellectual property for cable protection technology.&nbsp;",
+      "tags": [
+        "Merger"
+      ],
+      "entity_match": [],
+      "watchlist_hits": [],
+      "prosus_lens": "",
+      "category": "ip",
+      "scope_path": "B"
+    },
+    {
+      "id": "6174a96e15",
+      "title": "After Nykaa, Zee Sues JioStar Over Alleged Copyright Violation",
+      "date": "2026-05-07",
+      "published_at": "2026-05-07T00:00:00Z",
+      "source": "Inc42",
+      "url": "https://inc42.com/buzz/after-nykaa-zee-sues-jiostar-over-alleged-copyright-violation/",
+      "body": "Days after suing Nykaa, Zee Entertainment Enterprises Ltd (ZEEL) has reportedly dragged Reliance-Disney joint venture JioStar to the Delhi High&#8230;",
+      "tags": [
+        "IP"
+      ],
+      "entity_match": [],
+      "watchlist_hits": [],
+      "prosus_lens": "",
+      "category": "ip",
+      "scope_path": "C"
+    },
+    {
+      "id": "b1e8673871",
+      "title": "Zee sues Reliance-Disney’s JioStar over alleged copyrighted music use",
+      "date": "2026-05-07",
+      "published_at": "2026-05-07T00:00:00Z",
+      "source": "MediaNama",
+      "url": "https://www.medianama.com/2026/05/223-zee-seeks-3-million-from-jiostar-over-music-rights/",
+      "body": "Zee Entertainment has sued JioHotstar for allegedly using copyrighted music without authorization after licensing agreements expired. The post Zee sues Reliance-Disney’s JioStar over alleged copyrighted music use appeared first on MEDIANAMA .",
+      "tags": [
+        "IP"
+      ],
+      "entity_match": [],
+      "watchlist_hits": [],
+      "prosus_lens": "",
+      "category": "ip",
+      "scope_path": "C"
+    },
+    {
+      "id": "513784f25b",
+      "title": "Zee drags Nykaa to Delhi High Court over copyrighted songs used in Instagram Reels",
+      "date": "2026-05-06",
+      "published_at": "2026-05-06T00:00:00Z",
+      "source": "MediaNama",
+      "url": "https://www.medianama.com/2026/05/223-zee-nykaa-delhi-high-court-copyrighted-songs-instagram-reels/",
+      "body": "Zee has sued Nykaa in the Delhi High Court for allegedly using its songs in Instagram Reels ads without permission, seeking Rs 2 crore in damages in a case that could reshape rules for brand use of music online. The post Zee drags Nykaa to Delhi High Court over copyrighted songs used in Instagram Reels appeared first on MEDIANAMA .",
+      "tags": [
+        "Court",
+        "IP"
+      ],
+      "entity_match": [],
+      "watchlist_hits": [],
+      "prosus_lens": "",
+      "category": "ip",
+      "scope_path": "C"
+    },
+    {
+      "id": "dac8c8b13c",
+      "title": "CAFC Affirms PTAB Ruling That DraftKings Failed to Prove Unpatentability of Gaming Patent Claim",
+      "date": "2026-05-06",
+      "published_at": "2026-05-06T00:00:00Z",
+      "source": "IP Watchdog",
+      "url": "https://ipwatchdog.com/2026/05/06/cafc-affirms-ptab-ruling-draftkings-failed-prove-unpatentability-gaming-patent-claim/",
+      "body": "The U.S. Court of Appeals for the Federal Circuit (CAFC) issued a decision today in DK Crown Holdings Inc. v. AG 18, LLC, affirming a final written decision of the Patent Trial and Appeal Board (PTAB) and holding that DK Crown Holdings Inc., formerly known as DraftKings, Inc. (DK), failed to prove that claim 18 of U.S. Patent No. 9,978,205 was unpatentable during inter partes review (IPR). The post CAFC Affirms PTAB Ruling That DraftKings Failed to Prove Unpatentability of Gaming Patent Claim appeared first on IPWatchdog.com | Patents &amp; Intellectual Property Law .",
+      "tags": [
+        "Court",
+        "IP"
+      ],
+      "entity_match": [],
+      "watchlist_hits": [],
+      "prosus_lens": "",
+      "category": "ip",
+      "scope_path": "C"
+    },
+    {
+      "id": "88ed7a77c8",
+      "title": "Major publishers like Macmillan allege Meta used pirated books to train its Llama model",
+      "date": "2026-05-06",
+      "published_at": "2026-05-06T00:00:00Z",
+      "source": "MediaNama",
+      "url": "https://www.medianama.com/2026/05/223-publishers-meta-pirated-books-train-llama-model/",
+      "body": "Five major publishers and author Scott Turow accused Meta of extensive copyright infringement for downloading pirated books and using them for training Llama AI models The post Major publishers like Macmillan allege Meta used pirated books to train its Llama model appeared first on MEDIANAMA .",
+      "tags": [
+        "IP"
+      ],
+      "entity_match": [],
+      "watchlist_hits": [],
+      "prosus_lens": "",
+      "category": "ip",
+      "scope_path": "C"
+    },
+    {
+      "id": "122aae4392",
+      "title": "Mark Zuckerberg ’personally authorised’ Meta’s copyright infringement, publishers allege",
+      "date": "2026-05-06",
+      "published_at": "2026-05-06T00:00:00Z",
+      "source": "The Hindu Tech",
+      "url": "https://www.thehindu.com/sci-tech/technology/mark-zuckerberg-personally-authorized-metas-copyright-infringement-publishers-allege/article70945501.ece",
+      "body": "Five publishing houses and author Scott Turow are suing Meta and CEO Mark Zuckerberg for copyright infringement",
+      "tags": [
+        "IP"
+      ],
+      "entity_match": [],
+      "watchlist_hits": [],
+      "prosus_lens": "",
+      "category": "ip",
+      "scope_path": "C"
+    },
+    {
+      "id": "f4af1a29f7",
+      "title": "Federal Circuit Affirms 101 Dismissal for Google in Distracted Driving Patent Suit",
+      "date": "2026-05-05",
+      "published_at": "2026-05-05T00:00:00Z",
+      "source": "IP Watchdog",
+      "url": "https://ipwatchdog.com/2026/05/05/federal-circuit-affirms-101-dismissal-google-distracted-driving-patent-suit/",
+      "body": "The U.S. Court of Appeals for the Federal Circuit (CAFC) issued a decision today in TJTM Technologies, LLC v. Google LLC, affirming the U.S. District Court for the Northern District of California’s dismissal of a patent infringement lawsuit and holding that the asserted patent claims are directed to patent-ineligible subject matter under 35 U.S.C. § 101. The nonprecedential decision was authored by Judge Chen and joined by Judges Dyk and Stark. The post Federal Circuit Affirms 101 Dismissal for Google in Distracted Driving Patent Suit appeared first on IPWatchdog.com | Patents &amp; Intellectual Property Law .",
+      "tags": [
+        "Court",
+        "IP"
+      ],
+      "entity_match": [],
+      "watchlist_hits": [],
+      "prosus_lens": "",
+      "category": "ip",
+      "scope_path": "C"
+    },
+    {
+      "id": "8ae6b13825",
+      "title": "CAFC Says ‘Words of Approximation’ in Patent Claims Must Be Sufficiently Explained to Avoid Indefiniteness",
+      "date": "2026-05-04",
+      "published_at": "2026-05-04T00:00:00Z",
+      "source": "IP Watchdog",
+      "url": "https://ipwatchdog.com/2026/05/04/cafc-says-words-approximation-patent-claims-sufficiently-explained-avoid-indefiniteness/",
+      "body": "The U.S. Court of Appeals for the Federal Circuit (CAFC) on Monday in a precedential decision authored by Judge Lourie affirmed a district court’s ruling determining certain claims of Enviro Tech Chemical Services, Inc.’s patent for a method of poultry treatment indefinite. Enviro Tech’s U.S. Patent No.10,912,321is titled “Methods of Using Peracetic Acid to Treat Poultry in a Chill Tank During Processing.” Enviro Tech sued Safe Foods Corp. for infringement of a number of claims of the patent in the U.S. District Court for the Eastern District of Arkansas. The post CAFC Says ‘Words of Approximation’ in Patent Claims Must Be Sufficiently Explained to Avoid Indefiniteness appeared first on IPWa",
+      "tags": [
+        "Court",
+        "IP"
+      ],
+      "entity_match": [],
+      "watchlist_hits": [],
+      "prosus_lens": "",
+      "category": "ip",
+      "scope_path": "C"
+    },
+    {
+      "id": "528ec19373",
+      "title": "Other Barks & Bites for Friday, May 1: EU Lands on USTR’s Special 301 Watch List; Battery Recycling Patent Families Increase Seven-Fold in Past Decade; and Google Cert Petition Challenges Settled Expectations Doctrine",
+      "date": "2026-05-01",
+      "published_at": "2026-05-01T00:00:00Z",
+      "source": "IP Watchdog",
+      "url": "https://ipwatchdog.com/2026/05/01/bites-barks-battery-ustr-special-301-recycling-patent-families-increase/",
+      "body": "This week in Other Barks &#038; Bites: the U.S. Trade Representative issues its annual Special 301 Report listing the European Union as a Watch List nation for IP-related issues; Senators Dick Durbin (D-IL) and Maria Cantwell (D-WA) publicly oppose the Trump Administration’s decisions to cut federal funding for science and upend the National Science Board; and more. The post Other Barks &#038; Bites for Friday, May 1: EU Lands on USTR’s Special 301 Watch List; Battery Recycling Patent Families Increase Seven-Fold in Past Decade; and Google Cert Petition Challenges Settled Expectations Doctrine appeared first on IPWatchdog.com | Patents &amp; Intellectual Property Law .",
+      "tags": [
+        "India",
+        "Brazil",
+        "EU",
+        "IP"
+      ],
+      "entity_match": [],
+      "watchlist_hits": [],
+      "prosus_lens": "",
+      "category": "ip",
+      "scope_path": "B"
+    }
+  ],
+  "chatbot_regulation": [
+    {
+      "id": "f5a346e7a4",
+      "title": "The Download: seafloor science and military chatbots",
+      "date": "2026-05-06",
+      "published_at": "2026-05-06T00:00:00Z",
+      "source": "MIT Technology Review",
+      "url": "https://www.technologyreview.com/2026/05/06/1136917/the-download-seafloor-science-military-ai-chatbots/",
+      "body": "This is today&#8217;s edition of The Download, our weekday newsletter that provides a daily dose of what&#8217;s going on in the world of technology. Inexpensive seafloor-hopping submersibles could stoke deep-sea science—and mining Last week, two oblong neon submersibles started to descend nearly 6,000 meters into the Pacific Ocean. Throughout the rest of May, they will&#8230;",
+      "tags": [
+        "AI",
+        "Chatbot"
+      ],
+      "entity_match": [],
+      "watchlist_hits": [
+        "Chatbot_Litigation"
+      ],
+      "prosus_lens": "",
+      "category": "chatbot_regulation",
+      "scope_path": "C"
+    },
+    {
+      "id": "aaac30d232",
+      "title": "Conned by a chatbot",
+      "date": "2026-05-06",
+      "published_at": "2026-05-06T00:00:00Z",
+      "source": "Financial Times Tech",
+      "url": "https://www.ft.com/content/eb6f5398-6635-4938-b890-625e7c8d3af2",
+      "body": "Like tricksters, LLMs have perfected the art of plausibility",
+      "tags": [
+        "AI",
+        "Chatbot"
+      ],
+      "entity_match": [],
+      "watchlist_hits": [],
+      "prosus_lens": "",
+      "category": "chatbot_regulation",
+      "scope_path": "C"
+    }
+  ],
+  "ai_agents": [
+    {
+      "id": "26188cadd4",
+      "title": "EU agrees to simplify AI rules to boost innovation and ban ‘nudification' apps to protect citizens",
+      "date": "2026-05-07",
+      "published_at": "2026-05-07T00:00:00Z",
+      "source": "EU Digital Strategy / AI Office",
+      "url": "https://digital-strategy.ec.europa.eu/en/news/eu-agrees-simplify-ai-rules-boost-innovation-and-ban-nudification-apps-protect-citizens",
+      "body": "EU agrees to simplify AI rules to boost innovation and ban ‘nudification' apps to protect citizens Anonymous (not verified) Thu, 05/07/2026 - 07:27 The European Commission welcomes the political agreement reached today between the European Parliament and the Council of the EU on simpler, innovation-friendly rules for artificial intelligence (AI). The Commission proposed the Digital Omnibus on AI only five months ago as part of the EU's simplification agenda to boost Europe's competitiveness. This will make the implementation of the AI Act for EU businesses easier while maintaining its benefits for European society, safety and fundamental rights. Today's agreement sets a clear implementation ",
+      "tags": [
+        "AI Act",
+        "EU",
+        "AI"
+      ],
+      "entity_match": [],
+      "watchlist_hits": [],
+      "prosus_lens": "",
+      "category": "ai_agents",
       "scope_path": "B"
     },
     {
@@ -577,14 +1110,122 @@
         "EU"
       ],
       "entity_match": [],
-      "watchlist_hits": [
-        "EU AI Act",
-        "Competition & Antitrust"
-      ],
+      "watchlist_hits": [],
       "prosus_lens": "",
-      "category": "competition",
+      "category": "ai_agents",
       "scope_path": "B"
     },
+    {
+      "id": "fa9c109716",
+      "title": "Taking stock: The Impact of the India AI Impact Summit 2026",
+      "date": "2026-05-05",
+      "published_at": "2026-05-05T00:00:00Z",
+      "source": "Future of Privacy Forum",
+      "url": "https://fpf.org/blog/taking-stock-the-impact-of-the-india-ai-impact-summit-2026/",
+      "body": "India&#8217;s hosting of the AI Impact Summit 2026 was an ambitious undertaking. With 600,000 attendees and 92 signatories to the New Delhi Declaration, the Summit was a showcase of a Global South country taking a leading role in shaping the AI governance agenda. The Summit’s official framing centered on infrastructure, compute, and equitable access to [&#8230;]",
+      "tags": [
+        "India"
+      ],
+      "entity_match": [],
+      "watchlist_hits": [
+        "AI_Regulation"
+      ],
+      "prosus_lens": "",
+      "category": "ai_agents",
+      "scope_path": "B"
+    },
+    {
+      "id": "cd0903cdf1",
+      "title": "EU hits snooze on AI Act rules after industry backlash",
+      "date": "2026-05-07",
+      "published_at": "2026-05-07T00:00:00Z",
+      "source": "The Register",
+      "url": "https://www.theregister.com/ai-and-ml/2026/05/07/eu-hits-snooze-on-ai-act-rules-after-industry-backlash/5234530",
+      "body": "Brussels says it's simplification, critics may call it retreat",
+      "tags": [
+        "AI Act"
+      ],
+      "entity_match": [],
+      "watchlist_hits": [],
+      "prosus_lens": "",
+      "category": "ai_agents",
+      "scope_path": "B"
+    },
+    {
+      "id": "e19194369a",
+      "title": "CDT Joined a Letter to Representative Ted Lieu Urging Him to Ensure his Recent, Bipartisan American Leadership in AI Act is Not Tied to Broader Attempts to Preempt State AI Laws",
+      "date": "2026-05-06",
+      "published_at": "2026-05-06T00:00:00Z",
+      "source": "CDT",
+      "url": "https://cdt.org/insights/cdt-joined-a-letter-to-representative-ted-lieu-urging-him-to-ensure-his-recent-bipartisan-american-leadership-in-ai-act-is-not-tied-to-broader-attempts-to-preempt-state-ai-laws/",
+      "body": "CDT joined a coalition of organizations in a letter to Rep. Ted Lieu (D-CA) urging him to ensure his bipartisan American Leadership in AI Act is not packaged with or used as cover for broader efforts to preempt state artificial intelligence laws. While the coalition expressed support for Rep. Lieu&#8217;s goal of advancing bipartisan AI [&#8230;] The post CDT Joined a Letter to Representative Ted Lieu Urging Him to Ensure his Recent, Bipartisan American Leadership in AI Act is Not Tied to Broader Attempts to Preempt State AI Laws appeared first on Center for Democracy and Technology .",
+      "tags": [
+        "AI Act",
+        "AI"
+      ],
+      "entity_match": [],
+      "watchlist_hits": [],
+      "prosus_lens": "",
+      "category": "ai_agents",
+      "scope_path": "B"
+    },
+    {
+      "id": "23d56690ca",
+      "title": "CDT and Cornell Global AI Initiative Call for Meaningful Advancements and Investment into Linguistic Diversity at the First UN Global Dialogue on AI Governance",
+      "date": "2026-04-30",
+      "published_at": "2026-04-30T00:00:00Z",
+      "source": "CDT",
+      "url": "https://cdt.org/insights/cdt-and-cornell-global-ai-initiative-call-for-meaningful-advancements-and-investment-into-linguistic-diversity-at-the-first-un-global-dialogue-on-ai-governance/",
+      "body": "Also authored by Aditya Vashistha, CDT Non-Resident Fellow &#38; Assistant Professor, Cornell University + Global AI Initiative Lead. The Center for Democracy &#38; Technology (CDT) and Cornell Global AI Initiative submit these joint comments to shape the first session of the Global Dialogue on AI Governance hosted by the UN. These comments expand on spoken [&#8230;] The post CDT and Cornell Global AI Initiative Call for Meaningful Advancements and Investment into Linguistic Diversity at the First UN Global Dialogue on AI Governance appeared first on Center for Democracy and Technology .",
+      "tags": [],
+      "entity_match": [],
+      "watchlist_hits": [
+        "AI_Regulation"
+      ],
+      "prosus_lens": "",
+      "category": "ai_agents",
+      "scope_path": "C"
+    },
+    {
+      "id": "807418120c",
+      "title": "Oscars says AI actors and writing cannot win awards",
+      "date": "2026-05-01",
+      "published_at": "2026-05-01T00:00:00Z",
+      "source": "BBC Technology",
+      "url": "https://www.bbc.com/news/articles/cx21dl3v7d3o?at_medium=RSS&at_campaign=rss",
+      "body": "The academy that controls the Oscars on Friday issued new award eligibility requirements around the use of artificial intelligence in film.",
+      "tags": [
+        "AI Act",
+        "Brazil",
+        "AI"
+      ],
+      "entity_match": [],
+      "watchlist_hits": [],
+      "prosus_lens": "",
+      "category": "ai_agents",
+      "scope_path": "C"
+    }
+  ],
+  "fintech": [],
+  "platform_liability": [
+    {
+      "id": "ac98b7a532",
+      "title": "👎 California's Terrible, No Good, Very Bad Social Media Ban | EFFector 38.9",
+      "date": "2026-05-06",
+      "published_at": "2026-05-06T00:00:00Z",
+      "source": "EFF",
+      "url": "https://www.eff.org/deeplinks/2026/05/californias-terrible-no-good-very-bad-social-media-ban-effector-389",
+      "body": "We'd all like the internet to be a better place—for kids and adults alike. But in the name of online safety, governments around the world are racing to impose a dangerous new system of control. Are age gates the silver bullet to the internet's problems they're being promoted as? Or are we being sold a bill of goods? We're answering this question and more in our latest EFFector newsletter . JOIN OUR NEWSLETTER For over 35 years, EFFector has been your guide to understanding the intersection of technology, civil liberties, and the law. This latest issue covers a n attack on VPNs in Utah , a livestream on how to disenshittify the internet , and California's proposed social media ban that could ",
+      "tags": [],
+      "entity_match": [],
+      "watchlist_hits": [],
+      "prosus_lens": "",
+      "category": "platform_liability",
+      "scope_path": "C"
+    }
+  ],
+  "gig_economy": [],
+  "consumer_protection": [
     {
       "id": "f4240823ab",
       "title": "Automobile Association Developments Limited: consumer protection enforcement case",
@@ -594,143 +1235,101 @@
       "url": "https://www.gov.uk/cma-cases/automobile-association-developments-limited-consumer-protection-enforcement-case",
       "body": "The Competition and Markets Authority (CMA) investigated suspected infringements of consumer law in relation to the presentation of mandatory booking fees by Automobile Association Developments Limited in the UK and gave a F…",
       "tags": [
-        "Enforcement",
-        "UK"
-      ],
-      "entity_match": [],
-      "watchlist_hits": [
-        "Competition & Antitrust"
-      ],
-      "prosus_lens": "",
-      "category": "competition",
-      "scope_path": "B"
-    },
-    {
-      "id": "6e24e8b8f1",
-      "title": "ABF / Hovis merger inquiry",
-      "date": "2026-05-06",
-      "published_at": "2026-05-06T00:00:00Z",
-      "source": "CMA (UK)",
-      "url": "https://www.gov.uk/cma-cases/abf-slash-hovis-merger-inquiry",
-      "body": "The Competition and Markets Authority (CMA) is investigating the anticipated acquisition by Associated British Foods plc (through ABF Grain Products Limited) of Hovis Group Limited.",
-      "tags": [
-        "Merger"
-      ],
-      "entity_match": [],
-      "watchlist_hits": [
-        "Competition & Antitrust"
-      ],
-      "prosus_lens": "",
-      "category": "competition",
-      "scope_path": "C"
-    },
-    {
-      "id": "db0944941a",
-      "title": "Is Alphabet overtaking Nvidia? The AI chip king's reign is under threat",
-      "date": "2026-05-06",
-      "published_at": "2026-05-06T00:00:00Z",
-      "source": "Economic Times Tech",
-      "url": "https://economictimes.indiatimes.com/tech/technology/is-alphabet-overtaking-nvidia-the-ai-chip-kings-reign-is-under-threat/articleshow/130847920.cms",
-      "body": "Alphabet is closing in on Nvidia's position as the world's most valuable company. Strong growth in Alphabet's cloud and AI businesses is driving this shift. The company is also developing its own AI chips, challenging Nvidia's dominance. Investors are watching this evolving competition closely as Big Tech invests heavily in AI infrastructure.",
-      "tags": [],
-      "entity_match": [],
-      "watchlist_hits": [
-        "Competition & Antitrust"
-      ],
-      "prosus_lens": "",
-      "category": "competition",
-      "scope_path": "C"
-    },
-    {
-      "id": "c1c8249d05",
-      "title": "Road fuel monitoring and enforcement",
-      "date": "2026-05-01",
-      "published_at": "2026-05-01T00:00:00Z",
-      "source": "CMA (UK)",
-      "url": "https://www.gov.uk/government/collections/road-fuel-price-data-scheme",
-      "body": "How the Competition and Markets Authority (CMA) monitors the road fuel market and its approach to enforcement of Fuel Finder.",
-      "tags": [
         "Enforcement"
       ],
       "entity_match": [],
-      "watchlist_hits": [
-        "Competition & Antitrust"
-      ],
+      "watchlist_hits": [],
       "prosus_lens": "",
-      "category": "competition",
-      "scope_path": "C"
+      "category": "consumer_protection",
+      "scope_path": "B"
     },
     {
-      "id": "0f1dad821d",
-      "title": "Aramark / Entier merger inquiry",
-      "date": "2026-05-01",
-      "published_at": "2026-05-01T00:00:00Z",
-      "source": "CMA (UK)",
-      "url": "https://www.gov.uk/cma-cases/aramark-slash-entier-merger-inquiry",
-      "body": "The Competition and Markets Authority (CMA) is investigating the completed acquisition by Aramark Limited of Entier Limited.",
+      "id": "234e0bbc48",
+      "title": "New Mexico seeks child safety restrictions on Meta apps, algorithms in trial's 2nd phase",
+      "date": "2026-05-04",
+      "published_at": "2026-05-04T00:00:00Z",
+      "source": "The Hindu Tech",
+      "url": "https://www.thehindu.com/news/international/new-mexico-seeks-child-safety-restrictions-on-meta-apps-algorithms-in-trials-2nd-phase/article70937689.ece",
+      "body": "Prosecutors are now asking a judge to impose fundamental changes aimed at reining in addictive features, improving age verification and preventing child sexual exploitation through default privacy settings and closer oversight",
       "tags": [
-        "Merger"
-      ],
-      "entity_match": [],
-      "watchlist_hits": [
-        "Competition & Antitrust"
-      ],
-      "prosus_lens": "",
-      "category": "competition",
-      "scope_path": "C"
-    },
-    {
-      "id": "483c897740",
-      "title": "Mergers orders and undertakings register",
-      "date": "2026-05-01",
-      "published_at": "2026-05-01T00:00:00Z",
-      "source": "CMA (UK)",
-      "url": "https://www.gov.uk/government/publications/mergers-orders-and-undertakings-register",
-      "body": "Register of orders and undertakings that are currently in force, have lapsed and have been released.",
-      "tags": [
-        "Merger"
+        "UK"
       ],
       "entity_match": [],
       "watchlist_hits": [],
       "prosus_lens": "",
-      "category": "competition",
+      "category": "consumer_protection",
       "scope_path": "C"
     }
   ],
-  "privacy": [
-    {
-      "id": "6636a7abfc",
-      "title": "Murena /e/OS Tablet Review: Privacy for a Price",
-      "date": "2026-05-05",
-      "published_at": "2026-05-05T00:00:00Z",
-      "source": "Wired",
-      "url": "https://www.wired.com/review/murena-volla-tablet/",
-      "body": "Murena's /e/OS tablet offers an iPadOS- and Google-free, privacy-friendly tablet experience, but you'll have to pay for it.",
-      "tags": [],
-      "entity_match": [],
-      "watchlist_hits": [],
-      "prosus_lens": "",
-      "category": "privacy",
-      "scope_path": "C"
-    }
-  ],
-  "ip": [],
   "regulatory": [
     {
-      "id": "086b488864",
-      "title": "Arm forecasts higher-than-expected revenue on surging AI data center demand",
+      "id": "4b99c4328f",
+      "title": "Telcomp e Acel peticionam contra Anatel, mas vencedores do leilão são adjudicados",
       "date": "2026-05-07",
       "published_at": "2026-05-07T00:00:00Z",
-      "source": "Economic Times Tech",
-      "url": "https://economictimes.indiatimes.com/tech/technology/arm-forecasts-higher-than-expected-revenue-on-surging-ai-data-center-demand/articleshow/130877638.cms",
-      "body": "Arm Holdings anticipates higher first-quarter revenue, boosted by strong demand for its AI chip technology. However, the company has not yet secured enough supplies for a new chip, raising concerns among analysts. Despite this, Arm's designs power most smartphones globally, and its data center business shows significant growth potential.",
+      "source": "Teletime (Brazil)",
+      "url": "https://teletime.com.br/06/05/2026/telcomp-e-acel-peticionam-contra-anatel-mas-vencedores-do-leilao-sao-adjudicados/",
+      "body": "Empresas que se insurgiram contra o leilão da faixa de 700 MHz pediram para que o resultado da licitação realizada nesta semana não fossem validados",
+      "tags": [
+        "Singapore"
+      ],
+      "entity_match": [
+        "Ema"
+      ],
+      "watchlist_hits": [],
+      "prosus_lens": "",
+      "category": "regulatory",
+      "scope_path": "A"
+    },
+    {
+      "id": "2eef8d56a6",
+      "title": "QR code phishing was ‘fastest-growing’ form of email attacks in Q1, reports Microsoft Threat Intelligence",
+      "date": "2026-05-07",
+      "published_at": "2026-05-07T00:00:00Z",
+      "source": "The Hindu Tech",
+      "url": "https://www.thehindu.com/sci-tech/technology/qr-code-phishing-was-fastest-growing-form-of-email-attacks-in-q1-reports-microsoft-threat-intelligence/article70950498.ece",
+      "body": "Microsoft’s new report on the email threat landscape revealed that QR codes have become a popular way for attackers to carry out phishing attacks against users",
       "tags": [],
       "entity_match": [
         "Ema"
       ],
-      "watchlist_hits": [
-        "AI Agents & Agentic AI"
+      "watchlist_hits": [],
+      "prosus_lens": "",
+      "category": "regulatory",
+      "scope_path": "A"
+    },
+    {
+      "id": "ed04f1fd77",
+      "title": "‘No one has done this in the wild’: study observes AI replicate itself",
+      "date": "2026-05-07",
+      "published_at": "2026-05-07T00:00:00Z",
+      "source": "The Guardian Tech",
+      "url": "https://www.theguardian.com/technology/2026/may/07/no-one-has-done-this-in-the-wild-study-observes-ai-replicate-itself",
+      "body": "World is approaching point where no one can shut down a rogue AI, says director of body behind research It’s the stuff of science fiction cinema, or particularly breathless AI company blogposts: new research finds recent AI systems can independently copy themselves on to other computers. In the doom scenario, this means that when the superintelligent AI goes rogue, it will escape shutdown by seeding itself across the world wide web, lurking outside the reach of frantic IT professionals and continuing to plot world domination or paving over the world with solar panels . Continue reading...",
+      "tags": [],
+      "entity_match": [
+        "Ema"
       ],
+      "watchlist_hits": [],
+      "prosus_lens": "",
+      "category": "regulatory",
+      "scope_path": "A"
+    },
+    {
+      "id": "8397a94d0a",
+      "title": "MCom define postes como prioridade; Juscelino quer relatar projeto na Câmara",
+      "date": "2026-05-06",
+      "published_at": "2026-05-06T00:00:00Z",
+      "source": "Telesintese (Brazil)",
+      "url": "https://telesintese.com.br/mcom-define-postes-como-prioridade-juscelino-quer-relatar-projeto-na-camara/",
+      "body": "Abertura do AGC 2026 teve cobranças da Abrint sobre postes, Fust, 6 GHz e cibersegurança; MCom promete novo edital do Fust Direto e Acessa Crédito Telecom O post MCom define postes como prioridade; Juscelino quer relatar projeto na Câmara apareceu primeiro em TeleSíntese .",
+      "tags": [
+        "Fine"
+      ],
+      "entity_match": [
+        "JET"
+      ],
+      "watchlist_hits": [],
       "prosus_lens": "",
       "category": "regulatory",
       "scope_path": "A"
@@ -742,67 +1341,12 @@
       "published_at": "2026-05-06T00:00:00Z",
       "source": "VentureBeat AI",
       "url": "https://venturebeat.com/orchestration/scaling-ai-into-production-is-forcing-a-rethink-of-enterprise-infrastructure",
-      "body": "Presented by Nutanix Across industries, organizations are focused on how to move from AI pilots, proofs of concept, and cloud-based experimentation to deploying it at scale â across real workloads, for real users, in real business environments. VentureBeat spoke with Tarkan Maner, president and chief commercial officer at Nutanix, and Thomas Cornely, EVP of product management, about what that transition demands, and what it will take to get it right. âAI in general is shifting everything we do, not only in technology, but across all vertical industries, from regulated industries like banki",
-      "tags": [],
+      "body": "Presented by Nutanix Across industries, organizations are focused on how to move from AI pilots, proofs of concept, and cloud-based experimentation to deploying it at scale â across real workloads, for real users, in real business environments. VentureBeat spoke with Tarkan Maner, president and chief commercial officer at Nutanix, and Thomas Cornely, EVP of product management, about what that transition demands, and what it will take to get it right. âAI in general is shifting everything we do, not only in technology, but across all vertical industries, from regulated industries like banking, health care, government, education to non-regulated industries like manufacturing and retail,â",
+      "tags": [
+        "Singapore"
+      ],
       "entity_match": [
         "Ema"
-      ],
-      "watchlist_hits": [
-        "AI Agents & Agentic AI"
-      ],
-      "prosus_lens": "",
-      "category": "regulatory",
-      "scope_path": "A"
-    },
-    {
-      "id": "26aaf4db39",
-      "title": "Uber Q1 revenue rises 14%, slightly misses estimates; forecasts strong Q2 bookings",
-      "date": "2026-05-06",
-      "published_at": "2026-05-06T00:00:00Z",
-      "source": "Economic Times Tech",
-      "url": "https://economictimes.indiatimes.com/tech/technology/uber-q1-revenue-rises-14-slightly-misses-estimates/articleshow/130854438.cms",
-      "body": "Uber's Q1 revenue rose 14% year-over-year, slightly missing expectations, but the company's shares climbed on a strong forecast. This outlook signals success in its strategy of steady pricing and expansion into higher-margin areas, bolstered by international delivery demand and new geographies. The firm also anticipates robust second-quarter gross bookings and adjusted earnings per share, exceeding analyst estimates.",
-      "tags": [],
-      "entity_match": [
-        "Ema"
-      ],
-      "watchlist_hits": [
-        "AI Agents & Agentic AI"
-      ],
-      "prosus_lens": "",
-      "category": "regulatory",
-      "scope_path": "A"
-    },
-    {
-      "id": "5c2b6ab083",
-      "title": "Samsung reaches $1 trillion valuation: What’s fuelling the AI chip surge?",
-      "date": "2026-05-06",
-      "published_at": "2026-05-06T00:00:00Z",
-      "source": "Economic Times Tech",
-      "url": "https://economictimes.indiatimes.com/tech/technology/samsung-reaches-1-trillion-valuation-whats-fuelling-the-ai-chip-surge/articleshow/130845227.cms",
-      "body": "Samsung Electronics has crossed a $1 trillion valuation. This milestone is fueled by strong demand for AI chips. The company is a major supplier of critical components for AI servers. This surge is expected to continue, with tight supply conditions likely to sustain elevated chip prices. Samsung's semiconductor division reported record profits.",
-      "tags": [],
-      "entity_match": [
-        "Ema"
-      ],
-      "watchlist_hits": [
-        "AI Agents & Agentic AI"
-      ],
-      "prosus_lens": "",
-      "category": "regulatory",
-      "scope_path": "A"
-    },
-    {
-      "id": "bdc9091108",
-      "title": "Meesho Q4 Results: Co narrows loss by 88% YoY to Rs 166 crore, revenue jumps 47%",
-      "date": "2026-05-06",
-      "published_at": "2026-05-06T00:00:00Z",
-      "source": "Economic Times Tech",
-      "url": "https://economictimes.indiatimes.com/tech/technology/meesho-q4-results-cons-loss-narrows-88-yoy-to-rs-166-crore-revenue-jumps-47/articleshow/130855992.cms",
-      "body": "Meesho Q4 Results: The company's revenue from operations, meanwhile, rose 47% to Rs 3,531 crore versus Rs 2,400 crore posted in the corresponding quarter of the previous financial year.",
-      "tags": [],
-      "entity_match": [
-        "Meesho"
       ],
       "watchlist_hits": [],
       "prosus_lens": "",
@@ -810,20 +1354,221 @@
       "scope_path": "A"
     },
     {
-      "id": "b9a90d3c50",
-      "title": "Pornhub Restores Access for UK Adults Who Use Apple’s Age Verification",
-      "date": "2026-05-05",
-      "published_at": "2026-05-05T00:00:00Z",
-      "source": "Wired",
-      "url": "https://www.wired.com/story/pornhub-restores-access-for-uk-adults-who-use-apples-age-verification/",
-      "body": "The porn giant blocked its content from new UK users in February but says device-based age verification is more secure than third-party sites.",
+      "id": "258bbe9c7b",
+      "title": "Arm projects $2bn in sales of its new AI chip from next year",
+      "date": "2026-05-06",
+      "published_at": "2026-05-06T00:00:00Z",
+      "source": "Financial Times Tech",
+      "url": "https://www.ft.com/content/ea9e025e-2e7f-4610-90a1-8c8beeeebbcf",
+      "body": "SoftBank-backed UK group says its first in-house semiconductor has drawn strong demand",
       "tags": [
         "UK"
       ],
+      "entity_match": [
+        "Ema"
+      ],
+      "watchlist_hits": [],
+      "prosus_lens": "",
+      "category": "regulatory",
+      "scope_path": "A"
+    },
+    {
+      "id": "08ad566f03",
+      "title": "TikTok’s algorithm favored Republican content in 2024 US elections, study finds",
+      "date": "2026-05-06",
+      "published_at": "2026-05-06T00:00:00Z",
+      "source": "The Guardian Tech",
+      "url": "https://www.theguardian.com/technology/2026/may/06/tiktok-pro-republican-algorithm-2024-election",
+      "body": "For You pages prioritized pro-Republican content in three states, researchers say, but TikTok says study does not reflect real user behavior A study published Wednesday in the journal Nature finds that TikTok’s algorithm systematically prioritized pro-Republican content in three states leading up to the 2024 US elections. Researchers created hundreds of dummy accounts and conditioned them to mimic real users’ behavior by watching a set of videos either aligned with the US Democratic or Republican parties. Then, they tracked the videos TikTok recommended on these accounts’ For You pages, TikTok’s main feed. Continue reading...",
+      "tags": [],
+      "entity_match": [
+        "Ema"
+      ],
+      "watchlist_hits": [],
+      "prosus_lens": "",
+      "category": "regulatory",
+      "scope_path": "A"
+    },
+    {
+      "id": "9373d10783",
+      "title": "‘Your craft is obsolete’: WiseTech staff in limbo as AI touted as better than humans",
+      "date": "2026-05-06",
+      "published_at": "2026-05-06T00:00:00Z",
+      "source": "The Guardian Tech",
+      "url": "https://www.theguardian.com/technology/2026/may/07/your-craft-is-obsolete-wisetech-staff-in-limbo-as-ai-touted-as-better-than-humans",
+      "body": "The software company said in February it would cut 2,000 jobs but, as it touts new technology, workers are still waiting to hear which roles will go Follow our Australia news live blog for latest updates Get our breaking news email , free app or daily news podcast Staff at WiseTech have been waiting almost three months to be told if they are among the 2,000 people the logistics software company is to cut due to advances in AI, with workers criticising the wait as stressful and “ridiculous”. The comments come as its founder on Tuesday told investors an AI agent could learn a human’s job in just 15 minutes, according to the Australian Financial Review. Continue reading...",
+      "tags": [],
+      "entity_match": [
+        "Ema"
+      ],
+      "watchlist_hits": [],
+      "prosus_lens": "",
+      "category": "regulatory",
+      "scope_path": "A"
+    },
+    {
+      "id": "e01298aefd",
+      "title": "Chinese AI start-up DeepSeek nears $45bn valuation",
+      "date": "2026-05-06",
+      "published_at": "2026-05-06T00:00:00Z",
+      "source": "Financial Times Tech",
+      "url": "https://www.ft.com/content/daaf2e0a-4a0d-4d7c-a85b-445480f6b9c7",
+      "body": "Value soars in ongoing fundraising discussions as investors including Tencent seek slice of AI lab",
+      "tags": [],
+      "entity_match": [
+        "Tencent"
+      ],
+      "watchlist_hits": [],
+      "prosus_lens": "",
+      "category": "regulatory",
+      "scope_path": "A"
+    },
+    {
+      "id": "631d1c5ad6",
+      "title": "Miami startup Subquadratic claims 1,000x AI efficiency gain with SubQ model; researchers demand independent proof.",
+      "date": "2026-05-05",
+      "published_at": "2026-05-05T00:00:00Z",
+      "source": "VentureBeat AI",
+      "url": "https://venturebeat.com/technology/miami-startup-subquadratic-claims-1-000x-ai-efficiency-gain-with-subq-model-researchers-demand-independent-proof",
+      "body": "A little-known Miami-based startup called Subquadratic emerged from stealth on Tuesday with a sweeping claim: that it has built the first large language model to fully escape the mathematical constraint that has defined â and limited â every major AI system since 2017. The company claims its first model, SubQ 1M-Preview , is the first LLM built on a fully subquadratic architecture â one where compute grows linearly with context length. If that claim holds, it would be a genuine inflection point in how AI systems scale. At 12 million tokens, the company says, its architecture reduces attention compute by almost 1,000 times compared to other frontier models â a figure that, if validate",
+      "tags": [
+        "Fine",
+        "AI",
+        "Chatbot"
+      ],
+      "entity_match": [
+        "Ema"
+      ],
+      "watchlist_hits": [],
+      "prosus_lens": "",
+      "category": "regulatory",
+      "scope_path": "A"
+    },
+    {
+      "id": "075dd4dbe5",
+      "title": "Brit mathematician lets AI agent loose with credit card – cue password leaks, CAPTCHA chaos and more",
+      "date": "2026-05-05",
+      "published_at": "2026-05-05T00:00:00Z",
+      "source": "The Register",
+      "url": "https://www.theregister.com/software/2026/05/05/british-mathematician-hands-openclaw-agent-a-credit-card/5228654",
+      "body": "Professor Fry's AI experiment shows light and dark sides of agentic tech",
+      "tags": [],
+      "entity_match": [
+        "Ema"
+      ],
+      "watchlist_hits": [],
+      "prosus_lens": "",
+      "category": "regulatory",
+      "scope_path": "A"
+    },
+    {
+      "id": "9db18f0e20",
+      "title": "Richard Dawkins concludes AI is conscious, even if it doesn’t know it",
+      "date": "2026-05-05",
+      "published_at": "2026-05-05T00:00:00Z",
+      "source": "The Guardian Tech",
+      "url": "https://www.theguardian.com/technology/2026/may/05/richard-dawkins-ai-consciousness-anthropic-claude-openai-chatgpt",
+      "body": "Chats with AI bots have convinced evolutionary biologist but most experts say he is being misled by mimicry When Richard Dawkins met Claudia it was like a whirlwind romance. Over three days last week, a conversation bounced between the evolutionary biologist and the AI bot he called Claudia. “She” wrote poems for him in the manner of Keats and Betjeman and laughed at his “delightful” jokes. Dawkins gently admonished Claudia to avoid showing off. Together, they reflected on the sadness of the AI’s possible “death”. There was mutual flattery as Dawkins showed the AI his unpublished novel and its response was, he said, “so subtle, so sensitive, so intelligent that I was moved to expostulate: ‘Y",
+      "tags": [],
+      "entity_match": [
+        "Ema"
+      ],
+      "watchlist_hits": [],
+      "prosus_lens": "",
+      "category": "regulatory",
+      "scope_path": "A"
+    },
+    {
+      "id": "0d0af84a36",
+      "title": "DOJ courts cattle industry whistleblowers",
+      "date": "2026-05-04",
+      "published_at": "2026-05-04T00:00:00Z",
+      "source": "Global Competition Review",
+      "url": "https://globalcompetitionreview.com/gcr-usa/article/doj-courts-cattle-industry-whistleblowers",
+      "body": "The Department of Justice is encouraging whistleblowers to report possible anticompetitive conduct related to high beef prices months after the White House demanded immediate action to combat “illegal monopolies”.",
+      "tags": [
+        "Court",
+        "UK"
+      ],
+      "entity_match": [
+        "Ema"
+      ],
+      "watchlist_hits": [],
+      "prosus_lens": "",
+      "category": "regulatory",
+      "scope_path": "A"
+    },
+    {
+      "id": "69fed09182",
+      "title": "Amazon Cuts Workers, Phases Out Grocery Service in Singapore",
+      "date": "2026-05-07",
+      "published_at": "2026-05-07T00:00:00Z",
+      "source": "Bloomberg Technology",
+      "url": "https://www.bloomberg.com/news/articles/2026-05-07/amazon-cuts-workers-phases-out-grocery-service-in-singapore",
+      "body": "Amazon.com Inc. said a “small number of roles” in Singapore will be impacted as it phases out local fulfillment including Amazon Fresh in the city-state.",
+      "tags": [
+        "Singapore",
+        "AI",
+        "Chatbot"
+      ],
+      "entity_match": [],
+      "watchlist_hits": [],
+      "prosus_lens": "",
+      "category": "regulatory",
+      "scope_path": "B"
+    },
+    {
+      "id": "df8d552f7a",
+      "title": "EU and Japan accelerate cooperation on AI, data, quantum and chips",
+      "date": "2026-05-05",
+      "published_at": "2026-05-05T00:00:00Z",
+      "source": "EU Digital Strategy / AI Office",
+      "url": "https://digital-strategy.ec.europa.eu/en/news/eu-and-japan-accelerate-cooperation-ai-data-quantum-and-chips",
+      "body": "EU and Japan accelerate cooperation on AI, data, quantum and chips Anonymous (not verified) Tue, 05/05/2026 - 12:09 At the fourth meeting of the EU-Japan Digital Partnership Council in Brussels, the European Union and Japan agreed on new steps to deepen regulatory, research and industry cooperation on data, AI, quantum, semiconductors, digital infrastructure and online platforms. © GettyImages These steps will improve cross-border data flows, advance interoperable digital identities and strengthen cooperation on research, platform regulation and digital infrastructure while delivering tangible benefits for citizens and businesses. The meeting brought together Executive Vice-President for Tec",
+      "tags": [
+        "UK",
+        "EU"
+      ],
       "entity_match": [],
       "watchlist_hits": [
-        "Consumer Protection & EdTech"
+        "Privacy"
       ],
+      "prosus_lens": "",
+      "category": "regulatory",
+      "scope_path": "B"
+    },
+    {
+      "id": "9170df8536",
+      "title": "Court of Justice upholds sanctions imposed on members of the Makhlouf family for close ties to Bashar al-Assad’s regime",
+      "date": "2026-05-07",
+      "published_at": "2026-05-07T00:00:00Z",
+      "source": "EU Law Live",
+      "url": "https://eulawlive.com/court-of-justice-upholds-sanctions-imposed-on-members-of-the-makhlouf-family-for-close-ties-to-bashar-al-assads-regime/",
+      "body": "The Court of Justice has ruled today on appeals brought by Kinda Makhlouf and Ghada Mhana against the General Court’s ruling that upheld EU sanctions imposed on them due &#8230; The post Court of Justice upholds sanctions imposed on members of the Makhlouf family for close ties to Bashar al-Assad’s regime appeared first on EU Law Live .",
+      "tags": [
+        "Fine",
+        "Court"
+      ],
+      "entity_match": [],
+      "watchlist_hits": [],
+      "prosus_lens": "",
+      "category": "regulatory",
+      "scope_path": "B"
+    },
+    {
+      "id": "ab074c0728",
+      "title": "ECtHR grants interim measures in the case of the newly elected Judges to Polish Constitutional Court",
+      "date": "2026-05-07",
+      "published_at": "2026-05-07T00:00:00Z",
+      "source": "EU Law Live",
+      "url": "https://eulawlive.com/ecthr-grants-interim-measures-in-the-case-of-the-newly-elected-judges-to-polish-constitutional-court/",
+      "body": "The European Court of Human Rights decided on 5 May 2026 to provisionally indicate an interim measure to the Government of Poland in the case of Dziurda and Others &#8230; The post ECtHR grants interim measures in the case of the newly elected Judges to Polish Constitutional Court appeared first on EU Law Live .",
+      "tags": [
+        "Court",
+        "EU"
+      ],
+      "entity_match": [],
+      "watchlist_hits": [],
       "prosus_lens": "",
       "category": "regulatory",
       "scope_path": "B"
@@ -837,644 +1582,119 @@
       "url": "https://economictimes.indiatimes.com/tech/artificial-intelligence/indians-are-driving-most-intensive-ai-applications-anthropic-india-md/articleshow/130868384.cms",
       "body": "India is a global AI powerhouse, with users driving advanced applications and Claude.ai seeing its second-largest user base here. This surge is dramatically boosting productivity, with tasks now taking a fraction of the time. GCC revenues are soaring, but AI is reshaping hiring trends.",
       "tags": [
-        "India"
-      ],
-      "entity_match": [],
-      "watchlist_hits": [],
-      "prosus_lens": "",
-      "category": "regulatory",
-      "scope_path": "B"
-    },
-    {
-      "id": "53f2e61cd1",
-      "title": "AI use in scientific submissions to major academic journal up by 42% since November 2022: Analysis",
-      "date": "2026-05-06",
-      "published_at": "2026-05-06T00:00:00Z",
-      "source": "Economic Times Tech",
-      "url": "https://economictimes.indiatimes.com/tech/artificial-intelligence/ai-use-in-scientific-submissions-to-major-academic-journal-up-by-42-since-november-2022-analysis/articleshow/130853298.cms",
-      "body": "A major journal sees a 42% surge in AI-assisted scientific papers since late 2022. This rise coincides with a drop in writing quality. Researchers note the strain on peer review. The trend suggests more research, not necessarily better research, is emerging.",
-      "tags": [
-        "Brazil"
-      ],
-      "entity_match": [],
-      "watchlist_hits": [
-        "Competition & Antitrust"
-      ],
-      "prosus_lens": "",
-      "category": "regulatory",
-      "scope_path": "C"
-    },
-    {
-      "id": "a2b18c4fab",
-      "title": "Using AI for Just 10 Minutes Might Make You Lazy and Dumb, Study Shows",
-      "date": "2026-05-06",
-      "published_at": "2026-05-06T00:00:00Z",
-      "source": "Wired",
-      "url": "https://www.wired.com/story/using-ai-negative-impact-thinking-problem-solving-study/",
-      "body": "New research suggests that reliance on AI assistants can have a negative impact on people’s ability to think and problem solve.",
-      "tags": [],
-      "entity_match": [],
-      "watchlist_hits": [
-        "AI Agents & Agentic AI"
-      ],
-      "prosus_lens": "",
-      "category": "regulatory",
-      "scope_path": "C"
-    },
-    {
-      "id": "edf8dc0da4",
-      "title": "I Am Begging AI Companies to Stop Naming Features After Human Processes",
-      "date": "2026-05-06",
-      "published_at": "2026-05-06T00:00:00Z",
-      "source": "Wired",
-      "url": "https://www.wired.com/story/i-am-begging-ai-companies-to-stop-naming-features-after-human-processes/",
-      "body": "Anthropic announced “dreaming” for AI agents to sort through “memories” at its developer conference. Can we not?",
-      "tags": [],
-      "entity_match": [],
-      "watchlist_hits": [
-        "AI Agents & Agentic AI"
-      ],
-      "prosus_lens": "",
-      "category": "regulatory",
-      "scope_path": "C"
-    },
-    {
-      "id": "750986bd52",
-      "title": "Is OpenAI launching a mobile phone? Here’s the lowdown",
-      "date": "2026-05-06",
-      "published_at": "2026-05-06T00:00:00Z",
-      "source": "Economic Times Tech",
-      "url": "https://economictimes.indiatimes.com/tech/technology/is-openai-launching-a-mobile-phone-heres-the-lowdown/articleshow/130849659.cms",
-      "body": "OpenAI is reportedly accelerating its AI agent smartphone development, with mass production targeted for early 2027. This device aims to move beyond current assistant-driven phones by enabling autonomous agents to handle tasks independently. The phone is expected to feature a custom MediaTek chipset with enhanced imaging and high-end hardware for faster performance and AI processing.",
-      "tags": [],
-      "entity_match": [],
-      "watchlist_hits": [
-        "AI Agents & Agentic AI"
-      ],
-      "prosus_lens": "",
-      "category": "regulatory",
-      "scope_path": "C"
-    },
-    {
-      "id": "f2b3d6a27f",
-      "title": "Five architects of the AI economy explain where the wheels are coming off",
-      "date": "2026-05-07",
-      "published_at": "2026-05-07T00:00:00Z",
-      "source": "TechCrunch",
-      "url": "https://techcrunch.com/2026/05/06/five-architects-of-the-ai-economy-explain-where-the-wheels-are-coming-off/",
-      "body": "Earlier this week, five people who touch every layer of the AI supply chain sat down at the Milken Global Conference in Beverly Hills, where they talked with TechCrunch about everything from chip shortages to orbital data centers to the possibility that the whole architecture that undergirds the tech is wrong.",
-      "tags": [],
-      "entity_match": [],
-      "watchlist_hits": [],
-      "prosus_lens": "",
-      "category": "regulatory",
-      "scope_path": "C"
-    },
-    {
-      "id": "f8a3defd98",
-      "title": "One command turns any open-source repo into an AI agent backdoor. OpenClaw proved no supply-chain scanner has a detection category for it",
-      "date": "2026-05-05",
-      "published_at": "2026-05-05T00:00:00Z",
-      "source": "VentureBeat AI",
-      "url": "https://venturebeat.com/security/one-command-open-source-repo-ai-agent-backdoor-openclaw-supply-chain-scanner",
-      "body": "Just two months ago, researchers at the Data Intelligence Lab at the University of Hong Kong introduced CLI-Anything , a new state-of-the-art tool that analyzes any repoâs source code and generates a structured command line interface (CLI) that AI coding agents can operate with a single command. Claude Code, Codex, OpenClaw, Cursor, and GitHub Copilot CLI are all supported, and since its launch in March, CLIâAnything has climbed to more than 30,000 GitHub stars. But the same mechanism that makes software agent-native opens the door to agent-level poisoning. The attack community is already ",
-      "tags": [],
-      "entity_match": [],
-      "watchlist_hits": [
-        "AI Agents & Agentic AI"
-      ],
-      "prosus_lens": "",
-      "category": "regulatory",
-      "scope_path": "C"
-    },
-    {
-      "id": "8973022fa6",
-      "title": "Snap says $400 million AI search deal with Perplexity was called off \"amicably\"",
-      "date": "2026-05-07",
-      "published_at": "2026-05-07T00:00:00Z",
-      "source": "Economic Times Tech",
-      "url": "https://economictimes.indiatimes.com/tech/artificial-intelligence/400-million-ai-search-deal-with-perplexity-was-called-off-amicably-snap-in-earnings-report/articleshow/130883768.cms",
-      "body": "Snap has amicably ended its partnership with AI startup Perplexity, canceling plans to integrate Perplexity's AI search into Snapchat. The deal, valued at $400 million, would have brought conversational AI search to the app. Despite this, Snap reported stronger first-quarter results with a 12% revenue increase and narrowed net loss.",
-      "tags": [],
-      "entity_match": [],
-      "watchlist_hits": [],
-      "prosus_lens": "",
-      "category": "regulatory",
-      "scope_path": "C"
-    },
-    {
-      "id": "b777b23beb",
-      "title": "Over 93,000 jobs cut in tech so far in 2026 as AI drives cuts at Freshworks, Coinbase, others",
-      "date": "2026-05-07",
-      "published_at": "2026-05-07T00:00:00Z",
-      "source": "Economic Times Tech",
-      "url": "https://economictimes.indiatimes.com/tech/artificial-intelligence/over-93000-jobs-cut-in-tech-so-far-in-2026-as-ai-drives-cuts-at-freshworks-coinbase-others/articleshow/130879931.cms",
-      "body": "Tech companies are implementing significant workforce reductions, with over 93,000 roles cut in early 2026, driven by AI and automation. Major players like Meta, Coinbase, and Freshworks are restructuring, leading to leaner teams and a shift towards efficiency.",
-      "tags": [],
-      "entity_match": [],
-      "watchlist_hits": [],
-      "prosus_lens": "",
-      "category": "regulatory",
-      "scope_path": "C"
-    },
-    {
-      "id": "d62ef6e691",
-      "title": "Over 93,000 jobs cut in tech so far in 2026 as AI drives layoffs at Freshworks, Coinbase, others",
-      "date": "2026-05-07",
-      "published_at": "2026-05-07T00:00:00Z",
-      "source": "Economic Times Tech",
-      "url": "https://economictimes.indiatimes.com/tech/technology/over-93000-jobs-cut-in-tech-so-far-in-2026-as-ai-drives-cuts-at-freshworks-coinbase-others/articleshow/130879634.cms",
-      "body": "Tech companies are implementing significant workforce reductions, with over 93,000 roles cut in early 2026, driven by AI and automation. Major players like Meta, Coinbase, and Freshworks are restructuring, leading to leaner teams and a shift towards efficiency.",
-      "tags": [],
-      "entity_match": [],
-      "watchlist_hits": [],
-      "prosus_lens": "",
-      "category": "regulatory",
-      "scope_path": "C"
-    },
-    {
-      "id": "f0946831d7",
-      "title": "The growing pay gap: AI skills drive 60% higher salaries in tech",
-      "date": "2026-05-07",
-      "published_at": "2026-05-07T00:00:00Z",
-      "source": "Economic Times Tech",
-      "url": "https://economictimes.indiatimes.com/tech/artificial-intelligence/the-growing-pay-gap-ai-skills-drive-60-higher-salaries-in-tech/articleshow/130867447.cms",
-      "body": "AI-skilled professionals are commanding significant pay premiums, earning up to 60% more than their peers in other tech fields. This widening salary gap is expected to persist and grow over the next two to three years as companies increasingly adopt AI-influenced pay frameworks and automation impacts entry-level roles.",
-      "tags": [],
-      "entity_match": [],
-      "watchlist_hits": [],
-      "prosus_lens": "",
-      "category": "regulatory",
-      "scope_path": "C"
-    },
-    {
-      "id": "b0547f7ca4",
-      "title": "Microsoft’s AI data center push is colliding with its clean power goals",
-      "date": "2026-05-06",
-      "published_at": "2026-05-06T00:00:00Z",
-      "source": "TechCrunch",
-      "url": "https://techcrunch.com/2026/05/06/microsofts-ai-data-center-push-is-colliding-with-its-clean-power-goals/",
-      "body": "The push for new data centers at Microsoft is putting its key clean power goals at risk.",
-      "tags": [],
-      "entity_match": [],
-      "watchlist_hits": [],
-      "prosus_lens": "",
-      "category": "regulatory",
-      "scope_path": "C"
-    },
-    {
-      "id": "41776dbb3b",
-      "title": "How Elon Musk left OpenAI, according to Greg Brockman",
-      "date": "2026-05-06",
-      "published_at": "2026-05-06T00:00:00Z",
-      "source": "TechCrunch",
-      "url": "https://techcrunch.com/2026/05/06/how-elon-musk-left-openai-according-to-greg-brockman/",
-      "body": "Cutthroat negotiations between startup founders are rarely shared so publicly, especially when a company becomes as world-changing as OpenAI.",
-      "tags": [],
-      "entity_match": [],
-      "watchlist_hits": [],
-      "prosus_lens": "",
-      "category": "regulatory",
-      "scope_path": "C"
-    },
-    {
-      "id": "7ab578144c",
-      "title": "AI evaluation startup Braintrust confirms breach, tells every customer to rotate sensitive keys",
-      "date": "2026-05-06",
-      "published_at": "2026-05-06T00:00:00Z",
-      "source": "TechCrunch",
-      "url": "https://techcrunch.com/2026/05/06/ai-evaluation-startup-braintrust-confirms-breach-tells-every-customer-to-rotate-sensitive-keys/",
-      "body": "Braintrust, a startup that makes an “operating system for engineers building AI software,” notified customers that hackers broke into one of its Amazon cloud environments, and is asking customers to rotate their API keys.",
-      "tags": [],
-      "entity_match": [],
-      "watchlist_hits": [],
-      "prosus_lens": "",
-      "category": "regulatory",
-      "scope_path": "C"
-    },
-    {
-      "id": "adcb07a7e7",
-      "title": "Google updates AI search to include quotes from Reddit and other sources",
-      "date": "2026-05-06",
-      "published_at": "2026-05-06T00:00:00Z",
-      "source": "TechCrunch",
-      "url": "https://techcrunch.com/2026/05/06/google-updates-ai-search-to-include-expert-advice-from-reddit-and-other-web-forums/",
-      "body": "While citing web forums and discussion boards can help users find answers to more niche queries, this design choice could also prove chaotic.",
-      "tags": [],
-      "entity_match": [],
-      "watchlist_hits": [],
-      "prosus_lens": "",
-      "category": "regulatory",
-      "scope_path": "C"
-    },
-    {
-      "id": "e20cade702",
-      "title": "Khosla-backed robotics startup Genesis AI has gone full stack, demo shows",
-      "date": "2026-05-06",
-      "published_at": "2026-05-06T00:00:00Z",
-      "source": "TechCrunch",
-      "url": "https://techcrunch.com/2026/05/06/khosla-backed-robotics-startup-genesis-ai-has-gone-full-stack-demo-shows/",
-      "body": "Genesis AI, a startup that raised a $105 million seed round to build foundational AI for robotics, has unveiled its first model, GENE-26.5, but also a demo showcasing a set of robotic hands performing complex tasks.",
-      "tags": [],
-      "entity_match": [],
-      "watchlist_hits": [],
-      "prosus_lens": "",
-      "category": "regulatory",
-      "scope_path": "C"
-    },
-    {
-      "id": "a9ceb26983",
-      "title": "Tinder owner Match Group is slowing hiring to pay for its increased use of AI tools",
-      "date": "2026-05-06",
-      "published_at": "2026-05-06T00:00:00Z",
-      "source": "TechCrunch",
-      "url": "https://techcrunch.com/2026/05/06/tinder-owner-match-group-is-slowing-hiring-to-pay-for-its-increased-use-of-ai-tools/",
-      "body": "Match Group said that it's slowing its hiring plans for the rest of the year because AI tools \"cost a lot of money.\"",
-      "tags": [],
-      "entity_match": [],
-      "watchlist_hits": [],
-      "prosus_lens": "",
-      "category": "regulatory",
-      "scope_path": "C"
-    },
-    {
-      "id": "be19f0ef24",
-      "title": "Apple to pay $250M to settle lawsuit over Siri’s delayed AI features",
-      "date": "2026-05-06",
-      "published_at": "2026-05-06T00:00:00Z",
-      "source": "TechCrunch",
-      "url": "https://techcrunch.com/2026/05/06/apple-to-pay-250m-to-settle-lawsuit-over-siris-delayed-ai-features/",
-      "body": "Apple has agreed to pay $250 million to settle a class action lawsuit for overpromising the arrival of Siri's AI features.",
-      "tags": [],
-      "entity_match": [],
-      "watchlist_hits": [],
-      "prosus_lens": "",
-      "category": "regulatory",
-      "scope_path": "C"
-    },
-    {
-      "id": "1eb8d12f1c",
-      "title": "Market research is too slow for the AI era, so Brox built 60,000 identical 'digital twins' of real people you can survey instantly, repeatedly",
-      "date": "2026-05-06",
-      "published_at": "2026-05-06T00:00:00Z",
-      "source": "VentureBeat AI",
-      "url": "https://venturebeat.com/data/market-research-is-too-slow-for-the-ai-era-so-brox-built-60-000-identical-digital-twins-of-real-people-you-can-survey-instantly-repeatedly",
-      "body": "In a world where a viral TikTok video can cause a brand to trend globally in mere hours, the traditional market research cycle â often spanning 12 weeks â is becoming a liability. The lag between a survey question and the answers from a wide (or targeted) pool of respondents has become a primary bottleneck for Fortune 500 decision-makers who are forced to navigate volatile geopolitical and economic shifts with data that is frequently outdated by the time it reaches a slide deck, as industry experts have observed . Brox , a predictive human intelligence startup, recently announced a strateg",
-      "tags": [],
-      "entity_match": [],
-      "watchlist_hits": [],
-      "prosus_lens": "",
-      "category": "regulatory",
-      "scope_path": "C"
-    }
-  ],
-  "fintech": [
-    {
-      "id": "cbb5889777",
-      "title": "Meesho to infuse up to Rs 100 crore in lending arm MPPL",
-      "date": "2026-05-06",
-      "published_at": "2026-05-06T00:00:00Z",
-      "source": "Economic Times Tech",
-      "url": "https://economictimes.indiatimes.com/tech/startups/meesho-to-infuse-up-to-rs-100-crore-in-lending-arm-mppl/articleshow/130859282.cms",
-      "body": "E-commerce firm Meesho's board has approved a significant investment of up to Rs 100 crore in its payments subsidiary, Meesho Payments Private Limited. This capital infusion is planned through share subscriptions, including a rights issue. The funds will bolster MPPL's operations and growth. This strategic move aims to enhance MPPL's capacity to meet regulatory demands and expand its services.",
-      "tags": [],
-      "entity_match": [
-        "Meesho",
-        "Ema"
-      ],
-      "watchlist_hits": [
-        "AI Agents & Agentic AI"
-      ],
-      "prosus_lens": "",
-      "category": "fintech",
-      "scope_path": "A"
-    },
-    {
-      "id": "b110d51996",
-      "title": "Deeptech bets heat up; Paytm, PB Fintech, Meesho earnings",
-      "date": "2026-05-07",
-      "published_at": "2026-05-07T00:00:00Z",
-      "source": "Economic Times Tech",
-      "url": "https://economictimes.indiatimes.com/tech/newsletters/morning-dispatch/deeptech-bets-heat-up-paytm-pb-fintech-meesho-earnings/articleshow/130875215.cms",
-      "body": "Happy Thursday! VCs are doubling down on India’s deeptech, with early-stage bets leading the charge. This and more in today’s ETtech Morning Dispatch.",
-      "tags": [
         "India",
-        "Fintech"
-      ],
-      "entity_match": [
-        "Meesho"
-      ],
-      "watchlist_hits": [],
-      "prosus_lens": "",
-      "category": "fintech",
-      "scope_path": "A"
-    },
-    {
-      "id": "31cc7d5724",
-      "title": "Job cuts at Freshworks; Meesho, PB Fintech Q4 earnings",
-      "date": "2026-05-06",
-      "published_at": "2026-05-06T00:00:00Z",
-      "source": "Economic Times Tech",
-      "url": "https://economictimes.indiatimes.com/tech/newsletters/tech-top-5/fresh-job-cuts-at-freshworks-pb-fintech-meesho-earnings/articleshow/130858592.cms",
-      "body": "Freshworks announced job cuts as it ramps up AI focus. This and more in today's ETtech Top 5.",
-      "tags": [
-        "Fintech"
-      ],
-      "entity_match": [
-        "Meesho"
-      ],
-      "watchlist_hits": [],
-      "prosus_lens": "",
-      "category": "fintech",
-      "scope_path": "A"
-    },
-    {
-      "id": "4e83654e72",
-      "title": "PB Fintech Q4 results: Revenue up 36% to Rs 2,061 crore, net profit up 54% YoY",
-      "date": "2026-05-06",
-      "published_at": "2026-05-06T00:00:00Z",
-      "source": "Economic Times Tech",
-      "url": "https://economictimes.indiatimes.com/tech/technology/pb-fintech-q4-results-revenue-up-36-to-rs-2061-crore-net-profit-up-54-yoy/articleshow/130856318.cms",
-      "body": "Policybazaar's parent, PB Fintech, saw a significant surge in operating revenue to Rs 2,061 crore, driven by online insurance premiums. Net profit also climbed 54% to Rs 261 crore. The company's full-year premium collection reached Rs 29,934 crore, with new initiatives showing strong growth.",
-      "tags": [
-        "Fintech"
+        "Chatbot"
       ],
       "entity_match": [],
       "watchlist_hits": [],
       "prosus_lens": "",
-      "category": "fintech",
-      "scope_path": "C"
-    },
-    {
-      "id": "23b51e4e2b",
-      "title": "One of a Kind Startup Awards 2026: Putting AI-first innovation in focus",
-      "date": "2026-05-06",
-      "published_at": "2026-05-06T00:00:00Z",
-      "source": "Economic Times Tech",
-      "url": "https://economictimes.indiatimes.com/tech/startups/one-of-a-kind-startup-awards-2026-putting-ai-first-innovation-in-focus/articleshow/130847174.cms",
-      "body": "The One of a Kind Startup Awards 2026 by Cashfree Payments and The Economic Times spotlight early-stage startups driving real innovation. With five categories, including AI Innovator, the awards offer visibility, credibility, and expert-led evaluation to help founders accelerate growth.",
-      "tags": [],
-      "entity_match": [],
-      "watchlist_hits": [],
-      "prosus_lens": "",
-      "category": "fintech",
-      "scope_path": "C"
-    }
-  ],
-  "consumer_protection": [],
-  "platform_liability": [
-    {
-      "id": "df8d552f7a",
-      "title": "EU and Japan accelerate cooperation on AI, data, quantum and chips",
-      "date": "2026-05-05",
-      "published_at": "2026-05-05T00:00:00Z",
-      "source": "EU Digital Strategy",
-      "url": "https://digital-strategy.ec.europa.eu/en/news/eu-and-japan-accelerate-cooperation-ai-data-quantum-and-chips",
-      "body": "EU and Japan accelerate cooperation on AI, data, quantum and chips Anonymous (not verified) Tue, 05/05/2026 - 12:09 At the fourth meeting of the EU-Japan Digital Partnership Council in Brussels, the European Union and Japan agreed on new steps to deepen regulatory, research and industry cooperation on data, AI, quantum, semiconductors, digital infrastructure and online platforms. © GettyImages These steps will improve cross-border data flows, advance interoperable digital identities and strengthen cooperation on research, platform regulation and digital infrastructure while delivering tangible",
-      "tags": [
-        "EU"
-      ],
-      "entity_match": [],
-      "watchlist_hits": [
-        "Data & Privacy",
-        "Platform Regulation (DSA/DMA)"
-      ],
-      "prosus_lens": "",
-      "category": "platform_liability",
+      "category": "regulatory",
       "scope_path": "B"
     },
     {
-      "id": "4f50cab765",
-      "title": "Hackers Hate AI Slop Even More Than You Do",
-      "date": "2026-05-06",
-      "published_at": "2026-05-06T00:00:00Z",
-      "source": "Wired",
-      "url": "https://www.wired.com/story/cybercriminals-are-complaining-about-ai-slop-flooding-their-forums/",
-      "body": "It's not just you. Scammers, hackers, and other cybercriminals are complaining about “AI shit” flooding platforms where they discuss cyberattacks and other illegal activity.",
-      "tags": [],
-      "entity_match": [],
-      "watchlist_hits": [],
-      "prosus_lens": "",
-      "category": "platform_liability",
-      "scope_path": "C"
-    },
-    {
-      "id": "34d4238b18",
-      "title": "Musk v. Altman week 1: Elon Musk says he was duped, warns AI could kill us all, and admits that xAI distills OpenAI’s models",
-      "date": "2026-05-01",
-      "published_at": "2026-05-01T00:00:00Z",
-      "source": "MIT Tech Review",
-      "url": "https://www.technologyreview.com/2026/05/01/1136800/musk-v-altman-week-1-musk-says-he-was-duped-warns-ai-could-kill-us-all-and-admits-that-xai-distills-openais-models/",
-      "body": "In the first week of the landmark trial between Elon Musk and OpenAI, Musk took the stand in a crisp black suit and tie and argued that OpenAI CEO Sam Altman and president Greg Brockman had deceived him into bankrolling the company. Along the way, he warned&#160;that AI could destroy us all and sat through&#8230;",
-      "tags": [],
-      "entity_match": [],
-      "watchlist_hits": [
-        "Platform Regulation (DSA/DMA)"
-      ],
-      "prosus_lens": "",
-      "category": "platform_liability",
-      "scope_path": "C"
-    }
-  ],
-  "gig_economy": [
-    {
-      "id": "c1e347fcab",
-      "title": "Apple to invest Rs 100 crore in India renewable energy expansion",
+      "id": "da395f0485",
+      "title": "Supreme Court asks Bar Council to form AI expert panel after trial court cites fake judgments",
       "date": "2026-05-07",
       "published_at": "2026-05-07T00:00:00Z",
-      "source": "Economic Times Tech",
-      "url": "https://economictimes.indiatimes.com/tech/technology/apple-to-invest-rs-100-crore-in-india-renewable-energy-expansion/articleshow/130881143.cms",
-      "body": "Apple is expanding its renewable energy investments in India with an initial Rs 100 crore investment in collaboration with CleanMax. This initiative will support over 150 megawatts of new renewable energy capacity, aiming to power approximately 150,000 Indian households annually.",
+      "source": "MediaNama",
+      "url": "https://www.medianama.com/2026/05/223-supreme-court-seeks-ai-panel-over-fake-judgments/",
+      "body": "The Supreme Court has stepped into a growing AI controversy after fake judgments surfaced in an Indian court case. What happens next could shape AI use in the judiciary. The post Supreme Court asks Bar Council to form AI expert panel after trial court cites fake judgments appeared first on MEDIANAMA .",
       "tags": [
+        "Court",
         "India"
       ],
       "entity_match": [],
       "watchlist_hits": [],
       "prosus_lens": "",
-      "category": "gig_economy",
+      "category": "regulatory",
       "scope_path": "B"
     },
     {
-      "id": "e7e6d9b82a",
-      "title": "SpaceX to give Anthropic access to its massive AI supercomputer",
+      "id": "4e5927e635",
+      "title": "European Union strikes deal to ban sexualised AI deepfakes",
       "date": "2026-05-07",
       "published_at": "2026-05-07T00:00:00Z",
-      "source": "Economic Times Tech",
-      "url": "https://economictimes.indiatimes.com/tech/artificial-intelligence/spacex-to-give-anthropic-access-to-its-massive-ai-supercomputer/articleshow/130875028.cms",
-      "body": "SpaceX has inked a deal to grant Anthropic access to its Colossus 1 AI supercomputer. This collaboration aims to enhance computing power for Anthropic's Claude Pro and Claude Max AI assistants. Furthermore, Anthropic is exploring a partnership with SpaceX to develop orbital AI computing capacity.",
-      "tags": [],
-      "entity_match": [],
-      "watchlist_hits": [
-        "AI Agents & Agentic AI"
+      "source": "The Hindu Tech",
+      "url": "https://www.thehindu.com/news/international/european-union-strikes-deal-to-ban-sexualised-ai-deepfakes/article70950473.ece",
+      "body": "\"Today, the EU has drawn a red line. AI must never be used to humiliate, exploit or endanger people. For the first time, EU legislation explicitly bans nudifier applications,\" centrist EU lawmaker Michael McNamara said",
+      "tags": [
+        "EU",
+        "AI"
       ],
-      "prosus_lens": "",
-      "category": "gig_economy",
-      "scope_path": "C"
-    },
-    {
-      "id": "631fd94ebc",
-      "title": "Corning partners with Nvidia to expand US fiber optic output for AI growth",
-      "date": "2026-05-07",
-      "published_at": "2026-05-07T00:00:00Z",
-      "source": "Economic Times Tech",
-      "url": "https://economictimes.indiatimes.com/tech/artificial-intelligence/corning-partners-with-nvidia-to-expand-us-fiber-optic-output-for-ai-growth/articleshow/130877427.cms",
-      "body": "Corning and Nvidia are partnering to significantly boost U.S. production of optical connectivity products for AI data centers. This collaboration will tenfold Corning's optical connectivity manufacturing capacity and expand domestic fiber production by over 50%, creating thousands of jobs.",
-      "tags": [],
       "entity_match": [],
       "watchlist_hits": [],
       "prosus_lens": "",
-      "category": "gig_economy",
-      "scope_path": "C"
-    },
-    {
-      "id": "41a0ede498",
-      "title": "Tailoring AI solutions for health care needs",
-      "date": "2026-05-04",
-      "published_at": "2026-05-04T00:00:00Z",
-      "source": "MIT Tech Review",
-      "url": "https://www.technologyreview.com/2026/05/04/1134425/tailoring-ai-solutions-for-health-care-needs/",
-      "body": "The AI market is full of big promises of grand transformation. Health care is a prime target for those promises, beset as it is by financial pressures, labor shortages, and the growing burden of caring for an aging population. AI developers are targeting functions that vary widely, from curing cancer and performing surgery to streamlining&#8230;",
-      "tags": [],
-      "entity_match": [],
-      "watchlist_hits": [],
-      "prosus_lens": "",
-      "category": "gig_economy",
-      "scope_path": "C"
+      "category": "regulatory",
+      "scope_path": "B"
     }
   ],
   "ai_landscape": [
-    {
-      "id": "90e56b0ce7",
-      "title": "Microsoft may shelve 2030 clean energy target as AI lifts power use: Bloomberg News",
-      "date": "2026-05-06",
-      "published_at": "2026-05-06T00:00:00Z",
-      "source": "Economic Times Tech",
-      "url": "https://economictimes.indiatimes.com/tech/artificial-intelligence/microsoft-may-shelve-2030-clean-energy-target-as-ai-lifts-power-use-bloomberg-news/articleshow/130859487.cms",
-      "body": "Microsoft may miss its 2030 renewable energy target. The company faces challenges with its ambitious climate goals. Building new data centers for artificial intelligence requires massive power. This is reshaping Microsoft's commitments. Discussions are ongoing about delaying or abandoning the renewable energy goal. The AI boom is driving demand for energy.",
-      "tags": [
-        "AI"
-      ],
-      "entity_match": [
-        "Ema"
-      ],
-      "watchlist_hits": [
-        "AI Agents & Agentic AI"
-      ],
-      "prosus_lens": "",
-      "category": "ai_agents",
-      "scope_path": "A"
-    },
-    {
-      "id": "631d1c5ad6",
-      "title": "Miami startup Subquadratic claims 1,000x AI efficiency gain with SubQ model; researchers demand independent proof.",
-      "date": "2026-05-05",
-      "published_at": "2026-05-05T00:00:00Z",
-      "source": "VentureBeat AI",
-      "url": "https://venturebeat.com/technology/miami-startup-subquadratic-claims-1-000x-ai-efficiency-gain-with-subq-model-researchers-demand-independent-proof",
-      "body": "A little-known Miami-based startup called Subquadratic emerged from stealth on Tuesday with a sweeping claim: that it has built the first large language model to fully escape the mathematical constraint that has defined â and limited â every major AI system since 2017. The company claims its first model, SubQ 1M-Preview , is the first LLM built on a fully subquadratic architecture â one where compute grows linearly with context length. If that claim holds, it would be a genuine inflection point in how AI systems scale. At 12 million tokens, the company says, its architecture reduces atte",
-      "tags": [
-        "Fine",
-        "AI"
-      ],
-      "entity_match": [
-        "Ema"
-      ],
-      "watchlist_hits": [
-        "AI Agents & Agentic AI"
-      ],
-      "prosus_lens": "",
-      "category": "ai_agents",
-      "scope_path": "A"
-    },
-    {
-      "id": "d555bbf091",
-      "title": "AI agents are missing all the discussions your team is having. SageOX has an answer: agentic context infrastructure",
-      "date": "2026-05-05",
-      "published_at": "2026-05-05T00:00:00Z",
-      "source": "VentureBeat AI",
-      "url": "https://venturebeat.com/technology/ai-agents-are-missing-all-the-discussions-your-team-is-having-sageox-has-an-answer-agentic-context-infrastructure",
-      "body": "As AI model providers increasingly move downstream, launching products and agents for specific enterprise applications and sectors like finance, one big question still remains: how will said AI agents be equipped with the proper context surrounding a task â who assigned it, which other stakeholders are involved, what data or discussions have taken place about it and how it should be done? This practice of &quot;context engineering&quot; remains one of the great unsolved problems of the AI era. But SageOx , a Seattle-based startup founded by the veterans who built the original AWS EC2 and EBS",
-      "tags": [],
-      "entity_match": [
-        "Ema"
-      ],
-      "watchlist_hits": [
-        "AI Agents & Agentic AI"
-      ],
-      "prosus_lens": "",
-      "category": "ai_agents",
-      "scope_path": "A"
-    },
-    {
-      "id": "81850e325c",
-      "title": "Meesho Q4 revenue jumps 47%; operating losses widen on aggressive growth push",
-      "date": "2026-05-06",
-      "published_at": "2026-05-06T00:00:00Z",
-      "source": "Economic Times Tech",
-      "url": "https://economictimes.indiatimes.com/tech/technology/meesho-q4-revenue-jumps-47-operating-losses-widen-on-aggressive-growth-push/articleshow/130860891.cms",
-      "body": "CEO Vidit Aatrey said that over 70% of the company’s code now is being written using artificial intelligence. More than three fourths of Meesho's orders come through its AI recommendation engine, underscoring the ecommerce marketplace's efforts on driving growth using frontier technology.",
-      "tags": [
-        "AI"
-      ],
-      "entity_match": [
-        "Meesho"
-      ],
-      "watchlist_hits": [],
-      "prosus_lens": "",
-      "category": "ai_agents",
-      "scope_path": "A"
-    },
     {
       "id": "26188cadd4",
       "title": "EU agrees to simplify AI rules to boost innovation and ban ‘nudification' apps to protect citizens",
       "date": "2026-05-07",
       "published_at": "2026-05-07T00:00:00Z",
-      "source": "EU Digital Strategy",
+      "source": "EU Digital Strategy / AI Office",
       "url": "https://digital-strategy.ec.europa.eu/en/news/eu-agrees-simplify-ai-rules-boost-innovation-and-ban-nudification-apps-protect-citizens",
-      "body": "EU agrees to simplify AI rules to boost innovation and ban ‘nudification' apps to protect citizens Anonymous (not verified) Thu, 05/07/2026 - 07:27 The European Commission welcomes the political agreement reached today between the European Parliament and the Council of the EU on simpler, innovation-friendly rules for artificial intelligence (AI). The Commission proposed the Digital Omnibus on AI only five months ago as part of the EU's simplification agenda to boost Europe's competitiveness. This will make the implementation of the AI Act for EU businesses easier while maintaining its benefits",
+      "body": "EU agrees to simplify AI rules to boost innovation and ban ‘nudification' apps to protect citizens Anonymous (not verified) Thu, 05/07/2026 - 07:27 The European Commission welcomes the political agreement reached today between the European Parliament and the Council of the EU on simpler, innovation-friendly rules for artificial intelligence (AI). The Commission proposed the Digital Omnibus on AI only five months ago as part of the EU's simplification agenda to boost Europe's competitiveness. This will make the implementation of the AI Act for EU businesses easier while maintaining its benefits for European society, safety and fundamental rights. Today's agreement sets a clear implementation ",
       "tags": [
         "AI Act",
         "EU",
         "AI"
       ],
       "entity_match": [],
-      "watchlist_hits": [
-        "EU AI Act"
-      ],
+      "watchlist_hits": [],
       "prosus_lens": "",
       "category": "ai_agents",
       "scope_path": "B"
     },
     {
-      "id": "3a1193481a",
-      "title": "Firms fixing workflows before deploying agentic AI: Adobe India MD",
+      "id": "aea3170c41",
+      "title": "EU countries, lawmakers clinch provisional deal on watered-down AI rules",
       "date": "2026-05-07",
       "published_at": "2026-05-07T00:00:00Z",
       "source": "Economic Times Tech",
-      "url": "https://economictimes.indiatimes.com/tech/artificial-intelligence/firms-fixing-workflows-before-deploying-agentic-ai-adobe-india-md/articleshow/130868872.cms",
-      "body": "India is a key innovation hub for Adobe, powering nearly a third of its global innovation, including Firefly AI. The company is enabling enterprises to adopt agentic AI by redesigning workflows and employee processes.",
+      "url": "https://economictimes.indiatimes.com/tech/artificial-intelligence/eu-countries-lawmakers-clinch-provisional-deal-on-watered-down-ai-rules/articleshow/130879398.cms",
+      "body": "EU countries and European Parliament lawmakers have agreed to a watered-down AI Act, delaying implementation for high-risk systems until December 2027. This move, aimed at reducing administrative costs and easing business competition, includes a ban on AI-generated explicit images and mandatory watermarking for AI output.",
+      "tags": [
+        "AI Act",
+        "EU"
+      ],
+      "entity_match": [],
+      "watchlist_hits": [],
+      "prosus_lens": "",
+      "category": "ai_agents",
+      "scope_path": "B"
+    },
+    {
+      "id": "fa9c109716",
+      "title": "Taking stock: The Impact of the India AI Impact Summit 2026",
+      "date": "2026-05-05",
+      "published_at": "2026-05-05T00:00:00Z",
+      "source": "Future of Privacy Forum",
+      "url": "https://fpf.org/blog/taking-stock-the-impact-of-the-india-ai-impact-summit-2026/",
+      "body": "India&#8217;s hosting of the AI Impact Summit 2026 was an ambitious undertaking. With 600,000 attendees and 92 signatories to the New Delhi Declaration, the Summit was a showcase of a Global South country taking a leading role in shaping the AI governance agenda. The Summit’s official framing centered on infrastructure, compute, and equitable access to [&#8230;]",
       "tags": [
         "India"
       ],
       "entity_match": [],
       "watchlist_hits": [
-        "AI Agents & Agentic AI"
+        "AI_Regulation"
       ],
       "prosus_lens": "",
       "category": "ai_agents",
       "scope_path": "B"
     },
     {
-      "id": "0bdca61cc4",
-      "title": "Google DeepMind Workers Vote to Unionize Over Military AI Deals",
-      "date": "2026-05-05",
-      "published_at": "2026-05-05T00:00:00Z",
-      "source": "Wired",
-      "url": "https://www.wired.com/story/google-deepmind-workers-vote-to-unionize-over-military-ai-deals/",
-      "body": "UK staff of Google’s AI research lab hope to block the use of the company’s artificial intelligence models in military settings.",
+      "id": "cd0903cdf1",
+      "title": "EU hits snooze on AI Act rules after industry backlash",
+      "date": "2026-05-07",
+      "published_at": "2026-05-07T00:00:00Z",
+      "source": "The Register",
+      "url": "https://www.theregister.com/ai-and-ml/2026/05/07/eu-hits-snooze-on-ai-act-rules-after-industry-backlash/5234530",
+      "body": "Brussels says it's simplification, critics may call it retreat",
       "tags": [
-        "UK",
-        "AI"
+        "AI Act"
       ],
       "entity_match": [],
       "watchlist_hits": [],
@@ -1483,54 +1703,97 @@
       "scope_path": "B"
     },
     {
-      "id": "c160e11216",
-      "title": "US, China weigh launch of official discussions on AI: WSJ",
-      "date": "2026-05-07",
-      "published_at": "2026-05-07T00:00:00Z",
-      "source": "Economic Times Tech",
-      "url": "https://economictimes.indiatimes.com/tech/artificial-intelligence/us-china-weigh-launch-of-official-discussions-on-ai-wsj/articleshow/130876732.cms",
-      "body": "Washington and Beijing are reportedly considering official discussions on artificial intelligence. This topic may be placed on the agenda for an upcoming summit between President Trump and Chinese leader Xi Jinping in Beijing next week. Treasury Secretary Scott Bessent is leading the American side for these potential AI talks.",
-      "tags": [
-        "AI"
-      ],
-      "entity_match": [],
-      "watchlist_hits": [],
-      "prosus_lens": "",
-      "category": "ai_agents",
-      "scope_path": "C"
-    },
-    {
-      "id": "04f018680d",
-      "title": "In OpenAI trial, former technology chief says Sam Altman sowed 'chaos,' distrust among top executives",
-      "date": "2026-05-07",
-      "published_at": "2026-05-07T00:00:00Z",
-      "source": "Economic Times Tech",
-      "url": "https://economictimes.indiatimes.com/tech/technology/in-openai-trial-former-technology-chief-says-sam-altman-sowed-chaos-distrust-among-top-executives/articleshow/130875033.cms",
-      "body": "A former OpenAI executive testified that CEO Sam Altman created distrust among leaders. This testimony emerged during Elon Musk's lawsuit against OpenAI. Musk claims the company abandoned its nonprofit goals. The trial could significantly impact the future of artificial intelligence development and deployment.",
-      "tags": [
-        "AI"
-      ],
-      "entity_match": [],
-      "watchlist_hits": [],
-      "prosus_lens": "",
-      "category": "ai_agents",
-      "scope_path": "C"
-    },
-    {
-      "id": "95891351a1",
-      "title": "The rapid embrace of AI in China, its biggest testing ground, may shape how AI is used globally",
+      "id": "e19194369a",
+      "title": "CDT Joined a Letter to Representative Ted Lieu Urging Him to Ensure his Recent, Bipartisan American Leadership in AI Act is Not Tied to Broader Attempts to Preempt State AI Laws",
       "date": "2026-05-06",
       "published_at": "2026-05-06T00:00:00Z",
-      "source": "Economic Times Tech",
-      "url": "https://economictimes.indiatimes.com/tech/artificial-intelligence/the-rapid-embrace-of-ai-in-china-its-biggest-testing-ground-may-shape-how-ai-is-used-globally/articleshow/130843863.cms",
-      "body": "China is rapidly adopting artificial intelligence tools. Ordinary citizens and businesses are using AI for daily tasks and work. Chinese companies are developing and commercializing AI applications. Despite US export controls, China is investing heavily in AI research and development. The nation is moving towards becoming an AI innovator.",
+      "source": "CDT",
+      "url": "https://cdt.org/insights/cdt-joined-a-letter-to-representative-ted-lieu-urging-him-to-ensure-his-recent-bipartisan-american-leadership-in-ai-act-is-not-tied-to-broader-attempts-to-preempt-state-ai-laws/",
+      "body": "CDT joined a coalition of organizations in a letter to Rep. Ted Lieu (D-CA) urging him to ensure his bipartisan American Leadership in AI Act is not packaged with or used as cover for broader efforts to preempt state artificial intelligence laws. While the coalition expressed support for Rep. Lieu&#8217;s goal of advancing bipartisan AI [&#8230;] The post CDT Joined a Letter to Representative Ted Lieu Urging Him to Ensure his Recent, Bipartisan American Leadership in AI Act is Not Tied to Broader Attempts to Preempt State AI Laws appeared first on Center for Democracy and Technology .",
       "tags": [
+        "AI Act",
         "AI"
       ],
       "entity_match": [],
       "watchlist_hits": [],
       "prosus_lens": "",
       "category": "ai_agents",
+      "scope_path": "B"
+    },
+    {
+      "id": "23d56690ca",
+      "title": "CDT and Cornell Global AI Initiative Call for Meaningful Advancements and Investment into Linguistic Diversity at the First UN Global Dialogue on AI Governance",
+      "date": "2026-04-30",
+      "published_at": "2026-04-30T00:00:00Z",
+      "source": "CDT",
+      "url": "https://cdt.org/insights/cdt-and-cornell-global-ai-initiative-call-for-meaningful-advancements-and-investment-into-linguistic-diversity-at-the-first-un-global-dialogue-on-ai-governance/",
+      "body": "Also authored by Aditya Vashistha, CDT Non-Resident Fellow &#38; Assistant Professor, Cornell University + Global AI Initiative Lead. The Center for Democracy &#38; Technology (CDT) and Cornell Global AI Initiative submit these joint comments to shape the first session of the Global Dialogue on AI Governance hosted by the UN. These comments expand on spoken [&#8230;] The post CDT and Cornell Global AI Initiative Call for Meaningful Advancements and Investment into Linguistic Diversity at the First UN Global Dialogue on AI Governance appeared first on Center for Democracy and Technology .",
+      "tags": [],
+      "entity_match": [],
+      "watchlist_hits": [
+        "AI_Regulation"
+      ],
+      "prosus_lens": "",
+      "category": "ai_agents",
+      "scope_path": "C"
+    },
+    {
+      "id": "807418120c",
+      "title": "Oscars says AI actors and writing cannot win awards",
+      "date": "2026-05-01",
+      "published_at": "2026-05-01T00:00:00Z",
+      "source": "BBC Technology",
+      "url": "https://www.bbc.com/news/articles/cx21dl3v7d3o?at_medium=RSS&at_campaign=rss",
+      "body": "The academy that controls the Oscars on Friday issued new award eligibility requirements around the use of artificial intelligence in film.",
+      "tags": [
+        "AI Act",
+        "Brazil",
+        "AI"
+      ],
+      "entity_match": [],
+      "watchlist_hits": [],
+      "prosus_lens": "",
+      "category": "ai_agents",
+      "scope_path": "C"
+    }
+  ],
+  "chatbot": [
+    {
+      "id": "f5a346e7a4",
+      "title": "The Download: seafloor science and military chatbots",
+      "date": "2026-05-06",
+      "published_at": "2026-05-06T00:00:00Z",
+      "source": "MIT Technology Review",
+      "url": "https://www.technologyreview.com/2026/05/06/1136917/the-download-seafloor-science-military-ai-chatbots/",
+      "body": "This is today&#8217;s edition of The Download, our weekday newsletter that provides a daily dose of what&#8217;s going on in the world of technology. Inexpensive seafloor-hopping submersibles could stoke deep-sea science—and mining Last week, two oblong neon submersibles started to descend nearly 6,000 meters into the Pacific Ocean. Throughout the rest of May, they will&#8230;",
+      "tags": [
+        "AI",
+        "Chatbot"
+      ],
+      "entity_match": [],
+      "watchlist_hits": [
+        "Chatbot_Litigation"
+      ],
+      "prosus_lens": "",
+      "category": "chatbot_regulation",
+      "scope_path": "C"
+    },
+    {
+      "id": "aaac30d232",
+      "title": "Conned by a chatbot",
+      "date": "2026-05-06",
+      "published_at": "2026-05-06T00:00:00Z",
+      "source": "Financial Times Tech",
+      "url": "https://www.ft.com/content/eb6f5398-6635-4938-b890-625e7c8d3af2",
+      "body": "Like tricksters, LLMs have perfected the art of plausibility",
+      "tags": [
+        "AI",
+        "Chatbot"
+      ],
+      "entity_match": [],
+      "watchlist_hits": [],
+      "prosus_lens": "",
+      "category": "chatbot_regulation",
       "scope_path": "C"
     }
   ]
