@@ -339,6 +339,222 @@ BODY_CAT_RULES = [
     ]),
 ]
 
+# ══════════════════════════════════════════════════════════════════════════════
+# PROSUS RELEVANCE GATE — article must match ≥1 of these to be included
+# Source: prosus.com/portfolio + Tara's regulatory focus areas (May 2026)
+# ══════════════════════════════════════════════════════════════════════════════
+
+PROSUS_ENTITIES = [
+    # Core / large opcos
+    "prosus", "naspers", "tencent",
+    "delivery hero", "just eat", "just eat takeaway",
+    "ifood", "swiggy", "oda food", "flink food", "sharebite", "foodics",
+    "olx", "autotrader", "autovit", "imovirtual",
+    "otodom", "otomoto", "standvirtual", "storia", "property24",
+    "payu", "iyzico", "wibmo", "zooz", "red dot payment", "tonik",
+    "paysense", "lazypay", "remitly", "bux fintech", "bibit",
+    "endowus", "thndr", "klar fintech", "spendflow", "iniciador",
+    "meesho", "urban company", "bykea", "rapido", "captain fresh",
+    "elasticrun", "shipper", "shopup", "mensa brands", "virgio",
+    "good glamm", "vegrow", "dehaat", "aruna", "creditas", "azos",
+    "eruditus", "brainly", "platzi", "goodhabitz", "gostudent",
+    "sololearn", "skillsoft", "edume", "arivihan",
+    "pharmeasy", "corti health", "voa health",
+    "stack overflow", "similarweb", "superside", "bandlab",
+    "avant arte", "dott scooter", "kovi", "99minutos",
+    "emag", "merxu", "flexion mobile",
+    # AI investees
+    "zapia", "brainlogic", "brain logic",
+    "advolve", "brainfish", "luzia",
+    "martian ai", "qeen.ai", "orbii", "nexad",
+    "taktile", "spotdraft", "intella ai", "kismet ai",
+    "fundamental research labs",
+    "cusp ai", "neara", "plerion",
+    "airmeet", "watchtowr", "zypl",
+    "fashinza", "bilt rewards",
+]
+
+REGULATORY_BODIES = [
+    # India
+    "competition commission of india", "cci investigat", "cci order",
+    "cci fine", "cci probe", "cci swiggy", "cci meesho", "cci zomato",
+    "reserve bank of india", "rbi guideline", "rbi circular",
+    "rbi fintech", "rbi payment", "rbi lending", "rbi digital",
+    "meity", "ministry of electronics", "india data protection",
+    "dpdp act", "india privacy bill", "trai regulation",
+    "npci ", "upi regulation", "india antitrust",
+    # Brazil
+    "cade ", "cade aprovação", "cade condena", "cade multa", "cade probe",
+    "anpd ", "lgpd", "brazil data protection", "brazil privacy",
+    "bacen ", "banco central do brasil", "anatel ",
+    # Netherlands / EU
+    "acm investigation", "acm fine", "acm ruling", "dutch competition",
+    "digital markets act", "dma enforcement", "dma designation",
+    "digital services act", "dsa enforcement", "dsa fine",
+    "eu ai act", "ai act", "gpai regulation",
+    "edpb", "eu data protection board", "gdpr fine", "gdpr enforcement",
+    # South Africa
+    "competition commission south africa",
+    "competition tribunal south africa",
+    "south africa competition",
+    # Turkey
+    "turkish competition authority", "rekabet kurumu", "turkey fintech",
+    # Pakistan
+    "pakistan competition commission", "state bank of pakistan",
+    # Indonesia
+    "kppu", "indonesia competition", "ojk regulation",
+    # Poland / Romania
+    "uokik", "poland competition", "competition council romania",
+    # UK
+    "competition and markets authority", "cma ruling", "cma probe",
+    "cma investigation", "cma fine", "ico fine", "ico enforcement",
+    # US
+    "ftc investigation", "ftc fine", "ftc sues", "ftc probe",
+    "doj antitrust", "cfpb rule", "cfpb fine",
+    # Global IP (Tara's domain)
+    "wipo", "inta trademark", "brand protection ruling",
+]
+
+THEMATIC_HOOKS = [
+    # Food delivery
+    "food delivery regulation", "food delivery antitrust",
+    "food delivery fine", "food delivery worker",
+    "delivery platform law", "delivery app ban",
+    # Classifieds / proptech
+    "online classifieds regulation", "property portal law",
+    "auto classifieds regulation",
+    # Payments / fintech
+    "bnpl regulation", "buy now pay later law",
+    "digital lending regulation", "neobank regulation",
+    "payment aggregator regulation", "fintech licensing",
+    "cross-border payments regulation", "remittance regulation",
+    "open banking regulation", "psd3", "instant payments regulation",
+    # Edtech
+    "edtech regulation", "online education regulation",
+    # Healthtech
+    "online pharmacy regulation", "digital health regulation",
+    "telemedicine law",
+    # Gig / workers
+    "platform worker regulation", "gig worker regulation",
+    "worker classification", "algorithmic management law",
+    # AI / agentic
+    "generative ai regulation", "ai agent regulation",
+    "ai governance", "ai liability", "ai act enforcement",
+    "llm regulation", "chatbot regulation", "ai fraud law",
+    "deepfake regulation", "synthetic media law", "voice cloning law",
+    "agentic ai regulation", "ai copyright",
+    # IP / brand
+    "trademark infringement", "brand protection",
+    "counterfeiting online", "ip enforcement",
+    "domain name regulation", "cybersquatting",
+    "ai training data lawsuit", "llm copyright",
+    # Platform liability
+    "platform liability", "marketplace liability",
+    "intermediary liability", "vlop enforcement",
+    "online marketplace regulation",
+    # M&A
+    "food delivery merger", "classifieds merger",
+    "fintech acquisition blocked", "edtech merger",
+    "healthtech acquisition", "tech merger blocked",
+]
+
+ALL_RELEVANCE_KWS = [kw.lower() for kw in PROSUS_ENTITIES + REGULATORY_BODIES + THEMATIC_HOOKS]
+
+def is_prosus_relevant(a):
+    """
+    Tier-1: Direct portfolio entity mention → always relevant.
+    Tier-2: Title contains a Prosus-sector signal → relevant.
+    Tier-3: Regulator + sector combo in full text → relevant.
+    Everything else → drop.
+    """
+    title = a["title"].lower()
+    text  = (a["title"] + " " + a.get("body", "") + " " + " ".join(a.get("tags", []))).lower()
+
+    # Tier 1 — direct portfolio entity anywhere in text
+    ENTITIES_LC = [e.lower() for e in PROSUS_ENTITIES]
+    if any(kw in text for kw in ENTITIES_LC):
+        return True
+
+    # Sector keywords broad enough to catch relevant stories from their TITLE alone
+    TITLE_SECTOR_KWS = [
+        # AI / tech regulation (Zapia, all AI investees, EU AI Act impacts)
+        "ai act", "eu ai", "ai regulation", "ai law", "ai governance",
+        "ai liability", "ai agent", "agentic ai", "generative ai",
+        "llm", "chatbot", "foundation model", "deepfake",
+        "openai", "anthropic", "deepseek", "chatgpt", "gemini",
+        # Fintech / payments (PayU, iyzico, LazyPay, Creditas)
+        "fintech", "neobank", "digital bank", "payment regulation",
+        "bnpl", "buy now pay later", "digital lending",
+        "open banking", "payment app", "payment platform",
+        "crypto regulation", "stablecoin", "remittance",
+        "paypal", "mastercard", "visa", "stripe",  # competitors/precedents
+        # Food delivery (Swiggy, iFood, Delivery Hero, Just Eat)
+        "food delivery", "delivery app", "food app",
+        "restaurant platform", "delivery platform",
+        "uber eats", "doordash", "zomato",  # competitors/precedents
+        # Gig / platform workers
+        "gig worker", "platform worker", "worker classification",
+        "gig economy", "algorithmic work",
+        # E-commerce / marketplace (Meesho, OLX, eMAG)
+        "e-commerce regulation", "online marketplace",
+        "marketplace liability", "platform liability",
+        "digital services act", "dsa ", " dma ",
+        # Classifieds / property (OLX, AutoTrader, OtoDOM)
+        "classifieds", "property portal", "real estate platform",
+        # Edtech (Eruditus, Brainly, Platzi, GoodHabitz)
+        "edtech", "online education regulation", "learning platform",
+        # Healthtech (PharmEasy, Corti)
+        "online pharmacy", "digital health regulation", "telemedicine law",
+        # IP / brand (Tara's INTA focus)
+        "trademark", "brand protection", "intellectual property",
+        "copyright infringement", "ip enforcement", "domain name",
+        "cybersquatting", "counterfeiting",
+        # Privacy / data
+        "gdpr", "data protection", "privacy regulation",
+        "data localisation", "biometric data",
+        # Competition in Prosus markets
+        "antitrust", "competition fine", "competition probe",
+        "monopoly", "market dominance",
+        # India broadly (huge Prosus exposure)
+        "india tech", "indian startup", "india digital",
+        "india competition", "india antitrust", "india fintech",
+        "india data", "india privacy",
+        # Brazil broadly (iFood, OLX, Creditas)
+        "brazil tech", "brazil fintech", "brazil digital",
+        "brazil competition", "brazil data",
+    ]
+
+    # Tier 2 — title signal alone is sufficient
+    if any(kw in title for kw in TITLE_SECTOR_KWS):
+        return True
+
+    # Tier 2b — thematic hook in full text
+    THEMES_LC = [t.lower() for t in THEMATIC_HOOKS]
+    if any(kw in text for kw in THEMES_LC):
+        return True
+
+    # Tier 3 — regulator name + sector in body (for articles where title is vague)
+    PROSUS_SECTORS = [
+        "food delivery", "delivery app", "restaurant app",
+        "fintech", "payment", "neobank", "digital lending", "bnpl",
+        "edtech", "online education", "e-learning",
+        "online pharmacy", "digital health", "telemedicine",
+        "platform worker", "gig worker",
+        "e-commerce", "online marketplace", "classifieds",
+        "artificial intelligence", "generative ai", "llm", "chatbot",
+        "trademark", "brand protection", "intellectual property",
+        "platform liability", "content moderation",
+        "big tech", "digital platform", "tech company",
+        "data protection", "privacy", "personal data",
+    ]
+    REGULATOR_NAMES = [kw.lower() for kw in REGULATORY_BODIES]
+    if any(reg in text for reg in REGULATOR_NAMES):
+        if any(sector in text for sector in PROSUS_SECTORS):
+            return True
+
+    return False
+
+
 def categorise(a):
     text = (a["title"] + " " + a["body"]).lower()
     title = a["title"].lower()
@@ -434,12 +650,16 @@ def parse_feed(xml_text, label):
         url = ""
         if link_el is not None:
             url = link_el.get("href", "") or (link_el.text or "").strip()
-        out.append({
+        article = {
             "id": uid(title, date), "title": title, "date": date,
             "published_at": date + "T00:00:00Z", "source": label, "url": url,
             "body": body or title, "tags": [], "entity_match": [],
             "watchlist_hits": [], "prosus_lens": "", "category": "", "scope_path": "",
-        })
+        }
+        # ── PROSUS RELEVANCE GATE ─────────────────────────────────────────
+        # Drop articles with no connection to Prosus portfolio or markets
+        if not is_prosus_relevant(article): continue
+        out.append(article)
     return out
 
 def infer_tags(a):
