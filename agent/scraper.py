@@ -31,7 +31,7 @@ OPENAI_API_KEY = os.environ.get("OPENAI_API_KEY", "")
 MAX_AGE_DAYS = 7
 TARGET_PER_CATEGORY = 20
 
-# ── 46 VERIFIED RSS FEEDS ─────────────────────────────────────────────────
+# ── 50 VERIFIED RSS FEEDS ─────────────────────────────────────────────────
 RSS_SOURCES = [
     # ── EU / EUROPEAN AUTHORITIES ──────────────────────────────────────────
     ("EU Digital Strategy / AI Office", "https://digital-strategy.ec.europa.eu/en/rss.xml"),
@@ -55,6 +55,10 @@ RSS_SOURCES = [
     # ── BRAZIL ─────────────────────────────────────────────────────────────
     ("Jota (Brazil)",                    "https://www.jota.info/feed"),
     ("Telesintese (Brazil)",             "https://www.telesintese.com.br/feed/"),
+    ("The Decoder (AI)",                 "https://the-decoder.com/feed/"),
+    ("Rest of World",                    "https://restofworld.org/feed/"),
+    ("404 Media",                        "https://www.404media.co/feed"),
+    ("Platformer",                       "https://www.platformer.news/feed"),
     ("Convergencia Digital (Brazil)",      "https://www.convergenciadigital.com.br/feed/"),
     ("Teletime (Brazil)",                  "https://www.teletime.com.br/feed/"),
     # ── IP SPECIALISTS ─────────────────────────────────────────────────────
@@ -150,8 +154,11 @@ RELEVANT_KWS = [
     "ai", "artificial intelligence", "machine learning", "llm", "chatgpt",
     "generative", "deepfake", "agentic", "foundation model", "openai",
     "anthropic", "gemini", "claude", "copilot",
-    # Chatbot
+    # Chatbot / AI assistants (broad — let more through to categoriser)
     "chatbot", "large language", "conversational ai",
+    "deepseek", "gemini", "claude", "grok", "perplexity",
+    "anthropic", "hallucination", "ai fraud", "synthetic voice",
+    "openai", "voice cloning", "ai impersonat", "ai defamat",
     # Platform
     "platform", "dsa", "dma", "digital market", "algorithm",
     # Fintech
@@ -201,12 +208,31 @@ TITLE_CAT_RULES = [
         "database right", "music ai", "book ai training",
     ]),
     ("chatbot_regulation", [
+        # Explicit chatbot/LLM legal
         "chatbot law", "chatbot regulation", "chatbot banned", "chatbot fined",
         "llm regulation", "llm lawsuit", "chatgpt lawsuit", "openai lawsuit",
-        "openai fined", "openai sued", "anthropic sued", "chatbot liability",
-        "conned by a chatbot", "chatbot fraud", "military chatbot",
-        "generative ai lawsuit", "generative ai sued", "chatbot harm",
-        "llm liability", "chatbot privacy", "chatbot compliance",
+        "openai fined", "openai sued", "openai probe", "openai investigat",
+        "anthropic sued", "anthropic fine", "anthropic regulat",
+        "chatbot liability", "conned by a chatbot", "chatbot fraud",
+        "military chatbot", "generative ai lawsuit", "generative ai sued",
+        "llm liability", "chatbot harm", "chatbot compliance",
+        # Broad AI assistant regulation
+        "ai assistant ban", "ai assistant regulat", "ai assistant law",
+        "gpt regulat", "gpt banned", "gpt sued", "gpt probe",
+        "gemini sued", "gemini banned", "gemini regulat",
+        "claude sued", "claude banned", "copilot sued", "copilot ban",
+        "deepseek ban", "deepseek regulat", "deepseek probe",
+        "chatgpt banned", "chatgpt probe", "chatgpt fine",
+        "openai faces", "openai ordered", "openai blocked",
+        "ai hallucination lawsuit", "ai defamation", "ai misinformation law",
+        "ai impersonation", "synthetic voice law", "voice cloning law",
+        "ai-generated fraud", "ai fraud law", "chatbot scam",
+        "llm copyright", "llm training lawsuit", "chatgpt copyright",
+        "openai copyright", "anthropic copyright", "google ai sued",
+        "meta ai sued", "microsoft ai sued", "ai bias lawsuit",
+        "ai discrimination", "ai in hiring", "automated hiring ban",
+        "eu targets ai", "regulator targets ai", "ftc ai", "ftc openai",
+        "cci ai", "cma ai", "chatbot children", "ai children safety",
     ]),
     ("ai_agents", [
         "ai act", "eu ai act", "ai regulation", "ai governance", "ai liability",
@@ -255,14 +281,45 @@ BODY_CAT_RULES = [
         "trade secret", "fair use", "neighbouring rights",
     ]),
     ("chatbot_regulation", [
+        # Legal / regulatory actions
         "chatbot law", "llm regulation", "chatgpt regulation",
-        "openai lawsuit", "anthropic sued", "chatbot liability",
-        "generative ai sued", "llm liability",
+        "openai lawsuit", "openai sued", "openai fined", "openai probe",
+        "openai investigat", "openai ordered", "openai blocked", "openai ban",
+        "anthropic sued", "anthropic fined", "anthropic probe", "anthropic regulat",
+        "chatbot liability", "chatbot fraud", "chatbot scam", "chatbot harm",
+        "generative ai sued", "generative ai fine", "generative ai ban",
+        "llm liability", "llm lawsuit", "llm banned",
+        "chatgpt banned", "chatgpt probe", "chatgpt fine", "chatgpt lawsuit",
+        "deepseek ban", "deepseek probe", "deepseek regulat", "deepseek blocked",
+        "gemini sued", "gemini banned", "gemini probe",
+        "claude banned", "claude sued", "claude probe",
+        "grok banned", "grok sued", "copilot ban", "copilot sued",
+        "ai hallucination lawsuit", "ai defamation", "ai impersonation",
+        "synthetic voice law", "voice cloning law", "ai-generated fraud",
+        "conned by a chatbot", "military chatbot",
+        "llm copyright", "llm training lawsuit", "chatgpt copyright",
+        "openai copyright", "anthropic copyright",
+        "ftc openai", "ftc anthropic", "ftc chatbot",
+        "cma openai", "cma anthropic", "cci ai chatbot",
+        "chatbot children", "ai children safety", "ai in hiring ban",
+        # Company strategy that is regulatory-relevant
+        "openai regul", "anthropic regul", "openai policy",
+        "anthropic policy", "openai comply", "anthropic comply",
+        # Geopolitical / government AI talks
+        "us and china", "china ai talks", "ai formal talks", "ai diplomacy",
+        "government chatgpt", "government openai", "government anthropic",
+        "senate ai", "congress ai", "parliament ai", "minister ai",
+        "white house ai", "eu openai", "eu anthropic", "eu chatgpt",
+        # OpenAI / Anthropic business with regulatory angle
+        "openai ad", "chatgpt ad", "openai self-serve", "chatgpt self-serve",
+        "openai antitrust", "anthropic antitrust",
     ]),
     ("ai_agents", [
         "ai act", "gpai", "foundation model regulation", "ai governance",
-        "ai liability", "ai safety", "ai office", "high-risk ai",
-        "algorithmic accountability", "automated decision",
+        "ai liability", "ai safety bill", "ai office", "high-risk ai",
+        "algorithmic accountability", "automated decision ban",
+        "ai audit", "ai watermark", "ai standard", "ai compliance",
+        "deepfake law", "synthetic media law", "ai rulebook",
     ]),
     ("fintech", [
         "fintech regulation", "payment regulation", "psd3", "open banking",
@@ -362,11 +419,12 @@ def parse_feed(xml_text, label):
         def g(*tags):
             for tag in tags:
                 el = item.find(tag)
-                if el is not None and el.text: return el.text.strip()
+                if el is not None and el.text is not None and el.text.strip():
+                    return el.text.strip()
             return ""
         title = g("title")
         if len(title) < 15: continue
-        date = parse_date(g("pubDate", "published", "updated", "dc_date"))
+        date = parse_date(g("pubDate", "published", "updated", "dc_date", "date"))
         if not is_recent(date): continue
         if is_noise(title): continue
         if not has_kw(title, RELEVANT_KWS): continue
