@@ -231,6 +231,7 @@
   <button class="pill" data-cat="privacy">Privacy</button>
   <button class="pill" data-cat="ip">IP</button>
   <button class="pill" data-cat="ai_landscape">🤖 AI</button>
+  <button class="pill" data-cat="chatbot_regulation">💬 Chatbots</button>
   <button class="pill" data-cat="gig_economy">🚴 Gig</button>
   <button class="pill" data-cat="regulatory">Regulatory</button>
   <button class="pill" data-cat="fintech">Fintech</button>
@@ -317,15 +318,18 @@ function getArticles() {
   if (currentCat === 'trending') {
     articles = data.trending || [];
   } else if (currentCat === 'all') {
-    const cats = ['competition','privacy','ip','ai_landscape','ai_agents','regulatory','fintech','consumer_protection','platform_liability','gig_economy'];
+    const cats = ['competition','privacy','ip','ai_landscape','ai_agents','chatbot_regulation','regulatory','fintech','consumer_protection','platform_liability','gig_economy'];
     cats.forEach(c => { if (data[c]) articles.push(...data[c]); });
     // dedupe by id
     const seen = new Set();
     articles = articles.filter(a => { if (seen.has(a.id)) return false; seen.add(a.id); return true; });
   } else if (currentCat === 'prosus_only') {
-    const cats = ['competition','privacy','ip','ai_landscape','ai_agents','regulatory','fintech','consumer_protection','platform_liability','gig_economy'];
+    const cats = ['competition','privacy','ip','ai_landscape','ai_agents','chatbot_regulation','regulatory','fintech','consumer_protection','platform_liability','gig_economy'];
     cats.forEach(c => { if (data[c]) articles.push(...data[c]); });
     articles = articles.filter(a => a.entity_match && a.entity_match.length > 0);
+  } else if (currentCat === 'chatbot_regulation') {
+    const cb = [...(data.chatbot_regulation || []), ...(data.chatbot || [])];
+    const seen = new Set(); articles = cb.filter(a => { if (seen.has(a.id)) return false; seen.add(a.id); return true; });
   } else {
     articles = data[currentCat] || [];
   }
@@ -354,7 +358,7 @@ function renderMain() {
   // Stats bar
   const total = data.total_articles || 0;
   const flash = (data.flash_alerts||[]).length;
-  const cats  = ['competition','privacy','ip','ai_landscape','ai_agents','regulatory','fintech','consumer_protection','platform_liability','gig_economy'];
+  const cats  = ['competition','privacy','ip','ai_landscape','ai_agents','chatbot_regulation','regulatory','fintech','consumer_protection','platform_liability','gig_economy'];
   let statsHtml = `<div class="stats-bar">
     <div class="stat-pill"><div class="num">${total}</div><div class="lbl">Total</div></div>
     <div class="stat-pill"><div class="num">${flash}</div><div class="lbl">Alerts</div></div>`;
