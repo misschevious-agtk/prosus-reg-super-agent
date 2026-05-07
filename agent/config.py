@@ -1,414 +1,408 @@
 """
-config.py
-Master configuration for the Prosus Regulatory Super-Agent.
-Updated to reflect Prosus's full portfolio and AI-first strategy.
+config.py — Prosus Regulatory Super-Agent v4
+Full entity watchlist, expanded keywords, all Prosus ecosystem regulators.
 """
 
-# ─────────────────────────────────────────────
-# PROSUS PORTFOLIO — Entity Watchlist
-# ─────────────────────────────────────────────
-# Source: prosus.com/portfolio + prosus.com/ecosystems
+# ─────────────────────────────────────────────────────────────────────────────
+# PROSUS PORTFOLIO — Complete Entity Watchlist
+# Source: prosus.com/portfolio (May 2026)
+# ─────────────────────────────────────────────────────────────────────────────
 PORTFOLIO = {
 
-    # ── FOOD DELIVERY / QUICK COMMERCE ───────
+    # ── FOOD DELIVERY / QUICK COMMERCE ───────────────────────────────────────
     "food_delivery": [
-        "iFood", "iFood Pago", "Swiggy", "Instamart",
-        "Just Eat", "Just Eat Takeaway", "Delivery Hero",
-        "Mr D Food", "Rapido", "Despegar", "Sympla",
+        "iFood", "iFood Pago",
+        "Swiggy", "Instamart", "Swiggy Genie",
+        "Just Eat", "Just Eat Takeaway", "JET",
+        "Delivery Hero",
+        "Mr D Food", "MrD",
+        "Rapido",
+        "Despegar",
+        "Sympla",
         "99minutos",
     ],
 
-    # ── CLASSIFIEDS / ECOMMERCE ───────────────
+    # ── CLASSIFIEDS / ECOMMERCE ───────────────────────────────────────────────
     "classifieds_ecommerce": [
-        "OLX", "OLX Brasil", "OLX Group",
-        "Takealot", "Property24", "AutoTrader", "Autotrader South Africa",
-        "Autovit", "eMAG", "Agito", "Fashion Days",
-        "Meesho", "La Centrale", "Avant Arte",
-        "Dubizzle", "Letgo",
+        "OLX", "OLX Brasil", "OLX Group", "OLX Europe",
+        "Takealot", "Takealot Group",
+        "Property24",
+        "AutoTrader", "AutoTrader South Africa",
+        "Autovit",
+        "eMAG", "emag.ro",
+        "Agito",
+        "Fashion Days",
+        "Meesho",
+        "La Centrale",
+        "Avant Arte",
+        "Dubizzle",
+        "Letgo",
+        "Aruna",
+        "Captain Fresh",
+        "DeHaat",
     ],
 
-    # ── PAYMENTS / FINTECH ────────────────────
+    # ── PAYMENTS / FINTECH ────────────────────────────────────────────────────
     "fintech_payments": [
-        "PayU", "iyzico", "LazyPay", "PaySense",
-        "Remitly", "Creditas", "BUX", "Bibit",
-        "Bilt Rewards", "Endowus", "Constantinople",
+        "PayU", "PayU Global",
+        "iyzico",
+        "LazyPay",
+        "PaySense",
+        "Remitly",
+        "Creditas",
+        "BUX",
+        "Bibit",
+        "Bilt Rewards",
+        "Endowus",
         "Azos",
     ],
 
-    # ── AI AGENTS / ENTERPRISE AI ─────────────
-    # This is Prosus's #1 strategic focus area
+    # ── AI AGENTS / ENTERPRISE AI ─────────────────────────────────────────────
     "ai_enterprise": [
-        "Ema", "Ema Universal AI Employee",
-        "Brainfish", "Ambient AI",
-        "Advolve.AI",
-        "Clarity", "Corti",
+        "Ema", "Ema Universal AI",
+        "Brainfish",
+        "Ambient AI",
+        "Advolve", "Advolve.AI",
+        "Corti",
         "CuspAI",
         "Arivihan",
         "BeConfident",
-        "CodeKarma",
-        "Detect Technologies",
+        "Clarity AI",
     ],
 
-    # ── EDTECH ───────────────────────────────
+    # ── EDTECH ───────────────────────────────────────────────────────────────
     "edtech": [
-        "Brainly", "GoStudent", "Eruditus",
-        "Stack Overflow", "EduMe",
-        "ElasticRun",
-    ],
-
-    # ── HEALTHTECH ───────────────────────────
-    "healthtech": [
-        "PharmEasy", "GoodRx", "Corti",
-    ],
-
-    # ── MOBILITY / LOGISTICS ─────────────────
-    "mobility_logistics": [
-        "Rapido", "Dott", "Bykea",
-        "99minutos", "ElasticRun",
-    ],
-
-    # ── SOCIAL / CREATOR ─────────────────────
-    "social_creator": [
-        "BandLab", "Avant Arte", "Airmeet",
+        "Brainly",
+        "GoStudent",
+        "Eruditus",
         "Stack Overflow",
+        "Codecademy",
+        "Airmeet",
     ],
 
-    # ── INDIA ECOSYSTEM ──────────────────────
-    "india_ecosystem": [
-        "Swiggy", "Meesho", "PayU", "Urban Company",
-        "Rapido", "PharmEasy", "DeHaat",
-        "Captain Fresh", "Aruna",
-        "Detect Technologies", "ElasticRun",
+    # ── HEALTH ───────────────────────────────────────────────────────────────
+    "health": [
+        "PharmEasy",
+        "GoodRx",
     ],
 
-    # ── LATAM ECOSYSTEM ──────────────────────
-    "latam_ecosystem": [
-        "iFood", "OLX Brasil", "Creditas",
-        "Despegar", "Sympla", "99minutos", "Azos",
+    # ── MOBILITY / GIG ────────────────────────────────────────────────────────
+    "mobility": [
+        "Dott",
+        "Bykea",
+        "Urban Company",
     ],
 
-    # ── EUROPE ECOSYSTEM ─────────────────────
-    "europe_ecosystem": [
-        "Just Eat", "eMAG", "iyzico", "OLX",
-        "Dott", "BUX", "La Centrale", "Autovit",
-    ],
-
-    # ── PARENT / STRATEGIC ───────────────────
-    "parent": [
-        "Prosus", "Naspers", "Tencent", "Prosus Ventures",
+    # ── MEDIA / OTHER ─────────────────────────────────────────────────────────
+    "media_other": [
         "Media24",
+        "Naspers",
+        "Naspers Foundry",
+    ],
+
+    # ── PARENT / INVESTEE ─────────────────────────────────────────────────────
+    "parent_investee": [
+        "Prosus",
+        "Tencent",
+        "WeChat",
     ],
 }
 
-# Flat list for keyword matching
+# Flat list for entity matching
 ALL_ENTITIES = [e for group in PORTFOLIO.values() for e in group]
-# Deduplicate
-ALL_ENTITIES = list(dict.fromkeys(ALL_ENTITIES))
 
-# ─────────────────────────────────────────────
-# JURISDICTIONS — where Prosus operates
-# ─────────────────────────────────────────────
-JURISDICTIONS = [
-    "EU", "European Union", "Netherlands", "Germany", "France",
-    "Romania", "Poland", "UK", "United Kingdom",
-    "India", "Brazil", "South Africa",
-    "Singapore", "Indonesia", "Pakistan",
-    "United States", "Mexico", "Colombia", "Chile", "Peru",
-    "Nigeria", "Kenya",
-]
 
-# ─────────────────────────────────────────────
-# WATCHLISTS — Prosus-specific priority topics
-# ─────────────────────────────────────────────
+# ─────────────────────────────────────────────────────────────────────────────
+# WATCHLISTS — Thematic keyword clusters for Flash Alert triggering
+# ─────────────────────────────────────────────────────────────────────────────
 WATCHLISTS = {
 
-    # ── TOP PRIORITY: AI Agents & Agentic AI ─
-    "AI Agents & Agentic AI": [
-        "AI agent", "agentic AI", "autonomous agent",
-        "multi-agent", "AI workforce", "digital worker",
-        "AI employee", "enterprise AI agent", "AI assistant",
-        "life assistant", "personal AI", "AI ecosystem",
-        "agentic systems", "AI orchestration",
-        "Universal AI Employee",
-        # Prosus-relevant named agents
-        "Ema", "Brainfish", "Ambient AI",
+    # --- COMPETITION / ANTITRUST ---
+    "Competition": [
+        "antitrust", "competition fine", "competition probe",
+        "merger blocked", "merger inquiry", "market investigation",
+        "cartel", "abuse of dominance", "market dominance",
+        "gatekeeper designation", "DMA enforcement", "CMA case",
+        "CADE investigation", "CADE aprovação", "CADE condena", "CADE multa", "ACM investigation", "DG COMP",
+        "FTC investigation", "DOJ antitrust", "price fixing",
+        "bid rigging", "market sharing",
     ],
 
-    # ── TOP PRIORITY: Agentic Fraud & Trust ──
-    "Agentic Fraud & Digital Trust": [
-        "agentic fraud", "AI fraud", "automated deception",
-        "impersonation", "synthetic identity", "deepfake",
-        "AI scam", "voice cloning", "brand impersonation",
-        "digital trust", "AI-enabled fraud",
-        "agentic impersonation", "automated phishing",
+    # --- PRIVACY / DATA PROTECTION ---
+    "Privacy": [
+        "GDPR fine", "GDPR violation", "data protection authority",
+        "data breach notification", "personal data leak",
+        "DPDP", "LGPD fine", "POPIA enforcement",
+        "PDPA penalty", "ICO enforcement", "EDPB decision",
+        "AP enforcement", "data transfer ban", "adequacy decision",
+        "consent enforcement", "biometric data ban",
+        "cross-border data flow", "data localisation order",
+        "KVKK", "surveillance order",
     ],
 
-    # ── AI Act & GPAI ─────────────────────────
-    "EU AI Act": [
-        "AI Act", "EU AI Act", "GPAI", "general purpose AI",
-        "Article 53", "Article 55", "high-risk AI",
-        "AI Office", "AI governance", "foundation model",
-        "AI liability", "AI safety", "AI risk classification",
-        "prohibited AI", "AI conformity",
+    # --- AI REGULATION ---
+    "AI_Regulation": [
+        "EU AI Act", "AI Act enforcement", "GPAI model",
+        "foundation model audit", "AI Office",
+        "high-risk AI system", "AI liability",
+        "deepfake legislation", "synthetic media law",
+        "AI transparency obligation", "AI governance",
+        "algorithmic accountability", "automated decision ban",
+        "ISO 42001", "NIST AI RMF", "AI watermarking",
     ],
 
-    # ── Algorithmic Systems & Recommenders ───
-    "Algorithmic Regulation": [
-        "algorithmic collusion", "algorithmic pricing",
-        "dynamic pricing", "recommender system",
-        "algorithmic accountability", "algorithmic transparency",
-        "AI recommender", "automated decision-making",
-        "Article 22 GDPR", "profiling",
-        "algorithmic discrimination", "pricing algorithm",
+    # --- CHATBOT / LLM LITIGATION ---
+    "Chatbot_Litigation": [
+        "ChatGPT lawsuit", "OpenAI sued", "OpenAI fined",
+        "Anthropic sued", "Gemini lawsuit", "chatbot fraud",
+        "LLM liability", "chatbot harm", "AI hallucination lawsuit",
+        "generative AI sued", "AI defamation",
+        "chatbot regulation", "LLM regulation",
+        "conversational AI law", "military chatbot",
     ],
 
-    # ── Data & Privacy ────────────────────────
-    "Data & Privacy": [
-        "GDPR", "data protection", "personal data", "data breach",
-        "adequacy decision", "data transfer", "SCCs",
-        "DPDP", "Digital Personal Data Protection",
-        "data localisation", "consent management",
-        "LGPD", "POPIA", "PDPA",
-        "right to erasure", "data minimisation",
-        "cross-border data",
+    # --- IP / COPYRIGHT ---
+    "IP_Copyright": [
+        "AI training data", "training data copyright",
+        "generative AI copyright", "text and data mining",
+        "Article 17", "press publisher rights",
+        "neighbouring rights", "sui generis database",
+        "AI-generated content ownership",
+        "fair use AI", "trade secret AI",
+        "patent eligibility AI", "music AI training",
+        "book AI training", "news publisher rights",
     ],
 
-    # ── Platform & DSA ────────────────────────
-    "Platform Regulation (DSA/DMA)": [
-        "DSA", "Digital Services Act", "DMA", "Digital Markets Act",
-        "platform liability", "gatekeeper", "very large platform",
-        "VLOP", "content moderation", "systemic risk",
-        "interoperability", "self-preferencing",
-        "dark pattern", "platform regulation",
+    # --- GIG ECONOMY ---
+    "Gig_Economy": [
+        "gig worker classification", "platform worker directive",
+        "worker misclassification", "independent contractor status",
+        "delivery worker rights", "algorithmic management",
+        "collective bargaining platform", "minimum earnings",
+        "gig economy law", "on-demand labour",
+        "Swiggy workers", "iFood workers", "Rapido workers",
+        "Uber workers", "Deliveroo workers",
     ],
 
-    # ── Competition & Market Power ────────────
-    "Competition & Antitrust": [
-        "antitrust", "competition", "abuse of dominance",
-        "merger control", "market investigation",
-        "gig economy", "worker classification",
-        "food delivery competition", "platform monopoly",
-        "algorithmic collusion", "cartel",
-        "CADE", "CCI", "CMA antitrust", "DG COMP",
+    # --- FINTECH ---
+    "Fintech_Regulation": [
+        "BNPL regulation", "Buy Now Pay Later law",
+        "open banking regulation", "PSD3",
+        "crypto regulation", "stablecoin law",
+        "DORA compliance", "digital wallet regulation",
+        "payment service directive", "e-money licence",
+        "BACEN Open Finance", "UPI regulation", "PIX regulation",
+        "NPCI", "digital rupee", "CFPB enforcement",
     ],
 
-    # ── Fintech & Payments ────────────────────
-    "Fintech & Payments Regulation": [
-        "PSD3", "PSR", "open banking", "BNPL",
-        "buy now pay later", "digital payments",
-        "e-money", "payment service provider",
-        "DORA", "crypto regulation", "stablecoin",
-        "digital wallet", "embedded finance",
-        "PayU", "iyzico", "Remitly",
+    # --- PLATFORM / DSA ---
+    "Platform_DSA": [
+        "DSA enforcement", "Digital Services Act fine",
+        "VLOP designation", "platform liability",
+        "content moderation law", "notice and takedown",
+        "online safety act", "online harms",
+        "intermediary liability", "algorithmic transparency",
     ],
 
-    # ── IP & AI Training Data ─────────────────
-    "IP & AI Training Data": [
-        "AI training data", "copyright infringement",
-        "AI-generated content", "authorship AI",
-        "training data scraping", "web scraping copyright",
-        "WIPO AI", "fair use AI", "text and data mining",
-        "database rights", "AI copyright",
-        "Llama", "OpenAI copyright", "generative AI IP",
-    ],
-
-    # ── Consumer Protection & EdTech ──────────
-    "Consumer Protection & EdTech": [
-        "consumer protection AI", "EdTech regulation",
-        "children online", "COPPA", "age verification",
-        "student data", "online tutoring regulation",
-        "Brainly", "GoStudent", "Eruditus",
-        "digital literacy", "online education law",
-    ],
-
-    # ── Gig Economy & Labour ──────────────────
-    "Gig Economy & Labour": [
-        "gig worker", "platform worker", "worker classification",
-        "independent contractor", "delivery worker",
-        "EU Platform Work Directive", "gig economy",
-        "Swiggy worker", "iFood worker", "food delivery worker",
-        "algorithmic management", "worker rights platform",
-    ],
-
-    # ── Quick Commerce & Food Delivery ────────
-    "Food Delivery & Quick Commerce": [
-        "food delivery regulation", "quick commerce",
-        "dark kitchen", "ghost kitchen", "delivery platform",
-        "iFood", "Swiggy", "Just Eat",
-        "food safety regulation", "delivery worker rights",
-        "restaurant aggregator", "online food",
+    # --- PROSUS ENTITIES DIRECT ---
+    "Prosus_Direct": [
+        "Prosus", "Naspers", "iFood", "Swiggy", "OLX",
+        "Takealot", "PayU", "Just Eat", "eMAG", "Meesho",
+        "PharmEasy", "Rapido", "iyzico", "Creditas", "Brainly",
+        "GoStudent", "Ema AI", "Brainfish", "Media24",
     ],
 }
 
-# ─────────────────────────────────────────────
-# CATEGORIES — tuned for Prosus portfolio
-# ─────────────────────────────────────────────
+
+# ─────────────────────────────────────────────────────────────────────────────
+# CATEGORY KEYWORDS — for classification
+# ─────────────────────────────────────────────────────────────────────────────
 CATEGORIES = [
-    "ai_agents",         # NEW: AI agents, agentic AI, enterprise AI — #1 Prosus priority
     "competition",
     "privacy",
     "ip",
-    "regulatory",
+    "ai_agents",
+    "chatbot_regulation",
     "fintech",
-    "consumer_protection",
     "platform_liability",
-    "gig_economy",       # NEW: gig/platform workers — food delivery, ride-hailing
+    "gig_economy",
+    "consumer_protection",
+    "regulatory",
 ]
 
 CATEGORY_KEYWORDS = {
-    "ai_agents": [
-        "AI agent", "agentic", "autonomous agent", "AI workforce",
-        "enterprise AI", "AI assistant", "life assistant", "AI employee",
-        "multi-agent", "AI orchestration", "agentic AI", "agentic fraud",
-        "deepfake", "synthetic media", "AI ecosystem",
-        "foundation model", "large language model", "LLM",
-        "generative AI", "AI Act", "GPAI", "AI governance",
-        "AI regulation", "AI Office", "AI liability", "AI safety",
-        "AI transparency", "AI bias", "AI accountability",
-        "AI audit", "AI compliance", "ISO 42001", "artificial intelligence",
-    ],
     "competition": [
-        "antitrust", "competition", "cartel", "merger",
-        "abuse of dominance", "market power", "price-fixing",
-        "collusion", "CADE", "CCI", "CMA antitrust",
-        "DOJ antitrust", "DG COMP", "market investigation",
-        "algorithmic collusion", "gatekeeper", "DMA",
+        "antitrust", "competition law", "merger control", "cartel",
+        "abuse of dominance", "market investigation", "CMA", "CADE",
+        "FTC", "DOJ antitrust", "DG COMP", "ACM",
+        "gatekeeper", "DMA enforcement", "price fixing",
+        "market dominance", "monopoly", "merger inquiry",
+        "acquisition blocked", "competition fine",
     ],
     "privacy": [
         "GDPR", "data protection", "personal data", "data breach",
-        "privacy", "ICO", "CNIL", "EDPB", "ANPD", "PDPC", "POPIA",
-        "DPDP", "LGPD", "data transfer", "SCCs", "adequacy",
-        "right to erasure", "consent", "data subject",
-        "cookie", "tracking", "surveillance", "cross-border data",
+        "privacy law", "DPDP", "LGPD", "POPIA", "PDPA",
+        "data transfer", "right to erasure", "consent",
+        "surveillance", "cross-border data", "adequacy decision",
+        "biometric data", "data localisation", "ICO", "EDPB",
+        "data minimisation", "privacy fine", "AP enforcement",
+        "KVKK", "data governance",
     ],
     "ip": [
-        "intellectual property", "copyright", "patent", "trademark",
+        "copyright", "trademark", "patent", "intellectual property",
         "AI training data", "training data scraping",
         "AI-generated content", "authorship", "WIPO",
         "text and data mining", "database right",
-        "fair use", "infringement", "CJEU copyright",
+        "fair use", "IP law", "generative AI copyright",
+        "trade secret", "neighbouring rights",
+        "press publisher rights", "Article 17",
+        "patent eligibility", "music AI training",
     ],
-    "regulatory": [
-        "DSA", "DMA", "NIS2", "DORA",
-        "digital services act", "digital markets act",
-        "regulation enters into force", "compliance deadline",
-        "enforcement begins", "regulatory framework",
-        "consultation", "legislative proposal", "delegated act",
-        "implementing act", "MeitY", "TRAI", "Ofcom",
-        "platform regulation", "ecommerce regulation",
+    "ai_agents": [
+        "AI Act", "EU AI Act", "AI regulation", "GPAI",
+        "foundation model", "agentic AI", "AI governance",
+        "AI liability", "AI safety", "AI Office",
+        "high-risk AI", "deepfake", "synthetic media",
+        "AI compliance", "ISO 42001", "AI audit",
+        "AI transparency", "algorithmic accountability",
+        "automated decision", "AI watermarking",
+    ],
+    "chatbot_regulation": [
+        "chatbot law", "chatbot regulation", "chatbot banned",
+        "chatbot fined", "LLM regulation", "LLM lawsuit",
+        "ChatGPT lawsuit", "ChatGPT banned", "OpenAI lawsuit",
+        "OpenAI fined", "Anthropic sued", "chatbot liability",
+        "chatbot fraud", "AI chatbot banned", "LLM liability",
+        "generative AI lawsuit", "generative AI fined",
+        "chatbot harm", "military chatbot", "chatbot privacy",
     ],
     "fintech": [
-        "fintech", "payments", "PSD3", "PSR", "open banking",
-        "BNPL", "buy now pay later", "digital payments",
-        "e-money", "crypto", "stablecoin", "DORA",
-        "payment service", "digital wallet", "embedded finance",
-        "PayU", "iyzico", "Remitly", "Creditas",
-    ],
-    "consumer_protection": [
-        "consumer law", "consumer protection", "dark pattern",
-        "drip pricing", "fake reviews", "subscription trap",
-        "consumer rights", "unfair commercial practices",
-        "CMA consumer", "FTC consumer", "age verification",
-        "children online", "COPPA", "student data",
+        "fintech regulation", "payment regulation", "PSD3",
+        "open banking", "BNPL", "digital payments law",
+        "e-money directive", "crypto regulation", "stablecoin",
+        "digital wallet", "embedded finance", "DORA",
+        "payment fine", "crypto law", "DeFi regulation",
+        "BACEN", "UPI regulation", "NPCI", "PIX regulation",
+        "CFPB", "digital rupee",
     ],
     "platform_liability": [
-        "platform liability", "intermediary liability",
-        "content moderation", "notice and takedown",
-        "algorithmic recommender", "DSA liability",
-        "hosting provider", "user-generated content",
-        "VLOP", "very large online platform",
+        "platform liability", "DSA", "digital services act",
+        "content moderation", "notice and takedown", "VLOP",
+        "intermediary liability", "user-generated content",
+        "hosting provider", "online safety", "online harms",
+        "DSA enforcement", "algorithmic transparency",
     ],
     "gig_economy": [
         "gig worker", "platform worker", "worker classification",
         "independent contractor", "delivery worker",
-        "EU Platform Work Directive", "gig economy",
-        "food delivery worker", "algorithmic management",
-        "minimum wage platform", "worker rights",
-        "freelance regulation", "on-demand worker",
+        "platform work directive", "gig economy law",
+        "algorithmic management", "freelance regulation",
+        "worker misclassification", "minimum earnings",
+        "collective bargaining platform",
+    ],
+    "consumer_protection": [
+        "consumer protection", "unfair commercial practices",
+        "dark pattern", "drip pricing", "fake reviews",
+        "subscription trap", "age verification",
+        "children online", "COPPA", "student data",
+        "misleading advertising", "deceptive design",
     ],
 }
 
-# ─────────────────────────────────────────────
-# SOURCES — 30+ across all Prosus jurisdictions
-# ─────────────────────────────────────────────
-SOURCES = [
-    # ── EU / EUROPE ───────────────────────────
-    {"label": "European Commission",     "url": "https://ec.europa.eu/commission/presscorner/api/documents?service=press-corner&typeDocument=IP&pageSize=10&page=1"},
-    {"label": "EU AI Office",            "url": "https://digital-strategy.ec.europa.eu/en/news-redirect/newsroom"},
-    {"label": "EDPB",                    "url": "https://www.edpb.europa.eu/news/news_en"},
-    {"label": "CNIL (France)",           "url": "https://www.cnil.fr/en/news"},
-    {"label": "ICO (UK)",                "url": "https://ico.org.uk/about-the-ico/media-centre/news-and-blogs/"},
-    {"label": "CMA (UK)",                "url": "https://www.gov.uk/cma-cases"},
-    {"label": "Ofcom (UK)",              "url": "https://www.ofcom.org.uk/news-centre"},
-    {"label": "BfDI (Germany)",          "url": "https://www.bfdi.bund.de/EN/Home/home_node.html"},
-    {"label": "Digital Watch",           "url": "https://dig.watch/updates"},
 
-    # ── USA ───────────────────────────────────
-    {"label": "FTC",                     "url": "https://www.ftc.gov/news-events/news/press-releases"},
-    {"label": "DOJ Antitrust",           "url": "https://www.justice.gov/atr/news"},
-    {"label": "FCC",                     "url": "https://www.fcc.gov/news-events/blog"},
+# ─────────────────────────────────────────────────────────────────────────────
+# SOURCES — Verified RSS feeds (will be extended once feed research complete)
+# Grouped by region/type for transparency
+# ─────────────────────────────────────────────────────────────────────────────
+SOURCES = {
 
-    # ── INDIA (critical for Swiggy, Meesho, PayU, Rapido) ─
-    {"label": "CCI (India)",             "url": "https://www.cci.gov.in/media-gallery/press-release"},
-    {"label": "MeitY (India)",           "url": "https://www.meity.gov.in/whats-new"},
-    {"label": "TRAI (India)",            "url": "https://www.trai.gov.in/whats-new"},
-    {"label": "Business Standard Tech",  "url": "https://www.business-standard.com/technology"},
-    {"label": "Mint Tech",               "url": "https://www.livemint.com/technology"},
-    {"label": "Economic Times Tech",     "url": "https://economictimes.indiatimes.com/tech"},
+    # ── EU / EUROPEAN AUTHORITIES ─────────────────────────────────────────────
+    "EU_Digital_Strategy":    "https://digital-strategy.ec.europa.eu/en/rss.xml",
+    "EU_Law_Live":            "https://eulawlive.com/feed/",
+    "CMA_UK":                 "https://www.gov.uk/search/all.atom?organisations%5B%5D=competition-and-markets-authority&order=updated-newest",
+    "WIPO":                   "https://www.wipo.int/pressroom/en/rss.xml",
 
-    # ── BRAZIL (critical for iFood, OLX, Creditas) ─
-    {"label": "CADE (Brazil)",           "url": "https://www.gov.br/cade/en/latest-news"},
-    {"label": "ANPD (Brazil)",           "url": "https://www.gov.br/anpd/pt-br/assuntos/noticias"},
+    # ── SA ────────────────────────────────────────────────────────────────────
+    "CompCom_SA":             "https://www.compcom.co.za/feed/",
+    "TechCentral_SA":         "https://techcentral.co.za/feed/",       # if verified
+    "MyBroadband_SA":         "https://mybroadband.co.za/feed/",       # if verified
 
-    # ── SOUTH AFRICA (Naspers base: Takealot, Media24) ─
-    {"label": "CompCom (SA)",            "url": "https://www.compcom.co.za/category/media-releases/"},
-    {"label": "CGSO / POPIA (SA)",       "url": "https://www.justice.gov.za/inforeg/newsroom.html"},
+    # ── INDIA ─────────────────────────────────────────────────────────────────
+    "ET_Tech":                "https://economictimes.indiatimes.com/tech/rssfeeds/13357270.cms",
+    "Inc42":                  "https://inc42.com/feed/",
+    "MediaNama":              "https://www.medianama.com/feed/",
 
-    # ── SINGAPORE (Endowus, Prosus Ventures) ─
-    {"label": "PDPC (Singapore)",        "url": "https://www.pdpc.gov.sg/news-and-events/media-releases"},
-    {"label": "IMDA (Singapore)",        "url": "https://www.imda.gov.sg/resources/press-releases-factsheets-and-speeches"},
-    {"label": "MAS (Singapore)",         "url": "https://www.mas.gov.sg/news"},
+    # ── BRAZIL ───────────────────────────────────────────────────────────────
+    "Jota_Brazil":            "https://www.jota.info/feed",
 
-    # ── GLOBAL / AGGREGATORS ─────────────────
-    {"label": "IAPP",                    "url": "https://iapp.org/news/a/"},
-    {"label": "TechCrunch Policy",       "url": "https://techcrunch.com/category/policy/"},
-    {"label": "Wired Policy",            "url": "https://www.wired.com/tag/policy/"},
-    {"label": "Politico Tech",           "url": "https://www.politico.eu/newsletter/digital-bridge/"},
-    {"label": "GCR (Competition)",       "url": "https://globalcompetitionreview.com/news"},
-    {"label": "WIPO",                    "url": "https://www.wipo.int/pressroom/en/"},
-    {"label": "AI Now Institute",        "url": "https://ainowinstitute.org/news"},
-    {"label": "DLA Piper DP",            "url": "https://www.dlapiperdataprotection.com"},
+    # ── IP SPECIALIST ─────────────────────────────────────────────────────────
+    "IPKat":                  "https://ipkitten.blogspot.com/feeds/posts/default?alt=rss",
+    "IP_Watchdog":            "https://ipwatchdog.com/feed/",
+    "IP_Finance":             "https://ipfinance.blogspot.com/feeds/posts/default",
 
-    # ── AI-SPECIFIC SOURCES ───────────────────
-    {"label": "MIT Tech Review AI",      "url": "https://www.technologyreview.com/topic/artificial-intelligence/"},
-    {"label": "VentureBeat AI",          "url": "https://venturebeat.com/ai/"},
-    {"label": "The Verge Tech Policy",   "url": "https://www.theverge.com/policy"},
-]
+    # ── PRIVACY / DATA SPECIALIST ─────────────────────────────────────────────
+    "EFF":                    "https://www.eff.org/rss/updates.xml",
+    "FPF":                    "https://fpf.org/feed/",
+    "Privacy_International":  "https://privacyinternational.org/rss.xml",
+    "Access_Now":             "https://www.accessnow.org/feed/",
+    "CDT":                    "https://cdt.org/feed/",
+    "Netzpolitik":            "https://netzpolitik.org/feed/",
 
-# ─────────────────────────────────────────────
+    # ── AI / CHATBOT REGULATION ───────────────────────────────────────────────
+    "AI_Now_Institute":       "https://ainowinstitute.org/feed/",
+    "Future_of_Life":         "https://futureoflife.org/feed/",
+    "Responsible_AI":         "https://www.responsible.ai/feed/",
+
+    # ── COMPETITION SPECIALIST ────────────────────────────────────────────────
+    "Chillin_Competition":    "https://chillingcompetition.com/feed",
+
+    # ── GENERAL TECH/POLICY ───────────────────────────────────────────────────
+    "TechCrunch":             "https://techcrunch.com/feed/",
+    "MIT_Tech_Review":        "https://www.technologyreview.com/feed/",
+    "VentureBeat_AI":         "https://venturebeat.com/feed/",
+    "Ars_Technica":           "https://feeds.arstechnica.com/arstechnica/technology-lab",
+    "Wired":                  "https://www.wired.com/feed/rss",
+    "The_Register":           "https://www.theregister.com/headlines.atom",
+    "BBC_Technology":         "https://feeds.bbci.co.uk/news/technology/rss.xml",
+    "Guardian_Tech":          "https://www.theguardian.com/technology/rss",
+    "Bloomberg_Tech":         "https://feeds.bloomberg.com/technology/news.rss",
+    "ZDNet_Gov":              "https://www.zdnet.com/topic/government/rss.xml",
+    "FT_Technology":          "https://www.ft.com/technology?format=rss",
+    "Digital_Watch":          "https://dig.watch/feed",
+}
+
+
+# ─────────────────────────────────────────────────────────────────────────────
 # AGENT SETTINGS
-# ─────────────────────────────────────────────
+# ─────────────────────────────────────────────────────────────────────────────
 AGENT_CONFIG = {
-    "trending_count": 10,
-    "max_per_category": 25,
-    "flash_alert_threshold": 2,
-    "timeout": 20,
-    "user_agent": "ProsusRegSuperAgent/2.0 (+https://github.com/misschevious-agtk/prosus-reg-super-agent)",
-    "openai_model": "gpt-4o",
-    # Prosus strategic context for AI analysis
+    "trending_count":         12,
+    "max_per_category":       20,
+    "flash_alert_threshold":  2,
+    "timeout":                20,
+    "user_agent":             "ProsusRegSuperAgent/4.0 (+https://github.com/misschevious-agtk/prosus-reg-super-agent)",
+    "openai_model":           "gpt-4o",
     "prosus_context": (
-        "Prosus is a global consumer internet group focused on lifestyle e-commerce. "
-        "Its #1 strategic priority is AI agents, agentic AI, and AI ecosystems — "
-        "deployed across food delivery (iFood, Swiggy, Just Eat), classifieds (OLX, eMAG, Takealot), "
-        "payments (PayU, iyzico), edtech (Brainly, GoStudent, Eruditus), and enterprise AI "
-        "(Ema Universal AI Employee, Brainfish Ambient AI agents, Advolve.AI, Clarity, Corti). "
-        "Prosus operates ecosystems in Europe, Latin America (Brazil focus), India, and South Africa. "
-        "Key regulatory risks: EU AI Act GPAI obligations for Ema/Brainfish/Advolve.AI; "
-        "DSA/DMA platform obligations for OLX/eMAG/Takealot/iFood; "
-        "GDPR/DPDP data compliance for cross-border operations; "
-        "competition scrutiny of food delivery platforms; "
-        "gig worker classification for Swiggy/iFood/Rapido; "
-        "fintech licensing for PayU/iyzico across multiple jurisdictions; "
-        "IP and training data liability for AI products."
+        "Prosus is a global consumer internet group (HQ: Amsterdam, listed Amsterdam/Johannesburg). "
+        "Portfolio: iFood & Swiggy (food delivery, Brazil/India), Just Eat (Europe), Rapido & 99minutos (logistics), "
+        "OLX & eMAG & Takealot (classifieds/ecomm, global), Meesho (India social commerce), "
+        "PayU & iyzico & LazyPay & Creditas (payments/fintech, global), "
+        "Brainly & GoStudent & Eruditus & Arivihan (edtech), PharmEasy & GoodRx (health), "
+        "Ema & Brainfish & Advolve.AI & Corti (enterprise AI agents), "
+        "Dott (e-scooters, EU), Urban Company (India home services), Bykea (Pakistan), "
+        "Media24 (South Africa media). Parent: Naspers. Key investee: Tencent. "
+        "Key regulatory risks: "
+        "EU AI Act GPAI/high-risk obligations for Ema/Brainfish/Advolve; "
+        "DSA/DMA for OLX/eMAG/Takealot/iFood/Meesho; "
+        "GDPR/DPDP/LGPD/POPIA data compliance; "
+        "competition scrutiny of food delivery (iFood/Swiggy market dominance); "
+        "gig worker classification (Swiggy/iFood/Rapido/Dott); "
+        "fintech licensing (PayU/iyzico/Creditas across 50+ jurisdictions); "
+        "IP & training data liability for AI products; "
+        "ACM/AP (Netherlands) as Prosus HQ regulator; "
+        "BACEN/ANPD (Brazil) for iFood ecosystem; "
+        "CCI/RBI/DPDP Board (India) for Swiggy/Meesho/PayU; "
+        "CompCom/Information Regulator (SA) for Takealot/Media24; "
+        "KVKK (Turkey) for iyzico."
     ),
 }
