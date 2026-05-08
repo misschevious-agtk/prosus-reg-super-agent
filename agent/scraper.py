@@ -19,6 +19,27 @@ import xml.etree.ElementTree as ET
 from datetime import datetime, timezone, timedelta
 from email.utils import parsedate_to_datetime
 from pathlib import Path
+
+# ── Translation (non-English articles → English) ──────────────────────────
+try:
+    from deep_translator import GoogleTranslator
+    from langdetect import detect, LangDetectException
+    TRANSLATE_ENABLED = True
+except ImportError:
+    TRANSLATE_ENABLED = False
+
+def translate_to_english(text):
+    """Detect language and translate to English if not already English."""
+    if not TRANSLATE_ENABLED or not text or len(text) < 20:
+        return text
+    try:
+        lang = detect(text)
+        if lang == 'en':
+            return text
+        return GoogleTranslator(source='auto', target='en').translate(text) or text
+    except Exception:
+        return text
+
 from agent.config import (
     CATEGORY_KEYWORDS, WATCHLISTS, ALL_ENTITIES, AGENT_CONFIG, CATEGORIES,
 )
@@ -484,7 +505,7 @@ TITLE_CAT_RULES = [
         # Africa fintech
         "m-pesa", "mpesa", "safaricom payment", "mobile money",
         "africa payment", "africa fintech", "kenya payment",
-        "nigeria fintech", "ghana payment", "flutterwave", "fincra",
+        "nigeria fintech", "ghana payment", "flutterwave",
         "opay", "moniepoint", "wave mobile money",
         # Credit / lending platforms
         "credit marketplace", "digital credit", "digital lending india",
@@ -779,7 +800,7 @@ PROSUS_ENTITIES = [
     # Africa ecosystem
     "safaricom", "mpesa", "m-pesa", "flutterwave", "paystack",
     "jumia", "konga", "sendwave", "chipper cash",
-    "fincra", "mono ", "lendsqr", "cowrywise",
+    "mono ", "lendsqr", "cowrywise",
     "village capital", "techstars africa",
     # Indonesia / SE Asia
     "gojek", "tokopedia", "bukalapak", "traveloka",
@@ -1499,6 +1520,11 @@ def run():
             enhanced = prosus_lens(a)               # optional GPT upgrade
             if enhanced:
                 a["prosus_lens"] = enhanced
+        # ── Translate non-English content to English ──────────────────────
+        a["title"] = translate_to_english(a["title"])
+        a["body"]  = translate_to_english(a["body"])
+        if a.get("prosus_lens"):
+            a["prosus_lens"] = translate_to_english(a["prosus_lens"])
         categorised.setdefault(a["category"], []).append(a)
 
     # Per-category caps — competition gets more room
