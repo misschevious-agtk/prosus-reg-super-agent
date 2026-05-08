@@ -362,7 +362,7 @@ TITLE_CAT_RULES = [
         "competition commission south africa", "competition tribunal south africa",
         "rekabet kurumu", "kppu", "accc",
         "probed over", "fined for competition",
-        # ── DMA / Digital Markets Act (Anne-Claire's core focus) ─────────────
+        # ── DMA / Digital Markets Act ───────────────────────────────────────────
         "digital markets act", "dma enforcement", "dma gatekeeper",
         "dma compliance", "dma fine", "dma interoperability",
         "dma self-preferencing", "dma designation", "dma investigation",
@@ -379,7 +379,7 @@ TITLE_CAT_RULES = [
         "india digital competition act", "india dca",
         "digital markets regime", "ex ante regulation",
         "platform regulation competition",
-        # ── Ecosystem / conglomerate mergers (Anne-Claire's PhD area) ─────────
+        # ── Ecosystem / conglomerate mergers ────────────────────────────────────
         "ecosystem competition", "conglomerate merger", "digital ecosystem",
         "platform ecosystem", "tech merger", "digital merger",
         "killer acquisition", "acqui-hire", "nascent competitor",
@@ -1294,7 +1294,7 @@ def prosus_relevance(a):
                     "OLX and PayU as downstream users of gatekeeper platforms.")
         if any(k in text for k in ["merger", "acquisition", "takeover", "m&a"]):
             return ("Merger precedents inform Prosus's own M&A strategy and portfolio "
-                    "exit/consolidation decisions. Relevant for Anne-Claire Hoyng's team.")
+                    "exit/consolidation decisions across the portfolio.")
         if any(k in text for k in ["food delivery", "ifood", "just eat", "delivery hero", "swiggy"]):
             return ("Competition enforcement in food delivery directly affects iFood (Brazil), "
                     "Just Eat Takeaway and Swiggy valuations and market structure.")
@@ -1437,7 +1437,7 @@ def run():
                 a["prosus_lens"] = enhanced
         categorised.setdefault(a["category"], []).append(a)
 
-    # Per-category caps — competition gets more room (Anne-Claire's domain)
+    # Per-category caps — competition gets more room
     CAT_CAPS = {
         "competition": 60,
         "ai_tech": 40,
