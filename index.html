@@ -4,399 +4,369 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
   <title>Prosus · Digital Regulatory Monitor</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <!-- Prosus brand font: Neuzeit Grotesk via Adobe Typekit -->
+  <link rel="stylesheet" href="https://use.typekit.net/rdo1wyb.css"/>
   <style>
+    /* ── PROSUS DESIGN TOKENS ─────────────────────────────────────────── */
     :root {
-      --ink:        #0A0A0A;
-      --ink-light:  #3A3A3A;
-      --ink-muted:  #6B6B6B;
-      --paper:      #FAF8F4;
-      --paper-dark: #F0EDE6;
-      --rule:       #C8C0B0;
-      --rule-dark:  #1A1A1A;
-      --accent:     #C41E3A;   /* newspaper red */
-      --accent2:    #1A3A6B;   /* ink blue */
-      --gold:       #B8860B;
-      --alert-bg:   #FFF8E7;
-      --alert-border: #C41E3A;
-      --r:          4px;
+      --cobalt-dark:    #060F76;
+      --cobalt-prime:   #1136A8;
+      --cobalt-light:   #1D5EDC;
+      --cobalt-gradient: linear-gradient(90deg, #060F76 0%, #1D5EDC 100%);
+      --graphite-dark:  #191919;
+      --graphite-prime: #3F3F3F;
+      --graphite-light: #666666;
+      --oxide-dark:     #FC9628;
+      --oxide-prime:    #FCB828;
+      --oxide-light:    #FCDA28;
+      --oxide-gradient: linear-gradient(90deg, #FC9628 0%, #FCDA28 100%);
+      --argon-dark:     #850048;
+      --argon-prime:    #AF015F;
+      --argon-light:    #D90276;
+      --argon-gradient: linear-gradient(90deg, #850048 0%, #D90276 100%);
+      --chroride-dark:  #00856E;
+      --chroride-prime: #00AC8E;
+      --lithium-prime:  #5715B0;
+      --white-dark:     #F1F3F4;
+      --white-prime:    #F6F7F9;
+      --white-light:    #FFFFFF;
+      --text-color:     #4D4D4D;
+      --border:         #DDE2EE;
+      --shadow-sm:      0px 2px 8px rgba(6,15,118,0.08);
+      --shadow-md:      0px 4px 16px rgba(6,15,118,0.12);
+      --r:              6px;
+      --font:           "neuzeit-grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     }
+
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
-      font-family: 'Source Serif 4', Georgia, serif;
-      background: var(--paper);
-      color: var(--ink);
+      font-family: var(--font);
+      background: var(--white-prime);
+      color: var(--graphite-prime);
       min-height: 100vh;
       font-size: 15px;
-      line-height: 1.6;
+      line-height: 1.55;
     }
 
-    /* ── MASTHEAD ─────────────────────────────────────────────────── */
-    .masthead {
-      background: var(--ink);
-      color: #fff;
+    /* ── HEADER ───────────────────────────────────────────────────────── */
+    .header {
+      background: var(--cobalt-gradient);
       padding: 0;
-      border-bottom: 3px solid var(--accent);
     }
-    .masthead-top {
+    .header-top {
       display: flex; align-items: center; justify-content: space-between;
-      padding: 14px 24px 10px;
-      border-bottom: 1px solid rgba(255,255,255,.15);
+      padding: 14px 28px 12px;
     }
-    .masthead-brand {
-      display: flex; align-items: baseline; gap: 12px;
+    .header-brand {
+      display: flex; align-items: center; gap: 16px;
     }
-    .masthead-title {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: 1.7rem; font-weight: 900;
-      letter-spacing: -0.5px; color: #fff;
+    .prosus-logo {
+      height: 22px; width: auto;
+      filter: brightness(0) invert(1);
+    }
+    .header-divider {
+      width: 1px; height: 28px;
+      background: rgba(255,255,255,.3);
+    }
+    .header-product {
+      color: rgba(255,255,255,.9);
+      font-size: .8rem;
+      font-weight: 600;
+      letter-spacing: .5px;
       text-transform: uppercase;
     }
-    .masthead-sub {
-      font-family: 'Inter', sans-serif;
-      font-size: .65rem; font-weight: 500;
-      letter-spacing: 2px; text-transform: uppercase;
-      color: rgba(255,255,255,.55); margin-top: 1px;
+    .header-meta {
+      font-size: .7rem;
+      color: rgba(255,255,255,.6);
+      text-align: right;
+      line-height: 1.4;
     }
-    .masthead-meta {
-      font-family: 'Inter', sans-serif;
-      font-size: .7rem; color: rgba(255,255,255,.5);
-      text-align: right; line-height: 1.4;
-    }
-    .masthead-meta strong { color: rgba(255,255,255,.85); }
+    .header-meta strong { color: rgba(255,255,255,.9); }
 
-    /* ── NAV STRIP ────────────────────────────────────────────────── */
+    /* ── NAV STRIP ────────────────────────────────────────────────────── */
     .nav-strip {
-      background: var(--ink);
+      background: rgba(0,0,0,.2);
       overflow-x: auto; white-space: nowrap;
-      padding: 0 20px;
+      padding: 0 24px;
       -webkit-overflow-scrolling: touch;
+      border-top: 1px solid rgba(255,255,255,.1);
     }
     .nav-strip::-webkit-scrollbar { display: none; }
     .nav-btn {
       display: inline-block;
-      font-family: 'Inter', sans-serif;
+      font-family: var(--font);
       font-size: .72rem; font-weight: 600;
-      letter-spacing: .3px;
-      padding: 10px 14px;
-      color: rgba(255,255,255,.6);
+      letter-spacing: .4px;
+      padding: 10px 16px;
+      color: rgba(255,255,255,.55);
       cursor: pointer;
       border-bottom: 3px solid transparent;
       transition: color .15s, border-color .15s;
       text-transform: uppercase;
       user-select: none;
     }
-    .nav-btn:hover { color: #fff; }
+    .nav-btn:hover { color: rgba(255,255,255,.9); }
     .nav-btn.active {
-      color: #fff;
-      border-bottom-color: var(--accent);
+      color: var(--white-light);
+      border-bottom-color: var(--oxide-prime);
     }
 
-    /* ── FLASH ALERTS ─────────────────────────────────────────────── */
+    /* ── FLASH ALERTS ─────────────────────────────────────────────────── */
     #flash-banner {
       display: none;
-      background: var(--alert-bg);
-      border-top: 3px solid var(--accent);
-      border-bottom: 1px solid #e8d9a0;
-      padding: 10px 24px;
+      background: #FFF9EC;
+      border-bottom: 1px solid #F0D080;
+      padding: 9px 28px;
     }
-    .flash-row {
-      display: flex; align-items: flex-start; gap: 12px;
-      flex-wrap: wrap;
-    }
+    .flash-row { display: flex; align-items: flex-start; gap: 10px; flex-wrap: wrap; }
     .flash-label {
-      font-family: 'Inter', sans-serif;
-      font-size: .65rem; font-weight: 700;
+      font-size: .62rem; font-weight: 700;
       letter-spacing: 1.5px; text-transform: uppercase;
-      color: var(--accent); white-space: nowrap;
-      padding-top: 2px;
+      color: var(--oxide-dark); white-space: nowrap; padding-top: 2px;
     }
     .flash-item {
-      font-family: 'Inter', sans-serif;
-      font-size: .75rem; color: var(--ink-light);
-      cursor: pointer; text-decoration: underline;
-      text-decoration-color: transparent;
-      transition: text-decoration-color .15s;
+      font-size: .75rem; color: var(--graphite-prime);
+      cursor: pointer;
+      border-bottom: 1px solid transparent;
+      transition: border-color .15s, color .15s;
     }
-    .flash-item:hover { text-decoration-color: var(--accent); color: var(--accent); }
-    .flash-sep { color: var(--rule); padding: 0 4px; }
+    .flash-item:hover { color: var(--cobalt-prime); border-bottom-color: var(--cobalt-prime); }
+    .flash-sep { color: var(--border); padding: 0 4px; }
 
-    /* ── SEARCH ───────────────────────────────────────────────────── */
+    /* ── SEARCH ───────────────────────────────────────────────────────── */
     .search-strip {
-      background: var(--paper-dark);
-      border-bottom: 1px solid var(--rule);
-      padding: 8px 24px;
+      background: var(--white-light);
+      border-bottom: 1px solid var(--border);
+      padding: 10px 28px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .search-icon {
+      color: var(--graphite-light); font-size: 14px; flex-shrink: 0;
     }
     #search {
-      width: 100%; max-width: 440px;
-      font-family: 'Inter', sans-serif;
-      font-size: .8rem;
+      flex: 1; max-width: 420px;
+      font-family: var(--font);
+      font-size: .82rem;
       padding: 7px 12px;
-      border: 1px solid var(--rule);
-      border-radius: var(--r);
-      background: #fff;
-      color: var(--ink);
+      border: 1.5px solid var(--border);
+      border-radius: 20px;
+      background: var(--white-prime);
+      color: var(--graphite-prime);
       outline: none;
-      transition: border-color .15s;
+      transition: border-color .15s, background .15s;
     }
-    #search:focus { border-color: var(--ink); }
+    #search:focus {
+      border-color: var(--cobalt-light);
+      background: var(--white-light);
+    }
+    #search::placeholder { color: var(--graphite-light); }
 
-    /* ── LAYOUT ───────────────────────────────────────────────────── */
+    /* ── LAYOUT ───────────────────────────────────────────────────────── */
     .page-wrap {
-      max-width: 1160px;
+      max-width: 1200px;
       margin: 0 auto;
-      padding: 24px 20px 40px;
+      padding: 28px 24px 48px;
     }
 
-    /* ── SECTION HEADER ───────────────────────────────────────────── */
+    /* ── SECTION HEADER ───────────────────────────────────────────────── */
     .section-masthead {
-      border-top: 3px solid var(--rule-dark);
-      border-bottom: 1px solid var(--rule);
-      padding: 8px 0;
+      display: flex; align-items: center; gap: 14px;
+      padding-bottom: 14px;
       margin-bottom: 20px;
-      display: flex; align-items: baseline; gap: 16px;
+      border-bottom: 2px solid var(--cobalt-dark);
     }
     .section-masthead h2 {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: 1.2rem; font-weight: 700;
-      letter-spacing: -.3px;
+      font-size: 1.05rem; font-weight: 700;
+      color: var(--cobalt-dark);
+      letter-spacing: -.2px;
+      text-transform: uppercase;
     }
     .section-count {
-      font-family: 'Inter', sans-serif;
       font-size: .7rem; font-weight: 600;
-      color: var(--ink-muted);
-      letter-spacing: .5px;
+      color: var(--graphite-light);
+      background: var(--white-dark);
+      padding: 2px 8px; border-radius: 10px;
     }
     .section-date {
-      font-family: 'Inter', sans-serif;
-      font-size: .68rem; color: var(--ink-muted);
+      font-size: .68rem; color: var(--graphite-light);
       margin-left: auto;
     }
 
-    /* ── STATS ROW ────────────────────────────────────────────────── */
-    .stats-row {
-      display: flex; gap: 0;
-      border: 1px solid var(--rule);
-      border-radius: var(--r);
-      overflow: hidden;
-      margin-bottom: 20px;
-      background: #fff;
-    }
-    .stat-cell {
-      flex: 1; text-align: center;
-      padding: 10px 6px;
-      border-right: 1px solid var(--rule);
-      min-width: 60px;
-    }
-    .stat-cell:last-child { border-right: none; }
-    .stat-num {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.4rem; font-weight: 700;
-      color: var(--accent2); display: block;
-    }
-    .stat-lbl {
-      font-family: 'Inter', sans-serif;
-      font-size: .58rem; font-weight: 600;
-      text-transform: uppercase; letter-spacing: .5px;
-      color: var(--ink-muted); display: block;
-      margin-top: 1px;
-    }
-
-    /* ── NEWSPAPER GRID ───────────────────────────────────────────── */
+    /* ── CARD GRID ────────────────────────────────────────────────────── */
     .news-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 0;
-      border-top: 1px solid var(--rule);
+      gap: 16px;
     }
-    @media (max-width: 800px) {
-      .news-grid { grid-template-columns: repeat(2, 1fr); }
-    }
-    @media (max-width: 520px) {
-      .news-grid { grid-template-columns: 1fr; }
-    }
+    @media (max-width: 900px) { .news-grid { grid-template-columns: repeat(2,1fr); } }
+    @media (max-width: 560px) { .news-grid { grid-template-columns: 1fr; } }
 
-    /* Lead story — full width */
+    /* Lead card — spans full width */
     .news-grid .card:first-child {
       grid-column: 1 / -1;
-      border-bottom: 2px solid var(--rule-dark);
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0;
-    }
-    @media (max-width: 640px) {
-      .news-grid .card:first-child { grid-template-columns: 1fr; }
     }
 
-    /* ── ARTICLE CARD ─────────────────────────────────────────────── */
+    /* ── ARTICLE CARD ─────────────────────────────────────────────────── */
     .card {
-      padding: 16px 18px;
-      border-right: 1px solid var(--rule);
-      border-bottom: 1px solid var(--rule);
+      background: var(--white-light);
+      border: 1.5px solid var(--border);
+      border-radius: var(--r);
+      padding: 18px 20px;
       cursor: pointer;
-      transition: background .12s;
+      transition: box-shadow .15s, border-color .15s, transform .1s;
       position: relative;
+      overflow: hidden;
     }
-    .card:hover { background: rgba(0,0,0,.02); }
-    .card:nth-child(3n) { border-right: none; }
+    .card:hover {
+      box-shadow: var(--shadow-md);
+      border-color: #b8c4e0;
+      transform: translateY(-1px);
+    }
+    .card:first-child {
+      background: var(--cobalt-gradient);
+      border-color: transparent;
+      padding: 28px 32px;
+    }
+    .card:first-child:hover {
+      box-shadow: 0px 8px 24px rgba(6,15,118,0.25);
+    }
 
-    /* Lead card layout */
-    .card:first-child { padding: 20px 24px; }
-    .card:first-child .card-lead-text { padding: 20px 24px; }
-
+    /* Kicker / source line */
     .card-kicker {
-      font-family: 'Inter', sans-serif;
       font-size: .62rem; font-weight: 700;
-      letter-spacing: 1.2px; text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 6px;
+      letter-spacing: 1px; text-transform: uppercase;
+      color: var(--cobalt-light);
+      margin-bottom: 7px;
       display: flex; align-items: center; gap: 6px;
     }
-    .card-kicker .scope-dot {
-      width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0;
+    .card:first-child .card-kicker { color: rgba(255,255,255,.65); }
+
+    .portfolio-dot {
+      display: inline-block;
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--oxide-gradient);
+      flex-shrink: 0;
     }
-    .scope-A { background: var(--accent); }
-    .scope-B { background: var(--gold); }
-    .scope-C { background: #5A9A6A; }
 
     .card-headline {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: 1.05rem; font-weight: 700;
-      line-height: 1.25;
-      color: var(--ink);
+      font-size: 1rem; font-weight: 700;
+      line-height: 1.3;
+      color: var(--graphite-dark);
       margin-bottom: 8px;
     }
     .card:first-child .card-headline {
-      font-size: 1.5rem; line-height: 1.2;
+      font-size: 1.45rem; line-height: 1.2;
+      color: var(--white-light);
+      margin-bottom: 12px;
     }
+
     .card-byline {
-      font-family: 'Inter', sans-serif;
-      font-size: .65rem; color: var(--ink-muted);
+      font-size: .65rem; color: var(--graphite-light);
       margin-bottom: 8px;
       display: flex; align-items: center; gap: 6px; flex-wrap: wrap;
     }
-    .card-byline .sep { color: var(--rule); }
+    .card:first-child .card-byline { color: rgba(255,255,255,.6); }
+    .card-byline .sep { color: var(--border); }
 
     .card-body-text {
-      font-family: 'Source Serif 4', Georgia, serif;
-      font-size: .82rem; color: var(--ink-light);
-      line-height: 1.55;
+      font-size: .82rem; color: var(--graphite-prime);
+      line-height: 1.6;
       display: none;
-      margin-top: 8px;
+      margin-top: 10px;
+    }
+    .card:first-child .card-body-text {
+      display: block;
+      color: rgba(255,255,255,.8);
     }
     .card.expanded .card-body-text { display: block; }
-    .card:first-child .card-body-text { display: block; }
 
     .card-footer {
-      margin-top: 10px;
-      display: flex; flex-wrap: wrap; gap: 4px; align-items: center;
+      margin-top: 12px;
+      display: flex; flex-wrap: wrap; gap: 5px; align-items: center;
     }
-    .tag {
-      font-family: 'Inter', sans-serif;
+
+    /* Badges */
+    .portfolio-badge {
+      font-size: .6rem; font-weight: 700;
+      padding: 2px 8px; border-radius: 3px;
+      background: var(--argon-gradient);
+      color: var(--white-light);
+      letter-spacing: .3px;
+    }
+    .cat-badge {
       font-size: .6rem; font-weight: 600;
-      padding: 2px 7px; border-radius: 2px;
-      background: var(--paper-dark);
-      color: var(--ink-light);
-      border: 1px solid var(--rule);
+      padding: 2px 8px; border-radius: 3px;
+      background: var(--white-prime);
+      color: var(--cobalt-prime);
+      border: 1px solid var(--border);
     }
-    .entity-badge {
-      font-family: 'Inter', sans-serif;
-      font-size: .6rem; font-weight: 700;
-      padding: 2px 7px; border-radius: 2px;
-      background: #FEE9E9; color: #900;
-      border: 1px solid #f0c0c0;
-    }
-    .wl-badge {
-      font-family: 'Inter', sans-serif;
-      font-size: .6rem; font-weight: 700;
-      padding: 2px 7px; border-radius: 2px;
-      background: #FFF3CD; color: #7A5A00;
-      border: 1px solid #e8d080;
-    }
-    .prosus-lens-block {
-      margin-top: 10px; padding: 10px 12px;
-      background: #EEF2FF;
-      border-left: 3px solid var(--accent2);
-      font-family: 'Source Serif 4', serif;
-      font-size: .78rem; line-height: 1.5;
-      color: var(--accent2);
-    }
-    .prosus-lens-block strong {
-      font-family: 'Inter', sans-serif;
-      font-size: .6rem; text-transform: uppercase;
-      letter-spacing: .5px; display: block;
-      margin-bottom: 3px;
-    }
+
     .read-link {
-      font-family: 'Inter', sans-serif;
       font-size: .72rem; font-weight: 600;
-      color: var(--accent2);
+      color: var(--cobalt-prime);
       text-decoration: none;
       display: inline-block; margin-top: 8px;
+      transition: color .15s;
     }
-    .read-link:hover { text-decoration: underline; }
+    .read-link:hover { color: var(--cobalt-dark); text-decoration: underline; }
+    .card:first-child .read-link { color: rgba(255,255,255,.85); }
+    .card:first-child .read-link:hover { color: var(--oxide-light); }
 
-    /* Flash highlight border */
-    .card.flash-card::after {
+    /* Flash card — oxide left stripe */
+    .flash-card::before {
       content: '';
       position: absolute; top: 0; left: 0;
-      width: 3px; height: 100%;
-      background: var(--accent);
+      width: 4px; height: 100%;
+      background: var(--oxide-gradient);
     }
+    .flash-card { padding-left: 22px; }
+    .card:first-child.flash-card { padding-left: 32px; }
 
-    /* ── DIVIDER ──────────────────────────────────────────────────── */
-    .col-rule {
-      width: 1px; background: var(--rule);
-      margin: 0 4px;
-    }
-
-    /* ── EMPTY ────────────────────────────────────────────────────── */
+    /* ── EMPTY / LOADING ──────────────────────────────────────────────── */
     .empty {
       grid-column: 1 / -1;
-      text-align: center; padding: 48px 24px;
-      font-family: 'Inter', sans-serif;
-      font-size: .85rem; color: var(--ink-muted);
+      text-align: center; padding: 56px 24px;
+      font-size: .88rem; color: var(--graphite-light);
     }
-    .empty .icon { font-size: 2rem; display: block; margin-bottom: 8px; }
-
-    /* ── LOADING ──────────────────────────────────────────────────── */
+    .empty .icon { font-size: 2.2rem; display: block; margin-bottom: 10px; }
     #spinner {
-      text-align: center; padding: 64px;
-      font-family: 'Inter', sans-serif;
-      color: var(--ink-muted); font-size: .85rem;
+      text-align: center; padding: 72px;
+      color: var(--graphite-light); font-size: .85rem;
     }
-    #spinner::before { content: "Loading…"; }
 
-    /* ── FOOTER ───────────────────────────────────────────────────── */
+    /* ── FOOTER ───────────────────────────────────────────────────────── */
     footer {
-      border-top: 1px solid var(--rule);
-      padding: 16px 24px;
-      font-family: 'Inter', sans-serif;
-      font-size: .68rem; color: var(--ink-muted);
+      background: var(--cobalt-dark);
+      padding: 20px 28px;
+      font-size: .7rem; color: rgba(255,255,255,.45);
       display: flex; justify-content: space-between; align-items: center;
       flex-wrap: wrap; gap: 8px;
     }
-    footer a { color: var(--accent2); text-decoration: none; }
-    footer a:hover { text-decoration: underline; }
+    .footer-brand {
+      display: flex; align-items: center; gap: 12px;
+    }
+    .footer-logo {
+      height: 16px; filter: brightness(0) invert(1); opacity: .5;
+    }
+    footer a { color: rgba(255,255,255,.55); text-decoration: none; }
+    footer a:hover { color: var(--oxide-light); }
   </style>
 </head>
 <body>
 
-<!-- MASTHEAD -->
-<div class="masthead">
-  <div class="masthead-top">
-    <div class="masthead-brand">
-      <div>
-        <div class="masthead-title">Prosus Reg Monitor</div>
-        <div class="masthead-sub">Digital &amp; Regulatory Intelligence</div>
-      </div>
+<!-- HEADER -->
+<div class="header">
+  <div class="header-top">
+    <div class="header-brand">
+      <img class="prosus-logo"
+           src="https://www.prosus.com/~/media/Images/P/prosus-corp-v2/logo/logo-light.png"
+           alt="Prosus" onerror="this.style.display='none';document.getElementById('prosus-wordmark').style.display='block'"/>
+      <span id="prosus-wordmark" style="display:none;color:#fff;font-weight:700;font-size:1.1rem;letter-spacing:-.5px">prosus</span>
+      <div class="header-divider"></div>
+      <div class="header-product">Digital &amp; Regulatory Monitor</div>
     </div>
-    <div class="masthead-meta" id="sync-meta">
-      <div>Loading…</div>
-    </div>
+    <div class="header-meta" id="sync-meta">Loading…</div>
   </div>
   <div class="nav-strip" id="nav-strip">
     <span class="nav-btn active" data-cat="all">All</span>
@@ -413,23 +383,29 @@
 <!-- FLASH ALERTS -->
 <div id="flash-banner">
   <div class="flash-row">
-    <span class="flash-label">⚡ Alerts</span>
+    <span class="flash-label">⚡ Flash</span>
     <span id="flash-items"></span>
   </div>
 </div>
 
 <!-- SEARCH -->
 <div class="search-strip">
-  <input type="search" id="search" placeholder="Search articles, topics, entities…"/>
+  <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+  <input type="search" id="search" placeholder="Search articles, topics, companies…"/>
 </div>
 
 <!-- MAIN -->
 <div class="page-wrap">
-  <div id="main"><div id="spinner"></div></div>
+  <div id="main"><div id="spinner">Loading intelligence…</div></div>
 </div>
 
 <footer>
-  <span>Prosus Digital &amp; Regulatory · Updated daily at 06:00 UTC</span>
+  <div class="footer-brand">
+    <img class="footer-logo"
+         src="https://www.prosus.com/~/media/Images/P/prosus-corp-v2/logo/logo-light.png"
+         alt="Prosus" onerror="this.style.display='none'"/>
+    <span>Digital &amp; Regulatory Intelligence · 30-day window · Updated daily 06:00 UTC</span>
+  </div>
   <a href="https://github.com/misschevious-agtk/prosus-reg-super-agent" target="_blank">GitHub ↗</a>
 </footer>
 
@@ -437,12 +413,12 @@
 const DATA_URL = 'content/index.json';
 
 const TABS = [
-  { key:'ai_tech',          label:'🤖 AI & Policy' },
-  { key:'privacy_data',     label:'🔒 Privacy & Data' },
-  { key:'competition',      label:'⚖️ Competition' },
-  { key:'ip_brand',         label:'💡 IP & Brand' },
-  { key:'fintech',          label:'💳 Fintech' },
-  { key:'platform_gig',     label:'🌐 Platform & Gig' },
+  { key:'ai_tech',      label:'AI & Policy' },
+  { key:'privacy_data', label:'Privacy & Data' },
+  { key:'competition',  label:'Competition' },
+  { key:'ip_brand',     label:'IP & Brand' },
+  { key:'fintech',      label:'Fintech' },
+  { key:'platform_gig', label:'Platform & Gig' },
 ];
 const CAT_LABELS = {
   all:'All Articles',
@@ -452,13 +428,12 @@ const CAT_LABELS = {
   ip_brand:'IP & Brand',
   fintech:'Fintech',
   platform_gig:'Platform & Gig',
-  prosus_only:'Prosus Direct',
+  prosus_only:'Prosus Portfolio',
 };
 
 let data = null, currentCat = 'all', searchQuery = '', flashIds = new Set();
 
 async function loadData() {
-  document.getElementById('spinner').style.display='block';
   try {
     const r = await fetch(DATA_URL + '?t=' + Date.now());
     data = await r.json();
@@ -468,7 +443,7 @@ async function loadData() {
     renderMain();
   } catch(e) {
     document.getElementById('main').innerHTML =
-      '<div class="empty"><span class="icon">⚠️</span>Could not load content — run the scraper first.</div>';
+      '<div class="news-grid"><div class="empty"><span class="icon">⚠️</span>Could not load content.</div></div>';
   }
 }
 
@@ -477,7 +452,7 @@ function renderMeta() {
   const d = new Date(data.generated_at);
   const fmt = d.toLocaleDateString('en-GB',{weekday:'short',day:'numeric',month:'long',year:'numeric'});
   document.getElementById('sync-meta').innerHTML =
-    `<strong>${fmt}</strong><br/>30-day window · ${data.sources||'–'} sources`;
+    `<strong style="color:rgba(255,255,255,.9)">${fmt}</strong><br/>${data.sources||'–'} sources`;
 }
 
 function renderFlash() {
@@ -488,15 +463,13 @@ function renderFlash() {
   banner.style.display = 'block';
   items.innerHTML = alerts.slice(0,5).map((a,i) =>
     (i>0?'<span class="flash-sep">·</span>':'')+
-    `<span class="flash-item" onclick="jumpTo('${a.uid||a.id}','${a.category||''}')">${a.title}</span>`
+    `<span class="flash-item" onclick="jumpTo('${esc(a.uid||a.id||'')}','${esc(a.category||'')}')">${esc(a.title)}</span>`
   ).join('');
 }
 
 function jumpTo(id, cat) {
   const target = cat || findCat(id);
-  if (target && currentCat !== target) {
-    setTab(target);
-  }
+  if (target && currentCat !== target) setTab(target);
   setTimeout(() => {
     const el = document.querySelector(`[data-id="${id}"]`);
     if (el) { el.scrollIntoView({behavior:'smooth',block:'center'}); el.classList.add('expanded'); }
@@ -512,10 +485,10 @@ function findCat(id) {
 
 function setTab(cat) {
   currentCat = cat;
-  document.querySelectorAll('.nav-btn').forEach(b => {
-    b.classList.toggle('active', b.dataset.cat === cat);
-  });
+  document.querySelectorAll('.nav-btn').forEach(b =>
+    b.classList.toggle('active', b.dataset.cat === cat));
   renderMain();
+  window.scrollTo({top:0,behavior:'smooth'});
 }
 
 function getArticles() {
@@ -526,20 +499,21 @@ function getArticles() {
   if (currentCat === 'all') {
     TABS.forEach(t => {
       (data[t.key]||[]).forEach(a => {
-        const key = a.uid||a.id;
+        const key = a.uid||a.id||a.title;
         if (!seen.has(key)) { seen.add(key); arts.push(a); }
       });
     });
-    arts.sort((a,b) => b.date.localeCompare(a.date));
+    arts.sort((a,b) => (b.date||'').localeCompare(a.date||''));
   } else if (currentCat === 'prosus_only') {
     TABS.forEach(t => {
       (data[t.key]||[]).forEach(a => {
-        const key = a.uid||a.id;
+        const key = a.uid||a.id||a.title;
         if (!seen.has(key) && (a.portfolio||[]).length > 0) {
           seen.add(key); arts.push(a);
         }
       });
     });
+    arts.sort((a,b) => (b.date||'').localeCompare(a.date||''));
   } else {
     arts = data[currentCat] || [];
   }
@@ -547,55 +521,60 @@ function getArticles() {
   if (searchQuery) {
     const q = searchQuery.toLowerCase();
     arts = arts.filter(a =>
-      a.title.toLowerCase().includes(q) ||
+      (a.title||'').toLowerCase().includes(q) ||
       (a.source||'').toLowerCase().includes(q) ||
       (a.body||'').toLowerCase().includes(q) ||
-      (a.tags||[]).some(t=>t.toLowerCase().includes(q)) ||
       (a.portfolio||[]).some(e=>e.toLowerCase().includes(q))
     );
   }
   return arts;
 }
 
-function esc(s) { return String(s).replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+function esc(s) {
+  return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
 
 function buildCard(a, isLead) {
-  const scope   = a.scope_path || 'C';
-  const isFlash = flashIds.has(a.uid||a.id);
-  const kicker  = [a.source, a.date, scope==='A'?'🔴 Portfolio':''].filter(Boolean).join(' · ');
-  const tags    = (a.tags||[]).slice(0,3).map(t=>`<span class="tag">${esc(t)}</span>`).join('');
-  const ents    = (a.portfolio||[]).map(e=>`<span class="entity-badge">⬡ ${esc(e)}</span>`).join('');
-  const wls     = (a.watchlist_hits||[]).slice(0,2).map(w=>`<span class="wl-badge">👁 ${esc(w)}</span>`).join('');
-  const lens    = a.prosus_lens
-    ? `<div class="prosus-lens-block"><strong>Prosus Read-Across</strong>${esc(a.prosus_lens)}</div>` : '';
+  const isFlash   = flashIds.has(a.uid||a.id);
+  const portfolio = a.portfolio||[];
+  const hasPort   = portfolio.length > 0;
+
+  const kicker = esc(a.source||'');
+  const date   = esc(a.date||'');
+
+  const portBadges = portfolio.map(e =>
+    `<span class="portfolio-badge">⬡ ${esc(e)}</span>`).join('');
+  const portDot = hasPort
+    ? `<span class="portfolio-dot" title="Prosus portfolio"></span>` : '';
+
   const readLink = a.url
     ? `<a class="read-link" href="${esc(a.url)}" target="_blank" rel="noopener" onclick="event.stopPropagation()">Read full article →</a>` : '';
-  const bodyText = a.body
-    ? `<div class="card-body-text">${esc(a.body)}${a.body.length>=300?'…':''}<br/>${readLink}${lens}</div>` : '';
+  const bodyHtml = a.body
+    ? `<div class="card-body-text">${esc(a.body)}…<br/>${readLink}</div>` : '';
+
+  const flashClass = isFlash ? ' flash-card' : '';
+  const uid = esc(a.uid||a.id||a.title||'');
 
   if (isLead) {
-    return `<div class="card flash-card" data-id="${esc(a.uid||a.id)}" onclick="toggleCard(this)">
-      <div>
-        <div class="card-kicker"><span class="scope-dot scope-${scope}"></span>${esc(kicker)}</div>
-        <div class="card-headline">${esc(a.title)}</div>
-        <div class="card-byline"><span>${esc(a.source)}</span><span class="sep">·</span><span>${esc(a.date)}</span></div>
-        ${bodyText}
-        <div class="card-footer">${ents}${wls}${tags}</div>
-      </div>
+    return `<div class="card${flashClass}" data-id="${uid}" onclick="toggleCard(this)">
+      <div class="card-kicker">${portDot}${kicker} · ${date}${hasPort?' · <span style="color:rgba(255,220,100,.9)">Portfolio</span>':''}</div>
+      <div class="card-headline">${esc(a.title)}</div>
+      ${bodyHtml}
+      <div class="card-footer">${portBadges}${readLink&&!a.body?readLink:''}</div>
     </div>`;
   }
 
-  return `<div class="card${isFlash?' flash-card':''}" data-id="${esc(a.uid||a.id)}" onclick="toggleCard(this)">
-    <div class="card-kicker"><span class="scope-dot scope-${scope}"></span>${esc(a.source)}</div>
+  return `<div class="card${flashClass}" data-id="${uid}" onclick="toggleCard(this)">
+    <div class="card-kicker">${portDot}${kicker}</div>
     <div class="card-headline">${esc(a.title)}</div>
-    <div class="card-byline"><span>${esc(a.date)}</span>${scope==='A'?'<span class="sep">·</span><span style="color:var(--accent)">Portfolio</span>':''}</div>
-    ${bodyText}
-    <div class="card-footer">${ents}${wls}${tags}</div>
+    <div class="card-byline"><span>${date}</span>${hasPort?'<span class="sep">·</span><span style="color:var(--argon-prime);font-weight:700">Portfolio</span>':''}</div>
+    ${bodyHtml}
+    <div class="card-footer">${portBadges}${readLink&&!a.body?readLink:''}</div>
   </div>`;
 }
 
 function renderMain() {
-  const main = document.getElementById('main');
+  const main  = document.getElementById('main');
   const arts  = getArticles();
   const label = CAT_LABELS[currentCat] || currentCat;
   const total = arts.length;
@@ -611,12 +590,11 @@ function renderMain() {
   main.innerHTML = `
     <div class="section-masthead">
       <h2>${esc(label)}</h2>
-      <span class="section-count">${total} articles</span>
+      <span class="section-count">${total}</span>
       <span class="section-date" id="sync-meta-inline"></span>
     </div>
     <div class="news-grid">${cards}</div>`;
 
-  // Sync date inline
   if (data) {
     const d = new Date(data.generated_at);
     const s = document.getElementById('sync-meta-inline');
