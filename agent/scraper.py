@@ -68,8 +68,21 @@ RSS_SOURCES = [
     ("Future of Privacy Forum",            "https://fpf.org/feed/"),
     ("EFF Deeplinks",                      "https://www.eff.org/rss/updates.xml"),
     ("CNIL Press Releases",                "https://www.cnil.fr/en/rss.xml"),
+    ("EDPB",                               "https://edpb.europa.eu/rss.xml"),
     ("Guardian Privacy",                   "https://www.theguardian.com/world/privacy/rss"),
     ("Krebs on Security",                  "https://krebsonsecurity.com/feed/"),
+    ("Infosecurity Magazine",              "https://www.infosecurity-magazine.com/rss/news/"),
+    ("Dark Reading",                       "https://www.darkreading.com/rss.xml"),
+    ("BleepingComputer",                   "https://www.bleepingcomputer.com/feed/"),
+    ("DataBreaches.net",                   "https://www.databreaches.net/feed/"),
+    ("CyberScoop",                         "https://cyberscoop.com/feed/"),
+    ("The Record (cybersecurity)",         "https://therecord.media/feed"),
+    ("Hunton Privacy Blog",                "https://www.huntonprivacyblog.com/feed/"),
+    ("Inside Privacy (Covington)",         "https://www.insideprivacy.com/feed/"),
+    ("TechGDPR",                           "https://techgdpr.com/blog/feed/"),
+    ("Mozilla Privacy Blog",               "https://blog.mozilla.org/privacy/feed/"),
+    ("SecurityWeek",                       "https://feeds.feedburner.com/securityweek"),
+    ("Rest of World",                      "https://restofworld.org/feed/"),
     # ── Platform / Gig / Society ──────────────────────────────────────────
     ("Oxford Internet Institute",          "https://www.oii.ox.ac.uk/feed/"),
     ("AI Now Institute",                   "https://ainowinstitute.org/feed"),
@@ -727,22 +740,52 @@ def is_prosus_relevant(a):
         return True
 
     # ── TIER 1b: Source-based fast-pass ──────────────────────────────────────
-    # Articles from specialist privacy/IP/gig feeds are inherently relevant
-    # regardless of title — they exist to cover exactly our topic areas.
-    TRUSTED_SOURCES = [
-        "eff ", "electronic frontier", "cnil", "future of privacy",
-        "fpf", "ico ", "edpb", "guardian privacy", "krebs",
-        "ip kat", "world trademark", "managing ip",
+    source_lc = a.get("source", "").lower()
+
+    # Pure specialist sources: every article is relevant by definition
+    PURE_SPECIALIST = [
+        "eff ", "electronic frontier", "cnil", "edpb", "future of privacy",
+        "fpf", "hunton privacy", "inside privacy", "techgdpr", "mozilla privacy",
+        "guardian privacy", "ip kat", "world trademark", "managing ip",
         "techcabal", "techloy", "techpoint africa", "inc42",
         "startups.com.br", "distrito",
-        "oxford internet", "oii",
-        "platform law", "worker info",
+        "oxford internet", "oii", "platform law", "worker info",
         "ai now institute", "fairwork", "fair.work",
-        "oxfam gig", "ilo platform",
     ]
-    source_lc = a.get("source", "").lower()
-    if any(s in source_lc for s in TRUSTED_SOURCES):
+    if any(s in source_lc for s in PURE_SPECIALIST):
         return True
+
+    # Security/breach feeds: only pass if title has a privacy/data/law/company signal
+    # (avoids ransomware-as-a-service, CVE, malware that have no Prosus angle)
+    SECURITY_SOURCES = [
+        "infosecurity", "dark reading", "bleepingcomputer", "databreaches",
+        "cyberscoop", "the record", "krebs", "securityweek",
+    ]
+    PRIVACY_SIGNALS = [
+        "breach", "leak", "exposed", "stolen", "scraped", "hacked",
+        "privacy", "personal data", "user data", "gdpr", "data protection",
+        "fine", "penalty", "lawsuit", "probe", "regulation", "law",
+        "surveillance", "facial recognition", "biometric", "tracking",
+        "ai ", "chatgpt", "openai", "meta ", "google ", "amazon ", "apple ",
+        "microsoft", "tiktok", "facebook", "instagram", "linkedin",
+        "healthcare data", "medical record", "patient data",
+        "financial data", "bank data", "credit card data",
+        "children data", "student data", "employee data",
+    ]
+    if any(s in source_lc for s in SECURITY_SOURCES):
+        if any(sig in title for sig in PRIVACY_SIGNALS):
+            return True
+
+    # General tech sources with strong privacy/EM signal in title
+    GENERAL_TECH = ["rest of world", "wired", "the verge", "vice"]
+    EM_PRIVACY_SIGNALS = [
+        "privacy", "data breach", "surveillance", "gdpr", "data protection",
+        "india", "brazil", "africa", "nigeria", "kenya", "indonesia",
+        "fintech", "gig", "platform worker",
+    ]
+    if any(s in source_lc for s in GENERAL_TECH):
+        if any(sig in title for sig in EM_PRIVACY_SIGNALS):
+            return True
 
     # ── TIER 2b: Thematic hooks in full text ─────────────────────────────────
     THEMES_LC = [t.lower() for t in THEMATIC_HOOKS]
