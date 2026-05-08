@@ -61,6 +61,28 @@ RSS_SOURCES = [
     ("Platformer",                       "https://www.platformer.news/feed"),
     ("Convergencia Digital (Brazil)",      "https://www.convergenciadigital.com.br/feed/"),
     ("Teletime (Brazil)",                  "https://www.teletime.com.br/feed/"),
+    # ── IP & Brand Protection specialists ─────────────────────────────────
+    ("World Trademark Review",             "https://www.worldtrademarkreview.com/rss"),
+    ("IP Kat",                             "https://ipkitten.blogspot.com/feeds/posts/default"),
+    # ── Privacy specialists ────────────────────────────────────────────────
+    ("Future of Privacy Forum",            "https://fpf.org/feed/"),
+    ("EFF Deeplinks",                      "https://www.eff.org/rss/updates.xml"),
+    ("CNIL Press Releases",                "https://www.cnil.fr/en/rss.xml"),
+    ("Guardian Privacy",                   "https://www.theguardian.com/world/privacy/rss"),
+    ("Krebs on Security",                  "https://krebsonsecurity.com/feed/"),
+    # ── Platform / Gig / Society ──────────────────────────────────────────
+    ("Oxford Internet Institute",          "https://www.oii.ox.ac.uk/feed/"),
+    ("AI Now Institute",                   "https://ainowinstitute.org/feed"),
+    ("Fairwork Project",                   "https://fair.work/en/fw/feed/"),
+    ("Guardian Workers Rights",            "https://www.theguardian.com/money/work-and-careers/rss"),
+    ("Reuters Tech (platform)",            "https://feeds.reuters.com/reuters/technologyNews"),
+    # ── Emerging Markets: Africa ──────────────────────────────────────────
+    ("TechCabal (Africa)",                 "https://techcabal.com/feed/"),
+    ("Techloy (Africa)",                   "https://techloy.com/feed/"),
+    # ── Emerging Markets: India ───────────────────────────────────────────
+    ("Inc42 (India)",                      "https://inc42.com/feed/"),
+    # ── Emerging Markets: Brazil ──────────────────────────────────────────
+    ("Startups.com.br (Brazil)",           "https://startups.com.br/feed/"),
     # ── IP SPECIALISTS ─────────────────────────────────────────────────────
     ("IPKat",                            "https://ipkitten.blogspot.com/feeds/posts/default?alt=rss"),
     ("IP Watchdog",                      "https://ipwatchdog.com/feed/"),
@@ -102,6 +124,8 @@ RSS_SOURCES = [
 EXPLICIT_NOISE = [
     "box office", "cricket match", "football match", "recipe",
     "power purchase agreement", "engaging healthcare professionals",
+    "promo code", "discount code", "coupon code", "% off ",
+    "best deals", "buying guide", "review:", "vs review",
 ]
 
 NOISE_RE = [
@@ -171,17 +195,26 @@ RELEVANT_KWS = [
     # Legal actions
     "lawsuit", "sued", "settle", "ban", "block", "probe", "investigate",
     "fined", "violation", "breach", "infringement", "watchdog",
-    # Prosus entities
+    # Prosus entities (direct)
     "ifood", "swiggy", "olx", "takealot", "payu", "brainly", "meesho",
     "pharmeasy", "rapido", "prosus", "naspers", "tencent", "just eat",
     "emag", "creditas", "iyzico", "gostudent", "eruditus", "urban company",
-    "dott", "bykea", "media24", "ema ai", "brainfish",
-    # Big tech (regulatory angle)
+    "dott", "bykea", "media24", "ema ai", "brainfish", "zapia",
+    # Big tech / AI (regulatory angle)
     "apple", "google", "meta", "amazon", "microsoft", "openai",
-    "uber", "deliveroo", "doordash",
-    # Regulators (articles about them)
-    "ftc", "cma", "cade", "cci", "acm", "edpb", "ico", "cfpb", "anatel", "anpd", "bacen",
-    "compcom", "anpd", "cnil",
+    "uber", "deliveroo", "doordash", "zomato", "paytm",
+    # Regulators
+    "ftc", "cma", "cade", "cci", "acm", "edpb", "ico", "cfpb",
+    "anatel", "anpd", "bacen", "compcom", "cnil", "meity", "rbi",
+    # Thought-leadership topics — let India/Africa/EM stories through
+    "startup", "unicorn", "funding", "venture", "invest",
+    "digital bank", "neobank", "insurtech", "lending",
+    "e-commerce", "marketplace", "gig", "delivery",
+    "edtech", "healthtech", "proptech", "agritech",
+    "india", "brazil", "africa", "nigeria", "kenya",
+    "indonesia", "pakistan", "turkey", "south africa",
+    "trademark", "copyright", "ip ", "intellectual",
+    "data", "privacy", "surveillance", "biometric",
 ]
 
 # ── CATEGORY RULES ────────────────────────────────────────────────────────
@@ -442,6 +475,36 @@ PROSUS_ENTITIES = [
     "stack overflow", "similarweb", "superside", "bandlab",
     "avant arte", "dott scooter", "kovi", "99minutos",
     "emag", "merxu", "flexion mobile",
+    # India ecosystem (Prosus is deeply exposed — anything in this space matters)
+    "paytm", "phonepe", "razorpay", "zepto", "blinkit", "dunzo",
+    "zomato", "ola ", "nykaa", "groww", "zerodha", "cred ", "slice ",
+    "byju", "unacademy", "vedantu", "upgrad", "classplus",
+    "1mg", "netmeds", "practo", "tata 1mg",
+    "flipkart", "snapdeal", "indiamart", "shopclues",
+    "ola electric", "ather", "bounce infinity",
+    "oyo", "zostel", "meru",
+    "paisa bazaar", "policybazaar", "acko",
+    "khatabook", "vyapar", "ofbusiness",
+    "innovaccer", "healthifyme", "cure.fit",
+    "inmobi", "moengage", "clevertap",
+    "lenskart", "mamaearth", "boat ",
+    # Brazil ecosystem
+    "nubank", "mercado livre", "mercadolivre", "stone ", "totvs",
+    "vtex", "movile", "locaweb", "rdstation",
+    "99 app", "99taxi", "loggi", "lalamove brazil",
+    "quinto andar", "loft ", "zap imoveis",
+    "gympass", "zenvia", "neoway",
+    # Africa ecosystem
+    "safaricom", "mpesa", "m-pesa", "flutterwave", "paystack",
+    "jumia", "konga", "sendwave", "chipper cash",
+    "fincra", "mono ", "lendsqr", "cowrywise",
+    "village capital", "techstars africa",
+    # Indonesia / SE Asia
+    "gojek", "tokopedia", "bukalapak", "traveloka",
+    "grab ", "lazada", "shopee",
+    # Turkey
+    "trendyol", "getir", "hepsiburada", "n11 ",
+    "yemeksepeti", "sahibinden",
     # AI investees
     "zapia", "brainlogic", "brain logic",
     "advolve", "brainfish", "luzia",
@@ -602,10 +665,23 @@ def is_prosus_relevant(a):
         "copyright infringement", "ip enforcement", "domain name",
         "cybersquatting", "counterfeiting", "brand impersonat",
         "wipo", "inta", "trade mark", "passing off",
-        # Privacy / data (all entities affected)
+        # Privacy / data — broad; plain "privacy" is enough for the discourse
         "gdpr", "data protection", "privacy regulation", "privacy fine",
-        "data breach", "data leak", "data localisation", "biometric",
-        "surveillance law", "tracking ban", "cookie law",
+        "privacy law", "privacy ruling", "privacy lawsuit", "privacy violation",
+        "privacy watchdog", "privacy probe", "privacy settlement",
+        "privacy groups", "privacy rights", "digital privacy",
+        "privacy tech", "privacy feature", "privacy tool",
+        " privacy", "privacy ",          # plain word — catches most headlines
+        "data breach", "data leak", "data hack", "data stolen", "data exposed",
+        "data localisation", "data sovereignty", "data governance",
+        "biometric", "facial recognition", "surveillance", "tracking ban",
+        "cookie consent", "cookie law", "cookie ban",
+        "age verification", "age-gating", "children online",
+        "right to erasure", "right to be forgotten",
+        "ico fine", "ico ruling", "ico investigation",
+        "cnil fine", "cnil ruling", "edpb ruling", "edpb decision",
+        "personal data", "user data", "location data",
+        "data subject", "consent mechanism", "data transfer",
         # Competition / antitrust (broad — any market Prosus operates in)
         "antitrust", "competition fine", "competition probe", "competition law",
         "monopoly", "market dominance", "abuse of dominance",
@@ -648,6 +724,24 @@ def is_prosus_relevant(a):
     ]
 
     if any(kw in title for kw in TITLE_SECTOR_KWS):
+        return True
+
+    # ── TIER 1b: Source-based fast-pass ──────────────────────────────────────
+    # Articles from specialist privacy/IP/gig feeds are inherently relevant
+    # regardless of title — they exist to cover exactly our topic areas.
+    TRUSTED_SOURCES = [
+        "eff ", "electronic frontier", "cnil", "future of privacy",
+        "fpf", "ico ", "edpb", "guardian privacy", "krebs",
+        "ip kat", "world trademark", "managing ip",
+        "techcabal", "techloy", "techpoint africa", "inc42",
+        "startups.com.br", "distrito",
+        "oxford internet", "oii",
+        "platform law", "worker info",
+        "ai now institute", "fairwork", "fair.work",
+        "oxfam gig", "ilo platform",
+    ]
+    source_lc = a.get("source", "").lower()
+    if any(s in source_lc for s in TRUSTED_SOURCES):
         return True
 
     # ── TIER 2b: Thematic hooks in full text ─────────────────────────────────
