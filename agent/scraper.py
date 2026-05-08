@@ -28,8 +28,8 @@ INDEX_FILE  = CONTENT_DIR / "index.json"
 SYNC_FILE   = CONTENT_DIR / "sync.json"
 PAGES_DIR   = CONTENT_DIR / "pages"
 OPENAI_API_KEY = os.environ.get("OPENAI_API_KEY", "")
-MAX_AGE_DAYS = 7
-TARGET_PER_CATEGORY = 30
+MAX_AGE_DAYS = 14
+TARGET_PER_CATEGORY = 40
 
 # ── 50 VERIFIED RSS FEEDS ─────────────────────────────────────────────────
 RSS_SOURCES = [
@@ -170,21 +170,26 @@ RSS_SOURCES = [
 
 # ── NOISE FILTERS ─────────────────────────────────────────────────────────
 EXPLICIT_NOISE = [
-    "box office", "cricket match", "football match", "recipe",
-    "power purchase agreement", "engaging healthcare professionals",
-    "promo code", "discount code", "coupon code", "% off ",
-    "best deals", "buying guide", "review:", "vs review",
-    # Hardware / infrastructure (not policy)
-    "data center investment", "data centre investment",
-    "data center capacity", "data centre capacity",
-    "data center construction", "data centre construction",
-    "data center expansion", "edge data center",
+    # Sport
+    "box office", "cricket match", "football match", "urc race",
+    # Consumer/gadget
+    "recipe", "promo code", "discount code", "coupon code", "% off ",
+    "best deals", "buying guide", "vs review",
+    "launched in india", "mah battery", "snapdragon 8",
+    "zeiss camera", "dimensity", "smartphone launch", "phone launch",
+    "laptop deal", "macbook deal", "iphone 18",
+    "tem desconto", "novo celular", "novo smartwatch",
+    # Infrastructure (not regulatory)
+    "power purchase agreement", "data center investment",
+    "data centre investment", "data center capacity",
     "pops que podem virar", "eldorado do sul",
-    # Telecom infrastructure (not regulation)
     "850 mhz", "roaming permanente", "pgmc",
-    # Pure gadget/consumer
-    "smartphone review", "laptop review", "tem desconto",
-    "imbatível de", "novo celular", "novo smartwatch",
+    "white paper sobre recursos de órbita",
+    # Pure consumer health/lifestyle
+    "engaging healthcare professionals",
+    # Telecom spectrum auctions (not policy)
+    "adjudica lotes", "leilão de 700",
+    "leilão de 850", "roaming permanente",
 ]
 
 NOISE_RE = [
@@ -913,119 +918,84 @@ def is_prosus_relevant(a):
     if any(kw in title for kw in TITLE_SECTOR_KWS):
         return True
 
-    # ── TIER 1b: Source-based fast-pass ──────────────────────────────────────
+    # ── SOURCE TRUST MODEL ────────────────────────────────────────────────────
+    # All RSS_SOURCES are curated specialist/regional feeds.
+    # Trust the source selection — don't second-guess it with a keyword gate.
+    # The noise filter (is_noise) already strips gadget reviews, earnings, etc.
+    # Only apply light additional filtering for the highest-volume general sources.
+
     source_lc = a.get("source", "").lower()
 
-    # Pure specialist sources: every article is relevant by definition
-    PURE_SPECIALIST = [
-        # Privacy law / advocacy
+    # ── PURE SPECIALISTS: always pass ────────────────────────────────────────
+    # These sources publish nothing but regulatory/policy/rights content
+    ALWAYS_PASS = [
         "eff ", "electronic frontier", "cnil", "edpb", "datatilsynet",
-        "future of privacy", "fpf", "hunton privacy", "inside privacy",
-        "techgdpr", "mozilla privacy", "noyb", "access now",
-        "guardian privacy", "privacy international", "article 19",
-        "algorithmwatch", "global voices",
-        # India digital rights + law
-        "internet freedom foundation", "sflc", "medianama",
-        "bar and bench", "live law",
-        # Brazil legal / policy
-        "jota", "politica por inteiro", "fiquem sabendo",
-        # SA privacy / law
-        "michalsons", "compcom south africa", "de rebus",
+        "future of privacy", "fpf", "hunton privacy", "techgdpr",
+        "noyb", "access now", "guardian privacy", "article 19",
+        "algorithmwatch", "global voices", "sflc", "medianama",
+        "bar and bench", "live law", "jota", "de rebus",
         "daily maverick", "mail & guardian",
-        # IP specialists
         "ip kat", "ipkat", "world trademark", "ip watchdog",
-        # Platform/gig specialists
-        "oxford internet", "oii", "fairwork", "fair.work",
-        "ai now institute", "worker info",
-        # EM specialists
+        "oxford internet", "ai now institute", "worker info",
         "techcabal", "techloy", "techpoint africa", "inc42",
-        "startups.com.br", "ventureburn",
-        # Rest of world / global
-        "rest of world",
+        "startups.com.br", "ventureburn", "rest of world",
+        "chillin competition", "global competition review",
+        "cma ", "eu law live", "eu digital strategy",
+        "digital watch", "tech policy press", "platformer",
+        "euractiv", "netzpolitik", "politico eu",
+        "compcom south africa",
     ]
-    if any(s in source_lc for s in PURE_SPECIALIST):
+    if any(s in source_lc for s in ALWAYS_PASS):
         return True
 
-    # Security/breach feeds: only pass if title has a privacy/data/law/company signal
+    # ── SECURITY FEEDS: require privacy/enforcement signal ───────────────────
     SECURITY_SOURCES = [
-        "infosecurity", "dark reading", "bleepingcomputer", "databreaches",
-        "cyberscoop", "the record", "krebs", "securityweek",
+        "infosecurity", "dark reading", "cyberscoop",
+        "the record", "krebs",
     ]
-    PRIVACY_SIGNALS = [
+    SECURITY_SIGNALS = [
         "breach", "leak", "exposed", "stolen", "scraped", "hacked",
-        "privacy", "personal data", "user data", "gdpr", "data protection",
-        "dpdp", "lgpd", "popia", "fine", "penalty", "lawsuit", "probe",
-        "regulation", "law", "surveillance", "facial recognition",
-        "biometric", "tracking", "ai ", "chatgpt", "openai",
-        "meta ", "google ", "amazon ", "apple ", "microsoft",
-        "tiktok", "facebook", "instagram", "linkedin",
-        "healthcare data", "medical record", "patient data",
-        "financial data", "bank data", "children data",
-        "india", "brazil", "south africa", "europe", "nigeria", "kenya",
-        "indonesia", "turkey", "pakistan",
+        "privacy", "personal data", "gdpr", "fine", "penalty",
+        "lawsuit", "regulation", "surveillance", "biometric",
     ]
     if any(s in source_lc for s in SECURITY_SOURCES):
-        if any(sig in title for sig in PRIVACY_SIGNALS):
-            return True
+        return any(sig in title for sig in SECURITY_SIGNALS)
 
-    # Regional tech sources: pass if title has any Prosus-relevant signal
-    REGIONAL_SOURCES = [
-        "techcentral", "mybroadband", "itweb", "businesstech", "moneyweb",  # SA
-        "livemint", "business standard tech", "entrackr",                    # India
-        "tecnoblog", "tecmundo", "teletime", "telesintese",                  # Brazil
-        "euractiv", "netzpolitik", "eu law live",                            # EU
-        "global competition review", "chillin competition",                  # Competition
-        "reuters technology",
+    # ── VOLUME SOURCES: broad tech but high noise — require topic signal ─────
+    # (ET Tech, LiveMint, Bar & Bench, Bloomberg, Wired, Register etc.)
+    # Anything from a topic-relevant angle passes; gadget/consumer drops to noise filter
+    VOLUME_SOURCES = [
+        "economic times tech", "livemint", "bloomberg technology",
+        "the register", "ars technica", "techcrunch", "zdnet",
+        "bbc technology", "guardian tech", "wired",
+        "mit technology review", "venturebeat", "404 media",
+        "telesintese", "teletime", "tecnoblog", "tecmundo",
+        "convergencia digital", "techtudo",
+        "techcentral", "moneyweb",
     ]
-    REGIONAL_SIGNALS = [
-        "privacy", "data", "regulation", "law", "fine", "ban", "probe",
-        "breach", "ai", "competition", "antitrust", "merger", "fintech",
-        "payment", "platform", "gig", "trademark", "copyright",
-        "surveillance", "gdpr", "dpdp", "lgpd", "popia",
+    TOPIC_SIGNALS = [
+        "regulation", "regulat", "law", "legal", "court", "ruling",
+        "fine", "ban", "probe", "investigat", "enforcement",
+        "privacy", "data protect", "breach", "surveillance",
+        "ai govern", "ai act", "ai regulation", "ai law", "ai policy",
+        "ai fraud", "ai scam", "ai deepfake", "ai impersonat",
+        "antitrust", "competition", "merger", "monopol",
+        "intellectual property", "copyright", "trademark", "patent",
+        "fintech", "payment", "crypto", "bnpl", "digital bank",
+        "gig worker", "platform worker", "delivery rider",
+        "platform liability", "content moderation", "online safety",
+        "gdpr", "dpdp", "lgpd", "popia", "pdpa",
+        "cci ", "cade ", "rbi ", "meity", "anpd",
+        "musk", "x corp", "meta ", "google ", "apple ", "microsoft ",
+        "openai", "anthropic", "chatgpt", "deepseek", "gemini",
+        "encryption", "backdoor", "child safety online",
+        "digital tax", "digital services tax",
     ]
-    if any(s in source_lc for s in REGIONAL_SOURCES):
-        if any(sig in title for sig in REGIONAL_SIGNALS):
-            return True
+    if any(s in source_lc for s in VOLUME_SOURCES):
+        return any(sig in title for sig in TOPIC_SIGNALS)
 
-    # ── TIER 2b: Thematic hooks in full text ─────────────────────────────────
-    THEMES_LC = [t.lower() for t in THEMATIC_HOOKS]
-    if any(kw in text for kw in THEMES_LC):
-        return True
-
-    # ── TIER 3: Regulator/court/legislation + sector in body ─────────────────
-    PROSUS_SECTORS = [
-        "food delivery", "delivery app", "restaurant platform",
-        "fintech", "payment", "neobank", "digital lending", "bnpl",
-        "edtech", "online education", "e-learning",
-        "online pharmacy", "digital health", "telemedicine",
-        "platform worker", "gig worker", "gig economy",
-        "e-commerce", "online marketplace", "classifieds",
-        "artificial intelligence", "generative ai", "llm", "chatbot",
-        "trademark", "brand protection", "intellectual property",
-        "platform liability", "content moderation",
-        "big tech", "digital platform", "tech company",
-        "data protection", "privacy", "personal data",
-        "ride-hail", "ridesharing", "mobility platform",
-    ]
-    REGULATOR_NAMES = [kw.lower() for kw in REGULATORY_BODIES]
-    if any(reg in text for reg in REGULATOR_NAMES):
-        if any(sector in text for sector in PROSUS_SECTORS):
-            return True
-
-    # ── TIER 4: Litigation / enforcement language + sector ───────────────────
-    LITIGATION_KWS = [
-        "lawsuit", "sued", "court", "tribunal", "judge", "ruling",
-        "verdict", "injunction", "damages", "settlement", "penalty",
-        "fine", "enforcement", "investigation", "probe", "raid",
-        "subpoena", "indictment", "charges filed", "complaint filed",
-        "regulatory action", "enforcement notice", "cease and desist",
-        "appeal", "class action", "collective action",
-    ]
-    if any(lit in text for lit in LITIGATION_KWS):
-        if any(sector in text for sector in PROSUS_SECTORS):
-            return True
-
-    return False
+    # ── EVERYTHING ELSE: trust the source curation, pass it ──────────────────
+    return True
 
 
 def categorise(a):
