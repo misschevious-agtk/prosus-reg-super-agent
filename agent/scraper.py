@@ -340,6 +340,16 @@ TITLE_CAT_RULES = [
         "large language model", "generative ai", "agentic ai", "ai agent",
         "chatbot", "multimodal", "ai model", "ai chip", "ai compute",
         "ai race", "ai sovereignty", "us china ai", "ai export",
+        # ── Meta / WhatsApp / messaging AI ───────────────────────────────────
+        "whatsapp ai", "whatsapp terms", "whatsapp policy", "whatsapp privacy",
+        "whatsapp data", "whatsapp encryption", "whatsapp ban",
+        "whatsapp regulation", "whatsapp fine", "whatsapp lawsuit",
+        "meta ai terms", "meta ai policy", "meta ai regulation",
+        "meta ai training", "meta terms of service", "meta terms change",
+        "instagram ai", "facebook ai terms", "meta data policy",
+        "messenger ai", "signal regulation", "telegram regulation",
+        "telegram ban", "telegram fine", "messaging app regulation",
+        "end-to-end encryption law", "chat control", "e2e encryption ban",
     ]),
     # ── 2. COMPETITION & MARKETS ──────────────────────────────────────────
     ("competition", [
@@ -1200,9 +1210,11 @@ def match_entities(a):
     raw_text = (a["title"] + " " + a["body"])
     text = raw_text.lower()
     matches = []
-    for e in ALL_ENTITIES:
+    # Merge config entities + scraper's own PROSUS_ENTITIES list for broader coverage
+    combined = list(dict.fromkeys(ALL_ENTITIES + PROSUS_ENTITIES))
+    for e in combined:
         el = e.lower()
-        # Skip very common English words unless they appear capitalised as a brand
+        # Skip very common English words unless capitalised as a brand
         if el in COMMON_ENGLISH:
             if not re.search(r"\b" + re.escape(e) + r"\b", raw_text):
                 continue
@@ -1213,7 +1225,7 @@ def match_entities(a):
         else:
             if el in text:
                 matches.append(e)
-    return matches
+    return list(dict.fromkeys(matches))  # deduplicate
 
 def hit_watchlists(a):
     text = (a["title"] + " " + a["body"]).lower()
