@@ -33,104 +33,134 @@ TARGET_PER_CATEGORY = 30
 
 # ── 50 VERIFIED RSS FEEDS ─────────────────────────────────────────────────
 RSS_SOURCES = [
-    # ── EU / EUROPEAN AUTHORITIES ──────────────────────────────────────────
-    ("EU Digital Strategy / AI Office", "https://digital-strategy.ec.europa.eu/en/rss.xml"),
-    ("CMA (UK)",                         "https://www.gov.uk/search/all.atom?organisations%5B%5D=competition-and-markets-authority&order=updated-newest"),
-    ("WIPO",                             "https://www.wipo.int/pressroom/en/rss.xml"),
-    ("CNIL (France)",                    "https://www.cnil.fr/fr/rss.xml"),
-    ("EU Law Live",                      "https://eulawlive.com/feed/"),
-    # ── US AUTHORITIES ─────────────────────────────────────────────────────
-    ("CFPB",                             "https://www.cfpb.gov/feed/"),
-    ("CFPB Blog",                        "https://www.cfpb.gov/about-us/blog/feed/"),
-    # ── SA / AFRICA ────────────────────────────────────────────────────────
-    ("CompCom South Africa",             "https://www.compcom.co.za/feed/"),
-    ("TechCentral (SA)",                 "https://techcentral.co.za/feed/"),
-    ("Ventureburn (Africa)",             "https://ventureburn.com/feed/"),
-    ("Techpoint Africa",                 "https://techpoint.africa/feed/"),
-    # ── INDIA ──────────────────────────────────────────────────────────────
-    ("Economic Times Tech",              "https://economictimes.indiatimes.com/tech/rssfeeds/13357270.cms"),
-    ("Inc42",                            "https://inc42.com/feed/"),
-    ("MediaNama",                        "https://www.medianama.com/feed/"),
-    ("The Hindu Tech",                   "https://www.thehindu.com/sci-tech/technology/feeder/default.rss"),
-    # ── BRAZIL ─────────────────────────────────────────────────────────────
-    ("Jota (Brazil)",                    "https://www.jota.info/feed"),
-    ("Telesintese (Brazil)",             "https://www.telesintese.com.br/feed/"),
-    ("The Decoder (AI)",                 "https://the-decoder.com/feed/"),
-    ("Rest of World",                    "https://restofworld.org/feed/"),
-    ("404 Media",                        "https://www.404media.co/feed"),
-    ("Platformer",                       "https://www.platformer.news/feed"),
-    ("Convergencia Digital (Brazil)",      "https://www.convergenciadigital.com.br/feed/"),
-    ("Teletime (Brazil)",                  "https://www.teletime.com.br/feed/"),
-    # ── IP & Brand Protection specialists ─────────────────────────────────
-    ("World Trademark Review",             "https://www.worldtrademarkreview.com/rss"),
-    ("IP Kat",                             "https://ipkitten.blogspot.com/feeds/posts/default"),
-    # ── Privacy specialists ────────────────────────────────────────────────
-    ("Future of Privacy Forum",            "https://fpf.org/feed/"),
-    ("EFF Deeplinks",                      "https://www.eff.org/rss/updates.xml"),
-    ("CNIL Press Releases",                "https://www.cnil.fr/en/rss.xml"),
-    ("EDPB",                               "https://edpb.europa.eu/rss.xml"),
-    ("Guardian Privacy",                   "https://www.theguardian.com/world/privacy/rss"),
-    ("Krebs on Security",                  "https://krebsonsecurity.com/feed/"),
-    ("Infosecurity Magazine",              "https://www.infosecurity-magazine.com/rss/news/"),
-    ("Dark Reading",                       "https://www.darkreading.com/rss.xml"),
-    ("BleepingComputer",                   "https://www.bleepingcomputer.com/feed/"),
-    ("DataBreaches.net",                   "https://www.databreaches.net/feed/"),
-    ("CyberScoop",                         "https://cyberscoop.com/feed/"),
-    ("The Record (cybersecurity)",         "https://therecord.media/feed"),
-    ("Hunton Privacy Blog",                "https://www.huntonprivacyblog.com/feed/"),
-    ("Inside Privacy (Covington)",         "https://www.insideprivacy.com/feed/"),
-    ("TechGDPR",                           "https://techgdpr.com/blog/feed/"),
-    ("Mozilla Privacy Blog",               "https://blog.mozilla.org/privacy/feed/"),
-    ("SecurityWeek",                       "https://feeds.feedburner.com/securityweek"),
-    ("Rest of World",                      "https://restofworld.org/feed/"),
-    # ── Platform / Gig / Society ──────────────────────────────────────────
-    ("Oxford Internet Institute",          "https://www.oii.ox.ac.uk/feed/"),
-    ("AI Now Institute",                   "https://ainowinstitute.org/feed"),
-    ("Fairwork Project",                   "https://fair.work/en/fw/feed/"),
-    ("Guardian Workers Rights",            "https://www.theguardian.com/money/work-and-careers/rss"),
-    ("Reuters Tech (platform)",            "https://feeds.reuters.com/reuters/technologyNews"),
-    # ── Emerging Markets: Africa ──────────────────────────────────────────
-    ("TechCabal (Africa)",                 "https://techcabal.com/feed/"),
-    ("Techloy (Africa)",                   "https://techloy.com/feed/"),
-    # ── Emerging Markets: India ───────────────────────────────────────────
-    ("Inc42 (India)",                      "https://inc42.com/feed/"),
-    # ── Emerging Markets: Brazil ──────────────────────────────────────────
-    ("Startups.com.br (Brazil)",           "https://startups.com.br/feed/"),
-    # ── IP SPECIALISTS ─────────────────────────────────────────────────────
-    ("IPKat",                            "https://ipkitten.blogspot.com/feeds/posts/default?alt=rss"),
-    ("IP Watchdog",                      "https://ipwatchdog.com/feed/"),
-    ("IP Finance",                       "https://ipfinance.blogspot.com/feeds/posts/default"),
-    # ── PRIVACY / DATA PROTECTION ─────────────────────────────────────────
-    ("EFF",                              "https://www.eff.org/rss/updates.xml"),
-    ("Future of Privacy Forum",          "https://fpf.org/feed/"),
-    ("Privacy International",            "https://privacyinternational.org/rss.xml"),
-    ("Access Now",                       "https://www.accessnow.org/feed/"),
-    ("CDT",                              "https://cdt.org/feed/"),
-    ("Netzpolitik (EU digital rights)",  "https://netzpolitik.org/feed/"),
-    # ── AI / CHATBOT REGULATION ───────────────────────────────────────────
-    ("AI Now Institute",                 "https://ainowinstitute.org/feed/"),
-    ("Future of Life Institute",         "https://futureoflife.org/feed/"),
-    ("Algorithm Watch",                  "https://algorithmwatch.org/en/feed/"),
-    ("Responsible AI",                   "https://www.responsible.ai/feed/"),
-    ("AI Policy Exchange",               "https://aipolicyexchange.org/feed/"),
-    # ── COMPETITION LAW ───────────────────────────────────────────────────
-    ("Chillin Competition",              "https://chillingcompetition.com/feed"),
-    ("Global Competition Review",        "https://globalcompetitionreview.com/rss"),
-    # ── LEGAL / LITIGATION NEWS ───────────────────────────────────────────
-    ("Above The Law",                    "https://abovethelaw.com/feed/"),
-    # ── BROAD TECH / POLICY ───────────────────────────────────────────────
-    ("TechCrunch",                       "https://techcrunch.com/feed/"),
-    ("MIT Technology Review",            "https://www.technologyreview.com/feed/"),
-    ("VentureBeat AI",                   "https://venturebeat.com/feed/"),
-    ("Ars Technica",                     "https://feeds.arstechnica.com/arstechnica/technology-lab"),
-    ("Wired",                            "https://www.wired.com/feed/rss"),
-    ("The Register",                     "https://www.theregister.com/headlines.atom"),
-    ("BBC Technology",                   "https://feeds.bbci.co.uk/news/technology/rss.xml"),
-    ("The Guardian Tech",                "https://www.theguardian.com/technology/rss"),
-    ("Bloomberg Technology",             "https://feeds.bloomberg.com/technology/news.rss"),
-    ("ZDNet Government",                 "https://www.zdnet.com/topic/government/rss.xml"),
-    ("Financial Times Tech",             "https://www.ft.com/technology?format=rss"),
-    ("Digital Watch",                    "https://dig.watch/feed"),
+
+    # ══════════════════════════════════════════════════════════════════════
+    # INDIA  — Prosus exposure: Swiggy, Meesho, PayU, Urban Company,
+    #          PharmEasy, Rapido, GoStudent, Brainly, Ola Electric
+    # ══════════════════════════════════════════════════════════════════════
+    # General India tech
+    ("MediaNama (India)",               "https://medianama.com/feed/"),
+    ("Inc42 (India)",                   "https://inc42.com/feed/"),
+    ("Economic Times Tech (India)",     "https://economictimes.indiatimes.com/tech/rssfeeds/13357270.cms"),
+    ("LiveMint Tech (India)",           "https://www.livemint.com/rss/technology"),
+    # India digital rights / privacy specialists
+    ("SFLC India",                      "https://sflc.in/feed/"),
+    ("Bar and Bench India",             "https://www.barandbench.com/feed"),
+
+    # ══════════════════════════════════════════════════════════════════════
+    # BRAZIL — Prosus exposure: iFood, OLX, Creditas, Azos, Remessa Online
+    # ══════════════════════════════════════════════════════════════════════
+    # General Brazil tech/policy
+    ("Jota (Brazil law/policy)",        "https://www.jota.info/feed"),
+    ("Telesintese (Brazil telecom)",    "https://www.telesintese.com.br/feed/"),
+    ("Teletime (Brazil)",               "https://www.teletime.com.br/feed/"),
+    ("Convergencia Digital (Brazil)",   "https://www.convergenciadigital.com.br/feed/"),
+    ("Tecnoblog (Brazil)",              "https://tecnoblog.net/feed/"),
+    ("TecMundo (Brazil)",               "https://rss.tecmundo.com.br/feed"),
+    ("Startups.com.br",                 "https://startups.com.br/feed/"),
+    ("Congresso em Foco (Brazil)",      "https://congressoemfoco.uol.com.br/feed/"),
+    ("Politica Por Inteiro (Brazil)",   "https://www.politicaporinteiro.org/feed/"),
+
+    # ══════════════════════════════════════════════════════════════════════
+    # SOUTH AFRICA — Prosus home market via Naspers; OLX, TakeLot, Media24
+    # ══════════════════════════════════════════════════════════════════════
+    ("TechCentral (SA)",                "https://techcentral.co.za/feed/"),
+    ("Moneyweb (SA)",                   "https://www.moneyweb.co.za/feed/"),
+    ("Daily Maverick (SA)",             "https://www.dailymaverick.co.za/dmrss/"),
+    ("Mail & Guardian (SA)",            "https://mg.co.za/feed/"),
+    ("De Rebus SA law",                 "https://www.derebus.org.za/feed/"),
+    ("CompCom South Africa",            "https://www.compcom.co.za/feed/"),
+    ("Ventureburn (Africa)",            "https://ventureburn.com/feed/"),
+
+    # ══════════════════════════════════════════════════════════════════════
+    # EUROPE — HQ jurisdiction; GDPR, AI Act, DMA, DSA directly apply
+    # ══════════════════════════════════════════════════════════════════════
+    # EU regulators
+    ("EDPB",                            "https://edpb.europa.eu/rss.xml"),
+    ("CNIL (France)",                   "https://www.cnil.fr/en/rss.xml"),
+    ("CMA (UK)",                        "https://www.gov.uk/search/all.atom?organisations%5B%5D=competition-and-markets-authority&order=updated-newest"),
+    ("noyb (Schrems)",                  "https://noyb.eu/en/rss.xml"),
+    # EU policy/law media
+    ("EU Digital Strategy",             "https://digital-strategy.ec.europa.eu/en/rss.xml"),
+    ("EU Law Live",                     "https://eulawlive.com/feed/"),
+    ("Netzpolitik (EU digital rights)", "https://netzpolitik.org/feed/"),
+    ("Politico EU",                     "https://www.politico.eu/feed/"),
+    # UK
+    ("The Register (UK)",               "https://www.theregister.com/headlines.atom"),
+    ("Guardian Tech (UK)",              "https://www.theguardian.com/technology/rss"),
+    ("Guardian Privacy (UK)",           "https://www.theguardian.com/world/privacy/rss"),
+    ("BBC Technology (UK)",             "https://feeds.bbci.co.uk/news/technology/rss.xml"),
+
+    # ══════════════════════════════════════════════════════════════════════
+    # AFRICA (rest) — TechCabal / Techpoint / Techloy for Nigeria, Kenya, Ghana
+    # ══════════════════════════════════════════════════════════════════════
+    ("TechCabal (Africa)",              "https://techcabal.com/feed/"),
+    ("Techloy (Africa)",                "https://techloy.com/feed/"),
+    ("Techpoint Africa",                "https://techpoint.africa/feed/"),
+
+    # ══════════════════════════════════════════════════════════════════════
+    # GLOBAL PRIVACY & DIGITAL RIGHTS
+    # ══════════════════════════════════════════════════════════════════════
+    ("EFF Deeplinks",                   "https://www.eff.org/rss/updates.xml"),
+    ("Future of Privacy Forum",         "https://fpf.org/feed/"),
+    ("Hunton Privacy Blog",             "https://www.huntonprivacyblog.com/feed/"),
+    ("TechGDPR",                        "https://techgdpr.com/blog/feed/"),
+    ("Access Now",                      "https://www.accessnow.org/feed/"),
+    ("Global Voices",                   "https://globalvoices.org/feed/"),
+    ("Rest of World",                   "https://restofworld.org/feed/"),
+    ("Article 19",                      "https://www.article19.org/feed/"),
+
+    # ══════════════════════════════════════════════════════════════════════
+    # CYBERSECURITY / DATA BREACHES (qualified gate — privacy angle only)
+    # ══════════════════════════════════════════════════════════════════════
+    ("Infosecurity Magazine",           "https://www.infosecurity-magazine.com/rss/news/"),
+    ("Dark Reading",                    "https://www.darkreading.com/rss.xml"),
+    ("CyberScoop",                      "https://cyberscoop.com/feed/"),
+    ("The Record (cybersecurity)",      "https://therecord.media/feed"),
+    ("Krebs on Security",               "https://krebsonsecurity.com/feed/"),
+
+    # ══════════════════════════════════════════════════════════════════════
+    # AI & EMERGING TECH
+    # ══════════════════════════════════════════════════════════════════════
+    ("AI Now Institute",                "https://ainowinstitute.org/feed"),
+    ("The Decoder",                     "https://the-decoder.com/feed/"),
+    ("404 Media",                       "https://www.404media.co/feed"),
+    ("MIT Technology Review",           "https://www.technologyreview.com/feed/"),
+    ("VentureBeat AI",                  "https://venturebeat.com/feed/"),
+    ("Future of Life Institute",        "https://futureoflife.org/feed/"),
+
+    # ══════════════════════════════════════════════════════════════════════
+    # IP & BRAND PROTECTION
+    # ══════════════════════════════════════════════════════════════════════
+    ("IPKat",                           "https://ipkitten.blogspot.com/feeds/posts/default?alt=rss"),
+    ("IP Watchdog",                     "https://ipwatchdog.com/feed/"),
+    ("World Trademark Review",          "https://www.worldtrademarkreview.com/rss"),
+    ("WIPO",                            "https://www.wipo.int/pressroom/en/rss.xml"),
+
+    # ══════════════════════════════════════════════════════════════════════
+    # COMPETITION LAW
+    # ══════════════════════════════════════════════════════════════════════
+    ("Chillin Competition",             "https://chillingcompetition.com/feed"),
+    ("Global Competition Review",       "https://globalcompetitionreview.com/rss"),
+
+    # ══════════════════════════════════════════════════════════════════════
+    # FINTECH
+    # ══════════════════════════════════════════════════════════════════════
+
+    # ══════════════════════════════════════════════════════════════════════
+    # GIG / PLATFORM WORKERS
+    # ══════════════════════════════════════════════════════════════════════
+    ("Oxford Internet Institute",       "https://www.oii.ox.ac.uk/feed/"),
+
+    # ══════════════════════════════════════════════════════════════════════
+    # BROAD TECH / INTERNATIONAL
+    # ══════════════════════════════════════════════════════════════════════
+    ("TechCrunch",                      "https://techcrunch.com/feed/"),
+    ("Ars Technica",                    "https://feeds.arstechnica.com/arstechnica/technology-lab"),
+    ("Wired",                           "https://www.wired.com/feed/rss"),
+    ("Bloomberg Technology",            "https://feeds.bloomberg.com/technology/news.rss"),
+    ("ZDNet Government",                "https://www.zdnet.com/topic/government/rss.xml"),
+    ("Digital Watch Observatory",       "https://dig.watch/feed"),
 ]
 
 # ── NOISE FILTERS ─────────────────────────────────────────────────────────
@@ -139,6 +169,17 @@ EXPLICIT_NOISE = [
     "power purchase agreement", "engaging healthcare professionals",
     "promo code", "discount code", "coupon code", "% off ",
     "best deals", "buying guide", "review:", "vs review",
+    # Hardware / infrastructure (not policy)
+    "data center investment", "data centre investment",
+    "data center capacity", "data centre capacity",
+    "data center construction", "data centre construction",
+    "data center expansion", "edge data center",
+    "pops que podem virar", "eldorado do sul",
+    # Telecom infrastructure (not regulation)
+    "850 mhz", "roaming permanente", "pgmc",
+    # Pure gadget/consumer
+    "smartphone review", "laptop review", "tem desconto",
+    "imbatível de", "novo celular", "novo smartwatch",
 ]
 
 NOISE_RE = [
@@ -169,6 +210,11 @@ NOISE_RE = [
     r"loss narrows.{0,20}%",
     r"profit (?:jumps|rises|falls).{0,20}%",
     r"(?:deeptech|fintech) bets heat up",
+    # Infrastructure / hardware noise
+    r"data cent(?:er|re)s?.{0,30}(?:eldorado|infraestrutura|estratégica|borda|us\$\s*\d)",
+    r"\d+\s*(?:mil|thousand)\s*(?:pop|pops)\b",
+    r"breakeven para \d{4}",
+    r"tem desconto .{0,10}%",
 ]
 
 STRONG_REGULATORY = [
@@ -244,6 +290,23 @@ TITLE_CAT_RULES = [
         "ai legislation", "ai bill", "ai framework", "ai strategy",
         "ai lawsuit", "ai sued", "ai fined", "ai court", "ai probe",
         "ai investigation", "ai penalty", "ai damages", "ai settlement",
+        # Regional AI regulation — the ones you highlighted
+        "south africa ai", "ai bill south africa", "sa ai bill",
+        "national ai policy south africa", "dtps ai",
+        "india ai regulation", "india ai policy", "india ai bill",
+        "india ai governance", "india ai framework",
+        "meity ai", "ministry of electronics ai",
+        "brazil ai", "lei de ia", "pl 2338", "marco legal da ia",
+        "marco legal de inteligência", "inteligência artificial brasil",
+        "projeto de lei ia", "senado ia", "câmara ia",
+        "india artificial intelligence", "india algorithm",
+        "ai white paper india", "ai consultation india",
+        "european commission ai", "ec ai consultation",
+        "eu ai office", "ai regulatory sandbox",
+        "have your say ai", "public consultation ai",
+        "ai impact assessment", "ai risk classification",
+        # Arabic/Turkish/Indonesian AI regulation
+        "uae ai", "saudi ai", "turkey ai", "indonesia ai",
         "openai lawsuit", "openai sued", "openai fined", "openai probe",
         "openai trial", "openai court", "openai ordered", "openai blocked",
         "anthropic sued", "anthropic fine", "anthropic probe",
@@ -345,21 +408,65 @@ TITLE_CAT_RULES = [
     ]),
     # ── 6. PRIVACY & DATA ─────────────────────────────────────────────────
     ("privacy_data", [
+        # GDPR / EU
         "gdpr", "data protection", "privacy regulation", "privacy law",
         "privacy fine", "privacy violation", "privacy lawsuit",
-        "data privacy", "dpdp act", "lgpd", "popia", "pdpa", "ccpa",
-        "privacy shield", "adequacy decision", "data transfer",
-        "data localisation", "data sovereignty", "data governance",
+        "privacy ruling", "privacy probe", "privacy settlement",
         "privacy watchdog", "data protection authority", "dpa fine",
-        "ico fine", "cnil fine", "edpb ruling",
-        "privacy enforcement", "data protection fine",
+        "ico fine", "ico ruling", "ico investigation", "ico enforcement",
+        "cnil fine", "cnil ruling", "edpb ruling", "edpb decision",
+        "noyb", "schrems", "privacy shield", "adequacy decision",
+        "data transfer", "standard contractual clause",
+        # EU consultations / Have Your Say
+        "have your say", "public consultation", "open consultation",
+        "impact assessment", "regulatory consultation", "call for evidence",
+        "european commission consultation", "ec consultation",
+        # India privacy — all DPDP variants
+        "dpdp", "dpdp act", "dpdp rules", "dpdp regulations",
+        "digital personal data protection",
+        "india data protection", "india privacy",
+        "india data law", "india data rules",
+        "meity data", "meity privacy",
+        "data fiduciary", "data principal",
+        "consent manager", "data protection board india",
+        # Brazil privacy — LGPD enforcement + AI privacy
+        "lgpd", "anpd", "brazil data", "brazil privacy",
+        "lei geral de proteção de dados",
+        "autoridade nacional de proteção",
+        "proteção de dados pessoais",
+        "privacidade no brasil",
+        # South Africa privacy — POPIA enforcement
+        "popia", "popi act", "south africa data", "sa data protection",
+        "information regulator", "popia compliance", "popia fine",
+        "popia enforcement", "conditions for lawful processing",
+        # Other regions
+        "pdpa", "appi", "pipl", "turkey data", "turkey privacy",
+        "indonesia data protection", "pdp law",
+        # Data breaches (global)
         "data breach", "data leak", "data hack", "data stolen",
-        "personal data exposed", "user data sold",
-        "surveillance", "facial recognition", "biometric data",
+        "data exposed", "records exposed", "personal data exposed",
+        "expose personal data", "exposes personal data",
+        "expose user data", "exposes user data",
+        "expose corporate data", "exposes corporate",
+        "user data sold", "database exposed", "customer data leaked",
+        # Surveillance / tracking
+        "surveillance", "facial recognition", "biometric",
         "location tracking", "cookie consent", "cookie ban",
-        "tracking ban", "ad tracking", "targeted advertising ban",
+        "tracking ban", "ad tracking", "targeted advertising",
         "right to erasure", "right to be forgotten",
+        "data localisation", "data sovereignty", "data governance",
+        # AI privacy intersection
         "ai privacy", "ai surveillance", "training data privacy",
+        "ai data", "llm data", "scraping ban",
+        # General enforcement
+        "privacy enforcement", "data protection fine",
+        "privacy class action", "privacy collective action",
+        # Portuguese (Brazil — Jota, Tecnoblog, TecMundo)
+        "proteção de dados", "privacidade", "dados pessoais",
+        "vazamento de dados", "lei de dados", "lei geral",
+        "autoridade nacional de proteção",
+        # Hindi/regional transliterations (MediaNama often uses these)
+        "data suraksha", "data niyam",
     ]),
     # ── 7. EMERGING MARKETS ───────────────────────────────────────────────
     ("emerging_markets", [
@@ -445,10 +552,23 @@ BODY_CAT_RULES = [
         "copyright infringement", "trademark infringement",
     ]),
     ("privacy_data", [
+        # English
         "gdpr", "data protection", "personal data", "data breach",
-        "privacy law", "data leak", "surveillance", "biometric",
-        "dpdp", "lgpd", "popia", "pdpa", "cookie",
-        "data localisation", "privacy fine", "facial recognition",
+        "privacy law", "privacy fine", "privacy ruling", "privacy probe",
+        "data leak", "surveillance", "biometric", "facial recognition",
+        "dpdp", "lgpd", "popia", "pdpa", "cookie", "tracking",
+        "data localisation", "privacy enforcement", "ico", "cnil", "edpb",
+        "noyb", "schrems", "right to erasure", "data transfer",
+        "privacy watchdog", "data protection authority",
+        "privacy class action", "privacy collective action",
+        "age verification", "children online safety", "cookie consent",
+        # Portuguese (Brazil)
+        "proteção de dados", "privacidade", "lgpd", "anpd",
+        "dados pessoais", "vazamento de dados", "lei de dados",
+        # Indian context
+        "dpdp act", "digital personal data", "india data protection",
+        # SA context
+        "popia", "information regulator", "popi",
     ]),
     ("emerging_markets", [
         "india", "brazil", "south africa", "turkey", "indonesia",
@@ -538,20 +658,29 @@ REGULATORY_BODIES = [
     "meity", "ministry of electronics", "india data protection",
     "dpdp act", "india privacy bill", "trai regulation",
     "npci ", "upi regulation", "india antitrust",
-    # Brazil
+    # Brazil — competition + privacy + AI regulation
     "cade ", "cade aprovação", "cade condena", "cade multa", "cade probe",
     "anpd ", "lgpd", "brazil data protection", "brazil privacy",
     "bacen ", "banco central do brasil", "anatel ",
+    "pl 2338", "marco legal da ia", "marco legal de inteligência",
+    "projeto de lei de inteligência artificial",
+    "senado federal ia", "câmara dos deputados ia",
+    "proteção de dados brasil", "lei de ia brasil",
     # Netherlands / EU
     "acm investigation", "acm fine", "acm ruling", "dutch competition",
     "digital markets act", "dma enforcement", "dma designation",
     "digital services act", "dsa enforcement", "dsa fine",
     "eu ai act", "ai act", "gpai regulation",
     "edpb", "eu data protection board", "gdpr fine", "gdpr enforcement",
-    # South Africa
+    # South Africa — competition + privacy + AI regulation
     "competition commission south africa",
     "competition tribunal south africa",
     "south africa competition",
+    "information regulator south africa",
+    "popia", "popi act", "south africa data protection",
+    "south africa ai bill", "national ai policy south africa",
+    "department of communications south africa", "dcdt south africa",
+    "dtps south africa", "cybercrimes act south africa",
     # Turkey
     "turkish competition authority", "rekabet kurumu", "turkey fintech",
     # Pakistan
@@ -695,6 +824,29 @@ def is_prosus_relevant(a):
         "cnil fine", "cnil ruling", "edpb ruling", "edpb decision",
         "personal data", "user data", "location data",
         "data subject", "consent mechanism", "data transfer",
+        # India-specific privacy / AI regulation
+        "dpdp", "dpdp act", "dpdp rules", "dpdp regulation",
+        "digital personal data protection",
+        "data protection board", "data fiduciary",
+        "meity data", "meity privacy", "meity ai",
+        "india ai regulation", "india ai policy", "india ai bill",
+        "india ai governance", "it rules india", "it amendment rules",
+        # Brazil-specific privacy / AI regulation
+        "lgpd", "anpd", "lei geral de proteção",
+        "proteção de dados", "privacidade", "dados pessoais",
+        "pl 2338", "marco legal da ia", "marco legal de inteligência",
+        "projeto de lei ia", "senado ia",
+        "inteligência artificial brasil",
+        # South Africa-specific privacy / AI regulation
+        "popia", "popi act", "information regulator",
+        "south africa ai bill", "sa ai bill", "ai bill south africa",
+        "national ai policy", "dtps ai", "dcdt ai",
+        "cybercrimes act", "electronic communications act",
+        # EU consultations and Have Your Say
+        "have your say", "public consultation", "open consultation",
+        "call for evidence", "impact assessment eu",
+        "european commission consultation",
+        "regulatory consultation", "stakeholder consultation",
         # Competition / antitrust (broad — any market Prosus operates in)
         "antitrust", "competition fine", "competition probe", "competition law",
         "monopoly", "market dominance", "abuse of dominance",
@@ -744,19 +896,35 @@ def is_prosus_relevant(a):
 
     # Pure specialist sources: every article is relevant by definition
     PURE_SPECIALIST = [
-        "eff ", "electronic frontier", "cnil", "edpb", "future of privacy",
-        "fpf", "hunton privacy", "inside privacy", "techgdpr", "mozilla privacy",
-        "guardian privacy", "ip kat", "world trademark", "managing ip",
+        # Privacy law / advocacy
+        "eff ", "electronic frontier", "cnil", "edpb", "datatilsynet",
+        "future of privacy", "fpf", "hunton privacy", "inside privacy",
+        "techgdpr", "mozilla privacy", "noyb", "access now",
+        "guardian privacy", "privacy international", "article 19",
+        "algorithmwatch", "global voices",
+        # India digital rights + law
+        "internet freedom foundation", "sflc", "medianama",
+        "bar and bench", "live law",
+        # Brazil legal / policy
+        "jota", "politica por inteiro", "fiquem sabendo",
+        # SA privacy / law
+        "michalsons", "compcom south africa", "de rebus",
+        "daily maverick", "mail & guardian",
+        # IP specialists
+        "ip kat", "ipkat", "world trademark", "ip watchdog",
+        # Platform/gig specialists
+        "oxford internet", "oii", "fairwork", "fair.work",
+        "ai now institute", "worker info",
+        # EM specialists
         "techcabal", "techloy", "techpoint africa", "inc42",
-        "startups.com.br", "distrito",
-        "oxford internet", "oii", "platform law", "worker info",
-        "ai now institute", "fairwork", "fair.work",
+        "startups.com.br", "ventureburn",
+        # Rest of world / global
+        "rest of world",
     ]
     if any(s in source_lc for s in PURE_SPECIALIST):
         return True
 
     # Security/breach feeds: only pass if title has a privacy/data/law/company signal
-    # (avoids ransomware-as-a-service, CVE, malware that have no Prosus angle)
     SECURITY_SOURCES = [
         "infosecurity", "dark reading", "bleepingcomputer", "databreaches",
         "cyberscoop", "the record", "krebs", "securityweek",
@@ -764,27 +932,37 @@ def is_prosus_relevant(a):
     PRIVACY_SIGNALS = [
         "breach", "leak", "exposed", "stolen", "scraped", "hacked",
         "privacy", "personal data", "user data", "gdpr", "data protection",
-        "fine", "penalty", "lawsuit", "probe", "regulation", "law",
-        "surveillance", "facial recognition", "biometric", "tracking",
-        "ai ", "chatgpt", "openai", "meta ", "google ", "amazon ", "apple ",
-        "microsoft", "tiktok", "facebook", "instagram", "linkedin",
+        "dpdp", "lgpd", "popia", "fine", "penalty", "lawsuit", "probe",
+        "regulation", "law", "surveillance", "facial recognition",
+        "biometric", "tracking", "ai ", "chatgpt", "openai",
+        "meta ", "google ", "amazon ", "apple ", "microsoft",
+        "tiktok", "facebook", "instagram", "linkedin",
         "healthcare data", "medical record", "patient data",
-        "financial data", "bank data", "credit card data",
-        "children data", "student data", "employee data",
+        "financial data", "bank data", "children data",
+        "india", "brazil", "south africa", "europe", "nigeria", "kenya",
+        "indonesia", "turkey", "pakistan",
     ]
     if any(s in source_lc for s in SECURITY_SOURCES):
         if any(sig in title for sig in PRIVACY_SIGNALS):
             return True
 
-    # General tech sources with strong privacy/EM signal in title
-    GENERAL_TECH = ["rest of world", "wired", "the verge", "vice"]
-    EM_PRIVACY_SIGNALS = [
-        "privacy", "data breach", "surveillance", "gdpr", "data protection",
-        "india", "brazil", "africa", "nigeria", "kenya", "indonesia",
-        "fintech", "gig", "platform worker",
+    # Regional tech sources: pass if title has any Prosus-relevant signal
+    REGIONAL_SOURCES = [
+        "techcentral", "mybroadband", "itweb", "businesstech", "moneyweb",  # SA
+        "livemint", "business standard tech", "entrackr",                    # India
+        "tecnoblog", "tecmundo", "teletime", "telesintese",                  # Brazil
+        "euractiv", "netzpolitik", "eu law live",                            # EU
+        "global competition review", "chillin competition",                  # Competition
+        "reuters technology",
     ]
-    if any(s in source_lc for s in GENERAL_TECH):
-        if any(sig in title for sig in EM_PRIVACY_SIGNALS):
+    REGIONAL_SIGNALS = [
+        "privacy", "data", "regulation", "law", "fine", "ban", "probe",
+        "breach", "ai", "competition", "antitrust", "merger", "fintech",
+        "payment", "platform", "gig", "trademark", "copyright",
+        "surveillance", "gdpr", "dpdp", "lgpd", "popia",
+    ]
+    if any(s in source_lc for s in REGIONAL_SOURCES):
+        if any(sig in title for sig in REGIONAL_SIGNALS):
             return True
 
     # ── TIER 2b: Thematic hooks in full text ─────────────────────────────────
@@ -835,11 +1013,13 @@ def categorise(a):
     for cat, kws in TITLE_CAT_RULES:
         if any(kw in title for kw in kws):
             return cat
-    # Body scoring fallback
+    # Body scoring fallback — need ≥2 signals for privacy_data to avoid false positives
+    # (e.g. "data" alone from a data-centre or telecom article)
     best_cat, best_score = "regulatory", 0
     for cat, kws in BODY_CAT_RULES:
         score = sum(1 for kw in kws if kw in text)
-        if score > best_score:
+        min_score = 2 if cat == "privacy_data" else 1
+        if score >= min_score and score > best_score:
             best_score, best_cat = score, cat
     return best_cat
 
@@ -1080,18 +1260,28 @@ def run():
     categorised["privacy"]            = categorised.get("privacy_data", [])
     categorised["regulatory"]         = []  # no longer a catch-all
 
-    skip = {"ai_landscape", "chatbot"}
+    skip = {"ai_landscape", "chatbot", "ai_agents", "chatbot_regulation",
+            "gig_economy", "platform_liability", "consumer_protection",
+            "ip", "privacy", "regulatory"}
     all_arts = [a for k, v in categorised.items() for a in v if k not in skip]
-    trending = sorted(all_arts, key=score, reverse=True)[:12]
+
+    # Deduplicated flash alerts — only articles NOT already top of their tab
+    # so nothing appears twice on the dashboard
+    tab_top_ids = {
+        a["id"]
+        for k, v in categorised.items() if k not in skip
+        for a in v[:3]  # top 3 of each tab are already "featured"
+    }
     flash = [
         {"id": a["id"], "title": a["title"], "date": a["date"],
          "source": a["source"], "url": a["url"],
          "watchlist_hits": a["watchlist_hits"],
          "entity_match": a["entity_match"], "prosus_lens": a["prosus_lens"]}
         for a in all_arts
-        if len(a.get("watchlist_hits", [])) >= 2
-        or (a.get("entity_match") and a.get("watchlist_hits"))
-    ][:10]
+        if (len(a.get("watchlist_hits", [])) >= 2
+            or (a.get("entity_match") and a.get("watchlist_hits")))
+        and a["id"] not in tab_top_ids
+    ][:5]  # max 5 flash alerts, all unique
 
     PAGES_DIR.mkdir(parents=True, exist_ok=True)
     for arts in categorised.values():
@@ -1110,7 +1300,6 @@ def run():
         "generated_at":   now.isoformat(),
         "total_articles": total,
         "recency_days":   MAX_AGE_DAYS,
-        "trending":       trending,
         "flash_alerts":   flash,
         **categorised,
     }
@@ -1127,7 +1316,7 @@ def run():
         "by_category":    {k: len(v) for k, v in categorised.items() if k not in skip},
     }, indent=2), encoding="utf-8")
 
-    print(f"\n DONE: {total} articles | {len(flash)} flash alerts | {len(trending)} trending")
+    print(f"\n DONE: {total} articles | {len(flash)} flash alerts")
     for cat, arts in sorted(categorised.items(), key=lambda x: -len(x[1])):
         if cat not in skip and arts:
             print(f"  {cat}: {len(arts)}")
