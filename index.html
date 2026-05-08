@@ -127,7 +127,7 @@
     }
     .flash-item {
       font-size: .75rem; color: var(--graphite-prime);
-      cursor: pointer;
+      cursor: pointer; text-decoration: none;
       border-bottom: 1px solid transparent;
       transition: border-color .15s, color .15s;
     }
@@ -490,7 +490,7 @@ function renderFlash() {
   banner.style.display = 'block';
   items.innerHTML = alerts.slice(0,5).map((a,i) =>
     (i>0?'<span class="flash-sep">·</span>':'')+
-    `<span class="flash-item" onclick="jumpTo('${esc(a.uid||a.id||'')}','${esc(a.category||'')}')">${esc(a.title)}</span>`
+    `<a class="flash-item" href="${esc(a.url||'#')}" target="_blank" rel="noopener">${esc(a.title)}</a>`
   ).join('');
 }
 
