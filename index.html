@@ -281,6 +281,33 @@
     }
     .card.expanded .card-body-text { display: block; }
 
+    /* Prosus relevance lens — always visible */
+    .card-lens {
+      margin-top: 10px;
+      padding: 8px 10px;
+      background: rgba(17,54,168,.05);
+      border-left: 3px solid var(--cobalt-light);
+      border-radius: 0 3px 3px 0;
+      font-size: .72rem;
+      line-height: 1.55;
+      color: var(--graphite-prime);
+    }
+    .card:first-child .card-lens {
+      background: rgba(255,255,255,.1);
+      border-left-color: var(--oxide-prime);
+      color: rgba(255,255,255,.85);
+    }
+    .lens-label {
+      display: block;
+      font-size: .6rem;
+      font-weight: 700;
+      letter-spacing: .8px;
+      text-transform: uppercase;
+      color: var(--cobalt-light);
+      margin-bottom: 3px;
+    }
+    .card:first-child .lens-label { color: var(--oxide-prime); }
+
     .card-footer {
       margin-top: 12px;
       display: flex; flex-wrap: wrap; gap: 5px; align-items: center;
@@ -551,6 +578,8 @@ function buildCard(a, isLead) {
     ? `<a class="read-link" href="${esc(a.url)}" target="_blank" rel="noopener" onclick="event.stopPropagation()">Read full article →</a>` : '';
   const bodyHtml = a.body
     ? `<div class="card-body-text">${esc(a.body)}…<br/>${readLink}</div>` : '';
+  const lensHtml = a.lens
+    ? `<div class="card-lens"><span class="lens-label">Prosus relevance</span>${esc(a.lens)}</div>` : '';
 
   const flashClass = isFlash ? ' flash-card' : '';
   const uid = esc(a.uid||a.id||a.title||'');
@@ -560,6 +589,7 @@ function buildCard(a, isLead) {
       <div class="card-kicker">${portDot}${kicker} · ${date}${hasPort?' · <span style="color:rgba(255,220,100,.9)">Portfolio</span>':''}</div>
       <div class="card-headline">${esc(a.title)}</div>
       ${bodyHtml}
+      ${lensHtml}
       <div class="card-footer">${portBadges}${readLink&&!a.body?readLink:''}</div>
     </div>`;
   }
@@ -568,6 +598,7 @@ function buildCard(a, isLead) {
     <div class="card-kicker">${portDot}${kicker}</div>
     <div class="card-headline">${esc(a.title)}</div>
     <div class="card-byline"><span>${date}</span>${hasPort?'<span class="sep">·</span><span style="color:var(--argon-prime);font-weight:700">Portfolio</span>':''}</div>
+    ${lensHtml}
     ${bodyHtml}
     <div class="card-footer">${portBadges}${readLink&&!a.body?readLink:''}</div>
   </div>`;
