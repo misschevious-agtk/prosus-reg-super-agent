@@ -11,7 +11,7 @@ scraper.py — Prosus Regulatory Super-Agent v4.1
 - Law/Above The Law for litigation news
 - Hard 7-day recency cutoff — no stale content ever
 - Title-priority categorisation with body scoring fallback
-- Targets 20 articles per category
+- Targets 30 articles per category
 """
 
 import os, json, re, hashlib, requests
@@ -29,7 +29,7 @@ SYNC_FILE   = CONTENT_DIR / "sync.json"
 PAGES_DIR   = CONTENT_DIR / "pages"
 OPENAI_API_KEY = os.environ.get("OPENAI_API_KEY", "")
 MAX_AGE_DAYS = 7
-TARGET_PER_CATEGORY = 20
+TARGET_PER_CATEGORY = 30
 
 # ── 50 VERIFIED RSS FEEDS ─────────────────────────────────────────────────
 RSS_SOURCES = [
@@ -188,154 +188,233 @@ RELEVANT_KWS = [
 
 # Title-priority rules — exact phrase match in title wins
 TITLE_CAT_RULES = [
+    # ── 1. AI & EMERGING TECH ─────────────────────────────────────────────
+    ("ai_tech", [
+        "ai act", "eu ai", "ai regulation", "ai law", "ai governance",
+        "ai liability", "ai safety", "ai policy", "ai rules", "ai standard",
+        "ai compliance", "ai audit", "ai office", "high-risk ai", "gpai",
+        "algorithmic accountability", "automated decision", "ai watermark",
+        "ai transparency", "foundation model", "ai oversight", "ai ban",
+        "ai legislation", "ai bill", "ai framework", "ai strategy",
+        "ai lawsuit", "ai sued", "ai fined", "ai court", "ai probe",
+        "ai investigation", "ai penalty", "ai damages", "ai settlement",
+        "openai lawsuit", "openai sued", "openai fined", "openai probe",
+        "openai trial", "openai court", "openai ordered", "openai blocked",
+        "anthropic sued", "anthropic fine", "anthropic probe",
+        "chatgpt lawsuit", "chatgpt sued", "chatgpt fine", "chatgpt banned",
+        "deepseek ban", "deepseek probe", "gemini sued", "gemini banned",
+        "claude banned", "claude sued", "copilot ban", "copilot sued",
+        "meta ai sued", "google ai sued", "microsoft ai sued",
+        "ai hallucination", "ai defamation", "ai impersonation",
+        "ai fraud", "deepfake law", "synthetic media", "voice cloning",
+        "ai-generated", "ai harm", "ai bias", "ai discrimination",
+        "ai misinformation", "ai copyright", "ai training data",
+        "llm copyright", "llm lawsuit", "llm regulation",
+        "openai", "anthropic", "deepseek", "chatgpt", "gemini", "claude",
+        "grok", "perplexity", "mistral", "llama", "gpt-", " llm ",
+        "large language model", "generative ai", "agentic ai", "ai agent",
+        "chatbot", "multimodal", "ai model", "ai chip", "ai compute",
+        "ai race", "ai sovereignty", "us china ai", "ai export",
+    ]),
+    # ── 2. COMPETITION & MARKETS ──────────────────────────────────────────
     ("competition", [
-        "antitrust", "merger inquiry", "merger control", "cartel", "competition fine",
-        "competition probe", "probed over", "market dominance", "gatekeeper",
-        "acquisition blocked", "merger cleared", "competition authority",
-        "abuse of dominance", "market investigation", "competition law",
-        "merger review", "price fixing", "competition watchdog",
+        "antitrust", "merger inquiry", "merger control", "merger probe",
+        "merger blocked", "merger cleared", "merger fine", "merger review",
+        "cartel", "price fixing", "market sharing", "bid rigging",
+        "competition fine", "competition probe", "competition authority",
+        "competition watchdog", "competition law", "competition ruling",
+        "market dominance", "abuse of dominance", "dominant position",
+        "monopoly", "oligopoly", "gatekeeper", "market power",
+        "acquisition blocked", "takeover blocked", "deal cleared",
+        "dma enforcement", "dma designation", "dma fine",
+        "market investigation", "market study",
+        "ftc sues", "ftc probe", "ftc fine", "doj antitrust",
+        "cma probe", "cma fine", "cma ruling", "cma investigation",
+        "cci probe", "cci fine", "cci order", "cci ruling",
+        "cade probe", "cade fine", "cade ruling",
+        "probed over", "fined for competition",
     ]),
-    ("privacy", [
-        "gdpr", "data breach", "data protection", "privacy violation", "privacy fine",
-        "privacy law", "data leak", "personal data", "surveillance", "cookie consent",
-        "pdpa", "dpdp", "lgpd", "popia", "adequacy decision", "data transfer ban",
-        "privacy watchdog", "data governance", "biometric", "right to erasure",
-    ]),
-    ("ip", [
-        "copyright", "trademark", "patent", "intellectual property", "trade secret",
-        "training data", "ai-generated", "fair use", "infringement", "wipo",
-        "text and data mining", "neighbouring rights", "press publisher",
-        "database right", "music ai", "book ai training",
-    ]),
-    ("chatbot_regulation", [
-        # Explicit chatbot/LLM legal
-        "chatbot law", "chatbot regulation", "chatbot banned", "chatbot fined",
-        "llm regulation", "llm lawsuit", "chatgpt lawsuit", "openai lawsuit",
-        "openai fined", "openai sued", "openai probe", "openai investigat",
-        "anthropic sued", "anthropic fine", "anthropic regulat",
-        "chatbot liability", "conned by a chatbot", "chatbot fraud",
-        "military chatbot", "generative ai lawsuit", "generative ai sued",
-        "llm liability", "chatbot harm", "chatbot compliance",
-        # Broad AI assistant regulation
-        "ai assistant ban", "ai assistant regulat", "ai assistant law",
-        "gpt regulat", "gpt banned", "gpt sued", "gpt probe",
-        "gemini sued", "gemini banned", "gemini regulat",
-        "claude sued", "claude banned", "copilot sued", "copilot ban",
-        "deepseek ban", "deepseek regulat", "deepseek probe",
-        "chatgpt banned", "chatgpt probe", "chatgpt fine",
-        "openai faces", "openai ordered", "openai blocked",
-        "ai hallucination lawsuit", "ai defamation", "ai misinformation law",
-        "ai impersonation", "synthetic voice law", "voice cloning law",
-        "ai-generated fraud", "ai fraud law", "chatbot scam",
-        "llm copyright", "llm training lawsuit", "chatgpt copyright",
-        "openai copyright", "anthropic copyright", "google ai sued",
-        "meta ai sued", "microsoft ai sued", "ai bias lawsuit",
-        "ai discrimination", "ai in hiring", "automated hiring ban",
-        "eu targets ai", "regulator targets ai", "ftc ai", "ftc openai",
-        "cci ai", "cma ai", "chatbot children", "ai children safety",
-    ]),
-    ("ai_agents", [
-        "ai act", "eu ai act", "ai regulation", "ai governance", "ai liability",
-        "ai safety bill", "ai office", "high-risk ai", "gpai", "deepfake law",
-        "synthetic media law", "ai compliance", "algorithmic accountability",
-        "ai audit", "automated decision ban", "ai watermarking", "iso 42001",
-        "foundation model regulation", "ai transparency obligation",
-    ]),
+    # ── 3. FINTECH & PAYMENTS ─────────────────────────────────────────────
     ("fintech", [
-        "crypto regulation", "stablecoin", "bnpl", "payment regulation", "fintech law",
-        "digital payments", "open banking", "psd3", "e-money", "dora",
-        "cfpb", "bacen", "payment fine", "defi regulation", "upi regulation",
+        "fintech regulation", "fintech law", "fintech fine", "fintech probe",
+        "payment regulation", "payment fine", "payment ban", "payment law",
+        "digital payments", "mobile payment", "instant payment",
+        "open banking", "psd3", "psd2", "payment services",
+        "bnpl regulation", "bnpl law", "bnpl fine", "buy now pay later",
+        "digital lending", "online lending", "lending regulation",
+        "neobank regulation", "neobank license", "digital bank regulation",
+        "crypto regulation", "crypto law", "crypto fine", "crypto ban",
+        "stablecoin", "cbdc", "defi regulation", "digital asset",
+        "remittance regulation", "cross-border payment",
+        "payment aggregator", "payment gateway regulation",
+        "insurtech", "embedded finance", "open finance",
+        "dora", "cfpb", "rbi payment", "rbi fintech",
+        "bacen payment", "upi regulation", "npci",
+        "paypal", "stripe", "revolut", "klarna", "wise transfer",
+        "monzo", "nubank", "mercadopago", "razorpay", "phonepe",
+        "paytm regulation", "paytm fine", "paytm ban",
+        "payment fraud", "financial fraud", "money laundering fintech",
     ]),
-    ("platform_liability", [
-        "platform liability", "digital services act", "dsa enforcement",
-        "content moderation law", "online safety act", "online harms",
-        "vlop", "intermediary liability", "age verification law",
+    # ── 4. PLATFORM & GIG ECONOMY ─────────────────────────────────────────
+    ("platform_gig", [
+        "food delivery", "delivery app", "food platform", "meal delivery",
+        "restaurant platform", "delivery marketplace",
+        "uber eats", "doordash", "zomato", "talabat", "bolt food",
+        "grubhub", "just eat", "delivery hero",
+        "ride-hail", "ridesharing", "ride sharing",
+        "mobility platform", "uber regulation", "uber fine", "uber sued",
+        "grab regulation", "gojek", "ola regulation", "bolt taxi",
+        "e-scooter regulation", "micro-mobility",
+        "gig worker", "platform worker", "worker classification",
+        "gig economy", "independent contractor", "self-employed platform",
+        "algorithmic management", "algorithmic work",
+        "platform work directive", "gig rights",
+        "delivery rider", "courier rights", "driver rights",
+        "worker misclassification", "employee status platform",
+        "collective bargaining gig", "gig union",
+        "digital services act", "dsa enforcement", "dsa fine",
+        "online marketplace regulation", "marketplace liability",
+        "platform liability", "intermediary liability", "vlop",
+        "online safety", "online harms", "content moderation law",
+        "seller liability", "product liability marketplace",
     ]),
-    ("gig_economy", [
-        "gig worker", "platform worker", "worker classification", "gig economy law",
-        "delivery driver rights", "algorithmic management", "worker misclassification",
-        "platform work directive", "minimum earnings guarantee",
+    # ── 5. IP & BRAND PROTECTION ──────────────────────────────────────────
+    ("ip_brand", [
+        "trademark", "trade mark", "trademark infringement", "trademark fine",
+        "trademark lawsuit", "trademark ruling", "trademark registration",
+        "passing off", "brand impersonation", "brand infringement",
+        "trade dress", "service mark",
+        "copyright", "copyright infringement", "copyright lawsuit",
+        "copyright fine", "copyright ruling", "fair use",
+        "text and data mining", "neighbouring rights", "press publisher",
+        "music copyright", "ai training data", "llm copyright",
+        "book copyright", "image copyright", "database right",
+        "patent", "patent infringement", "patent lawsuit", "patent ruling",
+        "standard essential patent", "frand", "patent troll",
+        "brand protection", "counterfeiting", "fake goods", "counterfeit",
+        "product piracy", "anti-counterfeiting",
+        "domain name", "cybersquatting", "typosquatting",
+        "wipo", "inta", "euipo", "uspto",
+        "trade secret", "misappropriation",
     ]),
-    ("consumer_protection", [
-        "consumer protection", "dark pattern", "drip pricing", "fake reviews",
-        "age verification", "children online", "coppa", "misleading advertising",
-        "unfair commercial practices", "subscription trap",
+    # ── 6. PRIVACY & DATA ─────────────────────────────────────────────────
+    ("privacy_data", [
+        "gdpr", "data protection", "privacy regulation", "privacy law",
+        "privacy fine", "privacy violation", "privacy lawsuit",
+        "data privacy", "dpdp act", "lgpd", "popia", "pdpa", "ccpa",
+        "privacy shield", "adequacy decision", "data transfer",
+        "data localisation", "data sovereignty", "data governance",
+        "privacy watchdog", "data protection authority", "dpa fine",
+        "ico fine", "cnil fine", "edpb ruling",
+        "privacy enforcement", "data protection fine",
+        "data breach", "data leak", "data hack", "data stolen",
+        "personal data exposed", "user data sold",
+        "surveillance", "facial recognition", "biometric data",
+        "location tracking", "cookie consent", "cookie ban",
+        "tracking ban", "ad tracking", "targeted advertising ban",
+        "right to erasure", "right to be forgotten",
+        "ai privacy", "ai surveillance", "training data privacy",
+    ]),
+    # ── 7. EMERGING MARKETS ───────────────────────────────────────────────
+    ("emerging_markets", [
+        "india tech", "india digital", "india startup", "india unicorn",
+        "india regulation", "india antitrust", "india competition",
+        "india fintech", "india payment", "india e-commerce",
+        "india data", "india privacy", "india ai", "india gig",
+        "india food delivery", "india internet", "india platform",
+        "digital india", "cci ruling", "cci investigation",
+        "rbi circular", "rbi guideline", "meity notification",
+        "dpdp", "india data protection",
+        "brazil tech", "brazil digital", "brazil startup",
+        "brazil fintech", "brazil e-commerce", "brazil food delivery",
+        "brazil antitrust", "brazil competition", "brazil data",
+        "brazil ai", "brazil platform",
+        "cade ruling", "cade investigation", "anpd ruling",
+        "lgpd enforcement", "bacen digital", "pix payment",
+        "south africa tech", "south africa fintech", "south africa digital",
+        "south africa startup", "south africa competition",
+        "turkey tech", "turkey fintech", "turkey digital",
+        "turkey competition", "rekabet kurumu",
+        "indonesia tech", "indonesia digital", "indonesia fintech",
+        "ojk regulation", "indonesia competition",
+        "pakistan tech", "pakistan fintech", "pakistan digital",
+        "latin america tech", "latam fintech", "latam startup",
+        "africa tech", "africa fintech", "africa startup",
+        "nigeria tech", "kenya tech", "southeast asia tech",
+    ]),
+    # ── 8. POLICY & SOCIETY ───────────────────────────────────────────────
+    ("policy_society", [
+        "internet regulation", "digital regulation", "tech regulation",
+        "digital economy", "platform economy", "app economy",
+        "digital single market", "digital trade", "data economy",
+        "tech policy", "digital policy", "internet policy",
+        "tech law", "digital law", "internet law",
+        "consumer protection", "dark pattern", "drip pricing",
+        "fake reviews", "subscription trap", "misleading advertising",
+        "age verification", "children online", "online safety children",
+        "digital literacy", "digital inclusion", "digital divide",
+        "algorithmic transparency", "explainable ai",
+        "tech investment", "innovation policy", "regulatory sandbox",
+        "digital infrastructure", "broadband regulation",
+        "future of work", "automation jobs", "ai jobs",
+        "digital tax", "tech tax", "digital services tax",
+        "ai energy", "tech sustainability", "digital carbon",
     ]),
 ]
 
+
 # Body scoring fallback
 BODY_CAT_RULES = [
+    ("ai_tech", [
+        "artificial intelligence", "machine learning", "generative ai",
+        "large language model", "foundation model", "ai model",
+        "openai", "anthropic", "deepseek", "chatgpt", "llm",
+        "ai regulation", "ai governance", "ai liability", "ai safety",
+        "ai act", "gpai", "deepfake", "synthetic media",
+        "ai copyright", "ai training data", "ai lawsuit", "ai fraud",
+    ]),
     ("competition", [
         "antitrust", "competition law", "merger control", "cartel",
-        "market investigation", "gatekeeper", "price fixing", "market dominance",
-        "merger inquiry", "acquisition blocked", "competition authority",
-    ]),
-    ("privacy", [
-        "gdpr", "data protection", "personal data", "data breach", "privacy law",
-        "dpdp", "lgpd", "popia", "pdpa", "surveillance", "adequacy decision",
-        "data localisation", "consent enforcement", "biometric",
-    ]),
-    ("ip", [
-        "intellectual property", "copyright infringement", "trademark",
-        "patent", "ai training data", "text and data mining", "wipo",
-        "trade secret", "fair use", "neighbouring rights",
-    ]),
-    ("chatbot_regulation", [
-        # Legal / regulatory actions
-        "chatbot law", "llm regulation", "chatgpt regulation",
-        "openai lawsuit", "openai sued", "openai fined", "openai probe",
-        "openai investigat", "openai ordered", "openai blocked", "openai ban",
-        "anthropic sued", "anthropic fined", "anthropic probe", "anthropic regulat",
-        "chatbot liability", "chatbot fraud", "chatbot scam", "chatbot harm",
-        "generative ai sued", "generative ai fine", "generative ai ban",
-        "llm liability", "llm lawsuit", "llm banned",
-        "chatgpt banned", "chatgpt probe", "chatgpt fine", "chatgpt lawsuit",
-        "deepseek ban", "deepseek probe", "deepseek regulat", "deepseek blocked",
-        "gemini sued", "gemini banned", "gemini probe",
-        "claude banned", "claude sued", "claude probe",
-        "grok banned", "grok sued", "copilot ban", "copilot sued",
-        "ai hallucination lawsuit", "ai defamation", "ai impersonation",
-        "synthetic voice law", "voice cloning law", "ai-generated fraud",
-        "conned by a chatbot", "military chatbot",
-        "llm copyright", "llm training lawsuit", "chatgpt copyright",
-        "openai copyright", "anthropic copyright",
-        "ftc openai", "ftc anthropic", "ftc chatbot",
-        "cma openai", "cma anthropic", "cci ai chatbot",
-        "chatbot children", "ai children safety", "ai in hiring ban",
-        # Company strategy that is regulatory-relevant
-        "openai regul", "anthropic regul", "openai policy",
-        "anthropic policy", "openai comply", "anthropic comply",
-        # Geopolitical / government AI talks
-        "us and china", "china ai talks", "ai formal talks", "ai diplomacy",
-        "government chatgpt", "government openai", "government anthropic",
-        "senate ai", "congress ai", "parliament ai", "minister ai",
-        "white house ai", "eu openai", "eu anthropic", "eu chatgpt",
-        # OpenAI / Anthropic business with regulatory angle
-        "openai ad", "chatgpt ad", "openai self-serve", "chatgpt self-serve",
-        "openai antitrust", "anthropic antitrust",
-    ]),
-    ("ai_agents", [
-        "ai act", "gpai", "foundation model regulation", "ai governance",
-        "ai liability", "ai safety bill", "ai office", "high-risk ai",
-        "algorithmic accountability", "automated decision ban",
-        "ai audit", "ai watermark", "ai standard", "ai compliance",
-        "deepfake law", "synthetic media law", "ai rulebook",
+        "market investigation", "gatekeeper", "price fixing",
+        "market dominance", "merger inquiry", "competition authority",
+        "digital markets act", "abuse of dominance",
     ]),
     ("fintech", [
-        "fintech regulation", "payment regulation", "psd3", "open banking",
-        "bnpl regulation", "crypto regulation", "stablecoin", "dora",
+        "fintech", "payment regulation", "digital payments",
+        "open banking", "bnpl", "buy now pay later",
+        "digital lending", "neobank", "crypto regulation",
+        "stablecoin", "remittance", "payment fine", "psd3",
     ]),
-    ("platform_liability", [
-        "platform liability", "digital services act", "content moderation law",
-        "online safety", "intermediary liability", "vlop",
+    ("platform_gig", [
+        "food delivery", "gig worker", "platform worker",
+        "worker classification", "ride-hail", "delivery app",
+        "digital services act", "platform liability",
+        "online marketplace", "algorithmic management",
+        "content moderation", "intermediary liability",
     ]),
-    ("gig_economy", [
-        "gig worker", "platform worker", "worker classification",
-        "gig economy law", "delivery worker rights",
+    ("ip_brand", [
+        "trademark", "copyright", "patent", "intellectual property",
+        "brand protection", "counterfeiting", "trade secret",
+        "wipo", "fair use", "domain name", "cybersquatting",
+        "copyright infringement", "trademark infringement",
     ]),
-    ("consumer_protection", [
-        "consumer protection", "dark pattern", "unfair commercial",
-        "fake reviews", "age verification",
+    ("privacy_data", [
+        "gdpr", "data protection", "personal data", "data breach",
+        "privacy law", "data leak", "surveillance", "biometric",
+        "dpdp", "lgpd", "popia", "pdpa", "cookie",
+        "data localisation", "privacy fine", "facial recognition",
+    ]),
+    ("emerging_markets", [
+        "india", "brazil", "south africa", "turkey", "indonesia",
+        "pakistan", "nigeria", "kenya", "latin america",
+        "cci", "cade", "anpd", "rbi", "meity",
+        "digital india", "pix payment", "upi",
+    ]),
+    ("policy_society", [
+        "digital regulation", "tech regulation", "internet regulation",
+        "consumer protection", "digital economy", "platform economy",
+        "tech policy", "age verification", "children online",
+        "digital tax", "innovation policy", "future of work",
     ]),
 ]
 
@@ -833,7 +912,7 @@ def run():
     raw = deduplicate(raw)
     print(f"  After dedup: {len(raw)}")
 
-    ALL_CATS = [cat for cat, _ in TITLE_CAT_RULES] + ["regulatory"]
+    ALL_CATS = ["ai_tech", "competition", "fintech", "platform_gig", "ip_brand", "privacy_data", "emerging_markets", "policy_society"]
     categorised = {cat: [] for cat in ALL_CATS}
 
     for a in raw:
@@ -852,8 +931,17 @@ def run():
         )[:TARGET_PER_CATEGORY]
 
     # Dashboard compatibility aliases
-    categorised["ai_landscape"] = categorised.get("ai_agents", [])
-    categorised["chatbot"]      = categorised.get("chatbot_regulation", [])
+    # Tab aliases for backward-compat with HTML pills
+    categorised["ai_landscape"]       = categorised.get("ai_tech", [])
+    categorised["chatbot"]            = categorised.get("ai_tech", [])
+    categorised["chatbot_regulation"] = categorised.get("ai_tech", [])
+    categorised["ai_agents"]          = categorised.get("ai_tech", [])
+    categorised["gig_economy"]        = categorised.get("platform_gig", [])
+    categorised["platform_liability"] = categorised.get("platform_gig", [])
+    categorised["consumer_protection"]= categorised.get("policy_society", [])
+    categorised["ip"]                 = categorised.get("ip_brand", [])
+    categorised["privacy"]            = categorised.get("privacy_data", [])
+    categorised["regulatory"]         = []  # no longer a catch-all
 
     skip = {"ai_landscape", "chatbot"}
     all_arts = [a for k, v in categorised.items() for a in v if k not in skip]
