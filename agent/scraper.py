@@ -463,92 +463,149 @@ ALL_RELEVANCE_KWS = [kw.lower() for kw in PROSUS_ENTITIES + REGULATORY_BODIES + 
 def is_prosus_relevant(a):
     """
     Tier-1: Direct portfolio entity mention → always relevant.
-    Tier-2: Title contains a Prosus-sector signal → relevant.
-    Tier-3: Regulator + sector combo in full text → relevant.
+    Tier-2: Title contains a Prosus-sector, litigation, enforcement, or market signal → relevant.
+    Tier-3: Regulator/court/legislation + sector combo in full text → relevant.
+    Tier-4: Competitor or adjacent company in a Prosus sector → relevant (sets precedent).
     Everything else → drop.
     """
     title = a["title"].lower()
     text  = (a["title"] + " " + a.get("body", "") + " " + " ".join(a.get("tags", []))).lower()
 
-    # Tier 1 — direct portfolio entity anywhere in text
+    # ── TIER 1: Direct portfolio entity ──────────────────────────────────────
     ENTITIES_LC = [e.lower() for e in PROSUS_ENTITIES]
     if any(kw in text for kw in ENTITIES_LC):
         return True
 
-    # Sector keywords broad enough to catch relevant stories from their TITLE alone
+    # ── TIER 2: Title-level sector signals (broad) ───────────────────────────
     TITLE_SECTOR_KWS = [
-        # AI / tech regulation (Zapia, all AI investees, EU AI Act impacts)
+        # AI — all Prosus AI investees affected (Zapia, Brainfish, Luzia, Advolve…)
         "ai act", "eu ai", "ai regulation", "ai law", "ai governance",
         "ai liability", "ai agent", "agentic ai", "generative ai",
-        "llm", "chatbot", "foundation model", "deepfake",
-        "openai", "anthropic", "deepseek", "chatgpt", "gemini",
-        # Fintech / payments (PayU, iyzico, LazyPay, Creditas)
+        "large language model", "llm", "chatbot", "foundation model",
+        "deepfake", "synthetic media", "voice cloning",
+        "openai", "anthropic", "deepseek", "chatgpt", "gemini", "claude",
+        "grok", "perplexity", "mistral", "cohere",
+        "ai copyright", "ai lawsuit", "ai sued", "ai fined", "ai probe",
+        "ai fraud", "ai impersonat", "ai defamat", "ai hallucin",
+        # Fintech / payments (PayU, iyzico, LazyPay, Creditas, Tonik…)
         "fintech", "neobank", "digital bank", "payment regulation",
-        "bnpl", "buy now pay later", "digital lending",
-        "open banking", "payment app", "payment platform",
-        "crypto regulation", "stablecoin", "remittance",
-        "paypal", "mastercard", "visa", "stripe",  # competitors/precedents
-        # Food delivery (Swiggy, iFood, Delivery Hero, Just Eat)
-        "food delivery", "delivery app", "food app",
-        "restaurant platform", "delivery platform",
-        "uber eats", "doordash", "zomato",  # competitors/precedents
+        "bnpl", "buy now pay later", "digital lending", "instant loan",
+        "open banking", "payment app", "payment platform", "payment fine",
+        "crypto regulation", "stablecoin", "defi regulation", "remittance",
+        "digital wallet", "mobile payment", "payment fraud",
+        "paypal", "stripe", "revolut", "klarna", "wise", "monzo",  # precedents
+        # Food delivery (Swiggy, iFood, Delivery Hero, Just Eat, Rapido…)
+        "food delivery", "delivery app", "food app", "food platform",
+        "restaurant platform", "delivery platform", "meal delivery",
+        "uber eats", "doordash", "zomato", "talabat", "bolt food",  # precedents
         # Gig / platform workers
         "gig worker", "platform worker", "worker classification",
-        "gig economy", "algorithmic work",
-        # E-commerce / marketplace (Meesho, OLX, eMAG)
-        "e-commerce regulation", "online marketplace",
-        "marketplace liability", "platform liability",
-        "digital services act", "dsa ", " dma ",
-        # Classifieds / property (OLX, AutoTrader, OtoDOM)
+        "gig economy", "algorithmic management", "algorithmic work",
+        "independent contractor", "self-employed platform",
+        "uber driver", "delivery rider", "courier rights",
+        # E-commerce / marketplace (Meesho, OLX, eMAG, Shopup…)
+        "e-commerce regulation", "online marketplace", "marketplace law",
+        "marketplace liability", "platform liability", "seller liability",
+        "digital services act", "dsa enforcement", " dma ", "dma fine",
+        "amazon antitrust", "amazon sued", "amazon fine",  # precedents
+        "flipkart", "snapdeal", "shopee",  # India/SEA competitors
+        # Classifieds / property tech (OLX, AutoTrader, OtoDOM, Property24…)
         "classifieds", "property portal", "real estate platform",
-        # Edtech (Eruditus, Brainly, Platzi, GoodHabitz)
-        "edtech", "online education regulation", "learning platform",
-        # Healthtech (PharmEasy, Corti)
-        "online pharmacy", "digital health regulation", "telemedicine law",
-        # IP / brand (Tara's INTA focus)
+        "auto classifieds", "used car platform", "property listing",
+        # Edtech (Eruditus, Brainly, Platzi, GoodHabitz, Sololearn…)
+        "edtech", "online education", "learning platform",
+        "online course regulation", "e-learning law",
+        # Healthtech (PharmEasy, Corti, VOA Health…)
+        "online pharmacy", "digital health", "telemedicine",
+        "healthtech regulation", "e-pharmacy", "digital prescription",
+        # IP / brand protection (Tara's INTA domain — core focus)
         "trademark", "brand protection", "intellectual property",
         "copyright infringement", "ip enforcement", "domain name",
-        "cybersquatting", "counterfeiting",
-        # Privacy / data
-        "gdpr", "data protection", "privacy regulation",
-        "data localisation", "biometric data",
-        # Competition in Prosus markets
-        "antitrust", "competition fine", "competition probe",
-        "monopoly", "market dominance",
-        # India broadly (huge Prosus exposure)
-        "india tech", "indian startup", "india digital",
+        "cybersquatting", "counterfeiting", "brand impersonat",
+        "wipo", "inta", "trade mark", "passing off",
+        # Privacy / data (all entities affected)
+        "gdpr", "data protection", "privacy regulation", "privacy fine",
+        "data breach", "data leak", "data localisation", "biometric",
+        "surveillance law", "tracking ban", "cookie law",
+        # Competition / antitrust (broad — any market Prosus operates in)
+        "antitrust", "competition fine", "competition probe", "competition law",
+        "monopoly", "market dominance", "abuse of dominance",
+        "merger blocked", "merger cleared", "merger probe", "merger fine",
+        "cartel", "price fixing", "market sharing",
+        # Lawsuits & enforcement — sector-agnostic litigation signals
+        "class action", "lawsuit filed", "court rules", "court orders",
+        "injunction", "damages awarded", "settlement reached",
+        "sued by", "fined by", "ordered to pay", "penalty imposed",
+        "enforcement action", "consent decree", "regulatory fine",
+        # India (massive Prosus exposure — Swiggy, Meesho, PayU, Urban Company…)
+        "india tech", "indian startup", "india digital", "india app",
         "india competition", "india antitrust", "india fintech",
-        "india data", "india privacy",
-        # Brazil broadly (iFood, OLX, Creditas)
+        "india data", "india privacy", "india e-commerce",
+        "india food delivery", "india gig", "india payment",
+        "cci order", "cci fine", "cci probe", "cci ruling",
+        "rbi fintech", "rbi payment", "rbi ban", "rbi guideline",
+        "meity rule", "dpdp act", "india ai",
+        # Brazil (iFood, OLX, Creditas, Azos…)
         "brazil tech", "brazil fintech", "brazil digital",
-        "brazil competition", "brazil data",
+        "brazil competition", "brazil data", "brazil e-commerce",
+        "brazil food delivery", "brazil payment", "brazil ai",
+        "cade fine", "cade probe", "cade ruling", "lgpd fine",
+        # South Africa (Naspers home market, TechCentral coverage)
+        "south africa tech", "south africa fintech", "south africa digital",
+        "south africa competition", "sacc ruling",
+        # Netherlands / EU (HQ market, OLX, PayU, Dott…)
+        "dutch tech", "netherlands fintech", "acm fine", "acm probe",
+        "eu fine", "eu probe", "eu ruling", "eu court",
+        # Turkey (iyzico)
+        "turkey fintech", "turkey tech", "turkey competition",
+        # Indonesia / Pakistan / emerging markets (Shipper, Bykea…)
+        "indonesia tech", "indonesia fintech", "pakistan tech",
+        # Key competitors that set direct precedent for Prosus opcos
+        "uber", "grab", "gojek", "ola cab", "bolt taxi",  # ride/delivery
+        "lazada", "tokopedia", "bukalapak",  # SEA e-commerce
+        "nubank", "mercadopago", "mercadolivre",  # Brazil fintech
+        "byju", "unacademy", "vedantu",  # India edtech
+        "1mg", "netmeds", "practo",  # India healthtech
     ]
 
-    # Tier 2 — title signal alone is sufficient
     if any(kw in title for kw in TITLE_SECTOR_KWS):
         return True
 
-    # Tier 2b — thematic hook in full text
+    # ── TIER 2b: Thematic hooks in full text ─────────────────────────────────
     THEMES_LC = [t.lower() for t in THEMATIC_HOOKS]
     if any(kw in text for kw in THEMES_LC):
         return True
 
-    # Tier 3 — regulator name + sector in body (for articles where title is vague)
+    # ── TIER 3: Regulator/court/legislation + sector in body ─────────────────
     PROSUS_SECTORS = [
-        "food delivery", "delivery app", "restaurant app",
+        "food delivery", "delivery app", "restaurant platform",
         "fintech", "payment", "neobank", "digital lending", "bnpl",
         "edtech", "online education", "e-learning",
         "online pharmacy", "digital health", "telemedicine",
-        "platform worker", "gig worker",
+        "platform worker", "gig worker", "gig economy",
         "e-commerce", "online marketplace", "classifieds",
         "artificial intelligence", "generative ai", "llm", "chatbot",
         "trademark", "brand protection", "intellectual property",
         "platform liability", "content moderation",
         "big tech", "digital platform", "tech company",
         "data protection", "privacy", "personal data",
+        "ride-hail", "ridesharing", "mobility platform",
     ]
     REGULATOR_NAMES = [kw.lower() for kw in REGULATORY_BODIES]
     if any(reg in text for reg in REGULATOR_NAMES):
+        if any(sector in text for sector in PROSUS_SECTORS):
+            return True
+
+    # ── TIER 4: Litigation / enforcement language + sector ───────────────────
+    LITIGATION_KWS = [
+        "lawsuit", "sued", "court", "tribunal", "judge", "ruling",
+        "verdict", "injunction", "damages", "settlement", "penalty",
+        "fine", "enforcement", "investigation", "probe", "raid",
+        "subpoena", "indictment", "charges filed", "complaint filed",
+        "regulatory action", "enforcement notice", "cease and desist",
+        "appeal", "class action", "collective action",
+    ]
+    if any(lit in text for lit in LITIGATION_KWS):
         if any(sector in text for sector in PROSUS_SECTORS):
             return True
 
