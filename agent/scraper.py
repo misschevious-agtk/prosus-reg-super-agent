@@ -28,7 +28,7 @@ INDEX_FILE  = CONTENT_DIR / "index.json"
 SYNC_FILE   = CONTENT_DIR / "sync.json"
 PAGES_DIR   = CONTENT_DIR / "pages"
 OPENAI_API_KEY = os.environ.get("OPENAI_API_KEY", "")
-MAX_AGE_DAYS = 14
+MAX_AGE_DAYS = 30
 TARGET_PER_CATEGORY = 40
 
 # ── 50 VERIFIED RSS FEEDS ─────────────────────────────────────────────────
@@ -520,24 +520,6 @@ TITLE_CAT_RULES = [
         # Hindi/regional transliterations (MediaNama often uses these)
         "data suraksha", "data niyam",
     ]),
-    # ── 7. POLICY & SOCIETY ───────────────────────────────────────────────
-    ("policy_society", [
-        "internet regulation", "digital regulation", "tech regulation",
-        "digital economy", "platform economy", "app economy",
-        "digital single market", "digital trade", "data economy",
-        "tech policy", "digital policy", "internet policy",
-        "tech law", "digital law", "internet law",
-        "consumer protection", "dark pattern", "drip pricing",
-        "fake reviews", "subscription trap", "misleading advertising",
-        "age verification", "children online", "online safety children",
-        "digital literacy", "digital inclusion", "digital divide",
-        "algorithmic transparency", "explainable ai",
-        "tech investment", "innovation policy", "regulatory sandbox",
-        "digital infrastructure", "broadband regulation",
-        "future of work", "automation jobs", "ai jobs",
-        "digital tax", "tech tax", "digital services tax",
-        "ai energy", "tech sustainability", "digital carbon",
-    ]),
 ]
 
 
@@ -601,13 +583,6 @@ BODY_CAT_RULES = [
         "dpdp act", "digital personal data", "india data protection",
         # SA context
         "popia", "information regulator", "popi",
-    ]),
-
-    ("policy_society", [
-        "digital regulation", "tech regulation", "internet regulation",
-        "consumer protection", "digital economy", "platform economy",
-        "tech policy", "age verification", "children online",
-        "digital tax", "innovation policy", "future of work",
     ]),
 ]
 
@@ -1221,7 +1196,7 @@ def run():
     raw = deduplicate(raw)
     print(f"  After dedup: {len(raw)}")
 
-    ALL_CATS = ["ai_tech", "competition", "fintech", "platform_gig", "ip_brand", "privacy_data", "policy_society"]
+    ALL_CATS = ["ai_tech", "competition", "fintech", "platform_gig", "ip_brand", "privacy_data"]
     categorised = {cat: [] for cat in ALL_CATS}
 
     for a in raw:
@@ -1247,7 +1222,7 @@ def run():
     categorised["ai_agents"]          = categorised.get("ai_tech", [])
     categorised["gig_economy"]        = categorised.get("platform_gig", [])
     categorised["platform_liability"] = categorised.get("platform_gig", [])
-    categorised["consumer_protection"]= categorised.get("policy_society", [])
+    categorised["consumer_protection"]= categorised.get("competition", [])
     categorised["ip"]                 = categorised.get("ip_brand", [])
     categorised["privacy"]            = categorised.get("privacy_data", [])
     categorised["regulatory"]         = []  # no longer a catch-all
