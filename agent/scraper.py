@@ -295,12 +295,16 @@ TITLE_CAT_RULES = [
         "ai legislation", "ai bill", "ai framework", "ai strategy",
         "ai lawsuit", "ai sued", "ai fined", "ai court", "ai probe",
         "ai investigation", "ai penalty", "ai damages", "ai settlement",
-        # Regional AI regulation — the ones you highlighted
+        # Regional AI regulation
         "south africa ai", "ai bill south africa", "sa ai bill",
         "national ai policy south africa", "dtps ai",
         "india ai regulation", "india ai policy", "india ai bill",
         "india ai governance", "india ai framework",
         "meity ai", "ministry of electronics ai",
+        "supreme court ai", "court cites ai", "ai expert panel",
+        "ai cyberattack", "ai-powered cyberattack",
+        "south africa developer", "risks losing developers",
+        "ai impact summit", "india ai summit",
         "brazil ai", "lei de ia", "pl 2338", "marco legal da ia",
         "marco legal de inteligência", "inteligência artificial brasil",
         "projeto de lei ia", "senado ia", "câmara ia",
@@ -345,8 +349,17 @@ TITLE_CAT_RULES = [
         "ftc sues", "ftc probe", "ftc fine", "doj antitrust",
         "cma probe", "cma fine", "cma ruling", "cma investigation",
         "cci probe", "cci fine", "cci order", "cci ruling",
-        "cade probe", "cade fine", "cade ruling",
+        "cci approval", "cci seeks", "cci clears", "cci blocks",
+        "cade probe", "cade fine", "cade ruling", "cade aprovação",
+        "competition commission south africa",
+        "competition tribunal south africa",
+        "rekabet kurumu", "kppu", "accc",
         "probed over", "fined for competition",
+        # Regional merger/antitrust — geo+topic combos
+        "india merger", "india acquisition antitrust",
+        "brazil merger", "brazil acquisition cade",
+        "south africa merger", "south africa competition",
+        "turkey competition", "indonesia competition",
     ]),
     # ── 3. FINTECH & PAYMENTS ─────────────────────────────────────────────
     ("fintech", [
@@ -362,12 +375,19 @@ TITLE_CAT_RULES = [
         "remittance regulation", "cross-border payment",
         "payment aggregator", "payment gateway regulation",
         "insurtech", "embedded finance", "open finance",
-        "dora", "cfpb", "rbi payment", "rbi fintech",
-        "bacen payment", "upi regulation", "npci",
+        "dora", "cfpb", "rbi payment", "rbi fintech", "rbi crackdown",
+        "bacen payment", "upi regulation", "npci", "pix payment",
         "paypal", "stripe", "revolut", "klarna", "wise transfer",
         "monzo", "nubank", "mercadopago", "razorpay", "phonepe",
-        "paytm regulation", "paytm fine", "paytm ban",
+        "paytm regulation", "paytm fine", "paytm ban", "paytm nbfc",
         "payment fraud", "financial fraud", "money laundering fintech",
+        # Africa fintech
+        "m-pesa", "mpesa", "safaricom payment", "mobile money",
+        "africa payment", "africa fintech", "kenya payment",
+        "nigeria fintech", "ghana payment", "fincra",
+        # Credit / lending platforms
+        "credit marketplace", "digital credit", "digital lending india",
+        "india fintech", "india payment", "india digital banking",
     ]),
     # ── 4. PLATFORM & GIG ECONOMY ─────────────────────────────────────────
     ("platform_gig", [
@@ -495,34 +515,7 @@ TITLE_CAT_RULES = [
         # Hindi/regional transliterations (MediaNama often uses these)
         "data suraksha", "data niyam",
     ]),
-    # ── 7. EMERGING MARKETS ───────────────────────────────────────────────
-    ("emerging_markets", [
-        "india tech", "india digital", "india startup", "india unicorn",
-        "india regulation", "india antitrust", "india competition",
-        "india fintech", "india payment", "india e-commerce",
-        "india data", "india privacy", "india ai", "india gig",
-        "india food delivery", "india internet", "india platform",
-        "digital india", "cci ruling", "cci investigation",
-        "rbi circular", "rbi guideline", "meity notification",
-        "dpdp", "india data protection",
-        "brazil tech", "brazil digital", "brazil startup",
-        "brazil fintech", "brazil e-commerce", "brazil food delivery",
-        "brazil antitrust", "brazil competition", "brazil data",
-        "brazil ai", "brazil platform",
-        "cade ruling", "cade investigation", "anpd ruling",
-        "lgpd enforcement", "bacen digital", "pix payment",
-        "south africa tech", "south africa fintech", "south africa digital",
-        "south africa startup", "south africa competition",
-        "turkey tech", "turkey fintech", "turkey digital",
-        "turkey competition", "rekabet kurumu",
-        "indonesia tech", "indonesia digital", "indonesia fintech",
-        "ojk regulation", "indonesia competition",
-        "pakistan tech", "pakistan fintech", "pakistan digital",
-        "latin america tech", "latam fintech", "latam startup",
-        "africa tech", "africa fintech", "africa startup",
-        "nigeria tech", "kenya tech", "southeast asia tech",
-    ]),
-    # ── 8. POLICY & SOCIETY ───────────────────────────────────────────────
+    # ── 7. POLICY & SOCIETY ───────────────────────────────────────────────
     ("policy_society", [
         "internet regulation", "digital regulation", "tech regulation",
         "digital economy", "platform economy", "app economy",
@@ -604,12 +597,7 @@ BODY_CAT_RULES = [
         # SA context
         "popia", "information regulator", "popi",
     ]),
-    ("emerging_markets", [
-        "india", "brazil", "south africa", "turkey", "indonesia",
-        "pakistan", "nigeria", "kenya", "latin america",
-        "cci", "cade", "anpd", "rbi", "meity",
-        "digital india", "pix payment", "upi",
-    ]),
+
     ("policy_society", [
         "digital regulation", "tech regulation", "internet regulation",
         "consumer protection", "digital economy", "platform economy",
@@ -1263,7 +1251,7 @@ def run():
     raw = deduplicate(raw)
     print(f"  After dedup: {len(raw)}")
 
-    ALL_CATS = ["ai_tech", "competition", "fintech", "platform_gig", "ip_brand", "privacy_data", "emerging_markets", "policy_society"]
+    ALL_CATS = ["ai_tech", "competition", "fintech", "platform_gig", "ip_brand", "privacy_data", "policy_society"]
     categorised = {cat: [] for cat in ALL_CATS}
 
     for a in raw:
