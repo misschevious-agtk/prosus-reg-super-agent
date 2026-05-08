@@ -1243,33 +1243,155 @@ def score(a):
     except: pass
     return s
 
-def prosus_lens(a):
-    if not OPENAI_API_KEY: return ""
-    try:
-        ctx = ", ".join(a["entity_match"]) if a["entity_match"] else "the Prosus portfolio"
-        prompt = (
-            "Prosus is a global tech investor: iFood, Swiggy, OLX, PayU, Brainly, Meesho, "
-            "PharmEasy, Rapido, eMAG, Takealot, GoStudent, Ema (AI agent), Brainfish, "
-            "iyzico, Creditas, Urban Company, Dott, Bykea, Media24, etc. HQ: Amsterdam.\n\n"
-            f"Title: {a['title']}\nSummary: {a['body'][:400]}\n"
-            f"Category: {a['category']}\nDirect entities: {ctx}\n\n"
-            "Write 2-3 sentences on Prosus-specific implications. Name affected entities. "
-            "Be concrete on compliance, strategic, or operational impact. "
-            "Do not start with 'This development'."
-        )
-        r = requests.post(
-            "https://api.openai.com/v1/chat/completions",
-            headers={"Authorization": f"Bearer {OPENAI_API_KEY}",
-                     "Content-Type": "application/json"},
-            json={"model": "gpt-4o-mini",
-                  "messages": [{"role": "user", "content": prompt}],
-                  "max_tokens": 180, "temperature": 0.3},
-            timeout=30,
-        )
-        return r.json()["choices"][0]["message"]["content"].strip()
-    except Exception as e:
-        print(f"    [WARN] OpenAI: {e}")
-        return ""
+def prosus_relevance(a):
+    """
+    Generate a short rule-based Prosus relevance note for every article.
+    No API call — uses category, entity matches, title signals.
+    Returns a string of 1-2 sentences, max ~180 chars.
+    """
+    cat   = a.get("category", "")
+    title = a.get("title", "").lower()
+    body  = a.get("body", "").lower()
+    text  = title + " " + body
+    ents  = a.get("entity_match", [])
+    port  = ", ".join(ents[:2]) if ents else None
+
+    # ── Portfolio direct hit ──────────────────────────────────────────────
+    if port:
+        base = f"Directly affects Prosus portfolio: {port}."
+        if "fine" in text or "penalty" in text:
+            return base + " Potential compliance and financial exposure."
+        if "merger" in text or "acquisition" in text or "takeover" in text:
+            return base + " Watch for regulatory clearance implications."
+        if "ban" in text or "blocked" in text or "prohibited" in text:
+            return base + " Operational continuity risk."
+        return base + " Monitor for strategic and compliance impact."
+
+    # ── AI & Policy ───────────────────────────────────────────────────────
+    if cat == "ai_tech":
+        if any(k in text for k in ["eu ai act", "ai act", "ai liability"]):
+            return ("EU AI Act obligations apply to Prosus AI products including Ema "
+                    "and Brainfish. High-risk classification rules may require conformity assessments.")
+        if any(k in text for k in ["deepfake", "synthetic media", "voice cloning", "impersonat"]):
+            return ("AI-generated fraud and impersonation directly threaten Prosus brands — "
+                    "iFood, OLX, PayU and classifieds platforms are prime targets.")
+        if any(k in text for k in ["agentic", "ai agent", "autonomous ai"]):
+            return ("Agentic AI regulation will shape how Ema (Prosus AI employee product) "
+                    "can be deployed across markets.")
+        if any(k in text for k in ["copyright", "training data", "llm scraping"]):
+            return ("AI training data rules affect Prosus AI ventures including Ema, "
+                    "Brainfish, and Brainly's content-based model.")
+        if "openai" in text or "anthropic" in text or "google" in text or "microsoft" in text:
+            return ("Big-tech AI moves set the competitive context for Prosus AI portfolio "
+                    "companies including Ema, Brainfish, and GoStudent.")
+        return ("AI policy shifts affect Prosus's AI-first ventures (Ema, Brainfish, Advolve.AI) "
+                "and AI-integrated opcos across edtech, healthtech and food delivery.")
+
+    # ── Competition / Antitrust ───────────────────────────────────────────
+    if cat == "competition":
+        if any(k in text for k in ["dma", "digital markets act", "gatekeeper"]):
+            return ("DMA enforcement shapes the operating environment for iFood, Just Eat, "
+                    "OLX and PayU as downstream users of gatekeeper platforms.")
+        if any(k in text for k in ["merger", "acquisition", "takeover", "m&a"]):
+            return ("Merger precedents inform Prosus's own M&A strategy and portfolio "
+                    "exit/consolidation decisions. Relevant for Anne-Claire Hoyng's team.")
+        if any(k in text for k in ["food delivery", "ifood", "just eat", "delivery hero", "swiggy"]):
+            return ("Competition enforcement in food delivery directly affects iFood (Brazil), "
+                    "Just Eat Takeaway and Swiggy valuations and market structure.")
+        if any(k in text for k in ["algorithmic", "pricing algorithm", "dynamic pricing"]):
+            return ("Algorithmic pricing scrutiny applies to iFood, PayU and OLX, "
+                    "all of which use dynamic or algorithmic pricing.")
+        if any(k in text for k in ["app store", "apple", "google play"]):
+            return ("App store rulings affect distribution costs for all Prosus "
+                    "mobile-first opcos — iFood, Swiggy, PayU, eMAG and classifieds apps.")
+        if any(k in text for k in ["classifieds", "marketplace", "olx", "property portal"]):
+            return ("Marketplace competition rules directly affect OLX Group's "
+                    "classifieds and property portal network across 30+ markets.")
+        return ("Competition enforcement trends shape Prosus portfolio M&A strategy "
+                "and the regulatory risk profile of opcos in food delivery, classifieds and fintech.")
+
+    # ── Privacy & Data ────────────────────────────────────────────────────
+    if cat == "privacy_data":
+        if any(k in text for k in ["dpdp", "india data", "india privacy"]):
+            return ("India DPDP rules apply to Meesho, Swiggy, Rapido, Urban Company "
+                    "and all Prosus India opcos processing personal data of Indian citizens.")
+        if any(k in text for k in ["lgpd", "anpd", "brazil data", "brazil privacy"]):
+            return ("Brazil LGPD enforcement directly affects iFood and Creditas, "
+                    "Prosus's largest LatAm opcos handling millions of user records.")
+        if any(k in text for k in ["popia", "south africa data", "information regulator"]):
+            return ("POPIA compliance is mandatory for Prosus SA opcos including "
+                    "Takealot, Media24 and Property24.")
+        if any(k in text for k in ["gdpr", "ico", "edpb", "cnil", "dpa fine"]):
+            return ("GDPR enforcement applies to all Prosus EU operations — "
+                    "Just Eat Takeaway, OLX Group, Dott and Amsterdam HQ staff data.")
+        if "breach" in text or "leak" in text:
+            return ("Data breach incidents set enforcement precedents relevant to "
+                    "Prosus's consumer-facing opcos across food, classifieds and fintech.")
+        return ("Data protection rules affect every Prosus consumer opco. "
+                "India (DPDP), Brazil (LGPD), South Africa (POPIA) and EU (GDPR) are primary exposure markets.")
+
+    # ── IP & Brand ────────────────────────────────────────────────────────
+    if cat == "ip_brand":
+        if any(k in text for k in ["ai trademark", "ai copyright", "llm trademark", "ai brand"]):
+            return ("AI-generated brand infringement is a live threat for iFood, OLX and PayU — "
+                    "platforms with high brand equity and significant fake-seller exposure.")
+        if any(k in text for k in ["deepfake", "impersonat", "fake brand", "brand fraud"]):
+            return ("Brand impersonation via AI directly threatens Prosus consumer brands. "
+                    "Relevant to Tara Harris's INTA session on GenAI and agentic fraud.")
+        if any(k in text for k in ["domain", "cybersquat", "brand hijack"]):
+            return ("Domain and brand hijacking affects iFood, OLX and PayU "
+                    "which operate localised brand variants across 50+ markets.")
+        if any(k in text for k in ["trademark filing", "trademark registration", "ip filing"]):
+            return ("Trademark trends inform Prosus IP strategy for portfolio brands "
+                    "expanding into new markets.")
+        return ("IP and brand protection rules affect Prosus's global brand portfolio — "
+                "iFood, OLX, PayU, Swiggy and 40+ localised opco brands.")
+
+    # ── Fintech ───────────────────────────────────────────────────────────
+    if cat == "fintech":
+        if any(k in text for k in ["payu", "iyzico", "wibmo", "red dot"]):
+            return ("Directly affects PayU group — Prosus's global payments platform "
+                    "operating across India, Europe, Africa and LatAm.")
+        if any(k in text for k in ["upi", "rbi", "india payment", "india fintech"]):
+            return ("RBI and UPI rules directly govern PayU India and LazyPay, "
+                    "Prosus's largest regulated fintech entities.")
+        if any(k in text for k in ["bnpl", "buy now pay later", "digital lending"]):
+            return ("BNPL regulation affects LazyPay (India) and PaySense, "
+                    "Prosus's consumer credit products.")
+        if any(k in text for k in ["pix", "bacen", "brazil payment"]):
+            return ("Brazil payment regulation affects iFood's payment stack "
+                    "and Creditas's lending operations.")
+        if any(k in text for k in ["crypto", "stablecoin", "cbdc"]):
+            return ("Crypto and CBDC rules reshape the competitive environment "
+                    "for PayU and Prosus's digital banking investments.")
+        if any(k in text for k in ["mobile money", "m-pesa", "africa payment"]):
+            return ("African mobile money regulation affects Prosus's fintech "
+                    "investments across Nigeria, Kenya and South Africa.")
+        return ("Fintech regulation affects PayU, iyzico, LazyPay, Creditas "
+                "and Prosus's broader payments and lending portfolio.")
+
+    # ── Platform & Gig ────────────────────────────────────────────────────
+    if cat == "platform_gig":
+        if any(k in text for k in ["gig worker", "platform worker", "delivery rider",
+                                    "worker classification", "misclassification"]):
+            return ("Gig worker regulation creates compliance obligations for iFood, "
+                    "Just Eat Takeaway and Swiggy on rider classification and benefits.")
+        if any(k in text for k in ["food delivery", "ifood", "just eat", "swiggy", "delivery hero"]):
+            return ("Platform enforcement in food delivery directly affects iFood, "
+                    "Just Eat Takeaway and Swiggy — three of Prosus's largest opcos.")
+        if any(k in text for k in ["dsa", "digital services act", "vlop", "content moderation"]):
+            return ("DSA obligations may apply to Just Eat Takeaway and OLX Group "
+                    "if designated as Very Large Online Platforms by the EU.")
+        if any(k in text for k in ["olx", "classifieds", "marketplace fraud", "fake listing"]):
+            return ("Marketplace liability rules directly affect OLX Group's "
+                    "classifieds network and its seller/buyer trust framework.")
+        return ("Platform regulation affects iFood, Just Eat Takeaway, Swiggy, "
+                "OLX Group and Dott — Prosus's core consumer platform businesses.")
+
+    # ── Fallback ──────────────────────────────────────────────────────────
+    return ("Relevant to Prosus's global digital regulatory exposure across "
+            "food delivery, classifieds, payments and AI.")
+
 
 def deduplicate(articles):
     seen_ids, seen_titles, out = set(), set(), []
@@ -1308,8 +1430,11 @@ def run():
         a["entity_match"]   = match_entities(a)
         a["watchlist_hits"] = hit_watchlists(a)
         a["scope_path"]     = scope_path(a)
+        a["prosus_lens"]    = prosus_relevance(a)   # rule-based, no API needed
         if a["scope_path"] in ("A", "B") and OPENAI_API_KEY:
-            a["prosus_lens"] = prosus_lens(a)
+            enhanced = prosus_lens(a)               # optional GPT upgrade
+            if enhanced:
+                a["prosus_lens"] = enhanced
         categorised.setdefault(a["category"], []).append(a)
 
     # Per-category caps — competition gets more room (Anne-Claire's domain)
