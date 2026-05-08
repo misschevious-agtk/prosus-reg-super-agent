@@ -53,8 +53,10 @@
     .flash-item {
       font-size: .75rem; color: #78350F; margin-bottom: 4px;
       display: flex; align-items: flex-start; gap: 6px;
+      cursor: pointer; text-decoration: underline dotted;
     }
-    .flash-item::before { content:"⚡"; flex-shrink: 0; }
+    .flash-item:hover { color: var(--brand-dark); }
+    .flash-item::before { content:"⚡"; flex-shrink: 0; text-decoration: none; }
 
     /* ── FILTER BAR ───────────────────────── */
     .filter-bar {
@@ -114,6 +116,7 @@
       cursor: pointer; transition: box-shadow .15s, transform .1s;
     }
     .card:hover { box-shadow: 0 6px 24px rgba(108,43,217,.14); transform: translateY(-1px); }
+    .card.flash-highlight { border-left: 3px solid var(--accent); }
     .card-header { padding: 14px 16px 10px; }
     .card-meta {
       display: flex; align-items: center; gap: 6px;
@@ -162,13 +165,6 @@
       text-decoration: none;
     }
     .read-more:hover { text-decoration: underline; }
-
-    /* ── TRENDING CARD ────────────────────── */
-    .trending-card .card-header { padding-bottom: 6px; }
-    .trending-number {
-      font-size: 1.4rem; font-weight: 900; color: var(--brand-light);
-      float: right; margin-left: 8px; line-height: 1;
-    }
 
     /* ── EMPTY STATE ──────────────────────── */
     .empty {
@@ -225,16 +221,15 @@
 </div>
 
 <div class="filter-bar" id="filter-bar">
-  <button class="pill active" data-cat="trending">🔥 Trending</button>
-  <button class="pill" data-cat="all">All</button>
-  <button class="pill" data-cat="ai_tech">🤖 AI &amp; Tech</button>
-  <button class="pill" data-cat="competition">🏛️ Competition</button>
+  <button class="pill active" data-cat="all">📋 All</button>
+  <button class="pill" data-cat="ai_tech">🤖 AI & Policy</button>
+  <button class="pill" data-cat="privacy_data">🔒 Privacy & Data</button>
+  <button class="pill" data-cat="competition">⚖️ Competition</button>
+  <button class="pill" data-cat="ip_brand">💡 IP & Brand</button>
   <button class="pill" data-cat="fintech">💳 Fintech</button>
-  <button class="pill" data-cat="platform_gig">🛵 Platform &amp; Gig</button>
-  <button class="pill" data-cat="ip_brand">™️ IP &amp; Brand</button>
-  <button class="pill" data-cat="privacy_data">🔒 Privacy &amp; Data</button>
+  <button class="pill" data-cat="platform_gig">🌐 Platform & Gig</button>
   <button class="pill" data-cat="emerging_markets">🌍 Emerging Markets</button>
-  <button class="pill" data-cat="policy_society">📰 Policy &amp; Society</button>
+  <button class="pill" data-cat="policy_society">🏛️ Policy & Society</button>
   <button class="pill" data-cat="prosus_only">🏢 Prosus</button>
 </div>
 
@@ -253,34 +248,44 @@
 
 <script>
 const DATA_URL = 'content/index.json';
+
+// The real data keys from the scraper
+const TABS = [
+  { key: 'ai_tech',          label: '🤖 AI & Policy' },
+  { key: 'privacy_data',     label: '🔒 Privacy & Data' },
+  { key: 'competition',      label: '⚖️ Competition' },
+  { key: 'ip_brand',         label: '💡 IP & Brand' },
+  { key: 'fintech',          label: '💳 Fintech' },
+  { key: 'platform_gig',     label: '🌐 Platform & Gig' },
+  { key: 'emerging_markets', label: '🌍 Emerging Markets' },
+  { key: 'policy_society',   label: '🏛️ Policy & Society' },
+];
+
 const CAT_LABELS = {
-  trending: '🔥 Trending',
-  all: '📋 All Articles',
-  competition: '⚖️ Competition',
-  privacy: '🔒 Privacy & Data',
-  ip: '💡 IP & Copyright',
-  ai_landscape: '🤖 AI Landscape',
-  ai_agents: '🤖 AI Agents & Ecosystems',
-  gig_economy: '🚚 Gig Economy & Labour',
-  regulatory: '📜 Regulatory',
-  fintech: '💳 Fintech & Payments',
-  consumer_protection: '🛒 Consumer Protection',
-  platform_liability: '🌐 Platform Liability',
-  prosus_only: '🏢 Prosus Direct',
-};
-const CAT_EMOJI = {
-  competition:'⚖️', privacy:'🔒', ip:'💡', ai_landscape:'🤖', ai_agents:'🤖', gig_economy:'🚚',
-  regulatory:'📜', fintech:'💳', consumer_protection:'🛒', platform_liability:'🌐',
+  all:             '📋 All Articles',
+  ai_tech:         '🤖 AI & Policy',
+  privacy_data:    '🔒 Privacy & Data',
+  competition:     '⚖️ Competition',
+  ip_brand:        '💡 IP & Brand',
+  fintech:         '💳 Fintech',
+  platform_gig:    '🌐 Platform & Gig',
+  emerging_markets:'🌍 Emerging Markets',
+  policy_society:  '🏛️ Policy & Society',
+  prosus_only:     '🏢 Prosus Direct',
 };
 
 let data = null;
-let currentCat = 'trending';
+let currentCat = 'all';
 let searchQuery = '';
+// Track which article IDs are in flash alerts for highlighting
+let flashIds = new Set();
 
 async function loadData() {
   try {
     const r = await fetch(DATA_URL + '?t=' + Date.now());
     data = await r.json();
+    // Build flash ID set
+    (data.flash_alerts || []).forEach(a => flashIds.add(a.id));
     renderSyncBadge();
     renderFlashAlerts();
     renderMain();
@@ -288,7 +293,8 @@ async function loadData() {
     document.getElementById('main').innerHTML =
       '<div class="empty"><span>⚠️</span>Could not load content. Run the scraper first.</div>';
   }
-  document.getElementById('spinner').remove();
+  const sp = document.getElementById('spinner');
+  if (sp) sp.remove();
 }
 
 function renderSyncBadge() {
@@ -304,27 +310,61 @@ function renderFlashAlerts() {
   const banner = document.getElementById('flash-banner');
   const items  = document.getElementById('flash-items');
   banner.style.display = 'block';
-  items.innerHTML = alerts.slice(0,4).map(a =>
-    `<div class="flash-item"><span>${a.title}</span></div>`
+  items.innerHTML = alerts.slice(0, 5).map(a =>
+    `<div class="flash-item" onclick="jumpToArticle('${a.id}', '${a.category || ''}')">${a.title}</div>`
   ).join('');
+}
+
+function jumpToArticle(id, cat) {
+  // Switch to the tab containing this article, then scroll to it
+  const targetCat = cat || findArticleCat(id);
+  if (targetCat && currentCat !== targetCat) {
+    document.querySelectorAll('.pill').forEach(p => p.classList.remove('active'));
+    const pill = document.querySelector(`.pill[data-cat="${targetCat}"]`);
+    if (pill) pill.classList.add('active');
+    currentCat = targetCat;
+    renderMain();
+  }
+  // Scroll to card with matching id
+  setTimeout(() => {
+    const card = document.querySelector(`[data-article-id="${id}"]`);
+    if (card) {
+      card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      card.classList.add('expanded');
+    }
+  }, 100);
+}
+
+function findArticleCat(id) {
+  for (const tab of TABS) {
+    const arts = data[tab.key] || [];
+    if (arts.some(a => a.id === id)) return tab.key;
+  }
+  return 'all';
 }
 
 function getArticles() {
   if (!data) return [];
   let articles = [];
 
-  if (currentCat === 'trending') {
-    articles = data.trending || [];
-  } else if (currentCat === 'all') {
-    const cats = ['ai_tech','competition','fintech','platform_gig','ip_brand','privacy_data','emerging_markets','policy_society'];
-    cats.forEach(c => { if (data[c]) articles.push(...data[c]); });
-    // dedupe by id
+  if (currentCat === 'all') {
     const seen = new Set();
-    articles = articles.filter(a => { if (seen.has(a.id)) return false; seen.add(a.id); return true; });
+    TABS.forEach(tab => {
+      (data[tab.key] || []).forEach(a => {
+        if (!seen.has(a.id)) { seen.add(a.id); articles.push(a); }
+      });
+    });
+    // Sort by date desc
+    articles.sort((a, b) => b.date.localeCompare(a.date));
   } else if (currentCat === 'prosus_only') {
-    const cats = ['ai_tech','competition','fintech','platform_gig','ip_brand','privacy_data','emerging_markets','policy_society'];
-    cats.forEach(c => { if (data[c]) articles.push(...data[c]); });
-    articles = articles.filter(a => a.entity_match && a.entity_match.length > 0);
+    const seen = new Set();
+    TABS.forEach(tab => {
+      (data[tab.key] || []).forEach(a => {
+        if (!seen.has(a.id) && a.entity_match && a.entity_match.length > 0) {
+          seen.add(a.id); articles.push(a);
+        }
+      });
+    });
   } else {
     articles = data[currentCat] || [];
   }
@@ -352,14 +392,13 @@ function renderMain() {
 
   // Stats bar
   const total = data.total_articles || 0;
-  const flash = (data.flash_alerts||[]).length;
-  const cats  = ['ai_tech','competition','fintech','platform_gig','ip_brand','privacy_data','emerging_markets','policy_society'];
+  const flashCount = (data.flash_alerts||[]).length;
   let statsHtml = `<div class="stats-bar">
     <div class="stat-pill"><div class="num">${total}</div><div class="lbl">Total</div></div>
-    <div class="stat-pill"><div class="num">${flash}</div><div class="lbl">Alerts</div></div>`;
-  cats.forEach(c => {
-    const n = (data[c]||[]).length;
-    if (n) statsHtml += `<div class="stat-pill"><div class="num">${n}</div><div class="lbl">${CAT_EMOJI[c]||''} ${c.replace('_',' ')}</div></div>`;
+    <div class="stat-pill"><div class="num">${flashCount}</div><div class="lbl">⚡ Alerts</div></div>`;
+  TABS.forEach(tab => {
+    const n = (data[tab.key]||[]).length;
+    if (n) statsHtml += `<div class="stat-pill"><div class="num">${n}</div><div class="lbl">${tab.label}</div></div>`;
   });
   statsHtml += '</div>';
 
@@ -370,7 +409,7 @@ function renderMain() {
       <span class="count">${articles.length}</span>
     </div>`;
 
-  articles.forEach((a, i) => {
+  articles.forEach((a) => {
     const scopeClass = `scope-${a.scope_path || 'C'}`;
     const tags = (a.tags||[]).map(t => `<span class="tag">${t}</span>`).join('');
     const entities = (a.entity_match||[]).map(e => `<span class="entity-badge">🏢 ${e}</span>`).join('');
@@ -378,19 +417,20 @@ function renderMain() {
     const lens = a.prosus_lens
       ? `<div class="prosus-lens"><strong>Prosus Read-Across</strong>${a.prosus_lens}</div>` : '';
     const readMore = a.url
-      ? `<a class="read-more" href="${a.url}" target="_blank" rel="noopener">Read full article →</a>` : '';
-    const num = currentCat === 'trending' ? `<span class="trending-number">#${i+1}</span>` : '';
+      ? `<a class="read-more" href="${a.url}" target="_blank" rel="noopener" onclick="event.stopPropagation()">Read full article →</a>` : '';
+    const isFlash = flashIds.has(a.id);
+    const flashClass = isFlash ? ' flash-highlight' : '';
 
     html += `
-    <div class="card ${currentCat==='trending'?'trending-card':''}" onclick="toggleCard(this)">
+    <div class="card${flashClass}" data-article-id="${a.id}" onclick="toggleCard(this)">
       <div class="card-header">
-        ${num}
         <div class="card-meta">
           <span class="scope-dot ${scopeClass}"></span>
           <span>${a.source}</span>
           <span>·</span>
           <span>${a.date}</span>
           ${a.scope_path==='A' ? '<span>· 🔴 Direct Portfolio Hit</span>' : ''}
+          ${isFlash ? '<span>· ⚡ Alert</span>' : ''}
         </div>
         <div class="card-title">${a.title}</div>
       </div>
