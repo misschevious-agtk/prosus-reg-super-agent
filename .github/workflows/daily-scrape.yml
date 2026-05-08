@@ -1,0 +1,28 @@
+name: Daily Regulatory Scrape
+
+on:
+  schedule:
+    - cron: "0 3 * * *"
+  workflow_dispatch:
+
+jobs:
+  scrape-and-deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install -r requirements.txt
+      - run: python -m agent.scraper
+      - run: python build_index.py
+      - run: |
+          git config user.name "prosus-reg-bot"
+          git config user.email "bot@prosus-reg-super-agent"
+          git add content/index.json
+          git diff --cached --quiet && echo "No changes" || \
+            git commit -m "data: daily scrape $(date -u '+%Y-%m-%d %H:%M UTC')" && \
+            git push
