@@ -40,6 +40,9 @@ RSS_SOURCES = [
     # ══════════════════════════════════════════════════════════════════════
     # General India tech
     ("MediaNama (India)",               "https://medianama.com/feed/"),
+    ("MediaNama Privacy",               "https://medianama.com/tag/privacy/feed/"),
+    ("MediaNama DPDP",                  "https://medianama.com/tag/data-protection/feed/"),
+    ("MediaNama IT Rules",              "https://medianama.com/tag/it-rules/feed/"),
     ("Inc42 (India)",                   "https://inc42.com/feed/"),
     ("Economic Times Tech (India)",     "https://economictimes.indiatimes.com/tech/rssfeeds/13357270.cms"),
     ("LiveMint Tech (India)",           "https://www.livemint.com/rss/technology"),
@@ -141,6 +144,7 @@ RSS_SOURCES = [
     ("IP Watchdog",                     "https://ipwatchdog.com/feed/"),
     ("World Trademark Review",          "https://www.worldtrademarkreview.com/rss"),
     ("WIPO",                            "https://www.wipo.int/pressroom/en/rss.xml"),
+    ("SpicyIP (India IP)",              "https://spicyip.com/feed"),
 
     # ══════════════════════════════════════════════════════════════════════
     # COMPETITION LAW
@@ -339,7 +343,21 @@ TITLE_CAT_RULES = [
         "grok", "perplexity", "mistral", "llama", "gpt-", " llm ",
         "large language model", "generative ai", "agentic ai", "ai agent",
         "chatbot", "multimodal", "ai model", "ai chip", "ai compute",
-        "ai race", "ai sovereignty", "us china ai", "ai export",
+        # ── India AI regulation catch-all ─────────────────────────────────────
+        "india ai", "india artificial intelligence", "india algorithm",
+        "meity ai", "it rules india", "it act india",
+        "india deepfake", "deepfake india", "delhi hc deepfake",
+        "india age verification", "india age gating",
+        "india child online safety", "india minor online",
+        "india social media", "india content moderation",
+        "india intermediary", "india platform rule",
+        "india agentic ai", "india ai agent",
+        "india ai regulation", "india ai policy", "india ai bill",
+        "india ai governance", "india ai framework",
+        "india ai copyright", "india ai training",
+        "india facial recognition", "india biometric ai",
+        "india ai summit", "india ai impact",
+        "trai ai", "cci ai", "sebi ai",
         # ── Meta / WhatsApp / messaging AI ───────────────────────────────────
         "whatsapp ai", "whatsapp terms", "whatsapp policy", "whatsapp privacy",
         "whatsapp data", "whatsapp encryption", "whatsapp ban",
@@ -548,6 +566,25 @@ TITLE_CAT_RULES = [
         "domain name", "cybersquatting", "typosquatting",
         "wipo", "inta", "euipo", "uspto",
         "trade secret", "misappropriation",
+        # ── India IP — SpicyIP / Delhi HC / CGPDTM coverage ──────────────────
+        "india trademark", "india copyright", "india patent",
+        "india ip", "indian intellectual property",
+        "delhi high court ip", "delhi hc trademark", "delhi hc copyright",
+        "delhi hc patent", "bombay hc copyright", "madras hc ip",
+        "ipo india", "cgpdtm", "controller general patent",
+        "india brand", "india counterfeit", "india fake",
+        "india passing off", "india trade secret",
+        "india ai copyright", "india llm", "india training data",
+        "india deepfake ip", "india celebrity rights",
+        "india geographical indication", "india gi tag",
+        "india plant variety", "india design registration",
+        "india generic drug patent", "india pharma patent",
+        "india domain dispute", "india cybersquatting",
+        # India court/regulator abbreviations that appear in titles
+        "delhi hc", "bombay hc", "madras hc", "calcutta hc",
+        "supreme court trademark", "supreme court copyright",
+        "ipab india", "dipp india", "india fdi ip",
+        "wtr india", "india ip week",
     ]),
     # ── 6. PRIVACY & DATA ─────────────────────────────────────────────────
     ("privacy_data", [
@@ -567,7 +604,7 @@ TITLE_CAT_RULES = [
         "ftc data", "ftc fine", "ftc action",
         "maryland privacy", "texas privacy", "virginia privacy",
         "children privacy", "coppa", "kids online safety",
-        # India privacy
+        # India privacy — broad catch for Indian court/regulatory language
         "dpdp", "dpdp act", "dpdp rules", "dpdp regulations",
         "digital personal data protection",
         "india data protection", "india privacy",
@@ -575,6 +612,21 @@ TITLE_CAT_RULES = [
         "meity data", "meity privacy",
         "data fiduciary", "data principal",
         "consent manager", "data protection board india",
+        "it rules", "it act india", "information technology act",
+        "intermediary guidelines", "it intermediary",
+        "trai privacy", "trai data", "telecom regulation india",
+        "aadhaar data", "uidai", "aadhaar privacy",
+        "digi yatra", "digi locker privacy",
+        "india surveillance", "india facial recognition",
+        "india age verification", "age gating india",
+        "delhi high court privacy", "delhi hc data",
+        "bombay hc privacy", "supreme court privacy india",
+        "right to privacy india", "puttaswamy",
+        "india deepfake", "deepfake india", "india synthetic media",
+        "india children online", "india child data",
+        "india biometric", "india health data",
+        "india location data", "india consent",
+        "india platform regulation", "india social media rule",
         # Brazil privacy
         "lgpd", "anpd", "brazil data", "brazil privacy",
         "lei geral de proteção de dados",
