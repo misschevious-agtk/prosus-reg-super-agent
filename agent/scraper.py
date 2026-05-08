@@ -145,8 +145,10 @@ RSS_SOURCES = [
     # ══════════════════════════════════════════════════════════════════════
     # COMPETITION LAW
     # ══════════════════════════════════════════════════════════════════════
-    ("Chillin Competition",             "https://chillingcompetition.com/feed"),
-    ("Global Competition Review",       "https://globalcompetitionreview.com/rss"),
+    ("Chillin Competition",              "https://chillingcompetition.com/feed"),
+    ("Global Competition Review",        "https://globalcompetitionreview.com/rss"),
+    ("Competition Policy International", "https://www.competitionpolicyinternational.com/feed/"),
+    ("Digital Regulation Platform",      "https://digitalregulation.org/feed/"),
 
     # ══════════════════════════════════════════════════════════════════════
     # FINTECH
@@ -341,103 +343,182 @@ TITLE_CAT_RULES = [
     ]),
     # ── 2. COMPETITION & MARKETS ──────────────────────────────────────────
     ("competition", [
+        # Core antitrust
         "antitrust", "merger inquiry", "merger control", "merger probe",
         "merger blocked", "merger cleared", "merger fine", "merger review",
         "cartel", "price fixing", "market sharing", "bid rigging",
         "competition fine", "competition probe", "competition authority",
         "competition watchdog", "competition law", "competition ruling",
         "market dominance", "abuse of dominance", "dominant position",
-        "monopoly", "oligopoly", "gatekeeper", "market power",
+        "monopoly", "oligopoly", "market power",
         "acquisition blocked", "takeover blocked", "deal cleared",
-        "dma enforcement", "dma designation", "dma fine",
-        "market investigation", "market study",
+        "market investigation", "market study", "market inquiry",
+        # Key regulators
         "ftc sues", "ftc probe", "ftc fine", "doj antitrust",
         "cma probe", "cma fine", "cma ruling", "cma investigation",
         "cci probe", "cci fine", "cci order", "cci ruling",
         "cci approval", "cci seeks", "cci clears", "cci blocks",
         "cade probe", "cade fine", "cade ruling", "cade aprovação",
-        "competition commission south africa",
-        "competition tribunal south africa",
+        "competition commission south africa", "competition tribunal south africa",
         "rekabet kurumu", "kppu", "accc",
         "probed over", "fined for competition",
-        # Regional merger/antitrust — geo+topic combos
+        # ── DMA / Digital Markets Act (Anne-Claire's core focus) ─────────────
+        "digital markets act", "dma enforcement", "dma gatekeeper",
+        "dma compliance", "dma fine", "dma interoperability",
+        "dma self-preferencing", "dma designation", "dma investigation",
+        "dma non-compliance", "core platform service",
+        "dma ruling", "dma obligation", "dma decision",
+        # ── Global digital markets regimes ───────────────────────────────────
+        "dmcc act", "digital markets competition consumers",
+        "strategic market status", "sms designation",
+        "pro-competition intervention", "designated activity",
+        "australia digital platform", "australia cdmo",
+        "korea platform monopoly", "korea pmfp",
+        "japan digital platform", "japan platform regulation",
+        "india digital competition", "india competition amendment",
+        "india digital competition act", "india dca",
+        "digital markets regime", "ex ante regulation",
+        "platform regulation competition",
+        # ── Ecosystem / conglomerate mergers (Anne-Claire's PhD area) ─────────
+        "ecosystem competition", "conglomerate merger", "digital ecosystem",
+        "platform ecosystem", "tech merger", "digital merger",
+        "killer acquisition", "acqui-hire", "nascent competitor",
+        "potential competition merger", "portfolio effects",
+        "dynamic competition", "innovation competition",
+        "gatekeeper", "self-preferencing", "tipping market",
+        "winner takes all", "network effects competition",
+        "data advantage competition", "data moat",
+        # ── Algorithmic pricing & collusion ───────────────────────────────────
+        "algorithmic pricing", "algorithmic collusion", "pricing algorithm",
+        "algorithmic tacit collusion", "hub and spoke algorithm",
+        "ai pricing antitrust", "dynamic pricing antitrust",
+        "algorithmic cartel", "ai collusion",
+        # ── App stores / interoperability ─────────────────────────────────────
+        "app store competition", "app store antitrust", "app store ruling",
+        "app store fine", "apple app store ruling", "apple app store fine",
+        "google play antitrust", "in-app payment antitrust",
+        "interoperability obligation", "app store fee",
+        "sideloading", "alternative app store",
+        # ── European Champions / industrial policy debate ──────────────────────
+        "european champion", "industrial policy competition",
+        "merger policy reform europe", "eu merger guidelines",
+        "european merger reform", "competition industrial policy",
+        "eu merger policy", "eu competition reform",
+        "rethinking merger", "merger policy debate",
+        # ── Food delivery / classifieds / Prosus sector M&A ───────────────────
+        "food delivery merger", "delivery platform acquisition",
+        "food delivery acquisition", "food platform merger",
+        "classifieds merger", "property portal merger",
+        "online marketplace acquisition", "marketplace merger",
+        "fintech acquisition blocked", "edtech merger",
+        "healthtech acquisition", "tech merger blocked",
+        # ── Regional geo+topic combos ─────────────────────────────────────────
         "india merger", "india acquisition antitrust",
         "brazil merger", "brazil acquisition cade",
         "south africa merger", "south africa competition",
         "turkey competition", "indonesia competition",
+        "africa competition", "kenya competition",
+        "nigeria competition authority",
     ]),
     # ── 3. FINTECH & PAYMENTS ─────────────────────────────────────────────
     ("fintech", [
         "fintech regulation", "fintech law", "fintech fine", "fintech probe",
+        "fintech licensing", "fintech compliance", "fintech enforcement",
         "payment regulation", "payment fine", "payment ban", "payment law",
+        "payment compliance", "payment enforcement", "payment license",
         "digital payments", "mobile payment", "instant payment",
-        "open banking", "psd3", "psd2", "payment services",
+        "open banking", "psd3", "psd2", "payment services directive",
         "bnpl regulation", "bnpl law", "bnpl fine", "buy now pay later",
+        "bnpl crackdown", "bnpl ban", "bnpl probe",
         "digital lending", "online lending", "lending regulation",
+        "lending ban", "lending crackdown", "predatory lending",
         "neobank regulation", "neobank license", "digital bank regulation",
+        "digital bank fine", "digital bank ban",
         "crypto regulation", "crypto law", "crypto fine", "crypto ban",
         "stablecoin", "cbdc", "defi regulation", "digital asset",
+        "crypto enforcement", "crypto crackdown", "crypto compliance",
         "remittance regulation", "cross-border payment",
         "payment aggregator", "payment gateway regulation",
         "insurtech", "embedded finance", "open finance",
         "dora", "cfpb", "rbi payment", "rbi fintech", "rbi crackdown",
         "bacen payment", "upi regulation", "npci", "pix payment",
+        "sebi fintech", "irdai", "irda regulation",
+        # Prosus portfolio — fintech companies
+        "payu", "iyzico", "wibmo", "red dot payment", "tonik bank",
+        "paysense", "lazypay", "remitly", "bux fintech", "bibit",
+        "endowus", "thndr", "klar fintech", "creditas", "iniciador",
+        # Competitor fintech
         "paypal", "stripe", "revolut", "klarna", "wise transfer",
         "monzo", "nubank", "mercadopago", "razorpay", "phonepe",
-        "paytm regulation", "paytm fine", "paytm ban", "paytm nbfc",
+        "paytm", "paytm regulation", "paytm fine", "paytm ban",
         "payment fraud", "financial fraud", "money laundering fintech",
+        "anti-money laundering fintech", "aml fintech",
         # Africa fintech
         "m-pesa", "mpesa", "safaricom payment", "mobile money",
         "africa payment", "africa fintech", "kenya payment",
-        "nigeria fintech", "ghana payment", "fincra",
+        "nigeria fintech", "ghana payment", "flutterwave", "fincra",
+        "opay", "moniepoint", "wave mobile money",
         # Credit / lending platforms
         "credit marketplace", "digital credit", "digital lending india",
         "india fintech", "india payment", "india digital banking",
+        "india upi", "india neobank",
     ]),
     # ── 4. PLATFORM & GIG ECONOMY ─────────────────────────────────────────
     ("platform_gig", [
-        # ── Food delivery platforms (Prosus portfolio: iFood, Just Eat, Swiggy) ──
+        # ── Prosus food delivery portfolio — any mention is relevant ──────────
+        "ifood", "just eat", "just eat takeaway", "delivery hero", "swiggy",
+        "swiggy regulation", "swiggy fine", "swiggy ipo", "swiggy probe",
+        "ifood regulation", "ifood fine", "ifood probe", "ifood competition",
+        # ── All food delivery (sector context) ───────────────────────────────
         "food delivery", "food delivery regulation", "food delivery law",
+        "food delivery fine", "food delivery probe", "food delivery ban",
         "delivery app", "food platform", "meal delivery",
         "restaurant platform", "delivery marketplace",
-        "uber eats", "doordash", "zomato regulation", "zomato fine", "zomato probe",
-        "talabat", "bolt food", "grubhub", "just eat", "delivery hero",
-        "ifood", "swiggy regulation", "swiggy fine", "swiggy probe",
-        "rappi", "glovo", "foodpanda", "wolt regulation",
+        "uber eats", "doordash", "zomato", "talabat", "bolt food",
+        "grubhub", "rappi", "glovo", "foodpanda", "wolt",
+        "chowdeck", "jumia food",
+        # ── Prosus classifieds / OLX portfolio ───────────────────────────────
+        "olx", "autotrader", "otomoto", "otodom", "property24",
+        "imovirtual", "autovit", "standvirtual", "storia",
         # ── Ride-hailing ──────────────────────────────────────────────────────
         "ride-hail", "ridesharing", "ride sharing", "ridehailing",
         "mobility platform", "ride app",
         "uber regulation", "uber fine", "uber sued", "uber ban", "uber ruling",
-        "grab regulation", "gojek regulation", "ola regulation", "bolt taxi",
-        "e-scooter regulation", "micro-mobility regulation",
+        "uber ipo", "uber competition", "grab regulation", "gojek",
+        "ola regulation", "ola cab", "bolt taxi", "rapido",
+        "e-scooter regulation", "micro-mobility regulation", "dott scooter",
         # ── Gig & platform workers (core regulatory focus) ────────────────────
         "gig worker", "platform worker", "worker classification",
         "gig economy", "gig economy regulation", "gig economy law",
+        "gig economy fine", "gig economy probe",
         "independent contractor", "self-employed platform",
         "algorithmic management", "algorithmic work", "algorithmic boss",
-        "platform work directive", "gig rights", "gig worker rights",
-        "delivery rider", "delivery rider rights", "courier rights",
+        "platform work directive", "eu platform work", "gig rights",
+        "gig worker rights", "delivery rider rights", "courier rights",
         "driver rights", "driver misclassification",
         "worker misclassification", "employee status platform",
         "collective bargaining gig", "gig union", "platform union",
         "social protection gig", "gig benefits", "minimum wage delivery",
         "AB5", "worker reclassification", "bogus self-employment",
+        "freelancer law", "freelancer regulation",
         # ── Online marketplace / DSA / platform liability ─────────────────────
         "digital services act", "dsa enforcement", "dsa fine", "dsa compliance",
         "dsa designation", "vlop", "very large online platform",
         "online marketplace regulation", "marketplace liability",
         "platform liability", "intermediary liability",
-        "online safety", "online harms act", "content moderation law",
+        "online safety", "online harms act", "online safety act",
+        "content moderation law", "content moderation fine",
         "seller liability", "product liability marketplace",
-        "e-commerce regulation", "marketplace rules",
-        # ── OLX / classifieds / property portals ──────────────────────────────
-        "classifieds regulation", "property portal regulation",
-        "olx regulation", "online classifieds",
-        "marketplace fraud", "fake listing",
-        # ── Social / consumer platforms ───────────────────────────────────────
+        "e-commerce regulation", "marketplace rules", "e-commerce law",
+        # ── Consumer / platform harms ─────────────────────────────────────────
         "dark pattern", "deceptive design", "addictive design",
         "platform addiction", "recommender system regulation",
         "algorithm transparency platform", "feed algorithm law",
+        "consumer protection platform", "subscription trap",
+        "fake reviews regulation", "fake reviews fine",
+        # ── Platform impersonation / fraud ────────────────────────────────────
+        "platform fraud", "restaurant impersonation", "fake restaurant",
+        "ghost kitchen fraud", "brand impersonation platform",
     ]),
     # ── 5. IP & BRAND PROTECTION ──────────────────────────────────────────
     ("ip_brand", [
@@ -460,20 +541,23 @@ TITLE_CAT_RULES = [
     ]),
     # ── 6. PRIVACY & DATA ─────────────────────────────────────────────────
     ("privacy_data", [
-        # GDPR / EU
+        # GDPR / EU core
         "gdpr", "data protection", "privacy regulation", "privacy law",
         "privacy fine", "privacy violation", "privacy lawsuit",
         "privacy ruling", "privacy probe", "privacy settlement",
         "privacy watchdog", "data protection authority", "dpa fine",
         "ico fine", "ico ruling", "ico investigation", "ico enforcement",
         "cnil fine", "cnil ruling", "edpb ruling", "edpb decision",
+        "edpb opinion", "edpb guidelines",
         "noyb", "schrems", "privacy shield", "adequacy decision",
-        "data transfer", "standard contractual clause",
-        # EU consultations / Have Your Say
-        "have your say", "public consultation", "open consultation",
-        "impact assessment", "regulatory consultation", "call for evidence",
-        "european commission consultation", "ec consultation",
-        # India privacy — all DPDP variants
+        "data transfer", "standard contractual clause", "scc",
+        # US privacy
+        "state privacy law", "state privacy act", "cpra", "ccpa",
+        "federal privacy", "us privacy law", "ftc privacy",
+        "ftc data", "ftc fine", "ftc action",
+        "maryland privacy", "texas privacy", "virginia privacy",
+        "children privacy", "coppa", "kids online safety",
+        # India privacy
         "dpdp", "dpdp act", "dpdp rules", "dpdp regulations",
         "digital personal data protection",
         "india data protection", "india privacy",
@@ -481,44 +565,45 @@ TITLE_CAT_RULES = [
         "meity data", "meity privacy",
         "data fiduciary", "data principal",
         "consent manager", "data protection board india",
-        # Brazil privacy — LGPD enforcement + AI privacy
+        # Brazil privacy
         "lgpd", "anpd", "brazil data", "brazil privacy",
         "lei geral de proteção de dados",
         "autoridade nacional de proteção",
-        "proteção de dados pessoais",
-        "privacidade no brasil",
-        # South Africa privacy — POPIA enforcement
+        "proteção de dados", "privacidade", "dados pessoais",
+        "vazamento de dados", "lei de dados",
+        # South Africa privacy
         "popia", "popi act", "south africa data", "sa data protection",
-        "information regulator", "popia compliance", "popia fine",
-        "popia enforcement", "conditions for lawful processing",
+        "information regulator south africa",
+        "popia compliance", "popia fine", "popia enforcement",
         # Other regions
         "pdpa", "appi", "pipl", "turkey data", "turkey privacy",
         "indonesia data protection", "pdp law",
-        # Data breaches (global)
+        "kenya data protection", "nigeria data protection",
+        "ghana data protection", "rwanda data",
+        # Data breaches
         "data breach", "data leak", "data hack", "data stolen",
         "data exposed", "records exposed", "personal data exposed",
-        "expose personal data", "exposes personal data",
-        "expose user data", "exposes user data",
-        "expose corporate data", "exposes corporate",
         "user data sold", "database exposed", "customer data leaked",
+        "health data breach", "medical data leak", "patient data",
+        "biometric data breach", "financial data breach",
         # Surveillance / tracking
-        "surveillance", "facial recognition", "biometric",
+        "surveillance", "facial recognition", "biometric regulation",
         "location tracking", "cookie consent", "cookie ban",
-        "tracking ban", "ad tracking", "targeted advertising",
+        "tracking ban", "ad tracking", "targeted advertising ban",
         "right to erasure", "right to be forgotten",
         "data localisation", "data sovereignty", "data governance",
-        # AI privacy intersection
+        # AI & privacy
         "ai privacy", "ai surveillance", "training data privacy",
-        "ai data", "llm data", "scraping ban",
-        # General enforcement
+        "ai data protection", "llm privacy", "scraping ban",
+        "synthetic data regulation", "deepfake privacy",
+        # General enforcement language
         "privacy enforcement", "data protection fine",
         "privacy class action", "privacy collective action",
-        # Portuguese (Brazil — Jota, Tecnoblog, TecMundo)
-        "proteção de dados", "privacidade", "dados pessoais",
-        "vazamento de dados", "lei de dados", "lei geral",
-        "autoridade nacional de proteção",
-        # Hindi/regional transliterations (MediaNama often uses these)
-        "data suraksha", "data niyam",
+        "privacy settlement", "privacy penalty",
+        # Key enforcers making news
+        "ico ", "cnil ", "garante ", "datatilsynet",
+        "dpc ireland", "data protection commission",
+        "hamburger dpa", "spanish aepd", "italian garante",
     ]),
 ]
 
@@ -998,7 +1083,7 @@ def uid(title, date):
 
 def fetch(url):
     try:
-        r = requests.get(url, headers={"User-Agent": "Mozilla/5.0"}, timeout=14)
+        r = requests.get(url, headers={"User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"}, timeout=14)
         r.raise_for_status()
         return r.text
     except Exception as e:
@@ -1108,9 +1193,27 @@ def infer_tags(a):
     }
     return [t for t, kws in tag_map.items() if any(kw in text for kw in kws)][:8]
 
+COMMON_ENGLISH = {"clarity", "corti", "aruna", "azos", "agito", "letgo", "dott", "bykea"}
+
 def match_entities(a):
-    text = (a["title"] + " " + a["body"]).lower()
-    return [e for e in ALL_ENTITIES if e.lower() in text]
+    # Use original case title+body for common-word disambiguation
+    raw_text = (a["title"] + " " + a["body"])
+    text = raw_text.lower()
+    matches = []
+    for e in ALL_ENTITIES:
+        el = e.lower()
+        # Skip very common English words unless they appear capitalised as a brand
+        if el in COMMON_ENGLISH:
+            if not re.search(r"\b" + re.escape(e) + r"\b", raw_text):
+                continue
+        # Short names (≤6 chars) need word-boundary match
+        if len(el) <= 6:
+            if re.search(r"\b" + re.escape(el) + r"\b", text):
+                matches.append(e)
+        else:
+            if el in text:
+                matches.append(e)
+    return matches
 
 def hit_watchlists(a):
     text = (a["title"] + " " + a["body"]).lower()
@@ -1209,10 +1312,20 @@ def run():
             a["prosus_lens"] = prosus_lens(a)
         categorised.setdefault(a["category"], []).append(a)
 
+    # Per-category caps — competition gets more room (Anne-Claire's domain)
+    CAT_CAPS = {
+        "competition": 60,
+        "ai_tech": 40,
+        "ip_brand": 40,
+        "privacy_data": 40,
+        "fintech": 40,
+        "platform_gig": 40,
+    }
     for cat in categorised:
+        cap = CAT_CAPS.get(cat, TARGET_PER_CATEGORY)
         categorised[cat] = sorted(
             categorised[cat], key=score, reverse=True
-        )[:TARGET_PER_CATEGORY]
+        )[:cap]
 
     # Dashboard compatibility aliases
     # Tab aliases for backward-compat with HTML pills
