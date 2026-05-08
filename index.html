@@ -462,7 +462,7 @@ async function loadData() {
   try {
     const r = await fetch(DATA_URL + '?t=' + Date.now());
     data = await r.json();
-    (data.flash_alerts||[]).forEach(a => flashIds.add(a.id));
+    (data.flash_alerts||[]).forEach(a => flashIds.add(a.uid||a.id));
     renderMeta();
     renderFlash();
     renderMain();
@@ -488,7 +488,7 @@ function renderFlash() {
   banner.style.display = 'block';
   items.innerHTML = alerts.slice(0,5).map((a,i) =>
     (i>0?'<span class="flash-sep">·</span>':'')+
-    `<span class="flash-item" onclick="jumpTo('${a.id}','${a.category||''}')">${a.title}</span>`
+    `<span class="flash-item" onclick="jumpTo('${a.uid||a.id}','${a.category||''}')">${a.title}</span>`
   ).join('');
 }
 
@@ -505,7 +505,7 @@ function jumpTo(id, cat) {
 
 function findCat(id) {
   for (const t of TABS) {
-    if ((data[t.key]||[]).some(a=>a.id===id)) return t.key;
+    if ((data[t.key]||[]).some(a=>(a.uid||a.id)===id)) return t.key;
   }
   return 'all';
 }
@@ -525,14 +525,18 @@ function getArticles() {
 
   if (currentCat === 'all') {
     TABS.forEach(t => {
-      (data[t.key]||[]).forEach(a => { if (!seen.has(a.id)) { seen.add(a.id); arts.push(a); }});
+      (data[t.key]||[]).forEach(a => {
+        const key = a.uid||a.id;
+        if (!seen.has(key)) { seen.add(key); arts.push(a); }
+      });
     });
     arts.sort((a,b) => b.date.localeCompare(a.date));
   } else if (currentCat === 'prosus_only') {
     TABS.forEach(t => {
       (data[t.key]||[]).forEach(a => {
-        if (!seen.has(a.id) && (a.entity_match||[]).length > 0) {
-          seen.add(a.id); arts.push(a);
+        const key = a.uid||a.id;
+        if (!seen.has(key) && (a.portfolio||[]).length > 0) {
+          seen.add(key); arts.push(a);
         }
       });
     });
@@ -544,8 +548,10 @@ function getArticles() {
     const q = searchQuery.toLowerCase();
     arts = arts.filter(a =>
       a.title.toLowerCase().includes(q) ||
+      (a.source||'').toLowerCase().includes(q) ||
+      (a.body||'').toLowerCase().includes(q) ||
       (a.tags||[]).some(t=>t.toLowerCase().includes(q)) ||
-      (a.entity_match||[]).some(e=>e.toLowerCase().includes(q))
+      (a.portfolio||[]).some(e=>e.toLowerCase().includes(q))
     );
   }
   return arts;
@@ -555,10 +561,10 @@ function esc(s) { return String(s).replace(/</g,'&lt;').replace(/>/g,'&gt;').rep
 
 function buildCard(a, isLead) {
   const scope   = a.scope_path || 'C';
-  const isFlash = flashIds.has(a.id);
+  const isFlash = flashIds.has(a.uid||a.id);
   const kicker  = [a.source, a.date, scope==='A'?'🔴 Portfolio':''].filter(Boolean).join(' · ');
   const tags    = (a.tags||[]).slice(0,3).map(t=>`<span class="tag">${esc(t)}</span>`).join('');
-  const ents    = (a.entity_match||[]).map(e=>`<span class="entity-badge">⬡ ${esc(e)}</span>`).join('');
+  const ents    = (a.portfolio||[]).map(e=>`<span class="entity-badge">⬡ ${esc(e)}</span>`).join('');
   const wls     = (a.watchlist_hits||[]).slice(0,2).map(w=>`<span class="wl-badge">👁 ${esc(w)}</span>`).join('');
   const lens    = a.prosus_lens
     ? `<div class="prosus-lens-block"><strong>Prosus Read-Across</strong>${esc(a.prosus_lens)}</div>` : '';
@@ -568,7 +574,7 @@ function buildCard(a, isLead) {
     ? `<div class="card-body-text">${esc(a.body)}${a.body.length>=300?'…':''}<br/>${readLink}${lens}</div>` : '';
 
   if (isLead) {
-    return `<div class="card flash-card" data-id="${esc(a.id)}" onclick="toggleCard(this)">
+    return `<div class="card flash-card" data-id="${esc(a.uid||a.id)}" onclick="toggleCard(this)">
       <div>
         <div class="card-kicker"><span class="scope-dot scope-${scope}"></span>${esc(kicker)}</div>
         <div class="card-headline">${esc(a.title)}</div>
@@ -579,7 +585,7 @@ function buildCard(a, isLead) {
     </div>`;
   }
 
-  return `<div class="card${isFlash?' flash-card':''}" data-id="${esc(a.id)}" onclick="toggleCard(this)">
+  return `<div class="card${isFlash?' flash-card':''}" data-id="${esc(a.uid||a.id)}" onclick="toggleCard(this)">
     <div class="card-kicker"><span class="scope-dot scope-${scope}"></span>${esc(a.source)}</div>
     <div class="card-headline">${esc(a.title)}</div>
     <div class="card-byline"><span>${esc(a.date)}</span>${scope==='A'?'<span class="sep">·</span><span style="color:var(--accent)">Portfolio</span>':''}</div>
@@ -594,18 +600,8 @@ function renderMain() {
   const label = CAT_LABELS[currentCat] || currentCat;
   const total = arts.length;
 
-  // Stats row
-  const flashCount = (data.flash_alerts||[]).length;
-  let statCells = `<div class="stat-cell"><span class="stat-num">${data.total_articles||0}</span><span class="stat-lbl">Total</span></div>`;
-  statCells += `<div class="stat-cell"><span class="stat-num">${flashCount}</span><span class="stat-lbl">⚡ Alerts</span></div>`;
-  TABS.forEach(t => {
-    const n = (data[t.key]||[]).length;
-    if (n) statCells += `<div class="stat-cell"><span class="stat-num">${n}</span><span class="stat-lbl">${t.label.replace(/^[^ ]+ /,'')}</span></div>`;
-  });
-
   if (!arts.length) {
-    main.innerHTML = `<div class="stats-row">${statCells}</div>
-      <div class="news-grid"><div class="empty"><span class="icon">🔍</span>No articles found.</div></div>`;
+    main.innerHTML = `<div class="news-grid"><div class="empty"><span class="icon">🔍</span>No articles found.</div></div>`;
     return;
   }
 
@@ -613,7 +609,6 @@ function renderMain() {
   arts.forEach((a, i) => { cards += buildCard(a, i === 0); });
 
   main.innerHTML = `
-    <div class="stats-row">${statCells}</div>
     <div class="section-masthead">
       <h2>${esc(label)}</h2>
       <span class="section-count">${total} articles</span>
