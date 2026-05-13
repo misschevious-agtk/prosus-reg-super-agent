@@ -337,6 +337,43 @@ STRONG_REGULATORY = [
     "trademark", "patent", "chatbot", "deepfake", "legislation",
 ]
 
+# ── TRUSTED SOURCES — full bypass of all relevance filters ────────────────
+# These are premium, curated sources you explicitly chose.
+# Every article they publish is assumed relevant — no keyword or relevance gate.
+# Only the noise filter (is_noise) still applies to strip pure junk.
+TRUSTED_SOURCES = {
+    # MLex premium feeds
+    "mlex",
+    # Law firms
+    "clifford chance", "de brauw", "freshfields", "hogan lovells",
+    "bird & bird", "linklaters", "dla piper",
+    "kluwer competition", "kluwer trademark",
+    "reed smith antitrust", "covington competition",
+    "antitrust law blog", "lexxion", "competition policy intl",
+    "cpi / pymnts",
+    # IP offices
+    "epo", "uk ipo", "wipo", "euipo", "uspto", "indian ipo",
+    # IP specialist media
+    "ipkat", "ip kat", "ipwatchdog", "ip watchdog",
+    "patently-o", "torrentfreak", "selvam", "managing ip",
+    "world trademark", "spicyip",
+    # India IP law firms
+    "anand & anand", "rna law", "c&c ip",
+    # EU institutions
+    "dg comp", "dg connect", "ec press room",
+    "eu parliament", "eur-lex", "eu ai office",
+    "epo boards",
+    # Competition specialists
+    "global competition review", "chillin competition",
+    "eu law live",
+}
+
+def is_trusted(label):
+    """Returns True if this source should bypass all relevance filters."""
+    lc = label.lower()
+    return any(t in lc for t in TRUSTED_SOURCES)
+
+
 # ── RELEVANT TITLE KEYWORDS (must match at least one) ─────────────────────
 RELEVANT_KWS = [
     # Regulation/law
@@ -1351,13 +1388,15 @@ def scrape_html(html_text, label, base_url):
     links = re.findall(r'<a[^>]+href=["\']([^"\']+)["\'][^>]*>\s*([^<]{20,200})\s*</a>', html_text)
     seen, out = set(), []
     today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+    trusted = is_trusted(label)
     for href, raw_title in links:
         title = re.sub(r'\s+', ' ', raw_title).strip()
         if len(title) < 20 or len(title) > 200:
             continue
         if is_noise(title):
             continue
-        if not has_kw(title, RELEVANT_KWS):
+        # Trusted sources bypass keyword + relevance filters entirely
+        if not trusted and not has_kw(title, RELEVANT_KWS):
             continue
         # Build absolute URL
         if href.startswith("http"):
@@ -1377,7 +1416,7 @@ def scrape_html(html_text, label, base_url):
             "body": title, "tags": [], "entity_match": [],
             "watchlist_hits": [], "prosus_lens": "", "category": "", "scope_path": "",
         }
-        if not is_prosus_relevant(article):
+        if not trusted and not is_prosus_relevant(article):
             continue
         out.append(article)
     return out[:20]  # cap at 20 per HTML source to avoid noise
@@ -1407,7 +1446,9 @@ def parse_feed(xml_text, label):
         date = parse_date(g("pubDate", "published", "updated", "dc_date", "date"))
         if not is_recent(date): continue
         if is_noise(title): continue
-        if not has_kw(title, RELEVANT_KWS): continue
+        # Trusted sources bypass keyword + relevance filters entirely
+        trusted = is_trusted(label)
+        if not trusted and not has_kw(title, RELEVANT_KWS): continue
         body = re.sub(r"<[^>]+>", " ", g("description", "summary", "content")).strip()
         body = re.sub(r"\s+", " ", body)[:700]
         link_el = item.find("link")
@@ -1420,9 +1461,8 @@ def parse_feed(xml_text, label):
             "body": body or title, "tags": [], "entity_match": [],
             "watchlist_hits": [], "prosus_lens": "", "category": "", "scope_path": "",
         }
-        # ── PROSUS RELEVANCE GATE ─────────────────────────────────────────
-        # Drop articles with no connection to Prosus portfolio or markets
-        if not is_prosus_relevant(article): continue
+        # Trusted sources skip the Prosus relevance gate
+        if not trusted and not is_prosus_relevant(article): continue
         out.append(article)
     return out
 
