@@ -46,3 +46,11 @@ for key, val in data.items():
 out = json.dumps(new_data, ensure_ascii=False, separators=(",",":"))
 IN.write_text(out)
 print(f"index.json: {len(out)//1024}KB ({len(out)} chars)")
+
+# Always keep root index.html in sync with pages/index.html
+import shutil
+pages_html = ROOT / "pages" / "index.html"
+root_html  = ROOT / "index.html"
+if pages_html.exists():
+    shutil.copy2(pages_html, root_html)
+    print("index.html: synced from pages/index.html")
