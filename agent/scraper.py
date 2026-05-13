@@ -202,6 +202,30 @@ RSS_SOURCES = [
     ("Digital Watch Observatory",       "https://dig.watch/feed"),
 
     # ══════════════════════════════════════════════════════════════════════
+    # LAW FIRMS — Competition, Antitrust, DMA, AI, Digital Regulation
+    # ══════════════════════════════════════════════════════════════════════
+    # Confirmed RSS feeds
+    ("Kluwer Competition Law Blog",      "https://competitionlawblog.kluwerarbitration.com/feed/"),
+    ("CPI Competition Policy Intl",      "https://www.competitionpolicyinternational.com/feed/"),
+    ("Antitrust Law Blog (Sheppard M)",  "https://www.antitrustlawblog.com/feed"),
+    ("Reed Smith Antitrust Report",      "https://www.antitrustandcompetitionreport.com/feed/"),
+    ("Covington Competition",            "https://www.covcompetition.com/feed"),
+    ("Lexxion CoRe EU Competition",      "https://lexxion.eu/en/core-blog/feed"),
+    ("Anand & Anand (India IP)",         "https://www.anandandanand.com/news-insights/feed/"),
+    ("Freshfields Technology Quotient",  "https://www.freshfields.com/en/our-thinking/blogs/technology-quotient/"),
+    # Web-scraped (no native RSS)
+    ("Clifford Chance Antitrust Blog",   "https://www.cliffordchance.com/insights/resources/blogs/antitrust-fdi-insights.html"),
+    ("De Brauw Articles",                "https://www.debrauw.com/articles"),
+    ("De Brauw Insights",                "https://www.debrauw.com/insights"),
+    ("Freshfields Digital Blog",         "https://digital.freshfields.com/"),
+    ("Global Competition Review",        "https://globalcompetitionreview.com/news"),
+    ("Hogan Lovells Insights",           "https://www.hoganlovells.com/en/insights"),
+    ("Bird & Bird Patent Hub",           "https://www.twobirds.com/en/patenthub/news-and-case-updates"),
+    ("RNA Law India",                    "https://www.rna.law/insights"),
+    ("C&C IP India",                     "https://www.candcip.com/blog"),
+    ("CPI / PYMNTS Latest",              "https://www.pymnts.com/cpi/latest-news-for-cpi/"),
+
+    # ══════════════════════════════════════════════════════════════════════
     # MLEX — Premium Regulatory Intelligence (subscription RSS feeds)
     # Requires MLEX_USERNAME + MLEX_PASSWORD in GitHub Actions secrets
     # ══════════════════════════════════════════════════════════════════════
@@ -1120,6 +1144,17 @@ def is_prosus_relevant(a):
         "digital watch", "tech policy press", "platformer",
         "euractiv", "netzpolitik", "politico eu",
         "compcom south africa",
+        # ── MLex premium feeds — always pass, subscription-quality content ──
+        "mlex",
+        # ── Law firm feeds — curated specialist content, always pass ─────────
+        "clifford chance", "de brauw", "freshfields", "hogan lovells",
+        "bird & bird", "linklaters", "dla piper", "kluwer competition",
+        "reed smith antitrust", "covington competition",
+        "antitrust law blog", "lexxion", "competition policy intl",
+        "anand & anand", "rna law", "c&c ip",
+        "cpi / pymnts", "dg comp", "dg connect",
+        "ec press room", "eu parliament", "eur-lex",
+        "eu ai office",
     ]
     if any(s in source_lc for s in ALWAYS_PASS):
         return True
