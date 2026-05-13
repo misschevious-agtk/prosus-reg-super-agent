@@ -1,645 +1,466 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Prosus · Digital Regulatory Monitor</title>
-  <!-- Prosus brand font: Neuzeit Grotesk via Adobe Typekit -->
-  <link rel="stylesheet" href="https://use.typekit.net/rdo1wyb.css"/>
   <style>
-    /* ── PROSUS DESIGN TOKENS ─────────────────────────────────────────── */
     :root {
-      --cobalt-dark:    #060F76;
-      --cobalt-prime:   #1136A8;
-      --cobalt-light:   #1D5EDC;
-      --cobalt-gradient: linear-gradient(90deg, #060F76 0%, #1D5EDC 100%);
-      --graphite-dark:  #191919;
-      --graphite-prime: #3F3F3F;
-      --graphite-light: #666666;
-      --oxide-dark:     #FC9628;
-      --oxide-prime:    #FCB828;
-      --oxide-light:    #FCDA28;
-      --oxide-gradient: linear-gradient(90deg, #FC9628 0%, #FCDA28 100%);
-      --argon-dark:     #850048;
-      --argon-prime:    #AF015F;
-      --argon-light:    #D90276;
-      --argon-gradient: linear-gradient(90deg, #850048 0%, #D90276 100%);
-      --chroride-dark:  #00856E;
-      --chroride-prime: #00AC8E;
-      --lithium-prime:  #5715B0;
-      --white-dark:     #F1F3F4;
-      --white-prime:    #F6F7F9;
-      --white-light:    #FFFFFF;
-      --text-color:     #4D4D4D;
-      --border:         #DDE2EE;
-      --shadow-sm:      0px 2px 8px rgba(6,15,118,0.08);
-      --shadow-md:      0px 4px 16px rgba(6,15,118,0.12);
-      --r:              6px;
-      --font:           "neuzeit-grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --brand:      #6C2BD9;
+      --brand-dark: #4A1D96;
+      --brand-light:#EDE9FE;
+      --accent:     #F59E0B;
+      --danger:     #EF4444;
+      --ok:         #10B981;
+      --bg:         #F8F7FF;
+      --card:       #FFFFFF;
+      --text:       #1E1B2E;
+      --muted:      #6B7280;
+      --border:     #E5E7EB;
+      --radius:     12px;
+      --shadow:     0 2px 12px rgba(108,43,217,.08);
     }
-
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-      font-family: var(--font);
-      background: var(--white-prime);
-      color: var(--graphite-prime);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg); color: var(--text);
       min-height: 100vh;
-      font-size: 15px;
-      line-height: 1.55;
     }
 
-    /* ── HEADER ───────────────────────────────────────────────────────── */
-    .header {
-      background: var(--cobalt-gradient);
-      padding: 0;
+    /* ── HEADER ───────────────────────────── */
+    header {
+      background: linear-gradient(135deg, var(--brand-dark) 0%, var(--brand) 100%);
+      color: #fff; padding: 20px 20px 16px;
+      position: sticky; top: 0; z-index: 100;
+      box-shadow: 0 2px 16px rgba(0,0,0,.25);
     }
-    .header-top {
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 14px 28px 12px;
-    }
-    .header-brand {
-      display: flex; align-items: center; gap: 16px;
-    }
-    .prosus-logo {
-      height: 22px; width: auto;
-      filter: brightness(0) invert(1);
-    }
-    .header-divider {
-      width: 1px; height: 28px;
-      background: rgba(255,255,255,.3);
-    }
-    .header-product {
-      color: rgba(255,255,255,.9);
-      font-size: .8rem;
-      font-weight: 600;
-      letter-spacing: .5px;
-      text-transform: uppercase;
-    }
-    .header-meta {
-      font-size: .7rem;
-      color: rgba(255,255,255,.6);
-      text-align: right;
-      line-height: 1.4;
-    }
-    .header-meta strong { color: rgba(255,255,255,.9); }
-
-    /* ── NAV STRIP ────────────────────────────────────────────────────── */
-    .nav-strip {
-      background: rgba(0,0,0,.2);
-      overflow-x: auto; white-space: nowrap;
-      padding: 0 24px;
-      -webkit-overflow-scrolling: touch;
-      border-top: 1px solid rgba(255,255,255,.1);
-    }
-    .nav-strip::-webkit-scrollbar { display: none; }
-    .nav-btn {
-      display: inline-block;
-      font-family: var(--font);
-      font-size: .72rem; font-weight: 600;
-      letter-spacing: .4px;
-      padding: 10px 16px;
-      color: rgba(255,255,255,.55);
-      cursor: pointer;
-      border-bottom: 3px solid transparent;
-      transition: color .15s, border-color .15s;
-      text-transform: uppercase;
-      user-select: none;
-    }
-    .nav-btn:hover { color: rgba(255,255,255,.9); }
-    .nav-btn.active {
-      color: var(--white-light);
-      border-bottom-color: var(--oxide-prime);
+    header .row { display: flex; align-items: center; justify-content: space-between; }
+    header h1 { font-size: 1.15rem; font-weight: 700; letter-spacing: -.3px; }
+    header p  { font-size: .75rem; opacity: .8; margin-top: 2px; }
+    #sync-badge {
+      font-size: .65rem; background: rgba(255,255,255,.15);
+      border-radius: 20px; padding: 3px 9px; white-space: nowrap;
     }
 
-    /* ── FLASH ALERTS ─────────────────────────────────────────────────── */
+    /* ── FLASH ALERT BANNER ───────────────── */
     #flash-banner {
-      display: none;
-      background: #FFF9EC;
-      border-bottom: 1px solid #F0D080;
-      padding: 9px 28px;
+      background: #FEF3C7; border-left: 4px solid var(--accent);
+      padding: 12px 16px; display: none;
     }
-    .flash-row { display: flex; align-items: flex-start; gap: 10px; flex-wrap: wrap; }
-    .flash-label {
-      font-size: .62rem; font-weight: 700;
-      letter-spacing: 1.5px; text-transform: uppercase;
-      color: var(--oxide-dark); white-space: nowrap; padding-top: 2px;
+    #flash-banner .flash-title {
+      font-weight: 700; font-size: .8rem; color: #92400E; margin-bottom: 6px;
     }
     .flash-item {
-      font-size: .75rem; color: var(--graphite-prime);
-      cursor: pointer; text-decoration: none;
-      border-bottom: 1px solid transparent;
-      transition: border-color .15s, color .15s;
+      font-size: .75rem; color: #78350F; margin-bottom: 4px;
+      display: flex; align-items: flex-start; gap: 6px;
+      cursor: pointer; text-decoration: underline dotted;
     }
-    .flash-item:hover { color: var(--cobalt-prime); border-bottom-color: var(--cobalt-prime); }
-    .flash-sep { color: var(--border); padding: 0 4px; }
+    .flash-item:hover { color: var(--brand-dark); }
+    .flash-item::before { content:"⚡"; flex-shrink: 0; text-decoration: none; }
 
-    /* ── SEARCH ───────────────────────────────────────────────────────── */
-    .search-strip {
-      background: var(--white-light);
+    /* ── FILTER BAR ───────────────────────── */
+    .filter-bar {
+      padding: 10px 16px; display: flex; gap: 8px;
+      overflow-x: auto; background: #fff;
       border-bottom: 1px solid var(--border);
-      padding: 10px 28px;
-      display: flex; align-items: center; gap: 10px;
+      -webkit-overflow-scrolling: touch;
     }
-    .search-icon {
-      color: var(--graphite-light); font-size: 14px; flex-shrink: 0;
+    .filter-bar::-webkit-scrollbar { display: none; }
+    .pill {
+      flex-shrink: 0; padding: 5px 14px; border-radius: 20px;
+      font-size: .72rem; font-weight: 600; cursor: pointer;
+      border: 1.5px solid var(--border); background: #fff;
+      color: var(--muted); transition: all .15s;
+      white-space: nowrap;
+    }
+    .pill.active, .pill:hover {
+      background: var(--brand); border-color: var(--brand);
+      color: #fff;
+    }
+
+    /* ── SEARCH ───────────────────────────── */
+    .search-wrap {
+      padding: 10px 16px; background: #fff;
+      border-bottom: 1px solid var(--border);
     }
     #search {
-      flex: 1; max-width: 420px;
-      font-family: var(--font);
-      font-size: .82rem;
-      padding: 7px 12px;
-      border: 1.5px solid var(--border);
-      border-radius: 20px;
-      background: var(--white-prime);
-      color: var(--graphite-prime);
-      outline: none;
-      transition: border-color .15s, background .15s;
+      width: 100%; padding: 9px 14px; border-radius: 8px;
+      border: 1.5px solid var(--border); font-size: .85rem;
+      outline: none; transition: border .15s;
     }
-    #search:focus {
-      border-color: var(--cobalt-light);
-      background: var(--white-light);
-    }
-    #search::placeholder { color: var(--graphite-light); }
+    #search:focus { border-color: var(--brand); }
 
-    /* ── LAYOUT ───────────────────────────────────────────────────────── */
-    .page-wrap {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 28px 24px 48px;
-    }
+    /* ── MAIN CONTENT ─────────────────────── */
+    main { padding: 16px; max-width: 860px; margin: 0 auto; }
 
-    /* ── SECTION HEADER ───────────────────────────────────────────────── */
-    .section-masthead {
-      display: flex; align-items: center; gap: 14px;
-      padding-bottom: 14px;
-      margin-bottom: 20px;
-      border-bottom: 2px solid var(--cobalt-dark);
+    /* ── SECTION ──────────────────────────── */
+    .section-header {
+      display: flex; align-items: center; gap: 8px;
+      margin: 20px 0 10px;
     }
-    .section-masthead h2 {
-      font-size: 1.05rem; font-weight: 700;
-      color: var(--cobalt-dark);
-      letter-spacing: -.2px;
-      text-transform: uppercase;
+    .section-header h2 {
+      font-size: .9rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: .5px;
+      color: var(--brand-dark);
     }
-    .section-count {
-      font-size: .7rem; font-weight: 600;
-      color: var(--graphite-light);
-      background: var(--white-dark);
-      padding: 2px 8px; border-radius: 10px;
-    }
-    .section-date {
-      font-size: .68rem; color: var(--graphite-light);
-      margin-left: auto;
+    .section-header .count {
+      background: var(--brand-light); color: var(--brand);
+      border-radius: 20px; padding: 1px 8px; font-size: .72rem; font-weight: 700;
     }
 
-    /* ── CARD GRID ────────────────────────────────────────────────────── */
-    .news-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-    }
-    @media (max-width: 900px) { .news-grid { grid-template-columns: repeat(2,1fr); } }
-    @media (max-width: 560px) { .news-grid { grid-template-columns: 1fr; } }
-
-    /* Lead card — spans full width */
-    .news-grid .card:first-child {
-      grid-column: 1 / -1;
-    }
-
-    /* ── ARTICLE CARD ─────────────────────────────────────────────────── */
+    /* ── ARTICLE CARD ─────────────────────── */
     .card {
-      background: var(--white-light);
-      border: 1.5px solid var(--border);
-      border-radius: var(--r);
-      padding: 18px 20px;
-      cursor: pointer;
-      transition: box-shadow .15s, border-color .15s, transform .1s;
-      position: relative;
-      overflow: hidden;
+      background: var(--card); border-radius: var(--radius);
+      box-shadow: var(--shadow); margin-bottom: 12px;
+      border: 1px solid var(--border); overflow: hidden;
+      cursor: pointer; transition: box-shadow .15s, transform .1s;
     }
-    .card:hover {
-      box-shadow: var(--shadow-md);
-      border-color: #b8c4e0;
-      transform: translateY(-1px);
-    }
-    .card:first-child {
-      background: var(--cobalt-gradient);
-      border-color: transparent;
-      padding: 28px 32px;
-    }
-    .card:first-child:hover {
-      box-shadow: 0px 8px 24px rgba(6,15,118,0.25);
-    }
-
-    /* Kicker / source line */
-    .card-kicker {
-      font-size: .62rem; font-weight: 700;
-      letter-spacing: 1px; text-transform: uppercase;
-      color: var(--cobalt-light);
-      margin-bottom: 7px;
+    .card:hover { box-shadow: 0 6px 24px rgba(108,43,217,.14); transform: translateY(-1px); }
+    .card.flash-highlight { border-left: 3px solid var(--accent); }
+    .card-header { padding: 14px 16px 10px; }
+    .card-meta {
       display: flex; align-items: center; gap: 6px;
+      font-size: .68rem; color: var(--muted); margin-bottom: 7px;
+      flex-wrap: wrap;
     }
-    .card:first-child .card-kicker { color: rgba(255,255,255,.65); }
-
-    .portfolio-dot {
-      display: inline-block;
-      width: 6px; height: 6px; border-radius: 50%;
-      background: var(--oxide-gradient);
-      flex-shrink: 0;
+    .scope-dot {
+      width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0;
     }
-
-    .card-headline {
-      font-size: 1rem; font-weight: 700;
-      line-height: 1.3;
-      color: var(--graphite-dark);
-      margin-bottom: 8px;
+    .scope-A { background: var(--danger); }
+    .scope-B { background: var(--accent); }
+    .scope-C { background: var(--ok); }
+    .card-title { font-size: .92rem; font-weight: 700; line-height: 1.35; }
+    .card-body {
+      font-size: .78rem; color: var(--muted); line-height: 1.5;
+      padding: 0 16px 10px; display: none;
     }
-    .card:first-child .card-headline {
-      font-size: 1.45rem; line-height: 1.2;
-      color: var(--white-light);
-      margin-bottom: 12px;
-    }
-
-    .card-byline {
-      font-size: .65rem; color: var(--graphite-light);
-      margin-bottom: 8px;
-      display: flex; align-items: center; gap: 6px; flex-wrap: wrap;
-    }
-    .card:first-child .card-byline { color: rgba(255,255,255,.6); }
-    .card-byline .sep { color: var(--border); }
-
-    .card-body-text {
-      font-size: .82rem; color: var(--graphite-prime);
-      line-height: 1.6;
-      display: none;
-      margin-top: 10px;
-    }
-    .card:first-child .card-body-text {
-      display: block;
-      color: rgba(255,255,255,.8);
-    }
-    .card.expanded .card-body-text { display: block; }
-
-    /* Prosus relevance lens — always visible */
-    .card-lens {
-      margin-top: 10px;
-      padding: 8px 10px;
-      background: rgba(17,54,168,.05);
-      border-left: 3px solid var(--cobalt-light);
-      border-radius: 0 3px 3px 0;
-      font-size: .72rem;
-      line-height: 1.55;
-      color: var(--graphite-prime);
-    }
-    .card:first-child .card-lens {
-      background: rgba(255,255,255,.1);
-      border-left-color: var(--oxide-prime);
-      color: rgba(255,255,255,.85);
-    }
-    .lens-label {
-      display: block;
-      font-size: .6rem;
-      font-weight: 700;
-      letter-spacing: .8px;
-      text-transform: uppercase;
-      color: var(--cobalt-light);
-      margin-bottom: 3px;
-    }
-    .card:first-child .lens-label { color: var(--oxide-prime); }
-
+    .card.expanded .card-body { display: block; }
     .card-footer {
-      margin-top: 12px;
+      padding: 8px 16px; border-top: 1px solid var(--border);
       display: flex; flex-wrap: wrap; gap: 5px; align-items: center;
     }
-
-    /* Badges */
-    .portfolio-badge {
-      font-size: .6rem; font-weight: 700;
-      padding: 2px 8px; border-radius: 3px;
-      background: var(--argon-gradient);
-      color: var(--white-light);
-      letter-spacing: .3px;
+    .tag {
+      font-size: .65rem; font-weight: 600; padding: 2px 8px;
+      border-radius: 20px; background: var(--brand-light);
+      color: var(--brand-dark);
     }
-    .cat-badge {
-      font-size: .6rem; font-weight: 600;
-      padding: 2px 8px; border-radius: 3px;
-      background: var(--white-prime);
-      color: var(--cobalt-prime);
-      border: 1px solid var(--border);
+    .entity-badge {
+      font-size: .65rem; font-weight: 700; padding: 2px 8px;
+      border-radius: 20px; background: #FEE2E2; color: #991B1B;
     }
-
-    .read-link {
-      font-size: .72rem; font-weight: 600;
-      color: var(--cobalt-prime);
+    .wl-badge {
+      font-size: .65rem; font-weight: 700; padding: 2px 8px;
+      border-radius: 20px; background: #FEF3C7; color: #92400E;
+    }
+    .prosus-lens {
+      margin: 8px 16px 12px; padding: 10px 12px;
+      background: var(--brand-light); border-left: 3px solid var(--brand);
+      border-radius: 0 8px 8px 0; font-size: .77rem;
+      line-height: 1.5; color: var(--brand-dark);
+    }
+    .prosus-lens strong { display: block; margin-bottom: 3px; font-size: .7rem; text-transform: uppercase; letter-spacing: .3px; }
+    .read-more {
+      display: inline-block; margin: 4px 16px 12px;
+      font-size: .75rem; color: var(--brand); font-weight: 600;
       text-decoration: none;
-      display: inline-block; margin-top: 8px;
-      transition: color .15s;
     }
-    .read-link:hover { color: var(--cobalt-dark); text-decoration: underline; }
-    .card:first-child .read-link { color: rgba(255,255,255,.85); }
-    .card:first-child .read-link:hover { color: var(--oxide-light); }
+    .read-more:hover { text-decoration: underline; }
 
-    /* Flash card — oxide left stripe */
-    .flash-card::before {
-      content: '';
-      position: absolute; top: 0; left: 0;
-      width: 4px; height: 100%;
-      background: var(--oxide-gradient);
-    }
-    .flash-card { padding-left: 22px; }
-    .card:first-child.flash-card { padding-left: 32px; }
-
-    /* ── EMPTY / LOADING ──────────────────────────────────────────────── */
+    /* ── EMPTY STATE ──────────────────────── */
     .empty {
-      grid-column: 1 / -1;
-      text-align: center; padding: 56px 24px;
-      font-size: .88rem; color: var(--graphite-light);
+      text-align: center; padding: 40px 20px;
+      color: var(--muted); font-size: .85rem;
     }
-    .empty .icon { font-size: 2.2rem; display: block; margin-bottom: 10px; }
-    #spinner {
-      text-align: center; padding: 72px;
-      color: var(--graphite-light); font-size: .85rem;
-    }
+    .empty span { font-size: 2rem; display: block; margin-bottom: 8px; }
 
-    /* ── FOOTER ───────────────────────────────────────────────────────── */
+    /* ── LOADING ──────────────────────────── */
+    .spinner {
+      display: flex; justify-content: center; padding: 60px;
+    }
+    .spinner::after {
+      content: ""; width: 36px; height: 36px;
+      border: 3px solid var(--border); border-top-color: var(--brand);
+      border-radius: 50%; animation: spin .7s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* ── STATS BAR ────────────────────────── */
+    .stats-bar {
+      display: flex; gap: 12px; overflow-x: auto;
+      padding: 0 0 4px; margin-bottom: 4px;
+      -webkit-overflow-scrolling: touch;
+    }
+    .stats-bar::-webkit-scrollbar { display: none; }
+    .stat-pill {
+      flex-shrink: 0; background: var(--card); border: 1px solid var(--border);
+      border-radius: 8px; padding: 8px 14px; text-align: center;
+    }
+    .stat-pill .num { font-size: 1.2rem; font-weight: 800; color: var(--brand); }
+    .stat-pill .lbl { font-size: .65rem; color: var(--muted); text-transform: uppercase; letter-spacing: .3px; }
+
     footer {
-      background: var(--cobalt-dark);
-      padding: 20px 28px;
-      font-size: .7rem; color: rgba(255,255,255,.45);
-      display: flex; justify-content: space-between; align-items: center;
-      flex-wrap: wrap; gap: 8px;
+      text-align: center; padding: 24px; font-size: .7rem; color: var(--muted);
     }
-    .footer-brand {
-      display: flex; align-items: center; gap: 12px;
-    }
-    .footer-logo {
-      height: 16px; filter: brightness(0) invert(1); opacity: .5;
-    }
-    footer a { color: rgba(255,255,255,.55); text-decoration: none; }
-    footer a:hover { color: var(--oxide-light); }
   </style>
 </head>
 <body>
 
-<!-- HEADER -->
-<div class="header">
-  <div class="header-top">
-    <div class="header-brand">
-      <img class="prosus-logo"
-           src="https://www.prosus.com/~/media/Images/P/prosus-corp-v2/logo/logo-light.png"
-           alt="Prosus" onerror="this.style.display='none';document.getElementById('prosus-wordmark').style.display='block'"/>
-      <span id="prosus-wordmark" style="display:none;color:#fff;font-weight:700;font-size:1.1rem;letter-spacing:-.5px">prosus</span>
-      <div class="header-divider"></div>
-      <div class="header-product">Digital &amp; Regulatory Monitor</div>
+<header>
+  <div class="row">
+    <div>
+      <h1>⚖️ Prosus Reg Monitor</h1>
+      <p>Digital &amp; Regulatory Intelligence</p>
     </div>
-    <div class="header-meta" id="sync-meta">Loading…</div>
+    <div id="sync-badge">Loading…</div>
   </div>
-  <div class="nav-strip" id="nav-strip">
-    <span class="nav-btn active" data-cat="all">All</span>
-    <span class="nav-btn" data-cat="ai_tech">AI &amp; Policy</span>
-    <span class="nav-btn" data-cat="privacy_data">Privacy &amp; Data</span>
-    <span class="nav-btn" data-cat="competition">Competition</span>
-    <span class="nav-btn" data-cat="ip_brand">IP &amp; Brand</span>
-    <span class="nav-btn" data-cat="fintech">Fintech</span>
-    <span class="nav-btn" data-cat="platform_gig">Platform &amp; Gig</span>
-    <span class="nav-btn" data-cat="prosus_only">⬡ Prosus</span>
-  </div>
-</div>
+</header>
 
-<!-- FLASH ALERTS -->
 <div id="flash-banner">
-  <div class="flash-row">
-    <span class="flash-label">⚡ Flash</span>
-    <span id="flash-items"></span>
-  </div>
+  <div class="flash-title">⚡ Flash Alerts — High Priority</div>
+  <div id="flash-items"></div>
 </div>
 
-<!-- SEARCH -->
-<div class="search-strip">
-  <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-  <input type="search" id="search" placeholder="Search articles, topics, companies…"/>
+<div class="filter-bar" id="filter-bar">
+  <button class="pill active" data-cat="all">📋 All</button>
+  <button class="pill" data-cat="ai_tech">🤖 AI & Policy</button>
+  <button class="pill" data-cat="privacy_data">🔒 Privacy & Data</button>
+  <button class="pill" data-cat="competition">⚖️ Competition</button>
+  <button class="pill" data-cat="ip_brand">💡 IP & Brand</button>
+  <button class="pill" data-cat="fintech">💳 Fintech</button>
+  <button class="pill" data-cat="platform_gig">🌐 Platform & Gig</button>
+  <button class="pill" data-cat="emerging_markets">🌍 Emerging Markets</button>
+  <button class="pill" data-cat="policy_society">🏛️ Policy & Society</button>
+  <button class="pill" data-cat="prosus_only">🏢 Prosus</button>
 </div>
 
-<!-- MAIN -->
-<div class="page-wrap">
-  <div id="main"><div id="spinner">Loading intelligence…</div></div>
+<div class="search-wrap">
+  <input type="search" id="search" placeholder="Search articles, entities, tags…" />
 </div>
+
+<main id="main">
+  <div class="spinner" id="spinner"></div>
+</main>
 
 <footer>
-  <div class="footer-brand">
-    <img class="footer-logo"
-         src="https://www.prosus.com/~/media/Images/P/prosus-corp-v2/logo/logo-light.png"
-         alt="Prosus" onerror="this.style.display='none'"/>
-    <span>Digital &amp; Regulatory Intelligence · 30-day window · Updated daily 06:00 UTC</span>
-  </div>
-  <a href="https://github.com/misschevious-agtk/prosus-reg-super-agent" target="_blank">GitHub ↗</a>
+  Prosus Digital &amp; Regulatory · Updated daily at 06:00 UTC ·
+  <a href="https://github.com/misschevious-agtk/prosus-reg-super-agent" style="color:var(--brand)">GitHub</a>
 </footer>
 
 <script>
 const DATA_URL = 'content/index.json';
 
+// The real data keys from the scraper
 const TABS = [
-  { key:'ai_tech',      label:'AI & Policy' },
-  { key:'privacy_data', label:'Privacy & Data' },
-  { key:'competition',  label:'Competition' },
-  { key:'ip_brand',     label:'IP & Brand' },
-  { key:'fintech',      label:'Fintech' },
-  { key:'platform_gig', label:'Platform & Gig' },
+  { key: 'ai_tech',          label: '🤖 AI & Policy' },
+  { key: 'privacy_data',     label: '🔒 Privacy & Data' },
+  { key: 'competition',      label: '⚖️ Competition' },
+  { key: 'ip_brand',         label: '💡 IP & Brand' },
+  { key: 'fintech',          label: '💳 Fintech' },
+  { key: 'platform_gig',     label: '🌐 Platform & Gig' },
+  { key: 'emerging_markets', label: '🌍 Emerging Markets' },
+  { key: 'policy_society',   label: '🏛️ Policy & Society' },
 ];
+
 const CAT_LABELS = {
-  all:'All Articles',
-  ai_tech:'AI & Policy',
-  privacy_data:'Privacy & Data',
-  competition:'Competition',
-  ip_brand:'IP & Brand',
-  fintech:'Fintech',
-  platform_gig:'Platform & Gig',
-  prosus_only:'Prosus Portfolio',
+  all:             '📋 All Articles',
+  ai_tech:         '🤖 AI & Policy',
+  privacy_data:    '🔒 Privacy & Data',
+  competition:     '⚖️ Competition',
+  ip_brand:        '💡 IP & Brand',
+  fintech:         '💳 Fintech',
+  platform_gig:    '🌐 Platform & Gig',
+  emerging_markets:'🌍 Emerging Markets',
+  policy_society:  '🏛️ Policy & Society',
+  prosus_only:     '🏢 Prosus Direct',
 };
 
-let data = null, currentCat = 'all', searchQuery = '', flashIds = new Set();
+let data = null;
+let currentCat = 'all';
+let searchQuery = '';
+// Track which article IDs are in flash alerts for highlighting
+let flashIds = new Set();
 
 async function loadData() {
   try {
     const r = await fetch(DATA_URL + '?t=' + Date.now());
     data = await r.json();
-    (data.flash_alerts||[]).forEach(a => flashIds.add(a.uid||a.id));
-    renderMeta();
-    renderFlash();
+    // Build flash ID set
+    (data.flash_alerts || []).forEach(a => flashIds.add(a.id));
+    renderSyncBadge();
+    renderFlashAlerts();
     renderMain();
   } catch(e) {
     document.getElementById('main').innerHTML =
-      '<div class="news-grid"><div class="empty"><span class="icon">⚠️</span>Could not load content.</div></div>';
+      '<div class="empty"><span>⚠️</span>Could not load content. Run the scraper first.</div>';
   }
+  const sp = document.getElementById('spinner');
+  if (sp) sp.remove();
 }
 
-function renderMeta() {
+function renderSyncBadge() {
+  const badge = document.getElementById('sync-badge');
   if (!data) return;
   const d = new Date(data.generated_at);
-  const fmt = d.toLocaleDateString('en-GB',{weekday:'short',day:'numeric',month:'long',year:'numeric'});
-  document.getElementById('sync-meta').innerHTML =
-    `<strong style="color:rgba(255,255,255,.9)">${fmt}</strong><br/>${data.sources||'–'} sources`;
+  badge.textContent = 'Updated ' + d.toLocaleDateString('en-GB', {day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'});
 }
 
-function renderFlash() {
+function renderFlashAlerts() {
   const alerts = data.flash_alerts || [];
   if (!alerts.length) return;
   const banner = document.getElementById('flash-banner');
   const items  = document.getElementById('flash-items');
   banner.style.display = 'block';
-  items.innerHTML = alerts.slice(0,5).map((a,i) =>
-    (i>0?'<span class="flash-sep">·</span>':'')+
-    `<a class="flash-item" href="${esc(a.url||'#')}" target="_blank" rel="noopener">${esc(a.title)}</a>`
+  items.innerHTML = alerts.slice(0, 5).map(a =>
+    `<div class="flash-item" onclick="jumpToArticle('${a.id}', '${a.category || ''}')">${a.title}</div>`
   ).join('');
 }
 
-function jumpTo(id, cat) {
-  const target = cat || findCat(id);
-  if (target && currentCat !== target) setTab(target);
+function jumpToArticle(id, cat) {
+  // Switch to the tab containing this article, then scroll to it
+  const targetCat = cat || findArticleCat(id);
+  if (targetCat && currentCat !== targetCat) {
+    document.querySelectorAll('.pill').forEach(p => p.classList.remove('active'));
+    const pill = document.querySelector(`.pill[data-cat="${targetCat}"]`);
+    if (pill) pill.classList.add('active');
+    currentCat = targetCat;
+    renderMain();
+  }
+  // Scroll to card with matching id
   setTimeout(() => {
-    const el = document.querySelector(`[data-id="${id}"]`);
-    if (el) { el.scrollIntoView({behavior:'smooth',block:'center'}); el.classList.add('expanded'); }
-  }, 80);
+    const card = document.querySelector(`[data-article-id="${id}"]`);
+    if (card) {
+      card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      card.classList.add('expanded');
+    }
+  }, 100);
 }
 
-function findCat(id) {
-  for (const t of TABS) {
-    if ((data[t.key]||[]).some(a=>(a.uid||a.id)===id)) return t.key;
+function findArticleCat(id) {
+  for (const tab of TABS) {
+    const arts = data[tab.key] || [];
+    if (arts.some(a => a.id === id)) return tab.key;
   }
   return 'all';
 }
 
-function setTab(cat) {
-  currentCat = cat;
-  document.querySelectorAll('.nav-btn').forEach(b =>
-    b.classList.toggle('active', b.dataset.cat === cat));
-  renderMain();
-  window.scrollTo({top:0,behavior:'smooth'});
-}
-
 function getArticles() {
   if (!data) return [];
-  let arts = [];
-  const seen = new Set();
+  let articles = [];
 
   if (currentCat === 'all') {
-    TABS.forEach(t => {
-      (data[t.key]||[]).forEach(a => {
-        const key = a.uid||a.id||a.title;
-        if (!seen.has(key)) { seen.add(key); arts.push(a); }
+    const seen = new Set();
+    TABS.forEach(tab => {
+      (data[tab.key] || []).forEach(a => {
+        if (!seen.has(a.id)) { seen.add(a.id); articles.push(a); }
       });
     });
-    arts.sort((a,b) => (b.date||'').localeCompare(a.date||''));
+    // Sort by date desc
+    articles.sort((a, b) => b.date.localeCompare(a.date));
   } else if (currentCat === 'prosus_only') {
-    TABS.forEach(t => {
-      (data[t.key]||[]).forEach(a => {
-        const key = a.uid||a.id||a.title;
-        if (!seen.has(key) && (a.portfolio||[]).length > 0) {
-          seen.add(key); arts.push(a);
+    const seen = new Set();
+    TABS.forEach(tab => {
+      (data[tab.key] || []).forEach(a => {
+        if (!seen.has(a.id) && a.entity_match && a.entity_match.length > 0) {
+          seen.add(a.id); articles.push(a);
         }
       });
     });
-    arts.sort((a,b) => (b.date||'').localeCompare(a.date||''));
   } else {
-    arts = data[currentCat] || [];
+    articles = data[currentCat] || [];
   }
 
   if (searchQuery) {
     const q = searchQuery.toLowerCase();
-    arts = arts.filter(a =>
-      (a.title||'').toLowerCase().includes(q) ||
-      (a.source||'').toLowerCase().includes(q) ||
+    articles = articles.filter(a =>
+      a.title.toLowerCase().includes(q) ||
       (a.body||'').toLowerCase().includes(q) ||
-      (a.portfolio||[]).some(e=>e.toLowerCase().includes(q))
+      (a.tags||[]).some(t => t.toLowerCase().includes(q)) ||
+      (a.entity_match||[]).some(e => e.toLowerCase().includes(q))
     );
   }
-  return arts;
-}
-
-function esc(s) {
-  return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
-}
-
-function buildCard(a, isLead) {
-  const isFlash   = flashIds.has(a.uid||a.id);
-  const portfolio = a.portfolio||[];
-  const hasPort   = portfolio.length > 0;
-
-  const kicker = esc(a.source||'');
-  const date   = esc(a.date||'');
-
-  const portBadges = portfolio.map(e =>
-    `<span class="portfolio-badge">⬡ ${esc(e)}</span>`).join('');
-  const portDot = hasPort
-    ? `<span class="portfolio-dot" title="Prosus portfolio"></span>` : '';
-
-  const readLink = a.url
-    ? `<a class="read-link" href="${esc(a.url)}" target="_blank" rel="noopener" onclick="event.stopPropagation()">Read full article →</a>` : '';
-  const bodyHtml = a.body
-    ? `<div class="card-body-text">${esc(a.body)}…<br/>${readLink}</div>` : '';
-  const lensHtml = a.lens
-    ? `<div class="card-lens"><span class="lens-label">Prosus relevance</span>${esc(a.lens)}</div>` : '';
-
-  const flashClass = isFlash ? ' flash-card' : '';
-  const uid = esc(a.uid||a.id||a.title||'');
-
-  if (isLead) {
-    return `<div class="card${flashClass}" data-id="${uid}" onclick="toggleCard(this)">
-      <div class="card-kicker">${portDot}${kicker} · ${date}${hasPort?' · <span style="color:rgba(255,220,100,.9)">Portfolio</span>':''}</div>
-      <div class="card-headline">${esc(a.title)}</div>
-      ${bodyHtml}
-      ${lensHtml}
-      <div class="card-footer">${portBadges}${readLink&&!a.body?readLink:''}</div>
-    </div>`;
-  }
-
-  return `<div class="card${flashClass}" data-id="${uid}" onclick="toggleCard(this)">
-    <div class="card-kicker">${portDot}${kicker}</div>
-    <div class="card-headline">${esc(a.title)}</div>
-    <div class="card-byline"><span>${date}</span>${hasPort?'<span class="sep">·</span><span style="color:var(--argon-prime);font-weight:700">Portfolio</span>':''}</div>
-    ${lensHtml}
-    ${bodyHtml}
-    <div class="card-footer">${portBadges}${readLink&&!a.body?readLink:''}</div>
-  </div>`;
+  return articles;
 }
 
 function renderMain() {
-  const main  = document.getElementById('main');
-  const arts  = getArticles();
-  const label = CAT_LABELS[currentCat] || currentCat;
-  const total = arts.length;
+  const main = document.getElementById('main');
+  const articles = getArticles();
 
-  if (!arts.length) {
-    main.innerHTML = `<div class="news-grid"><div class="empty"><span class="icon">🔍</span>No articles found.</div></div>`;
+  if (!articles.length) {
+    main.innerHTML = `<div class="empty"><span>🔍</span>No articles found.</div>`;
     return;
   }
 
-  let cards = '';
-  arts.forEach((a, i) => { cards += buildCard(a, i === 0); });
+  // Stats bar
+  const total = data.total_articles || 0;
+  const flashCount = (data.flash_alerts||[]).length;
+  let statsHtml = `<div class="stats-bar">
+    <div class="stat-pill"><div class="num">${total}</div><div class="lbl">Total</div></div>
+    <div class="stat-pill"><div class="num">${flashCount}</div><div class="lbl">⚡ Alerts</div></div>`;
+  TABS.forEach(tab => {
+    const n = (data[tab.key]||[]).length;
+    if (n) statsHtml += `<div class="stat-pill"><div class="num">${n}</div><div class="lbl">${tab.label}</div></div>`;
+  });
+  statsHtml += '</div>';
 
-  main.innerHTML = `
-    <div class="section-masthead">
-      <h2>${esc(label)}</h2>
-      <span class="section-count">${total}</span>
-      <span class="section-date" id="sync-meta-inline"></span>
-    </div>
-    <div class="news-grid">${cards}</div>`;
+  const label = CAT_LABELS[currentCat] || currentCat;
+  let html = statsHtml + `
+    <div class="section-header">
+      <h2>${label}</h2>
+      <span class="count">${articles.length}</span>
+    </div>`;
 
-  if (data) {
-    const d = new Date(data.generated_at);
-    const s = document.getElementById('sync-meta-inline');
-    if (s) s.textContent = 'Updated ' + d.toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'});
-  }
+  articles.forEach((a) => {
+    const scopeClass = `scope-${a.scope_path || 'C'}`;
+    const tags = (a.tags||[]).map(t => `<span class="tag">${t}</span>`).join('');
+    const entities = (a.entity_match||[]).map(e => `<span class="entity-badge">🏢 ${e}</span>`).join('');
+    const watchlists = (a.watchlist_hits||[]).map(w => `<span class="wl-badge">👁 ${w}</span>`).join('');
+    const lens = a.prosus_lens
+      ? `<div class="prosus-lens"><strong>Prosus Read-Across</strong>${a.prosus_lens}</div>` : '';
+    const readMore = a.url
+      ? `<a class="read-more" href="${a.url}" target="_blank" rel="noopener" onclick="event.stopPropagation()">Read full article →</a>` : '';
+    const isFlash = flashIds.has(a.id);
+    const flashClass = isFlash ? ' flash-highlight' : '';
+
+    html += `
+    <div class="card${flashClass}" data-article-id="${a.id}" onclick="toggleCard(this)">
+      <div class="card-header">
+        <div class="card-meta">
+          <span class="scope-dot ${scopeClass}"></span>
+          <span>${a.source}</span>
+          <span>·</span>
+          <span>${a.date}</span>
+          ${a.scope_path==='A' ? '<span>· 🔴 Direct Portfolio Hit</span>' : ''}
+          ${isFlash ? '<span>· ⚡ Alert</span>' : ''}
+        </div>
+        <div class="card-title">${a.title}</div>
+      </div>
+      <div class="card-body">
+        <p style="margin-bottom:10px">${(a.body||'').substring(0,600)}${(a.body||'').length>600?'…':''}</p>
+        ${lens}
+        ${readMore}
+      </div>
+      <div class="card-footer">${entities}${watchlists}${tags}</div>
+    </div>`;
+  });
+
+  main.innerHTML = html;
 }
 
-function toggleCard(card) { card.classList.toggle('expanded'); }
+function toggleCard(card) {
+  card.classList.toggle('expanded');
+}
 
-document.getElementById('nav-strip').addEventListener('click', e => {
-  const btn = e.target.closest('.nav-btn');
-  if (btn) setTab(btn.dataset.cat);
+// Filter pills
+document.getElementById('filter-bar').addEventListener('click', e => {
+  const pill = e.target.closest('.pill');
+  if (!pill) return;
+  document.querySelectorAll('.pill').forEach(p => p.classList.remove('active'));
+  pill.classList.add('active');
+  currentCat = pill.dataset.cat;
+  renderMain();
 });
 
+// Search
 document.getElementById('search').addEventListener('input', e => {
   searchQuery = e.target.value.trim();
   renderMain();
