@@ -208,6 +208,10 @@ RSS_SOURCES = [
     ("UK IPO",                       "https://www.gov.uk/government/organisations/intellectual-property-office.atom"),
     ("UK IPO Blog",                  "https://ipo.blog.gov.uk/feed"),
     ("WIPO News",                    "https://www.wipo.int/en/web/news/rss"),
+    # Web-scraped (no RSS available)
+    ("EUIPO News",                   "https://www.euipo.europa.eu/en/news-and-events/news"),
+    ("USPTO News",                   "https://www.uspto.gov/about-us/news-updates"),
+    ("Indian IPO",                   "https://ipindia.gov.in/news.htm"),
 
     # ══════════════════════════════════════════════════════════════════════
     # IP — Blogs, Publications & Specialist Media
@@ -1161,7 +1165,7 @@ def is_prosus_relevant(a):
         # ── IP offices & specialist IP media — always pass ───────────────
         "epo (european", "uk ipo", "wipo news", "ipkat", "ipwatchdog",
         "patently-o", "torrentfreak", "selvam", "managing ip",
-        "kluwer trademark", "jd supra ip",
+        "kluwer trademark", "jd supra ip", "euipo", "uspto", "indian ipo",
         "mlex",
         # ── Law firm feeds — curated specialist content, always pass ─────────
         "clifford chance", "de brauw", "freshfields", "hogan lovells",
@@ -1333,6 +1337,50 @@ def is_noise(title):
             if not any(s in t for s in STRONG_REGULATORY):
                 return True
     return False
+
+def scrape_html(html_text, label, base_url):
+    """
+    Fallback scraper for pages with no RSS feed.
+    Extracts <a> tags that look like article links — filters by title length,
+    recency signals in the URL/title, and the standard relevance gates.
+    """
+    if not html_text:
+        return []
+    # Find all <a href="...">title</a> patterns
+    links = re.findall(r'<a[^>]+href=["\']([^"\']+)["\'][^>]*>\s*([^<]{20,200})\s*</a>', html_text)
+    seen, out = set(), []
+    today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+    for href, raw_title in links:
+        title = re.sub(r'\s+', ' ', raw_title).strip()
+        if len(title) < 20 or len(title) > 200:
+            continue
+        if is_noise(title):
+            continue
+        if not has_kw(title, RELEVANT_KWS):
+            continue
+        # Build absolute URL
+        if href.startswith("http"):
+            url = href
+        elif href.startswith("/"):
+            from urllib.parse import urlparse
+            parsed = urlparse(base_url)
+            url = f"{parsed.scheme}://{parsed.netloc}{href}"
+        else:
+            continue
+        if url in seen:
+            continue
+        seen.add(url)
+        article = {
+            "id": uid(title, today), "title": title, "date": today,
+            "published_at": today + "T00:00:00Z", "source": label, "url": url,
+            "body": title, "tags": [], "entity_match": [],
+            "watchlist_hits": [], "prosus_lens": "", "category": "", "scope_path": "",
+        }
+        if not is_prosus_relevant(article):
+            continue
+        out.append(article)
+    return out[:20]  # cap at 20 per HTML source to avoid noise
+
 
 def parse_feed(xml_text, label):
     if not xml_text: return []
@@ -1625,7 +1673,13 @@ def run():
     raw = []
     for label, url in RSS_SOURCES:
         print(f"  {label[:40]:<40} ...", end=" ", flush=True)
-        arts = parse_feed(fetch(url), label)
+        content = fetch(url)
+        # Try RSS/Atom first; fall back to HTML scraping
+        is_xml = content.strip().startswith("<?xml") or content.strip().startswith("<rss") or content.strip().startswith("<feed")
+        if is_xml:
+            arts = parse_feed(content, label)
+        else:
+            arts = scrape_html(content, label, url)
         print(len(arts))
         raw.extend(arts)
 
