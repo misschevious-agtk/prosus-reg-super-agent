@@ -193,6 +193,32 @@ RSS_SOURCES = [
     ("Bloomberg Technology",            "https://feeds.bloomberg.com/technology/news.rss"),
     ("ZDNet Government",                "https://www.zdnet.com/topic/government/rss.xml"),
     ("Digital Watch Observatory",       "https://dig.watch/feed"),
+
+    # ══════════════════════════════════════════════════════════════════════
+    # MLEX — Premium Regulatory Intelligence (subscription RSS feeds)
+    # Requires MLEX_USERNAME + MLEX_PASSWORD in GitHub Actions secrets
+    # ══════════════════════════════════════════════════════════════════════
+    ("MLex Antitrust",                  "https://www.mlex.com/mlex/antitrust/rss"),
+    ("MLex Data Privacy & Security",    "https://www.mlex.com/mlex/data-privacy-security/rss"),
+    ("MLex Energy",                     "https://www.mlex.com/mlex/energy/rss"),
+    ("MLex Financial Crime",            "https://www.mlex.com/mlex/financial-crime/rss"),
+    ("MLex Financial Services",         "https://www.mlex.com/mlex/financial-services/rss"),
+    ("MLex Mergers & Acquisitions",     "https://www.mlex.com/mlex/mergers-acquisitions/rss"),
+    ("MLex State Aid",                  "https://www.mlex.com/mlex/state-aid/rss"),
+    ("MLex Technology",                 "https://www.mlex.com/mlex/technology/rss"),
+    ("MLex Trade",                      "https://www.mlex.com/mlex/trade/rss"),
+
+    # ══════════════════════════════════════════════════════════════════════
+    # LAW FIRMS — Public Insights & Publications
+    # ══════════════════════════════════════════════════════════════════════
+    ("Clifford Chance AI & Tech",       "https://www.cliffordchance.com/insights/thought_leadership/ai-and-tech.html"),
+    ("Bird & Bird Competition",         "https://www.twobirds.com/en/competition-law-insights"),
+    ("Bird & Bird Insights",            "https://www.twobirds.com/en/insights"),
+    ("Linklaters Insights",             "https://www.linklaters.com/insights"),
+    ("Freshfields",                     "https://www.freshfields.com/en-gb/our-thinking/"),
+    ("DLA Piper Tech",                  "https://www.dlapiper.com/en/insights?topic=technology"),
+    ("Lexology",                        "https://www.lexology.com/library?q=AI+regulation+competition+privacy"),
+    ("Hunton Andrews Kurth (Privacy)",  "https://www.huntonprivacyblog.com/feed/"),
 ]
 
 # ── NOISE FILTERS ─────────────────────────────────────────────────────────
@@ -1164,9 +1190,51 @@ def categorise(a):
 def uid(title, date):
     return hashlib.md5((title + date).lower().encode()).hexdigest()[:10]
 
-def fetch(url):
+# ── MLEX AUTH SESSION ────────────────────────────────────────────────────────
+# Reads MLEX_USERNAME + MLEX_PASSWORD from environment (GitHub Actions secrets).
+# If credentials are absent, MLex feeds are skipped gracefully.
+_mlex_session = None
+
+def _get_mlex_session():
+    global _mlex_session
+    if _mlex_session:
+        return _mlex_session
+    username = os.environ.get("MLEX_USERNAME", "").strip()
+    password = os.environ.get("MLEX_PASSWORD", "").strip()
+    if not username or not password:
+        return None
     try:
-        r = requests.get(url, headers={"User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"}, timeout=14)
+        s = requests.Session()
+        s.headers.update({"User-Agent": "Mozilla/5.0"})
+        login_resp = s.post(
+            "https://www.mlex.com/mlex/login",
+            data={"username": username, "password": password},
+            timeout=20,
+            allow_redirects=True,
+        )
+        if login_resp.status_code == 200:
+            _mlex_session = s
+            print("    [MLex] Authenticated successfully")
+        else:
+            print(f"    [MLex] Auth failed: {login_resp.status_code}")
+    except Exception as e:
+        print(f"    [MLex] Auth error: {e}")
+    return _mlex_session
+
+
+def fetch(url):
+    headers = {"User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"}
+    try:
+        # Use authenticated session for MLex feeds
+        if "mlex.com" in url:
+            session = _get_mlex_session()
+            if session:
+                r = session.get(url, headers=headers, timeout=20)
+            else:
+                print(f"    [SKIP] MLex credentials not configured — skipping {url[:55]}")
+                return ""
+        else:
+            r = requests.get(url, headers=headers, timeout=14)
         r.raise_for_status()
         return r.text
     except Exception as e:
