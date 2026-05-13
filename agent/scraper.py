@@ -99,11 +99,18 @@ RSS_SOURCES = [
     # ══════════════════════════════════════════════════════════════════════
     # EUROPE — HQ jurisdiction; GDPR, AI Act, DMA, DSA directly apply
     # ══════════════════════════════════════════════════════════════════════
-    # EU regulators
+    # EU regulators & institutions
     ("EDPB",                            "https://edpb.europa.eu/rss.xml"),
     ("CNIL (France)",                   "https://www.cnil.fr/en/rss.xml"),
     ("CMA (UK)",                        "https://www.gov.uk/search/all.atom?organisations%5B%5D=competition-and-markets-authority&order=updated-newest"),
     ("noyb (Schrems)",                  "https://noyb.eu/en/rss.xml"),
+    # European Commission — key DGs
+    ("EC Press Room",                   "https://ec.europa.eu/commission/presscorner/api/rss"),
+    ("DG COMP (Competition)",           "https://competition-policy.ec.europa.eu/rss.xml"),
+    ("DG CONNECT (Digital)",            "https://digital-strategy.ec.europa.eu/en/rss.xml"),
+    ("EUR-Lex (Legislation)",           "https://eur-lex.europa.eu/RSSFEEDS/rss-OJ-L.xml"),
+    ("EU AI Office",                    "https://digital-strategy.ec.europa.eu/en/policies/ai-office/rss.xml"),
+    ("EU Parliament (Digital)",        "https://www.europarl.europa.eu/rss/en/pressreleases.xml"),
     # EU policy/law media
     ("EU Digital Strategy",             "https://digital-strategy.ec.europa.eu/en/rss.xml"),
     ("EU Law Live",                     "https://eulawlive.com/feed/"),
