@@ -335,7 +335,9 @@ SOURCES = [
     # ── EU / EUROPE ───────────────────────────
     {"label": "European Commission",     "url": "https://ec.europa.eu/commission/presscorner/api/documents?service=press-corner&typeDocument=IP&pageSize=10&page=1"},
     {"label": "EU AI Office",            "url": "https://digital-strategy.ec.europa.eu/en/news-redirect/newsroom"},
-    {"label": "EDPB",                    "url": "https://www.edpb.europa.eu/news/news_en"},
+    {"label": "EDPB",                    "url": "https://www.edpb.europa.eu/rss.xml"},
+    {"label": "noyb",                     "url": "https://noyb.eu/en/rss.xml"},
+    {"label": "Hunton Privacy",             "url": "https://www.huntonprivacyblog.com/feed/"},
     {"label": "CNIL (France)",           "url": "https://www.cnil.fr/en/news"},
     {"label": "ICO (UK)",                "url": "https://ico.org.uk/about-the-ico/media-centre/news-and-blogs/"},
     {"label": "CMA (UK)",                "url": "https://www.gov.uk/cma-cases"},
@@ -370,13 +372,17 @@ SOURCES = [
     {"label": "MAS (Singapore)",         "url": "https://www.mas.gov.sg/news"},
 
     # ── GLOBAL / AGGREGATORS ─────────────────
-    {"label": "IAPP",                    "url": "https://iapp.org/news/a/"},
+    {"label": "IAPP",                    "url": "https://iapp.org/feed/"},
     {"label": "TechCrunch Policy",       "url": "https://techcrunch.com/category/policy/"},
     {"label": "Wired Policy",            "url": "https://www.wired.com/tag/policy/"},
     {"label": "Politico Tech",           "url": "https://www.politico.eu/newsletter/digital-bridge/"},
-    {"label": "GCR (Competition)",       "url": "https://globalcompetitionreview.com/news"},
+    {"label": "GCR (Competition)",       "url": "https://globalcompetitionreview.com/rss/"},
+    {"label": "Law360 Competition",        "url": "https://www.law360.com/competition/rss"},
+    {"label": "DG COMP Press",            "url": "https://ec.europa.eu/commission/presscorner/api/rss?keywords=competition+antitrust&size=20"},
+    {"label": "ProMarket (Stigler)",        "url": "https://promarket.org/feed/"},
+    {"label": "Chillin Competition",          "url": "https://chillingcompetition.com/feed/"},
     {"label": "WIPO",                    "url": "https://www.wipo.int/pressroom/en/"},
-    {"label": "AI Now Institute",        "url": "https://ainowinstitute.org/news"},
+    {"label": "AI Now Institute",        "url": "https://ainowinstitute.org/feed/"},
     {"label": "DLA Piper DP",            "url": "https://www.dlapiperdataprotection.com"},
 
     # ── AI-SPECIFIC SOURCES ───────────────────
@@ -396,11 +402,11 @@ SOURCES = [
     {"label": "MLex Trade",              "url": "https://www.mlex.com/mlex/trade/rss",                 "requires_auth": True},
 
     # ── LAW FIRMS — Public Insights Feeds ────
-    {"label": "Clifford Chance",         "url": "https://www.cliffordchance.com/insights/thought_leadership/ai-and-tech.html"},
+    {"label": "Clifford Chance",         "url": "https://www.cliffordchance.com/insights/resources/blogs/antitrust-fdi-insights.html"},
     {"label": "Bird & Bird Competition", "url": "https://www.twobirds.com/en/competition-law-insights"},
     {"label": "Bird & Bird Insights",    "url": "https://www.twobirds.com/en/insights"},
     {"label": "Linklaters Insights",     "url": "https://www.linklaters.com/insights"},
-    {"label": "Freshfields",             "url": "https://www.freshfields.com/en-gb/our-thinking/"},
+    {"label": "Freshfields",             "url": "https://www.law360.com/competition/rss"},
     {"label": "DLA Piper Tech",          "url": "https://www.dlapiper.com/en/insights?topic=technology"},
     {"label": "Lexology",                "url": "https://www.lexology.com/library?q=AI+regulation+competition+privacy"},
 ]
