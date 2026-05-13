@@ -204,19 +204,20 @@ RSS_SOURCES = [
     # ══════════════════════════════════════════════════════════════════════
     # IP — Official Offices & Government
     # ══════════════════════════════════════════════════════════════════════
-    ("EPO (European Patent Office)", "https://www.epo.org/en/news-events/news/feed"),
-    ("UK IPO",                       "https://www.gov.uk/government/organisations/intellectual-property-office.atom"),
-    ("UK IPO Blog",                  "https://ipo.blog.gov.uk/feed"),
-    ("WIPO News",                    "https://www.wipo.int/en/web/news/rss"),
+    ("EPO News",                         "https://www.epo.org/en/news-events/news/feed"),
+    ("EPO Boards of Appeal",             "https://www.epo.org/en/law-and-practice/boards-of-appeal/communications/feed"),
+    ("UK IPO",                           "https://www.gov.uk/government/organisations/intellectual-property-office.atom"),
+    ("UK IPO Blog",                      "https://ipo.blog.gov.uk/feed"),
+    ("WIPO News",                        "https://www.wipo.int/en/web/news/rss"),
     # Web-scraped (no RSS available)
-    ("EUIPO News",                   "https://www.euipo.europa.eu/en/news-and-events/news"),
-    ("USPTO News",                   "https://www.uspto.gov/about-us/news-updates"),
-    ("Indian IPO",                   "https://ipindia.gov.in/news.htm"),
+    ("EUIPO News",                       "https://www.euipo.europa.eu/en/news-and-events/news"),
+    ("USPTO News",                       "https://www.uspto.gov/about-us/news-updates"),
+    ("Indian IPO",                       "https://ipindia.gov.in/news.htm"),
 
     # ══════════════════════════════════════════════════════════════════════
     # IP — Blogs, Publications & Specialist Media
     # ══════════════════════════════════════════════════════════════════════
-    ("IPKat",                        "https://feeds.feedburner.com/theipkat"),
+    ("IPKat",                        "https://ipkitten.blogspot.com/feeds/posts/default?alt=rss"),
     ("IPWatchdog",                   "https://ipwatchdog.com/feed"),
     ("Patently-O",                   "https://patentlyo.com/feed"),
     ("TorrentFreak (copyright)",     "https://torrentfreak.com/feed"),
@@ -1288,14 +1289,14 @@ def _get_mlex_session():
 def fetch(url):
     headers = {"User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"}
     try:
-        # Use authenticated session for MLex feeds
+        # Try authenticated session for MLex first; fall back to unauthenticated
+        # (MLex RSS feeds are publicly accessible without login)
         if "mlex.com" in url:
             session = _get_mlex_session()
             if session:
                 r = session.get(url, headers=headers, timeout=20)
             else:
-                print(f"    [SKIP] MLex credentials not configured — skipping {url[:55]}")
-                return ""
+                r = requests.get(url, headers=headers, timeout=20)
         else:
             r = requests.get(url, headers=headers, timeout=14)
         r.raise_for_status()
