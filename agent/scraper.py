@@ -202,8 +202,22 @@ RSS_SOURCES = [
     ("Digital Watch Observatory",       "https://dig.watch/feed"),
 
     # ══════════════════════════════════════════════════════════════════════
-    # LAW FIRMS — Competition, Antitrust, DMA, AI, Digital Regulation
+    # IP — Official Offices & Government
     # ══════════════════════════════════════════════════════════════════════
+    ("EPO (European Patent Office)", "https://www.epo.org/en/news-events/news/feed"),
+    ("UK IPO",                       "https://www.gov.uk/government/organisations/intellectual-property-office.atom"),
+    ("UK IPO Blog",                  "https://ipo.blog.gov.uk/feed"),
+    ("WIPO News",                    "https://www.wipo.int/en/web/news/rss"),
+
+    # ══════════════════════════════════════════════════════════════════════
+    # IP — Blogs, Publications & Specialist Media
+    # ══════════════════════════════════════════════════════════════════════
+    ("IPKat",                        "https://feeds.feedburner.com/theipkat"),
+    ("IPWatchdog",                   "https://ipwatchdog.com/feed"),
+    ("Patently-O",                   "https://patentlyo.com/feed"),
+    ("TorrentFreak (copyright)",     "https://torrentfreak.com/feed"),
+    ("Selvam & Selvam (India IP)",   "https://selvams.com/feed"),
+    ("Managing IP",                  "https://www.managingip.com/rss"),
     # Confirmed RSS feeds
     ("Kluwer Competition Law Blog",      "https://competitionlawblog.kluwerarbitration.com/feed/"),
     ("CPI Competition Policy Intl",      "https://www.competitionpolicyinternational.com/feed/"),
@@ -1144,7 +1158,10 @@ def is_prosus_relevant(a):
         "digital watch", "tech policy press", "platformer",
         "euractiv", "netzpolitik", "politico eu",
         "compcom south africa",
-        # ── MLex premium feeds — always pass, subscription-quality content ──
+        # ── IP offices & specialist IP media — always pass ───────────────
+        "epo (european", "uk ipo", "wipo news", "ipkat", "ipwatchdog",
+        "patently-o", "torrentfreak", "selvam", "managing ip",
+        "kluwer trademark", "jd supra ip",
         "mlex",
         # ── Law firm feeds — curated specialist content, always pass ─────────
         "clifford chance", "de brauw", "freshfields", "hogan lovells",
