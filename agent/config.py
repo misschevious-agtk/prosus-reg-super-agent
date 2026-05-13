@@ -4,6 +4,18 @@ Master configuration for the Prosus Regulatory Super-Agent.
 Updated to reflect Prosus's full portfolio and AI-first strategy.
 """
 
+# Auto-apply scraper patches at import time (diversity caps + URL fixes)
+import os as _os, sys as _sys
+_patch = _os.path.join(_os.path.dirname(_os.path.dirname(__file__)), "patch_scraper.py")
+if _os.path.exists(_patch):
+    import importlib.util as _ilu
+    _spec = _ilu.spec_from_file_location("patch_scraper", _patch)
+    _mod = _ilu.module_from_spec(_spec)
+    try:
+        _spec.loader.exec_module(_mod)
+    except SystemExit:
+        pass  # patch_scraper calls sys.exit(0) when already patched - that is fine
+
 # ─────────────────────────────────────────────
 # PROSUS PORTFOLIO — Entity Watchlist
 # ─────────────────────────────────────────────
